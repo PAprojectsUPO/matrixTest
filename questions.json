@@ -1,0 +1,655 @@
+{
+  "quizModules": [
+    {
+      "id": "algebra_lineal_1",
+      "name": "Álgebra Lineal I",
+      "description": "Preguntas sobre matrices, determinantes, y sistemas de ecuaciones lineales.",
+      "difficultyLevels": {
+        "basico": [
+          {
+            "id": "AL_BAS_001",
+            "subCategory": "Tipos de Matrices",
+            "text": "¿Cuál es la característica principal de una matriz nula?",
+            "options": [
+              "Todos sus elementos son uno.",
+              "Todos sus elementos son cero.",
+              "Tiene una sola fila.",
+              "Tiene una sola columna."
+            ],
+            "correctAnswer": "Todos sus elementos son cero."
+          },
+          {
+            "id": "AL_BAS_002",
+            "subCategory": "Tipos de Matrices",
+            "text": "Si una matriz A tiene orden m×n y m=n, ¿qué tipo de matriz es?",
+            "options": [
+              "Matriz Rectangular.",
+              "Matriz Fila.",
+              "Matriz Cuadrada.",
+              "Matriz Columna."
+            ],
+            "correctAnswer": "Matriz Cuadrada."
+          },
+          {
+            "id": "AL_BAS_003",
+            "subCategory": "Notación y Conceptos",
+            "text": "¿Cómo se denota el conjunto de todas las matrices reales de orden m×n?",
+            "options": ["Mn (R)", "Rm×n", "Mm×n (R)", "Rn×m"],
+            "correctAnswer": "Mm×n (R)"
+          },
+          {
+            "id": "AL_BAS_004",
+            "subCategory": "Tipos de Matrices",
+            "text": "¿Qué propiedad define a una matriz identidad de orden n?",
+            "options": [
+              "Todos sus elementos son cero.",
+              "Es una matriz diagonal con elementos de la diagonal principal iguales a cero.",
+              "Es una matriz diagonal con elementos de la diagonal principal iguales a uno.",
+              "Todos sus elementos son iguales."
+            ],
+            "correctAnswer": "Es una matriz diagonal con elementos de la diagonal principal iguales a uno."
+          },
+          {
+            "id": "AL_BAS_005",
+            "subCategory": "Notación y Conceptos",
+            "text": "¿Cuándo se dice que dos matrices A y B son iguales?",
+            "options": [
+              "Cuando tienen el mismo número de filas.",
+              "Cuando tienen el mismo número de columnas.",
+              "Cuando tienen el mismo orden y sus elementos correspondientes son iguales.",
+              "Cuando sus determinantes son iguales."
+            ],
+            "correctAnswer": "Cuando tienen el mismo orden y sus elementos correspondientes son iguales."
+          },
+          {
+            "id": "AL_BAS_006",
+            "subCategory": "Tipos de Matrices",
+            "text": "Una matriz con elementos dispuestos en una única fila se denomina:",
+            "options": ["Matriz Columna", "n-upla", "Matriz Fila", "Matriz Rectangular"],
+            "correctAnswer": "Matriz Fila"
+          },
+          {
+            "id": "AL_BAS_007",
+            "subCategory": "Tipos de Matrices",
+            "text": "¿Cuál de los siguientes no es un tipo de matriz cuadrada según la diagonal principal?",
+            "options": ["Matriz Escalar", "Matriz Identidad", "Matriz Rectangular", "Matriz Diagonal"],
+            "correctAnswer": "Matriz Rectangular"
+          },
+          {
+            "id": "AL_BAS_008",
+            "subCategory": "Notación y Conceptos",
+            "text": "Si a una matriz A se le elimina m−k filas y n−r columnas, ¿qué se obtiene?",
+            "options": ["Una matriz transpuesta", "Una matriz inversa", "Una submatriz", "Una matriz reducida por filas"],
+            "correctAnswer": "Una submatriz"
+          },
+          {
+            "id": "AL_BAS_009",
+            "subCategory": "Operaciones Elementales",
+            "text": "La operación elemental de tipo 2 en filas consiste en:",
+            "options": [
+              "Intercambiar dos filas.",
+              "Sumar una fila a otra multiplicada por un escalar.",
+              "Sustituir una fila por ella misma multiplicada por un escalar no nulo.",
+              "Sustituir una fila por ella misma más un escalar."
+            ],
+            "correctAnswer": "Sustituir una fila por ella misma multiplicada por un escalar no nulo."
+          },
+          {
+            "id": "AL_BAS_010",
+            "subCategory": "Notación y Conceptos",
+            "text": "¿Cómo se denota el rango de una matriz A?",
+            "options": ["det(A)", "A−1", "ran(A)", "At"],
+            "correctAnswer": "ran(A)"
+          }
+        ],
+        "intermedio": [
+          {
+            "id": "AL_INT_001",
+            "subCategory": "Propiedades de Matrices",
+            "text": "Si A es una matriz simétrica, ¿qué relación existe entre A y su transpuesta At?",
+            "options": ["A=−At", "A=At", "A⋅At=In", "A2=A"],
+            "correctAnswer": "A=At"
+          },
+          {
+            "id": "AL_INT_002",
+            "subCategory": "Operaciones con Matrices",
+            "text": "Dada una matriz A∈Mm×n (R) y B∈Mn×r (R), ¿cuál es el orden de la matriz producto A⋅B?",
+            "options": ["m×n", "n×r", "m×r", "r×m"],
+            "correctAnswer": "m×r"
+          },
+          {
+            "id": "AL_INT_003",
+            "subCategory": "Operaciones con Matrices",
+            "text": "¿Cuál de las siguientes afirmaciones es falsa con respecto al producto de matrices?",
+            "options": [
+              "El producto de matrices es asociativo.",
+              "El producto de matrices es conmutativo en general.",
+              "El producto de matrices es distributivo respecto a la suma.",
+              "La matriz identidad es el elemento neutro para el producto."
+            ],
+            "correctAnswer": "El producto de matrices es conmutativo en general."
+          },
+          {
+            "id": "AL_INT_004",
+            "subCategory": "Propiedades de Matrices",
+            "text": "Si A∈Mn (R) es una matriz ortogonal, ¿qué relación se cumple entre A y su transpuesta At?",
+            "options": ["A=At", "A=−At", "A⋅At=In", "A2=A"],
+            "correctAnswer": "A⋅At=In"
+          },
+          {
+            "id": "AL_INT_005",
+            "subCategory": "Propiedades de Matrices",
+            "text": "¿Qué condición debe cumplir una matriz triangular para ser invertible?",
+            "options": [
+              "Todos sus elementos deben ser distintos de cero.",
+              "Todos los elementos de su diagonal principal deben ser distintos de cero.",
+              "Su determinante debe ser cero.",
+              "Debe ser una matriz cuadrada."
+            ],
+            "correctAnswer": "Todos los elementos de su diagonal principal deben ser distintos de cero."
+          },
+          {
+            "id": "AL_INT_006",
+            "subCategory": "Propiedades de Matrices",
+            "text": "Si A es una matriz antisimétrica, ¿qué condición deben cumplir los elementos de su diagonal principal?",
+            "options": [
+              "Deben ser todos uno.",
+              "Deben ser todos cero.",
+              "Pueden ser cualquier valor real.",
+              "Deben ser iguales entre sí."
+            ],
+            "correctAnswer": "Deben ser todos cero."
+          },
+          {
+            "id": "AL_INT_007",
+            "subCategory": "Operaciones con Matrices",
+            "text": "¿Cuál de las siguientes propiedades es correcta para la traspuesta de la suma de dos matrices A y B?",
+            "options": ["(A+B)t=At−Bt", "(A+B)t=Bt⋅At", "(A+B)t=At+Bt", "(A+B)t=A⋅Bt"],
+            "correctAnswer": "(A+B)t=At+Bt"
+          },
+          {
+            "id": "AL_INT_008",
+            "subCategory": "Tipos de Matrices",
+            "text": "Si una matriz A∈Mn (R) es tal que aij =0 para todo i>j, ¿qué tipo de matriz es?",
+            "options": ["Matriz Triangular Inferior", "Matriz Diagonal", "Matriz Triangular Superior", "Matriz Escalar"],
+            "correctAnswer": "Matriz Triangular Superior"
+          },
+          {
+            "id": "AL_INT_009",
+            "subCategory": "Determinantes",
+            "text": "¿Cuál es la propiedad del determinante de una matriz A si se intercambian dos de sus filas?",
+            "options": [
+              "El determinante no cambia.",
+              "El determinante se multiplica por k.",
+              "El determinante cambia de signo.",
+              "El determinante se hace cero."
+            ],
+            "correctAnswer": "El determinante cambia de signo."
+          },
+          {
+            "id": "AL_INT_010",
+            "subCategory": "Determinantes",
+            "text": "Si A∈Mn (R) es una matriz invertible, ¿a qué es igual el determinante de su inversa, ∣A−1∣?",
+            "options": ["∣A∣", "−∣A∣", "1/∣A∣", "∣A∣n"],
+            "correctAnswer": "1/∣A∣"
+          }
+        ],
+        "avanzado": [
+          {
+            "id": "AL_AVA_001",
+            "subCategory": "Determinantes",
+            "text": "Si A∈Mn (R) es una matriz idempotente, ¿qué valor(es) puede tomar su determinante ∣A∣?",
+            "options": ["Solo 1", "Solo 0", "0 o 1", "Cualquier número real"],
+            "correctAnswer": "0 o 1"
+          },
+          {
+            "id": "AL_AVA_002",
+            "subCategory": "Propiedades de Matrices",
+            "text": "Una matriz A∈Mn (R) es normal si conmuta con su transpuesta. ¿Cuál de los siguientes tipos de matrices no es necesariamente normal?",
+            "options": ["Matriz Simétrica.", "Matriz Antisimétrica.", "Matriz Ortogonal.", "Matriz Triangular Superior."],
+            "correctAnswer": "Matriz Triangular Superior."
+          },
+          {
+            "id": "AL_AVA_003",
+            "subCategory": "Propiedades de Matrices",
+            "text": "Si A∈Mn (R) es una matriz involutiva, ¿qué relación se cumple entre A y su inversa A−1?",
+            "options": ["A−1=In", "A−1=A", "A−1=−A", "A−1=At"],
+            "correctAnswer": "A−1=A"
+          },
+          {
+            "id": "AL_AVA_004",
+            "subCategory": "Sistemas de Ecuaciones Lineales",
+            "text": "Según el Teorema de Rouché-Fröbenius, un sistema de ecuaciones lineales A⋅x =b es compatible determinado si y solo si:",
+            "options": ["rg(A)≠rg(A∗)", "rg(A)=rg(A∗)<n", "rg(A)=rg(A∗)=n", "rg(A)=n"],
+            "correctAnswer": "rg(A)=rg(A∗)=n"
+          },
+          {
+            "id": "AL_AVA_005",
+            "subCategory": "Propiedades de Matrices",
+            "text": "Dada una matriz A∈Mm×n (R), si m≥n y rg(A)=n, ¿cómo se calcula su pseudoinversa A+?",
+            "options": ["A+=(At⋅A)−1⋅At", "A+=At⋅(A⋅At)−1", "A+=A−1", "A+=At"],
+            "correctAnswer": "A+=(At⋅A)−1⋅At"
+          },
+          {
+            "id": "AL_AVA_006",
+            "subCategory": "Propiedades de Matrices",
+            "text": "Una matriz A∈Mn (R) se denomina involutiva si cumple la condición:",
+            "options": ["A2=A", "A2=In", "A⋅At=In", "A=−At"],
+            "correctAnswer": "A2=In"
+          },
+          {
+            "id": "AL_AVA_007",
+            "subCategory": "Sistemas de Ecuaciones Lineales",
+            "text": "Si un sistema de ecuaciones lineales A⋅x =b es compatible indeterminado, ¿qué se puede afirmar sobre los rangos de A y A∗ y el número de incógnitas n?",
+            "options": ["rg(A)=rg(A∗)=n", "rg(A)=rg(A∗)<n", "rg(A)≠rg(A∗)", "rg(A)=n"],
+            "correctAnswer": "rg(A)=rg(A∗)<n"
+          },
+          {
+            "id": "AL_AVA_008",
+            "subCategory": "Propiedades de Matrices",
+            "text": "¿Cuál es la propiedad fundamental de la pseudoinversa de una matriz A, denotada por A+?",
+            "options": [
+              "Siempre es única.",
+              "Solo existe para matrices cuadradas.",
+              "Es igual a la inversa si el determinante es cero.",
+              "Se calcula siempre como (At⋅A)−1⋅At."
+            ],
+            "correctAnswer": "Siempre es única."
+          },
+          {
+            "id": "AL_AVA_009",
+            "subCategory": "Propiedades de Matrices",
+            "text": "Si A∈Mn (R) es una matriz invertible, ¿cuál de las siguientes afirmaciones es equivalente a que A sea invertible?",
+            "options": ["A es la matriz nula.", "∣A∣=0", "A es invertible a derecha.", "At=A"],
+            "correctAnswer": "A es invertible a derecha."
+          },
+          {
+            "id": "AL_AVA_010",
+            "subCategory": "Operaciones Elementales",
+            "text": "Para calcular la forma reducida por filas de una matriz A, ¿cuál es el paso final después de obtener una matriz escalonada por filas?",
+            "options": [
+              "Intercambiar filas para mover ceros hacia abajo.",
+              "Multiplicar filas por escalares para obtener 1s como pivotes.",
+              "Sumar filas para obtener ceros encima y debajo de los pivotes.",
+              "Calcular el determinante de la matriz."
+            ],
+            "correctAnswer": "Multiplicar filas por escalares para obtener 1s como pivotes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "algebra_lineal_2",
+      "name": "Álgebra Lineal II",
+      "description": "Preguntas sobre espacios vectoriales, aplicaciones lineales y conceptos avanzados.",
+      "difficultyLevels": {
+        "basico": [
+          {
+            "id": "AL_EASY_001",
+            "subCategory": "Espacios Vectoriales",
+            "text": "¿Cuál de las siguientes ternas representa la estructura fundamental de un espacio vectorial real?",
+            "options": [
+              "$(V, +, \times)$",
+              "$(V, +, \\cdot)$",
+              "$(V, -, \\cdot)$",
+              "$(V, \\cup, \\cap)$"
+            ],
+            "correctAnswer": "$(V, +, \\cdot)$"
+          },
+          {
+            "id": "AL_EASY_002",
+            "subCategory": "Conceptos Fundamentales",
+            "text": "En el contexto de los espacios vectoriales, ¿cómo se denomina a cualquier elemento del espacio vectorial $V$?",
+            "options": [
+              "Escalar",
+              "Matriz",
+              "Vector",
+              "Punto"
+            ],
+            "correctAnswer": "Vector"
+          },
+          {
+            "id": "AL_EASY_003",
+            "subCategory": "Propiedades del Espacio Vectorial",
+            "text": "¿Qué propiedad es verdadera para el elemento neutro $\\underline{0}$ en un espacio vectorial $V$?",
+            "options": [
+              "Es único.",
+              "Siempre es el vector $(1,1,...,1)$.",
+              "No existe.",
+              "Puede haber múltiples elementos neutros."
+            ],
+            "correctAnswer": "Es único."
+          },
+          {
+            "id": "AL_EASY_004",
+            "subCategory": "Subespacios Vectoriales",
+            "text": "Para que un subconjunto $W \\subseteq V$ sea un subespacio vectorial de $V$, ¿cuál de las siguientes condiciones debe verificarse?",
+            "options": [
+              "$\\underline{x} \\in W \\Rightarrow \\underline{x}^{-1} \\in W$",
+              "$\\underline{x} + \\underline{y} \\in W$ para todo $\\underline{x}, \\underline{y} \\in W$",
+              "$\\alpha \\cdot \\underline{x} \\notin W$ para todo $\\alpha \\in \\mathbb{R}$, $\\underline{x} \\in W$",
+              "$\\underline{0} \\notin W$"
+            ],
+            "correctAnswer": "$\\underline{x} + \\underline{y} \\in W$ para todo $\\underline{x}, \\underline{y} \\in W$"
+          },
+          {
+            "id": "AL_EASY_005",
+            "subCategory": "Espacio Afín",
+            "text": "En un espacio afín $(C,V,+)$, ¿cómo se denominan a los elementos del conjunto $C$?",
+            "options": [
+              "Vectores",
+              "Escalares",
+              "Funciones",
+              "Puntos"
+            ],
+            "correctAnswer": "Puntos"
+          },
+          {
+            "id": "AL_EASY_006",
+            "subCategory": "Distancia Euclídea",
+            "text": "¿Cómo se define la distancia euclídea $d(P,Q)$ entre dos puntos $P, Q \\in \\mathbb{R}^n$?",
+            "options": [
+              "$d(P,Q) = P+Q$",
+              "$d(P,Q) = |\\vec{PQ}|$",
+              "$d(P,Q) = PQ$",
+              "$d(P,Q) = 0$"
+            ],
+            "correctAnswer": "$d(P,Q) = |\\vec{PQ}|$"
+          },
+          {
+            "id": "AL_EASY_007",
+            "subCategory": "Aplicaciones Lineales",
+            "text": "¿Cuáles son las dos propiedades que definen una aplicación lineal $f:V \\rightarrow W$?",
+            "options": [
+              "$f(\\underline{x}+\\underline{y}) = f(\\underline{x})\\cdot f(\\underline{y})$ y $f(\\alpha\\cdot\\underline{x}) = \\alpha+f(\\underline{x})$",
+              "$f(\\underline{x}+\\underline{y}) = f(\\underline{x}) + f(\\underline{y})$ y $f(\\alpha\\cdot\\underline{x}) = \\alpha\\cdot f(\\underline{x})$",
+              "$f(\\underline{x}+\\underline{y}) = f(\\underline{x}) - f(\\underline{y})$ y $f(\\alpha\\cdot\\underline{x}) = f(\\underline{x})$",
+              "$f(\\underline{x}+\\underline{y}) = \\underline{0}$ y $f(\\alpha\\cdot\\underline{x}) = \\underline{0}$"
+            ],
+            "correctAnswer": "$f(\\underline{x}+\\underline{y}) = f(\\underline{x}) + f(\\underline{y})$ y $f(\\alpha\\cdot\\underline{x}) = \\alpha\\cdot f(\\underline{x})$"
+          },
+          {
+            "id": "AL_EASY_008",
+            "subCategory": "Aplicaciones Lineales",
+            "text": "Si $f:V \\rightarrow W$ es una aplicación lineal, ¿cuál es la imagen del vector nulo de $V$, $f(\\underline{0}_V)$?",
+            "options": [
+              "Cualquier vector en $W$",
+              "El vector nulo de $W$, $\\underline{0}_W$",
+              "Un vector aleatorio en $W$",
+              "El mismo vector nulo de $V$"
+            ],
+            "correctAnswer": "El vector nulo de $W$, $\\underline{0}_W$"
+          },
+          {
+            "id": "AL_EASY_009",
+            "subCategory": "Variedades Lineales Afines",
+            "text": "¿Qué dimensión tiene una variedad lineal afín denominada 'recta' en $C$?",
+            "options": [
+              "Dimensión 0",
+              "Dimensión 1",
+              "Dimensión 2",
+              "Dimensión $n-1$"
+            ],
+            "correctAnswer": "Dimensión 1"
+          },
+          {
+            "id": "AL_EASY_010",
+            "subCategory": "Dependencia Lineal",
+            "text": "Si un conjunto de vectores contiene el vector nulo, ¿qué se puede afirmar sobre su dependencia lineal?",
+            "options": [
+              "Es linealmente independiente.",
+              "Es una base.",
+              "Es linealmente dependiente.",
+              "No se puede determinar."
+            ],
+            "correctAnswer": "Es linealmente dependiente."
+          }
+        ],
+        "intermedio": [
+          {
+            "id": "AL_MEDIUM_001",
+            "subCategory": "Independencia Lineal",
+            "text": "Un conjunto de vectores $\\{\\underline{v}_{1},...,\\underline{v}_{m}\\} \\subset \\mathbb{R}^n$ es linealmente independiente si para cualquier conjunto de escalares $\\alpha_{1},...,\\alpha_{m}\\in\\mathbb{R}$ tal que $\\alpha_{1}\\underline{v}_{1}+\\cdot\\cdot\\cdot+\\alpha_{m}\\underline{v}_{m}=\\underline{0}$, se verifica que:",
+            "options": [
+              "Al menos un $\\alpha_i$ es no nulo.",
+              "Todos los $\\alpha_i$ son cero.",
+              "La suma de los $\\alpha_i$ es uno.",
+              "Los vectores son proporcionales."
+            ],
+            "correctAnswer": "Todos los $\\alpha_i$ son cero."
+          },
+          {
+            "id": "AL_MEDIUM_002",
+            "subCategory": "Rango de una Matriz",
+            "text": "Si $A=(\\underline{v}_{1}|\\cdot\\cdot\\cdot|\\underline{v}_{m})\\in\\mathcal{M}_{n\\times m}(\\mathbb{R})$, el conjunto $\\{\\underline{v}_{1},...,\\underline{v}_{m}\\}$ es linealmente independiente si y solo si:",
+            "options": [
+              "$rg(A) < m$",
+              "$rg(A) > m$",
+              "$rg(A) = m$",
+              "$rg(A) = 0$"
+            ],
+            "correctAnswer": "$rg(A) = m$"
+          },
+          {
+            "id": "AL_MEDIUM_003",
+            "subCategory": "Dimensión de Espacios Vectoriales",
+            "text": "¿Cuál es la dimensión del espacio vectorial $\\mathbb{R}^n$?",
+            "options": [
+              "$n^2$",
+              "$n-1$",
+              "$n$",
+              "$2n$"
+            ],
+            "correctAnswer": "$n$"
+          },
+          {
+            "id": "AL_MEDIUM_004",
+            "subCategory": "Subespacios Vectoriales",
+            "text": "Dados dos subespacios vectoriales $L_1$ y $L_2$ de un espacio vectorial $V$, ¿cuál es la fórmula para la dimensión de su suma, $dim(L_1+L_2)$?",
+            "options": [
+              "$dim(L_1)+dim(L_2)$",
+              "$dim(L_1)+dim(L_2)+dim(L_1\\cap L_2)$",
+              "$dim(L_1)+dim(L_2)-dim(L_1\\cap L_2)$",
+              "$dim(L_1)-dim(L_2)$"
+            ],
+            "correctAnswer": "$dim(L_1)+dim(L_2)-dim(L_1\\cap L_2)$"
+          },
+          {
+            "id": "AL_MEDIUM_005",
+            "subCategory": "Subespacios Vectoriales",
+            "text": "La suma $L_1+L_2$ de dos subespacios vectoriales $L_1$ y $L_2$ se denomina suma directa $L_1\\oplus L_2$ si y solo si:",
+            "options": [
+              "$L_1 \\subset L_2$",
+              "$L_1 \\cap L_2 = V$",
+              "$L_1 \\cap L_2 = \\{\\underline{0}\\}$",
+              "$L_1 = L_2$"
+            ],
+            "correctAnswer": "$L_1 \\cap L_2 = \\{\\underline{0}\\}$"
+          },
+          {
+            "id": "AL_MEDIUM_006",
+            "subCategory": "Cambios de Base",
+            "text": "¿Cómo se denomina la matriz $A=(a_{ij})$ que transforma las coordenadas de un vector de la base $\\mathcal{B}_1$ a la base $\\mathcal{B}_2$?",
+            "options": [
+              "Matriz identidad",
+              "Matriz de cambio de base de $\\mathcal{B}_1$ a $\\mathcal{B}_2$",
+              "Matriz nula",
+              "Matriz transpuesta"
+            ],
+            "correctAnswer": "Matriz de cambio de base de $\\mathcal{B}_1$ a $\\mathcal{B}_2$"
+          },
+          {
+            "id": "AL_MEDIUM_007",
+            "subCategory": "Sistemas de Ecuaciones Lineales",
+            "text": "El conjunto de soluciones de un sistema lineal homogéneo de 'm' ecuaciones linealmente independientes con 'n' incógnitas es un subespacio vectorial de $\\mathbb{R}^n$ con dimensión:",
+            "options": [
+              "$m$",
+              "$n$",
+              "$n-m$",
+              "$m-n$"
+            ],
+            "correctAnswer": "$n-m$"
+          },
+          {
+            "id": "AL_MEDIUM_008",
+            "subCategory": "Aplicaciones Lineales",
+            "text": "Para una aplicación lineal $f:V \\rightarrow W$ expresada por la matriz $A \\in \\mathcal{M}_{m\\times n}(\\mathbb{R})$, $f$ es inyectiva si y solo si:",
+            "options": [
+              "$rg(A) = m$",
+              "$rg(A) = n$",
+              "$rg(A) = 0$",
+              "$rg(A) < n$"
+            ],
+            "correctAnswer": "$rg(A) = n$"
+          },
+          {
+            "id": "AL_MEDIUM_009",
+            "subCategory": "Aplicaciones Lineales y Subespacios",
+            "text": "Si $H$ es un subespacio vectorial de $V$ y $f:V \\rightarrow W$ es una aplicación lineal, ¿qué se puede afirmar sobre la imagen $f(H)$?",
+            "options": [
+              "Es un conjunto vacío.",
+              "Es un punto.",
+              "Es un subespacio vectorial de $W$.",
+              "Es linealmente independiente."
+            ],
+            "correctAnswer": "Es un subespacio vectorial de $W$."
+          },
+          {
+            "id": "AL_MEDIUM_010",
+            "subCategory": "Aplicaciones Lineales",
+            "text": "¿Qué efecto tienen las aplicaciones lineales sobre los sistemas generadores?",
+            "options": [
+              "Los transforman en conjuntos linealmente independientes.",
+              "Los transforman en bases.",
+              "Los transforman en sistemas generadores.",
+              "No los modifican."
+            ],
+            "correctAnswer": "Los transforman en sistemas generadores."
+          }
+        ],
+        "avanzado": [
+          {
+            "id": "AL_HARD_001",
+            "subCategory": "Bases de Espacios Vectoriales",
+            "text": "Según el Lema de prolongación de la base, si $\\{\\underline{v}_{1},...,\\underline{v}_{r}\\}$ es un conjunto de vectores linealmente independientes en un espacio vectorial $V$ de dimensión $n$, donde $r < n$, ¿cuántos vectores adicionales son necesarios para formar una base de $V$?",
+            "options": [
+              "$r$",
+              "$n$",
+              "$n-r$",
+              "$n+r$"
+            ],
+            "correctAnswer": "$n-r$"
+          },
+          {
+            "id": "AL_HARD_002",
+            "subCategory": "Coordenadas de un Vector",
+            "text": "Si un vector $\\underline{v}$ se expresa como $\\underline{v}=\\alpha_{1}\\underline{v}_{1}+\\cdot\\cdot\\cdot+\\alpha_{n}\\underline{v}_{n}=(\\alpha_{1},...,\\alpha_{n})_{\\mathcal{B}}^{t}$ respecto de la base $\\mathcal{B}$, ¿cómo se denomina el coeficiente $\\alpha_i$?",
+            "options": [
+              "Elemento escalar",
+              "Vector de base",
+              "Coordenada i-ésima del vector respecto de la base $\\mathcal{B}$",
+              "Parámetro"
+            ],
+            "correctAnswer": "Coordenada i-ésima del vector respecto de la base $\\mathcal{B}$"
+          },
+          {
+            "id": "AL_HARD_003",
+            "subCategory": "Cambios de Base",
+            "text": "Si $M(\\mathcal{B}_1;\\mathcal{B}_2)$ es la matriz de cambio de base de $\\mathcal{B}_1$ a $\\mathcal{B}_2$, ¿cuál es la relación con la matriz de cambio de base de $\\mathcal{B}_2$ a $\\mathcal{B}_1$, $M(\\mathcal{B}_2;\\mathcal{B}_1)$?",
+            "options": [
+              "$M(\\mathcal{B}_2;\\mathcal{B}_1) = M(\\mathcal{B}_1;\\mathcal{B}_2)$",
+              "$M(\\mathcal{B}_2;\\mathcal{B}_1) = -M(\\mathcal{B}_1;\\mathcal{B}_2)$",
+              "$M(\\mathcal{B}_2;\\mathcal{B}_1) = M(\\mathcal{B}_1;\\mathcal{B}_2)^{-1}$",
+              "$M(\\mathcal{B}_2;\\mathcal{B}_1) = M(\\mathcal{B}_1;\\mathcal{B}_2)^T$"
+            ],
+            "correctAnswer": "$M(\\mathcal{B}_2;\\mathcal{B}_1) = M(\\mathcal{B}_1;\\mathcal{B}_2)^{-1}$"
+          },
+          {
+            "id": "AL_HARD_004",
+            "subCategory": "Ecuaciones de Subespacios",
+            "text": "Si un subespacio vectorial tiene 'r' parámetros en sus ecuaciones paramétricas en $\\mathbb{R}^n$, ¿cuántas ecuaciones implícitas linealmente independientes tiene?",
+            "options": [
+              "$r$",
+              "$n$",
+              "$n-r$",
+              "$n+r$"
+            ],
+            "correctAnswer": "$n-r$"
+          },
+          {
+            "id": "AL_HARD_005",
+            "subCategory": "Variedades Lineales Afines",
+            "text": "Dada una variedad lineal afín $S=P+L$ generada por un punto $P=(p_1,...,p_n)^t$ y vectores $\\underline{v}_1,...,\\underline{v}_r$, ¿cómo puede expresarse vectorialmente un punto $Q \\in S$?",
+            "options": [
+              "$Q = P \\cdot (\\alpha_1\\underline{v}_1 + \\cdot\\cdot\\cdot + \\alpha_r\\underline{v}_r)$",
+              "$Q = P + (\\alpha_1\\underline{v}_1 + \\cdot\\cdot\\cdot + \\alpha_r\\underline{v}_r)$",
+              "$Q = P - (\\alpha_1\\underline{v}_1 + \\cdot\\cdot\\cdot + \\alpha_r\\underline{v}_r)$",
+              "$Q = (\\alpha_1\\underline{v}_1 + \\cdot\\cdot\\cdot + \\alpha_r\\underline{v}_r)$"
+            ],
+            "correctAnswer": "$Q = P + (\\alpha_1\\underline{v}_1 + \\cdot\\cdot\\cdot + \\alpha_r\\underline{v}_r)$"
+          },
+          {
+            "id": "AL_HARD_006",
+            "subCategory": "Intersección de Variedades Afines",
+            "text": "Dadas dos variedades lineales $S_1$ y $S_2$ en el espacio afín $C$, ¿cómo se obtienen las ecuaciones implícitas de su intersección $S_1 \\cap S_2$?",
+            "options": [
+              "Resolviendo la suma de sus ecuaciones paramétricas.",
+              "Considerando conjuntamente las ecuaciones implícitas de ambas variedades.",
+              "Calculando el producto cartesiano de sus puntos.",
+              "No se pueden obtener ecuaciones implícitas de la intersección."
+            ],
+            "correctAnswer": "Considerando conjuntamente las ecuaciones implícitas de ambas variedades."
+          },
+          {
+            "id": "AL_HARD_007",
+            "subCategory": "Teorema de la Dimensión",
+            "text": "Dadas dos variedades lineales afines $S_1$ y $S_2$ en el espacio afín $C$ que son disjuntas ($S_1 \\cap S_2 = \\emptyset$), ¿cuál es la fórmula para la dimensión de su unión $dim(S_1 \\vee S_2)$?",
+            "options": [
+              "$dim(S_1) + dim(S_2) - dim(S_1 \\cap S_2)$",
+              "$dim(S_1) + dim(S_2) - dim(L_1 \\cap L_2) + 1$",
+              "$dim(S_1) + dim(S_2)$",
+              "$dim(S_1) + dim(S_2) + 1$"
+            ],
+            "correctAnswer": "$dim(S_1) + dim(S_2) - dim(L_1 \\cap L_2) + 1$"
+          },
+          {
+            "id": "AL_HARD_008",
+            "subCategory": "Aplicaciones Lineales",
+            "text": "Si $f:V \\rightarrow W$ es un monomorfismo y $\\{\\underline{v}_{1},...,\\underline{v}_{r}\\} \\subset V$ es un conjunto linealmente independiente, ¿qué se puede afirmar sobre el conjunto imagen $\\{f(\\underline{v}_{1}),...,f(\\underline{v}_{r})\\} \\subset W$?",
+            "options": [
+              "Es linealmente dependiente.",
+              "Es un sistema generador pero no una base.",
+              "Es linealmente independiente.",
+              "Contiene al vector nulo."
+            ],
+            "correctAnswer": "Es linealmente independiente."
+          },
+          {
+            "id": "AL_HARD_009",
+            "subCategory": "Dimensión de Imagen de Subespacio",
+            "text": "Dada una aplicación lineal $f:V \\rightarrow W$ y un subespacio vectorial $H \\subset V$, ¿qué relación existe entre $dim(f(H))$ y $dim(H)$?",
+            "options": [
+              "$dim(f(H)) = dim(H)$",
+              "$dim(f(H)) \\ge dim(H)$",
+              "$dim(f(H)) \\le dim(H)$",
+              "$dim(f(H)) = 0$"
+            ],
+            "correctAnswer": "$dim(f(H)) \\le dim(H)$"
+          },
+          {
+            "id": "AL_HARD_010",
+            "subCategory": "Cambios de Base en Aplicaciones Lineales",
+            "text": "Si una aplicación lineal $f:V \\rightarrow W$ se expresa por la matriz $A$ con respecto a las bases $\\mathcal{B}_n$ de $V$ y $\\mathcal{B}_m$ de $W$, y se quiere expresar con respecto a nuevas bases $\\overline{\\mathcal{B}}_n$ y $\\overline{\\mathcal{B}}_m$, ¿cuál es la nueva matriz de la aplicación lineal?",
+            "options": [
+              "$M(\\overline{\\mathcal{B}}_m;\\mathcal{B}_m) \\cdot A \\cdot M(\\overline{\\mathcal{B}}_n;\\mathcal{B}_n)$",
+              "$M(\\overline{\\mathcal{B}}_m;\\mathcal{B}_m)^{-1} \\cdot A \\cdot M(\\overline{\\mathcal{B}}_n;\\mathcal{B}_n)$",
+              "$A^{-1}$",
+              "$M(\\overline{\\mathcal{B}}_n;\\mathcal{B}_n)^{-1} \\cdot A \\cdot M(\\overline{\\mathcal{B}}_m;\\mathcal{B}_m)$"
+            ],
+            "correctAnswer": "$M(\\overline{\\mathcal{B}}_m;\\mathcal{B}_m)^{-1} \\cdot A \\cdot M(\\overline{\\mathcal{B}}_n;\\mathcal{B}_n)$"
+          }
+        ]
+      }
+    }
+  ]
+}

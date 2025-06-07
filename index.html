@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Algebra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- MathJax Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div id="app" class="container">
+        <h1 class="header">Test de Algebra</h1>
+
+        <div id="module-selection-screen" class="flex flex-col items-center gap-4">
+            <p class="info-text">Selecciona un módulo para comenzar:</p>
+            <div id="module-options-container" class="flex flex-col gap-3 w-full md:w-3/4 lg:w-1/2">
+                <!-- Module buttons will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <div id="difficulty-screen" class="hidden flex flex-col items-center gap-4">
+            <p class="info-text">Selecciona un nivel de dificultad:</p>
+            <button id="start-basic" class="start-button">Nivel Básico</button>
+            <button id="start-intermediate" class="start-button">Nivel Intermedio</button>
+            <button id="start-advanced" class="start-button">Nivel Avanzado</button>
+        </div>
+
+        <div id="quiz-screen" class="hidden">
+            <div id="question-container" class="question-card">
+                <p id="question-text" class="text-xl font-semibold mb-4"></p>
+                <div id="options-container" class="flex flex-col gap-3">
+                    <!-- Options will be dynamically loaded here -->
+                </div>
+                <div id="feedback-container" class="mt-4">
+                    <!-- Immediate feedback will be loaded here -->
+                </div>
+            </div>
+            <div id="navigation-buttons" class="flex justify-end mt-5">
+                <button id="next-button" class="next-button hidden">Siguiente Pregunta</button>
+                <button id="show-results-button" class="show-results-button hidden">Ver Resultados</button>
+            </div>
+        </div>
+
+        <div id="results-screen" class="hidden results-section">
+            <h2 class="text-3xl font-bold mb-4">Resultados del Test</h2>
+            <p class="score-text">Tu puntuación: <span id="score">0</span>/<span id="total-questions">0</span></p>
+            <div id="feedback-summary" class="correct-answers-list">
+                <!-- Detailed feedback will be loaded here -->
+            </div>
+            <button id="restart-button" class="restart-button mt-6">Reiniciar Test</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
