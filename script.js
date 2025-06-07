@@ -9,6 +9,9 @@ let allModulesData = []; // To store all modules from questions.json
 let selectedModuleId = null; // To store the ID of the selected module
 let allQuestionsData = {}; // To store questions of the selected module by difficulty
 
+// Quiz configuration
+const MAX_QUESTIONS = 10; // Maximum number of questions per quiz
+
 // Declare DOM element variables globally, to be assigned once DOM is loaded
 let moduleSelectionScreen;
 let moduleOptionsContainer;
@@ -97,6 +100,32 @@ function selectModule(module) {
     showDifficultyScreen();
 }
 
+// Function to shuffle an array randomly
+function shuffleArray(array) {
+    const shuffled = [...array]; // Create a copy to avoid modifying the original
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
+// Function to select random questions from the available pool
+function selectRandomQuestions(questionPool, maxQuestions) {
+    if (!questionPool || questionPool.length === 0) {
+        return [];
+    }
+    
+    // If we have fewer questions than the maximum, return all shuffled
+    if (questionPool.length <= maxQuestions) {
+        return shuffleArray(questionPool);
+    }
+    
+    // Shuffle the pool and take the first maxQuestions
+    const shuffled = shuffleArray(questionPool);
+    return shuffled.slice(0, maxQuestions);
+}
+
 function startQuiz(difficulty) {
     if (!selectedModuleId) {
         console.error("No module selected.");
@@ -109,14 +138,24 @@ function startQuiz(difficulty) {
         alert(`No se encontraron preguntas para el nivel '${difficulty}' en el módulo seleccionado.`);
         return;
     }
-    questions = allQuestionsData[difficulty];
-    if (!questions || questions.length === 0) {
+    
+    const questionPool = allQuestionsData[difficulty];
+    if (!questionPool || questionPool.length === 0) {
         alert(`No hay preguntas disponibles para el nivel ${difficulty} en el módulo seleccionado.`);
         return;
     }
+    
+    // Select random questions from the pool (maximum 10 questions)
+    questions = selectRandomQuestions(questionPool, MAX_QUESTIONS);
+    
+    if (questions.length === 0) {
+        alert(`Error al seleccionar preguntas para el nivel ${difficulty}.`);
+        return;
+    }
+    
     currentQuestionIndex = 0;
     score = 0;
-    feedbackSummary.innerHTML = ''; // Clear previous feedback summary
+    if (feedbackSummary) feedbackSummary.innerHTML = ''; // Clear previous feedback summary
     if (quizScreen) quizScreen.classList.remove('hidden');
     if (difficultyScreen) difficultyScreen.classList.add('hidden');
     if (resultsScreen) resultsScreen.classList.add('hidden');
