@@ -403,6 +403,54 @@
               "No se puede determinar."
             ],
             "correctAnswer": "Es linealmente dependiente."
+          },
+          {
+            "id": "AL_EASY_011",
+            "subCategory": "Espacios Vectoriales",
+            "text": "¿Cuál de las siguientes operaciones no es una propiedad fundamental de un espacio vectorial?",
+            "options": [
+            "Asociatividad de la suma de vectores.",
+            "Existencia de un elemento neutro para la suma.",
+            "Producto vectorial de escalares.",
+            "Distributividad del producto por un escalar respecto a la suma de vectores."
+            ],
+            "correctAnswer": "Producto vectorial de escalares."
+          },
+          {
+            "id": "AL_EASY_012",
+            "subCategory": "Espacio $\\mathbb{R}^n$",
+            "text": "¿Cuál es la base canónica del espacio vectorial $\\mathbb{R}^n$?",
+            "options": [
+            "Un conjunto de 'n' vectores cualesquiera.",
+            "Un conjunto de 'n' vectores que contienen solo ceros.",
+            "El conjunto $\\{(1,0,...,0)^t, (0,1,...,0)^t, ..., (0,0,...,1)^t\\}$.",
+            "El conjunto de todos los vectores de $\\mathbb{R}^n$."
+            ],
+            "correctAnswer": "El conjunto $\\{(1,0,...,0)^t, (0,1,...,0)^t, ..., (0,0,...,1)^t\\}$."
+          },
+          {
+            "id": "AL_EASY_013",
+            "subCategory": "Variedades Lineales Afines",
+            "text": "¿Qué tipo de variedad lineal afín es un conjunto de un solo punto?",
+            "options": [
+            "Recta",
+            "Plano",
+            "Variedad de dimensión 0",
+            "Hiperplano"
+            ],
+            "correctAnswer": "Variedad de dimensión 0"
+          },
+          {
+            "id": "AL_EASY_014",
+            "subCategory": "Sistemas de Referencias",
+            "text": "En un sistema de referencia $\\mathcal{R}=\\{O,\\mathcal{B}\\}$, ¿qué representa el punto $O$?",
+            "options": [
+            "Un vector de la base.",
+            "El origen de coordenadas.",
+            "Cualquier punto del espacio afín.",
+            "Un escalar."
+            ],
+            "correctAnswer": "El origen de coordenadas."
           }
         ],
         "intermedio": [
@@ -525,6 +573,42 @@
               "No los modifican."
             ],
             "correctAnswer": "Los transforman en sistemas generadores."
+          },
+          {
+            "id": "AL_MEDIUM_011",
+            "subCategory": "Dependencia Lineal",
+            "text": "Un conjunto de vectores de $\\mathbb{R}^n$ es linealmente dependiente si y solo si:",
+            "options": [
+            "Todos los vectores son iguales.",
+            "Existe algún vector del conjunto que es combinación lineal de los restantes.",
+            "Ningún vector es combinación lineal de los restantes.",
+            "El conjunto está vacío."
+            ],
+            "correctAnswer": "Existe algún vector del conjunto que es combinación lineal de los restantes."
+          },
+          {
+            "id": "AL_MEDIUM_012",
+            "subCategory": "Sistema Generador",
+            "text": "Si $\\{\\underline{v}_{1},...,\\underline{v}_{n}\\}$ es un sistema generador de un espacio vectorial $V$, ¿qué significa esto?",
+            "options": [
+            "Ningún vector de $V$ se puede expresar como combinación lineal de ellos.",
+            "Solo algunos vectores de $V$ se pueden expresar como combinación lineal de ellos.",
+            "Todo vector de $V$ es combinación lineal de ellos.",
+            "Los vectores son linealmente independientes."
+            ],
+            "correctAnswer": "Todo vector de $V$ es combinación lineal de ellos."
+          },
+          {
+            "id": "AL_MEDIUM_013",
+            "subCategory": "Aplicaciones Lineales",
+            "text": "Una aplicación lineal $f:V \\rightarrow W$ es sobreyectiva (o epimorfismo) si y solo si:",
+            "options": [
+            "Para cada $\\underline{w} \\in W$, existe un único $\\underline{v} \\in V$ tal que $f(\\underline{v})=\\underline{w}$.",
+            "Para cada $\\underline{w} \\in W$, existe al menos un $\\underline{v} \\in V$ tal que $f(\\underline{v})=\\underline{w}$.",
+            "Para cada $\\underline{v} \\in V$, existe un único $\\underline{w} \\in W$ tal que $f(\\underline{v})=\\underline{w}$.",
+            "Solo el vector nulo se mapea al vector nulo."
+            ],
+            "correctAnswer": "Para cada $\\underline{w} \\in W$, existe al menos un $\\underline{v} \\in V$ tal que $f(\\underline{v})=\\underline{w}$."
           }
         ],
         "avanzado": [
@@ -647,6 +731,42 @@
               "$M(\\overline{\\mathcal{B}}_n;\\mathcal{B}_n)^{-1} \\cdot A \\cdot M(\\overline{\\mathcal{B}}_m;\\mathcal{B}_m)$"
             ],
             "correctAnswer": "$M(\\overline{\\mathcal{B}}_m;\\mathcal{B}_m)^{-1} \\cdot A \\cdot M(\\overline{\\mathcal{B}}_n;\\mathcal{B}_n)$"
+          },
+          {
+            "id": "AL_HARD_011",
+            "subCategory": "Rango de una Matriz",
+            "text": "Según el método de orlado, el rango de una matriz $A \\in \\mathcal{M}_{m\\times n}(\\mathbb{R})$ coincide con:",
+            "options": [
+            "El número total de filas.",
+            "El número total de columnas.",
+            "El mayor orden entre los menores de $A$ con determinante no nulo.",
+            "El número de elementos no nulos en la matriz."
+            ],
+            "correctAnswer": "El mayor orden entre los menores de $A$ con determinante no nulo."
+          },
+          {
+            "id": "AL_HARD_012",
+            "subCategory": "Propiedades del Espacio Afín",
+            "text": "En un espacio afín $C$, ¿cuál de las siguientes afirmaciones sobre los vectores $\\vec{PQ}$ es correcta?",
+            "options": [
+            "$\\vec{PQ} = \\vec{QP}$",
+            "$\\vec{PQ} = \\underline{0} \\iff P \\ne Q$",
+            "$\\vec{PQ} = \\vec{PR} + \\vec{RQ}$ (Regla del paralelogramo).",
+            "$\\vec{PQ}$ es siempre el vector nulo."
+            ],
+            "correctAnswer": "$\\vec{PQ} = \\vec{PR} + \\vec{RQ}$ (Regla del paralelogramo)."
+          },
+          {
+            "id": "AL_HARD_013",
+            "subCategory": "Aplicaciones Lineales",
+            "text": "Si una aplicación lineal $f:V \\rightarrow W$ es biyectiva, ¿qué relación hay entre el rango de su matriz $A$ y las dimensiones de $V$ (n) y $W$ (m)?",
+            "options": [
+            "$rg(A) = m$",
+            "$rg(A) = n$",
+            "$rg(A) = m = n$",
+            "$rg(A) < m$ o $rg(A) < n$"
+            ],
+            "correctAnswer": "$rg(A) = m = n$"
           }
         ]
       }
