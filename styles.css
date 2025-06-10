@@ -84,12 +84,33 @@ body {
     outline: none;
     text-align: center;
 }
+.back-button {
+    background-color: #6b7280; /* Gray 500 */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    outline: none;
+    text-align: center;
+}
 .start-button:hover, .next-button:hover, .restart-button:hover, .show-results-button:hover {
     background-color: #16a34a; /* Green 600 */
     transform: translateY(-2px);
 }
 .start-button:active, .next-button:active, .restart-button:active, .show-results-button:active {
     background-color: #15803d; /* Green 700 */
+    transform: translateY(0);
+}
+.back-button:hover {
+    background-color: #4b5563; /* Gray 600 */
+    transform: translateY(-2px);
+}
+.back-button:active {
+    background-color: #374151; /* Gray 700 */
     transform: translateY(0);
 }
 .results-section {

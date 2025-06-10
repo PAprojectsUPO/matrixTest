@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test de Algebra</title>
+    <title>Test de Algebra Lineal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -27,7 +27,7 @@
 </head>
 <body>
     <div id="app" class="container">
-        <h1 class="header">Test de Algebra</h1>
+        <h1 class="header">Test de Algebra Lineal</h1>
 
         <div id="module-selection-screen" class="flex flex-col items-center gap-4">
             <p class="info-text">Selecciona un módulo para comenzar:</p>
@@ -37,10 +37,15 @@
         </div>
 
         <div id="difficulty-screen" class="hidden flex flex-col items-center gap-4">
+            <div id="selected-module-info" class="text-center mb-4">
+                <h2 id="selected-module-name" class="text-2xl font-bold mb-2"></h2>
+                <p id="selected-module-description" class="info-text max-w-2xl"></p>
+            </div>
             <p class="info-text">Selecciona un nivel de dificultad:</p>
             <button id="start-basic" class="start-button">Nivel Básico</button>
             <button id="start-intermediate" class="start-button">Nivel Intermedio</button>
             <button id="start-advanced" class="start-button">Nivel Avanzado</button>
+            <button id="back-to-modules" class="back-button mt-4">← Volver a Módulos</button>
         </div>
 
         <div id="quiz-screen" class="hidden">
@@ -61,6 +66,15 @@
 
         <div id="results-screen" class="hidden results-section">
             <h2 class="text-3xl font-bold mb-4">Resultados del Test</h2>
+            <div id="quiz-info" class="mb-4 text-center">
+                <p class="text-lg font-semibold mb-2">
+                    Módulo: <span id="results-module-name" ></span>
+                </p>
+                <p class="text-lg font-semibold mb-2">
+                    Nivel: <span id="results-difficulty" ></span>
+                </p>
+            </div>
+            
             <p class="score-text">Tu puntuación: <span id="score">0</span>/<span id="total-questions">0</span></p>
             <div id="feedback-summary" class="correct-answers-list">
                 <!-- Detailed feedback will be loaded here -->

@@ -7,6 +7,8 @@ let score = 0;
 let questions = [];
 let allModulesData = []; // To store all modules from questions.json
 let selectedModuleId = null; // To store the ID of the selected module
+let selectedModuleData = null; // To store the complete data of the selected module
+let selectedDifficulty = null; // To store the selected difficulty level
 let allQuestionsData = {}; // To store questions of the selected module by difficulty
 
 // Quiz configuration
@@ -26,6 +28,15 @@ let feedbackSummary;
 let finalScore;
 let totalQuestions;
 let restartButton;
+
+// New elements for module info and back button
+let selectedModuleName;
+let selectedModuleDescription;
+let backToModulesButton;
+
+// Elements for results screen module/difficulty info
+let resultsModuleName;
+let resultsDifficulty;
 
 // Buttons for difficulty
 let startBasicButton;
@@ -48,9 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
     totalQuestions = document.getElementById('total-questions');
     restartButton = document.getElementById('restart-button');
 
+    // Initialize new elements for module info and back button
+    selectedModuleName = document.getElementById('selected-module-name');
+    selectedModuleDescription = document.getElementById('selected-module-description');
+    backToModulesButton = document.getElementById('back-to-modules');
+
+    // Initialize results screen elements
+    resultsModuleName = document.getElementById('results-module-name');
+    resultsDifficulty = document.getElementById('results-difficulty');
+
     // Initialize elements that might not exist if quiz-screen is hidden initially
     if (nextButton) nextButton.addEventListener('click', nextQuestion);
     if (restartButton) restartButton.addEventListener('click', restartQuiz);
+    if (backToModulesButton) backToModulesButton.addEventListener('click', showModuleSelectionScreen);
 
     // Initialize difficulty buttons
     startBasicButton = document.getElementById('start-basic');
@@ -67,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchQuestions() {
     try {
-        const response = await fetch('http://127.0.0.1:5500/questions.json');
+        const response = await fetch('./questions.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -96,7 +117,13 @@ function populateModuleSelectionScreen() {
 
 function selectModule(module) {
     selectedModuleId = module.id;
+    selectedModuleData = module; // Store complete module data
     allQuestionsData = module.difficultyLevels; // Load questions for the selected module
+    
+    // Update module info display
+    if (selectedModuleName) selectedModuleName.textContent = module.name;
+    if (selectedModuleDescription) selectedModuleDescription.textContent = module.description;
+    
     showDifficultyScreen();
 }
 
@@ -138,6 +165,9 @@ function startQuiz(difficulty) {
         alert(`No se encontraron preguntas para el nivel '${difficulty}' en el módulo seleccionado.`);
         return;
     }
+    
+    // Store the selected difficulty level
+    selectedDifficulty = difficulty;
     
     const questionPool = allQuestionsData[difficulty];
     if (!questionPool || questionPool.length === 0) {
@@ -264,12 +294,27 @@ function nextQuestion() {
 }
 
 function showResults() {
-    if (difficultyScreen) difficultyScreen.classList.add('hidden');
+    
     if (quizScreen) quizScreen.classList.add('hidden');
     if (resultsScreen) resultsScreen.classList.remove('hidden');
+    
     // Update the specific span elements for score and total questions
     if (finalScore) finalScore.textContent = score;
     if (totalQuestions) totalQuestions.textContent = questions.length;
+    
+    // Update module and difficulty information
+    if (resultsModuleName && selectedModuleData) {
+        resultsModuleName.textContent = selectedModuleData.name;
+    }
+    if (resultsDifficulty && selectedDifficulty) {
+        // Convert difficulty names to Spanish
+        const difficultyNames = {
+            'basico': 'Básico',
+            'intermedio': 'Intermedio',
+            'avanzado': 'Avanzado'
+        };
+        resultsDifficulty.textContent = difficultyNames[selectedDifficulty] || selectedDifficulty;
+    }
     
     // Process MathJax for the feedback summary
     if (window.MathJax && feedbackSummary) {
@@ -282,6 +327,8 @@ function restartQuiz() {
     score = 0;
     questions = [];
     selectedModuleId = null; // Reset selected module
+    selectedModuleData = null; // Reset selected module data
+    selectedDifficulty = null; // Reset selected difficulty
     allQuestionsData = {}; // Reset module questions
     if (feedbackSummary) feedbackSummary.innerHTML = '';
     if (resultsScreen) resultsScreen.classList.add('hidden');

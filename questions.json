@@ -100,6 +100,66 @@
             "text": "¿Cómo se denota el rango de una matriz A?",
             "options": ["det(A)", "A−1", "ran(A)", "At"],
             "correctAnswer": "ran(A)"
+          },
+          {
+            "id": "AL_BAS_011",
+            "subCategory": "Tipos de Matrices",
+            "text": "¿Qué tipo de matriz tiene sus elementos dispuestos en una única columna?",
+            "options": [
+                "Matriz Fila",
+                "Matriz Columna",
+                "Matriz Cuadrada",
+                "Matriz Nula"
+            ],
+            "correctAnswer": "Matriz Columna"
+          },
+          {
+            "id": "AL_BAS_012",
+            "subCategory": "Tipos de Matrices",
+            "text": "Si una matriz es diagonal y sus elementos de la diagonal principal son iguales, ¿cómo se denomina?",
+            "options": [
+                "Matriz Identidad",
+                "Matriz Nula",
+                "Matriz Escalar",
+                "Matriz Triangular"
+            ],
+            "correctAnswer": "Matriz Escalar"
+          },
+          {
+            "id": "AL_BAS_013",
+            "subCategory": "Operaciones con Matrices",
+            "text": "¿Qué condición deben cumplir dos matrices para poder sumarse?",
+            "options": [
+                "Tener el mismo número de filas.",
+                "Tener el mismo número de columnas.",
+                "Tener el mismo orden.",
+                "Ser matrices cuadradas."
+            ],
+            "correctAnswer": "Tener el mismo orden."
+          },
+          {
+            "id": "AL_BAS_014",
+            "subCategory": "Operaciones con Matrices",
+            "text": "¿Cómo se obtiene el producto de una matriz por un escalar $k$?",
+            "options": [
+                "Multiplicando solo la primera fila por $k$.",
+                "Sumando $k$ a cada elemento.",
+                "Multiplicando cada elemento de la matriz por $k$.",
+                "Multiplicando solo la diagonal principal por $k$."
+            ],
+            "correctAnswer": "Multiplicando cada elemento de la matriz por $k$."
+          },
+          {
+            "id": "AL_BAS_015",
+            "subCategory": "Operaciones con Matrices",
+            "text": "¿Cuál es el elemento neutro para la suma de matrices de orden $m\\times n$?",
+            "options": [
+                "La matriz identidad de orden $n$.",
+                "La matriz nula de orden $m\\times n$.",
+                "Cualquier matriz diagonal.",
+                "La matriz con todos los elementos iguales a uno."
+            ],
+            "correctAnswer": "La matriz nula de orden $m\\times n$."
           }
         ],
         "intermedio": [
@@ -192,6 +252,66 @@
             "text": "Si A∈Mn (R) es una matriz invertible, ¿a qué es igual el determinante de su inversa, ∣A−1∣?",
             "options": ["∣A∣", "−∣A∣", "1/∣A∣", "∣A∣n"],
             "correctAnswer": "1/∣A∣"
+          },
+          {
+            "id": "AL_INT_011",
+            "subCategory": "Determinantes",
+            "text": "¿Qué sucede con el determinante de una matriz si tiene una fila de ceros?",
+            "options": [
+                "El determinante es uno.",
+                "El determinante cambia de signo.",
+                "El determinante es cero.",
+                "El determinante se mantiene igual."
+            ],
+            "correctAnswer": "El determinante es cero."
+          },
+          {
+            "id": "AL_INT_012",
+            "subCategory": "Determinantes",
+            "text": "Si se multiplica una fila de una matriz A por un escalar $k$, ¿cómo cambia su determinante?",
+            "options": [
+                "Se divide por $k$.",
+                "Se multiplica por $k$ elevado al orden de la matriz.",
+                "Se mantiene igual.",
+                "Se multiplica por $k$."
+            ],
+            "correctAnswer": "Se multiplica por $k$."
+          },
+          {
+            "id": "AL_INT_013",
+            "subCategory": "Inversa de Matrices",
+            "text": "¿Qué condición debe cumplir una matriz cuadrada $A$ para ser invertible a derecha y a izquierda simultáneamente?",
+            "options": [
+                "Su determinante debe ser cero.",
+                "Su determinante debe ser distinto de cero.",
+                "Debe ser una matriz identidad.",
+                "Debe ser una matriz nula."
+            ],
+            "correctAnswer": "Su determinante debe ser distinto de cero."
+          },
+          {
+            "id": "AL_INT_014",
+            "subCategory": "Inversa de Matrices",
+            "text": "¿Cuál es la relación entre el rango de una matriz $A$ de orden $m\\times n$ y su invertibilidad a derecha?",
+            "options": [
+                "$ran(A) = n$",
+                "$ran(A) = m$",
+                "$ran(A) < m$",
+                "$ran(A) < n$"
+            ],
+            "correctAnswer": "$ran(A) = m$"
+          },
+          {
+            "id": "AL_INT_015",
+            "subCategory": "Inversa de Matrices",
+            "text": "Si $A$ y $B$ son matrices invertibles, ¿a qué es igual la inversa de su producto $(A \\cdot B)^{-1}$?",
+            "options": [
+                "$A^{-1} \\cdot B^{-1}$",
+                "$B^{-1} \\cdot A^{-1}$",
+                "$A \\cdot B$",
+                "$(B \\cdot A)^{-1}$"
+            ],
+            "correctAnswer": "$B^{-1} \\cdot A^{-1}$"
           }
         ],
         "avanzado": [
@@ -252,8 +372,7 @@
               "Siempre es única.",
               "Solo existe para matrices cuadradas.",
               "Es igual a la inversa si el determinante es cero.",
-              "Se calcula siempre como (At⋅A)−1⋅At."
-            ],
+              "Se calcula siempre como (At⋅A)−1⋅At."],
             "correctAnswer": "Siempre es única."
           },
           {
@@ -271,10 +390,65 @@
               "Intercambiar filas para mover ceros hacia abajo.",
               "Multiplicar filas por escalares para obtener 1s como pivotes.",
               "Sumar filas para obtener ceros encima y debajo de los pivotes.",
-              "Calcular el determinante de la matriz."
-            ],
+              "Calcular el determinante de la matriz."],
             "correctAnswer": "Multiplicar filas por escalares para obtener 1s como pivotes."
+          },
+          {
+            "id": "AL_AVA_011",
+            "subCategory": "Pseudoinversa",
+            "text": "Dada una matriz $A \\in \\mathcal{M}_{m\\times n}(\\mathbb{R})$, si $m \\le n$ y $rg(A)=m$, ¿cómo se calcula su pseudoinversa $A^{+}$?",
+            "options": [
+                "$A^{+}=(A^{t}\\cdot A)^{-1}\\cdot A^{t}$",
+                "$A^{+}=A^{t}\\cdot(A\\cdot A^{t})^{-1}$",
+                "$A^{+}=A^{-1}$",
+                "$A^{+}=(A\\cdot A^{t})^{-1}$"],
+            "correctAnswer": "$A^{+}=A^{t}\\cdot(A\\cdot A^{t})^{-1}$"
+          },
+          {
+            "id": "AL_AVA_012",
+            "subCategory": "Sistemas de Ecuaciones",
+            "text": "¿Qué caracteriza a un sistema de ecuaciones lineales homogéneo?",
+            "options": [
+                "Tiene una única solución.",
+                "Todos sus términos independientes son cero.",
+                "No tiene solución.",
+                "Tiene infinitas soluciones."],
+            "correctAnswer": "Todos sus términos independientes son cero."
+          },
+          {
+            "id": "AL_AVA_013",
+            "subCategory": "Sistemas de Ecuaciones",
+            "text": "Según el Teorema de Rouché-Fröbenius, ¿cuándo un sistema de ecuaciones lineales es incompatible?",
+            "options": [
+                "Cuando $rg(A)=rg(A^{*})=n$",
+                "Cuando $rg(A)=rg(A^{*})<n$",
+                "Cuando $rg(A)\\ne rg(A^{*})$",
+                "Cuando $rg(A)=n$ y $rg(A^{*})=n+1$"],
+            "correctAnswer": "Cuando $rg(A)\\ne rg(A^{*})$"
+          },
+          {
+            "id": "AL_AVA_014",
+            "subCategory": "Pseudoinversa",
+            "text": "Si una matriz $A$ es cuadrada e invertible, ¿a qué es igual su pseudoinversa $A^{+}$?",
+            "options": [
+                "A su transpuesta $A^{t}$",
+                "A su inversa $A^{-1}$",
+                "A la matriz nula",
+                "A la matriz identidad"],
+            "correctAnswer": "A su inversa $A^{-1}$"
+          },
+          {
+            "id": "AL_AVA_015",
+            "subCategory": "Sistemas de Ecuaciones",
+            "text": "¿Cuál es una solución garantizada para cualquier sistema de ecuaciones lineales homogéneo?",
+            "options": [
+                "El vector de unos.",
+                "El vector nulo.",
+                "No tiene soluciones garantizadas.",
+                "Cualquier vector con elementos positivos."],
+            "correctAnswer": "El vector nulo."
           }
+        
         ]
       }
     },
@@ -767,6 +941,1112 @@
             "$rg(A) < m$ o $rg(A) < n$"
             ],
             "correctAnswer": "$rg(A) = m = n$"
+          }
+        ]
+      }
+    },
+    {
+      "id": "algebra_lineal_3",
+      "name": "Álgebra Lineal III",
+      "description": "Preguntas sobre producto escalar, ortogonalidad, códigos lineales, factorización QR, y mínimos cuadrados.",
+      "difficultyLevels": {
+        "basico": [
+          {
+            "id": "AL3_BAS_001",
+            "subCategory": "Producto Escalar",
+            "text": "¿Cuál es la definición del producto escalar en $\\mathbb{R}^n$?",
+            "options": [
+              "$\\langle x, y \\rangle = x^T y$",
+              "$\\langle x, y \\rangle = x \\cdot y^T$",
+              "$\\langle x, y \\rangle = |x| |y|$",
+              "$\\langle x, y \\rangle = x + y$"
+            ],
+            "correctAnswer": "$\\langle x, y \\rangle = x^T y$"
+          },
+          {
+            "id": "AL3_BAS_002",
+            "subCategory": "Producto Escalar",
+            "text": "¿Qué propiedad cumple el producto escalar respecto a la suma?",
+            "options": [
+              "$\\langle x + y, z \\rangle = \\langle x, z \\rangle + \\langle y, z \\rangle$",
+              "$\\langle x + y, z \\rangle = \\langle x, z \\rangle - \\langle y, z \\rangle$",
+              "$\\langle x + y, z \\rangle = \\langle x, z \\rangle \\cdot \\langle y, z \\rangle$",
+              "$\\langle x + y, z \\rangle = \\langle x, z \\rangle / \\langle y, z \\rangle$"
+            ],
+            "correctAnswer": "$\\langle x + y, z \\rangle = \\langle x, z \\rangle + \\langle y, z \\rangle$"
+          },
+          {
+            "id": "AL3_BAS_003",
+            "subCategory": "Norma",
+            "text": "¿Cómo se define la norma euclidiana de un vector $x$ en términos del producto escalar?",
+            "options": [
+              "$\\|x\\| = \\sqrt{\\langle x, x \\rangle}$",
+              "$\\|x\\| = \\langle x, x \\rangle$",
+              "$\\|x\\| = \\langle x, x \\rangle^2$",
+              "$\\|x\\| = |\\langle x, x \\rangle|$"
+            ],
+            "correctAnswer": "$\\|x\\| = \\sqrt{\\langle x, x \\rangle}$"
+          },
+          {
+            "id": "AL3_BAS_004",
+            "subCategory": "Ortogonalidad",
+            "text": "¿Cuándo se dice que dos vectores $x$ e $y$ son ortogonales?",
+            "options": [
+              "Cuando $\\langle x, y \\rangle = 1$",
+              "Cuando $\\langle x, y \\rangle = 0$",
+              "Cuando $\\|x\\| = \\|y\\|$",
+              "Cuando $x = y$"
+            ],
+            "correctAnswer": "Cuando $\\langle x, y \\rangle = 0$"
+          },
+          {
+            "id": "AL3_BAS_005",
+            "subCategory": "Ortogonalidad",
+            "text": "¿Qué es un conjunto ortonormal?",
+            "options": [
+              "Un conjunto de vectores ortogonales entre sí",
+              "Un conjunto de vectores unitarios",
+              "Un conjunto de vectores ortogonales entre sí y de norma unitaria",
+              "Un conjunto de vectores linealmente independientes"
+            ],
+            "correctAnswer": "Un conjunto de vectores ortogonales entre sí y de norma unitaria"
+          },
+          {
+            "id": "AL3_BAS_006",
+            "subCategory": "Proyección Ortogonal",
+            "text": "¿Cuál es la fórmula de la proyección ortogonal de un vector $x$ sobre un vector $v$ unitario?",
+            "options": [
+              "$\\text{proy}_v(x) = \\langle x, v \\rangle v$",
+              "$\\text{proy}_v(x) = \\frac{\\langle x, v \\rangle}{\\|v\\|^2} v$",
+              "$\\text{proy}_v(x) = x - v$",
+              "$\\text{proy}_v(x) = \\|x\\| v$"
+            ],
+            "correctAnswer": "$\\text{proy}_v(x) = \\langle x, v \\rangle v$"
+          },
+          {
+            "id": "AL3_BAS_007",
+            "subCategory": "Matriz Ortogonal",
+            "text": "¿Cuál es la característica principal de una matriz ortogonal $Q$?",
+            "options": [
+              "$Q^T Q = I$",
+              "$Q Q^T = 0$",
+              "$\\det(Q) = 0$",
+              "$Q = Q^T$"
+            ],
+            "correctAnswer": "$Q^T Q = I$"
+          },
+          {
+            "id": "AL3_BAS_008",
+            "subCategory": "Espacio Columna",
+            "text": "¿Qué representa el espacio columna de una matriz $A$?",
+            "options": [
+              "El conjunto de todas las combinaciones lineales de las columnas de $A$",
+              "El conjunto de todas las filas de $A$",
+              "El núcleo de $A$",
+              "La transpuesta de $A$"
+            ],
+            "correctAnswer": "El conjunto de todas las combinaciones lineales de las columnas de $A$"
+          },
+          {
+            "id": "AL3_BAS_009",
+            "subCategory": "Núcleo",
+            "text": "¿Qué es el núcleo (kernel) de una matriz $A$?",
+            "options": [
+              "El conjunto de vectores $x$ tales que $Ax = 0$",
+              "El conjunto de todas las columnas de $A$",
+              "El conjunto de vectores $x$ tales que $Ax = b$",
+              "La diagonal principal de $A$"
+            ],
+            "correctAnswer": "El conjunto de vectores $x$ tales que $Ax = 0$"
+          },
+          {
+            "id": "AL3_BAS_010",
+            "subCategory": "Rango",
+            "text": "¿Cómo se relaciona el rango de una matriz $A$ con la dimensión de su espacio columna?",
+            "options": [
+              "Son iguales",
+              "El rango es el doble de la dimensión",
+              "Son inversamente proporcionales",
+              "No hay relación"
+            ],
+            "correctAnswer": "Son iguales"
+          },
+          {
+            "id": "AL3_BAS_011",
+            "subCategory": "Códigos Lineales",
+            "text": "¿Qué es un código lineal?",
+            "options": [
+              "Un subespacio vectorial de $\\mathbb{F}_q^n$",
+              "Una matriz cuadrada",
+              "Un sistema de ecuaciones lineales",
+              "Una transformación lineal"
+            ],
+            "correctAnswer": "Un subespacio vectorial de $\\mathbb{F}_q^n$"
+          },
+          {
+            "id": "AL3_BAS_012",
+            "subCategory": "Códigos Lineales",
+            "text": "¿Qué representa la matriz generadora $G$ de un código lineal?",
+            "options": [
+              "Sus filas generan el código como subespacio vectorial",
+              "Sus columnas representan los errores",
+              "Es la matriz identidad",
+              "Representa la distancia mínima"
+            ],
+            "correctAnswer": "Sus filas generan el código como subespacio vectorial"
+          },
+          {
+            "id": "AL3_BAS_013",
+            "subCategory": "Distancia de Hamming",
+            "text": "¿Cómo se define la distancia de Hamming entre dos vectores?",
+            "options": [
+              "El número de posiciones en las que difieren",
+              "La suma de sus componentes",
+              "El producto escalar entre ellos",
+              "La norma euclidiana de su diferencia"
+            ],
+            "correctAnswer": "El número de posiciones en las que difieren"
+          },
+          {
+            "id": "AL3_BAS_014",
+            "subCategory": "Factorización QR",
+            "text": "En la factorización QR de una matriz $A$, ¿qué representa la matriz $Q$?",
+            "options": [
+              "Una matriz ortogonal",
+              "Una matriz triangular superior",
+              "Una matriz diagonal",
+              "Una matriz simétrica"
+            ],
+            "correctAnswer": "Una matriz ortogonal"
+          },
+          {
+            "id": "AL3_BAS_015",
+            "subCategory": "Mínimos Cuadrados",
+            "text": "¿Cuál es el objetivo del método de mínimos cuadrados?",
+            "options": [
+              "Minimizar $\\|Ax - b\\|^2$",
+              "Maximizar $\\|Ax - b\\|^2$",
+              "Encontrar $\\det(A)$",
+              "Calcular $A^{-1}$"
+            ],
+            "correctAnswer": "Minimizar $\\|Ax - b\\|^2$"
+          }
+        ],
+        "intermedio": [
+          {
+            "id": "AL3_INT_001",
+            "subCategory": "Proceso de Gram-Schmidt",
+            "text": "¿Cuál es el objetivo del proceso de Gram-Schmidt?",
+            "options": [
+              "Obtener una base ortonormal a partir de una base cualquiera",
+              "Calcular determinantes",
+              "Resolver sistemas lineales",
+              "Encontrar valores propios"
+            ],
+            "correctAnswer": "Obtener una base ortonormal a partir de una base cualquiera"
+          },
+          {
+            "id": "AL3_INT_002",
+            "subCategory": "Proceso de Gram-Schmidt",
+            "text": "En el proceso de Gram-Schmidt, si tenemos vectores $v_1, v_2, \\ldots, v_n$, ¿cómo se calcula $u_2$?",
+            "options": [
+              "$u_2 = v_2 - \\text{proy}_{u_1}(v_2)$",
+              "$u_2 = v_2 + \\text{proy}_{u_1}(v_2)$",
+              "$u_2 = v_2 \\cdot u_1$",
+              "$u_2 = v_2 / \\|v_2\\|$"
+            ],
+            "correctAnswer": "$u_2 = v_2 - \\text{proy}_{u_1}(v_2)$"
+          },
+          {
+            "id": "AL3_INT_003",
+            "subCategory": "Complemento Ortogonal",
+            "text": "Si $W$ es un subespacio de $V$, ¿qué es el complemento ortogonal $W^\\perp$?",
+            "options": [
+              "El conjunto de vectores en $V$ ortogonales a todos los vectores de $W$",
+              "El conjunto de vectores en $W$ ortogonales entre sí",
+              "La unión de $V$ y $W$",
+              "El producto cartesiano de $V$ y $W$"
+            ],
+            "correctAnswer": "El conjunto de vectores en $V$ ortogonales a todos los vectores de $W$"
+          },
+          {
+            "id": "AL3_INT_004",
+            "subCategory": "Proyección Ortogonal",
+            "text": "¿Cuál es la fórmula de la proyección ortogonal de un vector $x$ sobre un subespacio $W$ con base ortonormal $\\{u_1, u_2, \\ldots, u_k\\}$?",
+            "options": [
+              "$\\text{proy}_W(x) = \\sum_{i=1}^k \\langle x, u_i \\rangle u_i$",
+              "$\\text{proy}_W(x) = \\sum_{i=1}^k u_i$",
+              "$\\text{proy}_W(x) = x - \\sum_{i=1}^k u_i$",
+              "$\\text{proy}_W(x) = \\|x\\| \\sum_{i=1}^k u_i$"
+            ],
+            "correctAnswer": "$\\text{proy}_W(x) = \\sum_{i=1}^k \\langle x, u_i \\rangle u_i$"
+          },
+          {
+            "id": "AL3_INT_005",
+            "subCategory": "Descomposición Ortogonal",
+            "text": "Si $V = W \\oplus W^\\perp$, ¿qué significa esta descomposición?",
+            "options": [
+              "Todo vector de $V$ se puede escribir únicamente como suma de un vector de $W$ y uno de $W^\\perp$",
+              "$W$ y $W^\\perp$ son el mismo subespacio",
+              "$V$ es la intersección de $W$ y $W^\\perp$",
+              "$W$ contiene a $W^\\perp$"
+            ],
+            "correctAnswer": "Todo vector de $V$ se puede escribir únicamente como suma de un vector de $W$ y uno de $W^\\perp$"
+          },
+          {
+            "id": "AL3_INT_006",
+            "subCategory": "Matriz de Proyección",
+            "text": "Si $P$ es la matriz de proyección ortogonal sobre un subespacio $W$, ¿qué propiedad cumple?",
+            "options": [
+              "$P^2 = P$",
+              "$P^2 = I$",
+              "$P^2 = 0$",
+              "$P^{-1} = P$"
+            ],
+            "correctAnswer": "$P^2 = P$"
+          },
+          {
+            "id": "AL3_INT_007",
+            "subCategory": "Factorización QR",
+            "text": "En la factorización $A = QR$, ¿qué representa la matriz $R$?",
+            "options": [
+              "Una matriz triangular superior",
+              "Una matriz ortogonal",
+              "Una matriz diagonal",
+              "Una matriz triangular inferior"
+            ],
+            "correctAnswer": "Una matriz triangular superior"
+          },
+          {
+            "id": "AL3_INT_008",
+            "subCategory": "Factorización QR",
+            "text": "¿Cuál es la relación entre la factorización QR y el proceso de Gram-Schmidt?",
+            "options": [
+              "Gram-Schmidt proporciona las columnas de $Q$ y los coeficientes de $R$",
+              "Son métodos completamente independientes",
+              "QR es más general que Gram-Schmidt",
+              "Gram-Schmidt solo funciona para matrices cuadradas"
+            ],
+            "correctAnswer": "Gram-Schmidt proporciona las columnas de $Q$ y los coeficientes de $R$"
+          },
+          {
+            "id": "AL3_INT_009",
+            "subCategory": "Códigos Lineales",
+            "text": "¿Qué es la matriz de control de paridad $H$ de un código lineal?",
+            "options": [
+              "Una matriz tal que $Hc^T = 0$ para toda palabra código $c$",
+              "La transpuesta de la matriz generadora",
+              "Una matriz diagonal",
+              "La matriz identidad"
+            ],
+            "correctAnswer": "Una matriz tal que $Hc^T = 0$ para toda palabra código $c$"
+          },
+          {
+            "id": "AL3_INT_010",
+            "subCategory": "Códigos Lineales",
+            "text": "¿Cómo se relacionan las dimensiones de la matriz generadora $G$ y la matriz de control $H$ para un código $[n,k]$?",
+            "options": [
+              "$G$ es $k \\times n$ y $H$ es $(n-k) \\times n$",
+              "$G$ es $n \\times k$ y $H$ es $n \\times (n-k)$",
+              "$G$ y $H$ tienen las mismas dimensiones",
+              "$G$ es cuadrada y $H$ es rectangular"
+            ],
+            "correctAnswer": "$G$ es $k \\times n$ y $H$ es $(n-k) \\times n$"
+          },
+          {
+            "id": "AL3_INT_011",
+            "subCategory": "Distancia Mínima",
+            "text": "¿Cómo se define la distancia mínima de un código lineal?",
+            "options": [
+              "El mínimo peso de Hamming entre todas las palabras código no nulas",
+              "El máximo peso de Hamming entre todas las palabras código",
+              "La distancia entre la primera y última palabra código",
+              "El número total de palabras código"
+            ],
+            "correctAnswer": "El mínimo peso de Hamming entre todas las palabras código no nulas"
+          },
+          {
+            "id": "AL3_INT_012",
+            "subCategory": "Capacidad Correctora",
+            "text": "Si un código tiene distancia mínima $d$, ¿cuántos errores puede corregir?",
+            "options": [
+              "$\\lfloor \\frac{d-1}{2} \\rfloor$",
+              "$d-1$",
+              "$\\lceil \\frac{d}{2} \\rceil$",
+              "$d$"
+            ],
+            "correctAnswer": "$\\lfloor \\frac{d-1}{2} \\rfloor$"
+          },
+          {
+            "id": "AL3_INT_013",
+            "subCategory": "Mínimos Cuadrados",
+            "text": "¿Cuál es la solución de mínimos cuadrados para el sistema $Ax = b$?",
+            "options": [
+              "$x = (A^T A)^{-1} A^T b$",
+              "$x = A^{-1} b$",
+              "$x = A^T b$",
+              "$x = (A A^T)^{-1} b$"
+            ],
+            "correctAnswer": "$x = (A^T A)^{-1} A^T b$"
+          },
+          {
+            "id": "AL3_INT_014",
+            "subCategory": "Ecuaciones Normales",
+            "text": "¿Qué ecuación definen las ecuaciones normales en el contexto de mínimos cuadrados?",
+            "options": [
+              "$A^T A x = A^T b$",
+              "$A x = b$",
+              "$A^T x = b$",
+              "$A A^T x = b$"
+            ],
+            "correctAnswer": "$A^T A x = A^T b$"
+          },
+          {
+            "id": "AL3_INT_015",
+            "subCategory": "Pseudoinversa",
+            "text": "¿Cómo se define la pseudoinversa de Moore-Penrose de una matriz $A$?",
+            "options": [
+              "$A^+ = (A^T A)^{-1} A^T$ cuando $A$ tiene columnas linealmente independientes",
+              "$A^+ = A^{-1}$ cuando $A$ es invertible",
+              "$A^+ = A^T$",
+              "$A^+ = (A A^T)^{-1} A$"
+            ],
+            "correctAnswer": "$A^+ = (A^T A)^{-1} A^T$ cuando $A$ tiene columnas linealmente independientes"
+          }
+        ],
+        "avanzado": [
+          {
+            "id": "AL3_ADV_001",
+            "subCategory": "Descomposición en Valores Singulares",
+            "text": "En la descomposición SVD $A = U\\Sigma V^T$, ¿qué representan las columnas de $U$?",
+            "options": [
+              "Los vectores singulares izquierdos (eigenvectores de $AA^T$)",
+              "Los vectores singulares derechos (eigenvectores de $A^TA$)",
+              "Los valores singulares",
+              "Las filas de $A$"
+            ],
+            "correctAnswer": "Los vectores singulares izquierdos (eigenvectores de $AA^T$)"
+          },
+          {
+            "id": "AL3_ADV_002",
+            "subCategory": "Descomposición en Valores Singulares",
+            "text": "¿Cómo se relacionan los valores singulares con los valores propios?",
+            "options": [
+              "Los valores singulares de $A$ son las raíces cuadradas de los valores propios de $A^T A$",
+              "Los valores singulares son iguales a los valores propios",
+              "Los valores singulares son los inversos de los valores propios",
+              "No hay relación entre ellos"
+            ],
+            "correctAnswer": "Los valores singulares de $A$ son las raíces cuadradas de los valores propios de $A^T A$"
+          },
+          {
+            "id": "AL3_ADV_003",
+            "subCategory": "Rango y SVD",
+            "text": "¿Cómo se determina el rango de una matriz usando su descomposición SVD?",
+            "options": [
+              "El rango es igual al número de valores singulares no nulos",
+              "El rango es igual al número total de valores singulares",
+              "El rango es igual al valor singular más grande",
+              "El rango es igual a la traza de $\\Sigma$"
+            ],
+            "correctAnswer": "El rango es igual al número de valores singulares no nulos"
+          },
+          {
+            "id": "AL3_ADV_004",
+            "subCategory": "Aproximación de Rango Bajo",
+            "text": "¿Cuál es la mejor aproximación de rango $k$ a una matriz $A$ en norma de Frobenius?",
+            "options": [
+              "$A_k = \\sum_{i=1}^k \\sigma_i u_i v_i^T$ usando los $k$ mayores valores singulares",
+              "La proyección ortogonal de $A$",
+              "La matriz transpuesta de $A$",
+              "La matriz inversa de $A$"
+            ],
+            "correctAnswer": "$A_k = \\sum_{i=1}^k \\sigma_i u_i v_i^T$ usando los $k$ mayores valores singulares"
+          },
+          {
+            "id": "AL3_ADV_005",
+            "subCategory": "Análisis de Componentes Principales",
+            "text": "En PCA, ¿qué matriz se descompone para encontrar las componentes principales?",
+            "options": [
+              "La matriz de covarianza de los datos",
+              "La matriz de datos original",
+              "La matriz transpuesta de los datos",
+              "La matriz identidad"
+            ],
+            "correctAnswer": "La matriz de covarianza de los datos"
+          },
+          {
+            "id": "AL3_ADV_006",
+            "subCategory": "Códigos de Reed-Solomon",
+            "text": "¿En qué se basan los códigos de Reed-Solomon?",
+            "options": [
+              "En la evaluación de polinomios en puntos distintos",
+              "En matrices circulantes",
+              "En transformadas de Fourier",
+              "En sistemas de ecuaciones diferenciales"
+            ],
+            "correctAnswer": "En la evaluación de polinomios en puntos distintos"
+          },
+          {
+            "id": "AL3_ADV_007",
+            "subCategory": "Códigos BCH",
+            "text": "¿Cuál es la característica principal de los códigos BCH (Bose-Chaudhuri-Hocquenghem)?",
+            "options": [
+              "Son códigos cíclicos con distancia mínima diseñada",
+              "Son códigos lineales binarios únicamente",
+              "No pueden corregir errores múltiples",
+              "Solo funcionan para longitudes potencia de 2"
+            ],
+            "correctAnswer": "Son códigos cíclicos con distancia mínima diseñada"
+          },
+          {
+            "id": "AL3_ADV_008",
+            "subCategory": "Factorización QR con Pivoteo",
+            "text": "¿Cuál es la ventaja del pivoteo en la factorización QR?",
+            "options": [
+              "Mejora la estabilidad numérica y revela el rango de la matriz",
+              "Reduce el tiempo de computación",
+              "Elimina la necesidad de ortogonalización",
+              "Solo funciona para matrices simétricas"
+            ],
+            "correctAnswer": "Mejora la estabilidad numérica y revela el rango de la matriz"
+          },
+          {
+            "id": "AL3_ADV_009",
+            "subCategory": "Regularización Tikhonov",
+            "text": "¿Cuál es el objetivo de la regularización de Tikhonov en mínimos cuadrados?",
+            "options": [
+              "Estabilizar la solución cuando $A^T A$ está mal condicionada",
+              "Acelerar la convergencia del algoritmo",
+              "Reducir el número de variables",
+              "Eliminar la necesidad de calcular $(A^T A)^{-1}$"
+            ],
+            "correctAnswer": "Estabilizar la solución cuando $A^T A$ está mal condicionada"
+          },
+          {
+            "id": "AL3_ADV_010",
+            "subCategory": "Mínimos Cuadrados Regularizados",
+            "text": "¿Cuál es la solución del problema de mínimos cuadrados regularizado $\\min \\|Ax - b\\|^2 + \\lambda \\|x\\|^2$?",
+            "options": [
+              "$x = (A^T A + \\lambda I)^{-1} A^T b$",
+              "$x = (A^T A)^{-1} A^T b$",
+              "$x = A^{-1} b$",
+              "$x = \\lambda (A^T A)^{-1} A^T b$"
+            ],
+            "correctAnswer": "$x = (A^T A + \\lambda I)^{-1} A^T b$"
+          },
+          {
+            "id": "AL3_ADV_011",
+            "subCategory": "Descomposición Espectral",
+            "text": "Para una matriz simétrica $A$, ¿cómo se relaciona su descomposición espectral con la SVD?",
+            "options": [
+              "Son equivalentes: $A = Q\\Lambda Q^T$ donde $Q$ contiene eigenvectores y $\\Lambda$ eigenvalores",
+              "La descomposición espectral no existe para matrices simétricas",
+              "SVD solo se aplica a matrices no simétricas",
+              "No hay relación entre ambas descomposiciones"
+            ],
+            "correctAnswer": "Son equivalentes: $A = Q\\Lambda Q^T$ donde $Q$ contiene eigenvectores y $\\Lambda$ eigenvalores"
+          },
+          {
+            "id": "AL3_ADV_012",
+            "subCategory": "Normas de Matrices",
+            "text": "¿Cuál es la relación entre la norma 2 de una matriz y sus valores singulares?",
+            "options": [
+              "La norma 2 es igual al mayor valor singular",
+              "La norma 2 es igual a la suma de todos los valores singulares",
+              "La norma 2 es igual al menor valor singular",
+              "La norma 2 es igual al producto de todos los valores singulares"
+            ],
+            "correctAnswer": "La norma 2 es igual al mayor valor singular"
+          },
+          {
+            "id": "AL3_ADV_013",
+            "subCategory": "Condicionamiento",
+            "text": "¿Cómo se define el número de condición de una matriz en norma 2?",
+            "options": [
+              "$\\kappa_2(A) = \\frac{\\sigma_{\\max}}{\\sigma_{\\min}}$ (razón entre el mayor y menor valor singular)",
+              "$\\kappa_2(A) = \\sigma_{\\max} + \\sigma_{\\min}$",
+              "$\\kappa_2(A) = \\sigma_{\\max} - \\sigma_{\\min}$",
+              "$\\kappa_2(A) = \\frac{\\sigma_{\\min}}{\\sigma_{\\max}}$"
+            ],
+            "correctAnswer": "$\\kappa_2(A) = \\frac{\\sigma_{\\max}}{\\sigma_{\\min}}$ (razón entre el mayor y menor valor singular)"
+          },
+          {
+            "id": "AL3_ADV_014",
+            "subCategory": "Métodos Iterativos",
+            "text": "¿Cuál es la idea principal del método GMRES para resolver sistemas lineales?",
+            "options": [
+              "Minimizar el residuo en un subespacio de Krylov",
+              "Usar factorización LU iterativa",
+              "Aplicar transformaciones de Givens secuencialmente",
+              "Descomponer la matriz en valores singulares"
+            ],
+            "correctAnswer": "Minimizar el residuo en un subespacio de Krylov"
+          },
+          {
+            "id": "AL3_ADV_015",
+            "subCategory": "Optimización Convexa",
+            "text": "¿Cuál es la condición de optimalidad de primer orden para el problema $\\min f(x)$ donde $f$ es diferenciable y convexa?",
+            "options": [
+              "$\\nabla f(x^*) = 0$",
+              "$\\nabla^2 f(x^*) > 0$",
+              "$f(x^*) = 0$",
+              "$x^* = 0$"
+            ],
+            "correctAnswer": "$\\nabla f(x^*) = 0$"
+          }
+        ]
+      }
+    },
+    {
+      "id": "algebra_lineal_4",
+      "name": "Álgebra Lineal IV",
+      "description": "Preguntas sobre autovalores y autovectores, ecuaciones en diferencias, y formas cuadráticas.",
+      "difficultyLevels": {
+        "basico": [
+          {
+            "id": "AL_EASY_001",
+            "subCategory": "Autovalores y Autovectores",
+            "text": "¿Qué es un autovalor de una matriz A?",
+            "options": [
+              "Un escalar λ tal que Av = λv para algún vector v ≠ 0",
+              "Un vector v tal que Av = λv para algún escalar λ",
+              "La diagonal principal de la matriz A",
+              "El determinante de la matriz A"
+            ],
+            "correctAnswer": "Un escalar λ tal que Av = λv para algún vector v ≠ 0"
+          },
+          {
+            "id": "AL_EASY_002",
+            "subCategory": "Autovalores y Autovectores",
+            "text": "¿Cómo se llama al vector v en la ecuación Av = λv?",
+            "options": [
+              "Autovector",
+              "Vector propio",
+              "Eigenvector",
+              "Todas las anteriores"
+            ],
+            "correctAnswer": "Todas las anteriores"
+          },
+          {
+            "id": "AL_EASY_003",
+            "subCategory": "Polinomio Característico",
+            "text": "¿Cómo se define el polinomio característico de una matriz A?",
+            "options": [
+              "det(A - λI)",
+              "det(A + λI)",
+              "det(λI - A)",
+              "det(A)"
+            ],
+            "correctAnswer": "det(A - λI)"
+          },
+          {
+            "id": "AL_EASY_004",
+            "subCategory": "Autovalores",
+            "text": "Los autovalores de una matriz son:",
+            "options": [
+              "Las raíces del polinomio característico",
+              "Los elementos de la diagonal principal",
+              "Los coeficientes del polinomio característico",
+              "Los vectores columna de la matriz"
+            ],
+            "correctAnswer": "Las raíces del polinomio característico"
+          },
+          {
+            "id": "AL_EASY_005",
+            "subCategory": "Matrices Diagonales",
+            "text": "¿Cuáles son los autovalores de una matriz diagonal?",
+            "options": [
+              "Los elementos de la diagonal principal",
+              "La suma de los elementos de la diagonal",
+              "El producto de los elementos de la diagonal",
+              "Los elementos fuera de la diagonal"
+            ],
+            "correctAnswer": "Los elementos de la diagonal principal"
+          },
+          {
+            "id": "AL_EASY_006",
+            "subCategory": "Traza",
+            "text": "¿Qué relación existe entre la traza de una matriz y sus autovalores?",
+            "options": [
+              "La traza es la suma de todos los autovalores",
+              "La traza es el producto de todos los autovalores",
+              "La traza es el mayor autovalor",
+              "No hay relación entre ellos"
+            ],
+            "correctAnswer": "La traza es la suma de todos los autovalores"
+          },
+          {
+            "id": "AL_EASY_007",
+            "subCategory": "Determinante",
+            "text": "¿Qué relación existe entre el determinante de una matriz y sus autovalores?",
+            "options": [
+              "El determinante es el producto de todos los autovalores",
+              "El determinante es la suma de todos los autovalores",
+              "El determinante es el mayor autovalor",
+              "No hay relación entre ellos"
+            ],
+            "correctAnswer": "El determinante es el producto de todos los autovalores"
+          },
+          {
+            "id": "AL_EASY_008",
+            "subCategory": "Espacios Propios",
+            "text": "¿Qué es el espacio propio asociado a un autovalor λ?",
+            "options": [
+              "El conjunto de todos los autovectores asociados a λ más el vector cero",
+              "Solo los autovectores asociados a λ",
+              "El conjunto de todos los autovalores",
+              "La matriz A menos λI"
+            ],
+            "correctAnswer": "El conjunto de todos los autovectores asociados a λ más el vector cero"
+          },
+          {
+            "id": "AL_EASY_009",
+            "subCategory": "Ecuaciones en Diferencias",
+            "text": "¿Qué es una ecuación en diferencias lineal?",
+            "options": [
+              "Una ecuación que relaciona los valores de una secuencia en diferentes índices",
+              "Una ecuación diferencial ordinaria",
+              "Una ecuación que no tiene solución",
+              "Una ecuación con coeficientes constantes únicamente"
+            ],
+            "correctAnswer": "Una ecuación que relaciona los valores de una secuencia en diferentes índices"
+          },
+          {
+            "id": "AL_EASY_010",
+            "subCategory": "Ecuaciones en Diferencias",
+            "text": "Una ecuación en diferencias de primer orden tiene la forma:",
+            "options": [
+              "x(n+1) = ax(n) + b",
+              "x(n+2) = ax(n+1) + bx(n)",
+              "x'(t) = ax(t) + b",
+              "x(n) = ax(n-1) + b"
+            ],
+            "correctAnswer": "x(n+1) = ax(n) + b"
+          },
+          {
+            "id": "AL_EASY_011",
+            "subCategory": "Formas Cuadráticas",
+            "text": "¿Qué es una forma cuadrática?",
+            "options": [
+              "Una función de la forma f(x) = x^T A x donde A es una matriz simétrica",
+              "Una ecuación de segundo grado",
+              "Una matriz cuadrada",
+              "Un polinomio de grado cuatro"
+            ],
+            "correctAnswer": "Una función de la forma f(x) = x^T A x donde A es una matriz simétrica"
+          },
+          {
+            "id": "AL_EASY_012",
+            "subCategory": "Formas Cuadráticas",
+            "text": "Una forma cuadrática es definida positiva si:",
+            "options": [
+              "f(x) > 0 para todo x ≠ 0",
+              "f(x) ≥ 0 para todo x",
+              "f(x) < 0 para todo x ≠ 0",
+              "f(x) = 0 para todo x"
+            ],
+            "correctAnswer": "f(x) > 0 para todo x ≠ 0"
+          },
+          {
+            "id": "AL_EASY_013",
+            "subCategory": "Diagonalización",
+            "text": "Una matriz A es diagonalizable si:",
+            "options": [
+              "Existe una matriz P tal que P^(-1)AP es diagonal",
+              "A es una matriz diagonal",
+              "A tiene determinante no nulo",
+              "A es simétrica"
+            ],
+            "correctAnswer": "Existe una matriz P tal que P^(-1)AP es diagonal"
+          },
+          {
+            "id": "AL_EASY_014",
+            "subCategory": "Multiplicidad",
+            "text": "¿Qué es la multiplicidad algebraica de un autovalor?",
+            "options": [
+              "El número de veces que aparece como raíz del polinomio característico",
+              "La dimensión del espacio propio asociado",
+              "El número de autovectores linealmente independientes",
+              "El valor del autovalor"
+            ],
+            "correctAnswer": "El número de veces que aparece como raíz del polinomio característico"
+          },
+          {
+            "id": "AL_EASY_015",
+            "subCategory": "Multiplicidad",
+            "text": "¿Qué es la multiplicidad geométrica de un autovalor?",
+            "options": [
+              "La dimensión del espacio propio asociado",
+              "El número de veces que aparece como raíz del polinomio característico",
+              "El determinante de la matriz",
+              "La traza de la matriz"
+            ],
+            "correctAnswer": "La dimensión del espacio propio asociado"
+          }
+        ],
+        "intermedio": [
+          {
+            "id": "AL_MEDIUM_001",
+            "subCategory": "Diagonalización",
+            "text": "¿Cuál es la condición necesaria y suficiente para que una matriz sea diagonalizable?",
+            "options": [
+              "La multiplicidad geométrica debe igualar la multiplicidad algebraica para cada autovalor",
+              "Todos los autovalores deben ser distintos",
+              "La matriz debe ser simétrica",
+              "La matriz debe ser invertible"
+            ],
+            "correctAnswer": "La multiplicidad geométrica debe igualar la multiplicidad algebraica para cada autovalor"
+          },
+          {
+            "id": "AL_MEDIUM_002",
+            "subCategory": "Matrices Simétricas",
+            "text": "¿Qué propiedad especial tienen los autovalores de una matriz simétrica real?",
+            "options": [
+              "Son todos reales",
+              "Son todos complejos",
+              "Son todos positivos",
+              "Son todos iguales"
+            ],
+            "correctAnswer": "Son todos reales"
+          },
+          {
+            "id": "AL_MEDIUM_003",
+            "subCategory": "Matrices Simétricas",
+            "text": "¿Qué propiedad tienen los autovectores de una matriz simétrica real?",
+            "options": [
+              "Autovectores correspondientes a autovalores distintos son ortogonales",
+              "Todos los autovectores son paralelos",
+              "Los autovectores son complejos",
+              "No existen autovectores para matrices simétricas"
+            ],
+            "correctAnswer": "Autovectores correspondientes a autovalores distintos son ortogonales"
+          },
+          {
+            "id": "AL_MEDIUM_004",
+            "subCategory": "Teorema Espectral",
+            "text": "Según el teorema espectral, una matriz simétrica real puede escribirse como:",
+            "options": [
+              "A = QΛQ^T donde Q es ortogonal y Λ es diagonal",
+              "A = PDP^(-1) donde P y D son arbitrarias",
+              "A = LU donde L es triangular inferior y U superior",
+              "A = QR donde Q es ortogonal y R triangular superior"
+            ],
+            "correctAnswer": "A = QΛQ^T donde Q es ortogonal y Λ es diagonal"
+          },
+          {
+            "id": "AL_MEDIUM_005",
+            "subCategory": "Ecuaciones en Diferencias",
+            "text": "Para la ecuación x(n+1) = ax(n) + b, ¿cuál es la solución general?",
+            "options": [
+              "x(n) = a^n x(0) + b(a^n - 1)/(a - 1) si a ≠ 1",
+              "x(n) = ax(0) + nb",
+              "x(n) = a^n + b^n",
+              "x(n) = (a + b)^n"
+            ],
+            "correctAnswer": "x(n) = a^n x(0) + b(a^n - 1)/(a - 1) si a ≠ 1"
+          },
+          {
+            "id": "AL_MEDIUM_006",
+            "subCategory": "Ecuaciones en Diferencias",
+            "text": "¿Cuándo es estable la solución de x(n+1) = ax(n)?",
+            "options": [
+              "Cuando |a| < 1",
+              "Cuando |a| > 1",
+              "Cuando a > 0",
+              "Cuando a < 0"
+            ],
+            "correctAnswer": "Cuando |a| < 1"
+          },
+          {
+            "id": "AL_MEDIUM_007",
+            "subCategory": "Sistemas de Ecuaciones en Diferencias",
+            "text": "Para el sistema x(n+1) = Ax(n), ¿cuál es la solución?",
+            "options": [
+              "x(n) = A^n x(0)",
+              "x(n) = nAx(0)",
+              "x(n) = Ax(0) + n",
+              "x(n) = (A + n)x(0)"
+            ],
+            "correctAnswer": "x(n) = A^n x(0)"
+          },
+          {
+            "id": "AL_MEDIUM_008",
+            "subCategory": "Estabilidad",
+            "text": "Un sistema x(n+1) = Ax(n) es estable si:",
+            "options": [
+              "Todos los autovalores de A tienen módulo menor que 1",
+              "Todos los autovalores de A son positivos",
+              "Todos los autovalores de A son reales",
+              "La matriz A es simétrica"
+            ],
+            "correctAnswer": "Todos los autovalores de A tienen módulo menor que 1"
+          },
+          {
+            "id": "AL_MEDIUM_009",
+            "subCategory": "Formas Cuadráticas",
+            "text": "¿Cómo se determina si una forma cuadrática es definida positiva usando autovalores?",
+            "options": [
+              "Todos los autovalores de la matriz asociada deben ser positivos",
+              "Todos los autovalores deben ser negativos",
+              "Al menos un autovalor debe ser positivo",
+              "La suma de autovalores debe ser positiva"
+            ],
+            "correctAnswer": "Todos los autovalores de la matriz asociada deben ser positivos"
+          },
+          {
+            "id": "AL_MEDIUM_010",
+            "subCategory": "Formas Cuadráticas",
+            "text": "¿Qué son los menores principales de una matriz?",
+            "options": [
+              "Los determinantes de las submatrices cuadradas formadas por las primeras k filas y columnas",
+              "Los elementos de la diagonal principal",
+              "Los autovalores de la matriz",
+              "Los elementos fuera de la diagonal"
+            ],
+            "correctAnswer": "Los determinantes de las submatrices cuadradas formadas por las primeras k filas y columnas"
+          },
+          {
+            "id": "AL_MEDIUM_011",
+            "subCategory": "Criterio de Sylvester",
+            "text": "Según el criterio de Sylvester, una matriz simétrica es definida positiva si:",
+            "options": [
+              "Todos sus menores principales son positivos",
+              "Todos sus menores principales son negativos",
+              "Su determinante es positivo",
+              "Su traza es positiva"
+            ],
+            "correctAnswer": "Todos sus menores principales son positivos"
+          },
+          {
+            "id": "AL_MEDIUM_012",
+            "subCategory": "Potencias de Matrices",
+            "text": "Si A = PDP^(-1) donde D es diagonal, entonces A^n es igual a:",
+            "options": [
+              "PD^n P^(-1)",
+              "(PD)^n (P^(-1))^n",
+              "P^n D^n (P^(-1))^n",
+              "PDP^(-1)"
+            ],
+            "correctAnswer": "PD^n P^(-1)"
+          },
+          {
+            "id": "AL_MEDIUM_013",
+            "subCategory": "Ecuaciones en Diferencias de Segundo Orden",
+            "text": "Para la ecuación x(n+2) + ax(n+1) + bx(n) = 0, ¿qué se debe analizar para encontrar la solución?",
+            "options": [
+              "La ecuación característica λ^2 + aλ + b = 0",
+              "Los autovalores de la matriz compañera",
+              "El polinomio mínimo",
+              "Todas las anteriores"
+            ],
+            "correctAnswer": "Todas las anteriores"
+          },
+          {
+            "id": "AL_MEDIUM_014",
+            "subCategory": "Convergencia",
+            "text": "¿Cuándo converge la secuencia A^n cuando n → ∞?",
+            "options": [
+              "Cuando el radio espectral ρ(A) < 1",
+              "Cuando det(A) ≠ 0",
+              "Cuando A es simétrica",
+              "Cuando tr(A) > 0"
+            ],
+            "correctAnswer": "Cuando el radio espectral ρ(A) < 1"
+          },
+          {
+            "id": "AL_MEDIUM_015",
+            "subCategory": "Forma Canónica de Jordan",
+            "text": "¿Cuándo una matriz no diagonalizable necesita la forma canónica de Jordan?",
+            "options": [
+              "Cuando la multiplicidad geométrica es menor que la algebraica para algún autovalor",
+              "Cuando todos los autovalores son distintos",
+              "Cuando la matriz es simétrica",
+              "Cuando la matriz es invertible"
+            ],
+            "correctAnswer": "Cuando la multiplicidad geométrica es menor que la algebraica para algún autovalor"
+          }
+        ],
+        "avanzado": [
+          {
+            "id": "AL_HARD_001",
+            "subCategory": "Forma Canónica de Jordan",
+            "text": "En la forma canónica de Jordan J = P^(-1)AP, ¿qué estructura tienen los bloques de Jordan?",
+            "options": [
+              "Matrices con el autovalor en la diagonal y unos en la superdiagonal",
+              "Matrices diagonales",
+              "Matrices triangulares superiores",
+              "Matrices simétricas"
+            ],
+            "correctAnswer": "Matrices con el autovalor en la diagonal y unos en la superdiagonal"
+          },
+          {
+            "id": "AL_HARD_002",
+            "subCategory": "Funciones de Matrices",
+            "text": "Si A = PDP^(-1), ¿cómo se calcula e^A?",
+            "options": [
+              "Pe^D P^(-1) donde e^D tiene e^(λᵢ) en la diagonal",
+              "e^P e^D e^(P^(-1))",
+              "e^(P+D+P^(-1))",
+              "No se puede calcular"
+            ],
+            "correctAnswer": "Pe^D P^(-1) donde e^D tiene e^(λᵢ) en la diagonal"
+          },
+          {
+            "id": "AL_HARD_003",
+            "subCategory": "Polinomio Mínimo",
+            "text": "¿Qué relación existe entre el polinomio mínimo y el polinomio característico?",
+            "options": [
+              "El polinomio mínimo divide al polinomio característico",
+              "Son siempre iguales",
+              "El polinomio característico divide al mínimo",
+              "No hay relación entre ellos"
+            ],
+            "correctAnswer": "El polinomio mínimo divide al polinomio característico"
+          },
+          {
+            "id": "AL_HARD_004",
+            "subCategory": "Teorema de Cayley-Hamilton",
+            "text": "¿Qué establece el teorema de Cayley-Hamilton?",
+            "options": [
+              "Toda matriz satisface su propio polinomio característico",
+              "Toda matriz es diagonalizable",
+              "Los autovalores son siempre reales",
+              "La traza es igual al determinante"
+            ],
+            "correctAnswer": "Toda matriz satisface su propio polinomio característico"
+          },
+          {
+            "id": "AL_HARD_005",
+            "subCategory": "Ecuaciones en Diferencias No Homogéneas",
+            "text": "Para resolver x(n+1) = Ax(n) + b(n), ¿qué método se utiliza?",
+            "options": [
+              "Variación de parámetros o función de Green discreta",
+              "Solo diagonalización",
+              "Eliminación gaussiana",
+              "Método de Newton"
+            ],
+            "correctAnswer": "Variación de parámetros o función de Green discreta"
+          },
+          {
+            "id": "AL_HARD_006",
+            "subCategory": "Estabilidad Asintótica",
+            "text": "¿Qué condición garantiza la estabilidad asintótica de x(n+1) = Ax(n) + Bu(n)?",
+            "options": [
+              "Todos los autovalores de A deben estar dentro del círculo unitario",
+              "La matriz B debe ser invertible",
+              "A debe ser simétrica",
+              "det(A) > 0"
+            ],
+            "correctAnswer": "Todos los autovalores de A deben estar dentro del círculo unitario"
+          },
+          {
+            "id": "AL_HARD_007",
+            "subCategory": "Controlabilidad",
+            "text": "Un sistema x(n+1) = Ax(n) + Bu(n) es controlable si:",
+            "options": [
+              "La matriz de controlabilidad [B AB A²B ... A^(n-1)B] tiene rango completo",
+              "A es invertible",
+              "B es cuadrada",
+              "Todos los autovalores de A son distintos"
+            ],
+            "correctAnswer": "La matriz de controlabilidad [B AB A²B ... A^(n-1)B] tiene rango completo"
+          },
+          {
+            "id": "AL_HARD_008",
+            "subCategory": "Observabilidad",
+            "text": "Un sistema x(n+1) = Ax(n), y(n) = Cx(n) es observable si:",
+            "options": [
+              "La matriz de observabilidad tiene rango completo",
+              "C es invertible",
+              "A es diagonalizable",
+              "El sistema es controlable"
+            ],
+            "correctAnswer": "La matriz de observabilidad tiene rango completo"
+          },
+          {
+            "id": "AL_HARD_009",
+            "subCategory": "Formas Cuadráticas Indefinidas",
+            "text": "Una forma cuadrática es indefinida si:",
+            "options": [
+              "Tiene autovalores tanto positivos como negativos",
+              "Todos sus autovalores son cero",
+              "Todos sus autovalores son positivos",
+              "Todos sus autovalores son negativos"
+            ],
+            "correctAnswer": "Tiene autovalores tanto positivos como negativos"
+          },
+          {
+            "id": "AL_HARD_010",
+            "subCategory": "Optimización",
+            "text": "¿Cuál es la condición de segundo orden para un mínimo local en f(x) = x^T Ax + b^T x?",
+            "options": [
+              "La matriz A debe ser definida positiva",
+              "La matriz A debe ser definida negativa",
+              "det(A) > 0",
+              "tr(A) > 0"
+            ],
+            "correctAnswer": "La matriz A debe ser definida positiva"
+          },
+          {
+            "id": "AL_HARD_011",
+            "subCategory": "Valores Singulares",
+            "text": "¿Cómo se relacionan los valores singulares de A con los autovalores de A^T A?",
+            "options": [
+              "Los valores singulares son las raíces cuadradas de los autovalores de A^T A",
+              "Son iguales",
+              "Los valores singulares son los autovalores de A",
+              "No hay relación"
+            ],
+            "correctAnswer": "Los valores singulares son las raíces cuadradas de los autovalores de A^T A"
+          },
+          {
+            "id": "AL_HARD_012",
+            "subCategory": "Pseudoinversa",
+            "text": "¿Cómo se calcula la pseudoinversa de Moore-Penrose usando la descomposición SVD?",
+            "options": [
+              "A^+ = VΣ^+ U^T donde Σ^+ tiene 1/σᵢ para σᵢ ≠ 0",
+              "A^+ = UΣV^T",
+              "A^+ = (A^T A)^(-1) A^T",
+              "A^+ = A^T"
+            ],
+            "correctAnswer": "A^+ = VΣ^+ U^T donde Σ^+ tiene 1/σᵢ para σᵢ ≠ 0"
+          },
+          {
+            "id": "AL_HARD_013",
+            "subCategory": "Matrices de Markov",
+            "text": "¿Qué propiedad tienen los autovalores de una matriz de transición de Markov?",
+            "options": [
+              "Todos tienen módulo menor o igual a 1, con al menos un autovalor igual a 1",
+              "Todos son estrictamente menores que 1",
+              "Todos son mayores que 1",
+              "Son todos complejos"
+            ],
+            "correctAnswer": "Todos tienen módulo menor o igual a 1, con al menos un autovalor igual a 1"
+          },
+          {
+            "id": "AL_HARD_014",
+            "subCategory": "Teorema de Perron-Frobenius",
+            "text": "Para una matriz positiva A, ¿qué establece el teorema de Perron-Frobenius?",
+            "options": [
+              "Existe un autovalor real positivo que es mayor en módulo que todos los demás",
+              "Todos los autovalores son reales y positivos",
+              "Todos los autovalores tienen el mismo módulo",
+              "No existen autovalores complejos"
+            ],
+            "correctAnswer": "Existe un autovalor real positivo que es mayor en módulo que todos los demás"
+          },
+          {
+            "id": "AL_HARD_015",
+            "subCategory": "Análisis Espectral",
+            "text": "¿Qué información proporciona el radio espectral ρ(A) sobre el comportamiento asintótico de A^n?",
+            "options": [
+              "Si ρ(A) < 1, entonces A^n → 0; si ρ(A) > 1, entonces ||A^n|| → ∞",
+              "ρ(A) determina la velocidad de convergencia únicamente",
+              "ρ(A) solo es relevante para matrices simétricas",
+              "ρ(A) es siempre igual a 1"
+            ],
+            "correctAnswer": "Si ρ(A) < 1, entonces A^n → 0; si ρ(A) > 1, entonces ||A^n|| → ∞"
           }
         ]
       }
