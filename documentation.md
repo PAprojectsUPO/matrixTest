@@ -26,6 +26,8 @@ Aplicación web interactiva para evaluar conocimientos de álgebra lineal median
 - **Identificación de Respuesta Correcta**: Resaltado de la opción correcta
 - **Información Detallada en Resultados**: Módulo y nivel seleccionados mostrados en pantalla de resultados
 - **Resumen Completo**: Revisión de todas las preguntas con respuestas correctas
+- ✅ **Pistas (Hints) Disponibles**: Ayuda contextual para guiar al estudiante durante la pregunta.
+- ✅ **Justificación de Respuestas**: Explicación detallada (rationale) visible tras seleccionar una opción, aclarando por qué es correcta o incorrecta.
 
 ## 📚 Módulos Disponibles
 
@@ -115,7 +117,9 @@ Aplicación web interactiva para evaluar conocimientos de álgebra lineal median
 - ✅ Pantalla de resultados con información de módulo/nivel
 - ✅ Botón de retroceso en selección de dificultad
 - ✅ Flujo de navegación optimizado
-- ✅ Feedback visual mejorado
+- ✅ Feedback visual mejorado (colores, iconos y justificaciones en los botones de opción)
+- ✅ Implementación de Pistas (Hints) para las preguntas
+- ✅ Justificación/Razón fundamental para cada opción de respuesta integrada en el feedback
 
 ### **Compatibilidad de Red**
 - ✅ URLs relativas para acceso desde múltiples dispositivos
@@ -145,8 +149,9 @@ Aplicación web interactiva para evaluar conocimientos de álgebra lineal median
 
 ### **Contenido Expandido**
 - **Más Módulos**: Álgebra Lineal V, VI (temas especializados)
-- **Explicaciones Detalladas**: Justificaciones teóricas para respuestas
 - **Recursos Complementarios**: Enlaces a material de estudio
+- ✅ **Pistas (Hints) para las preguntas**: Ayuda contextual para guiar al estudiante. (Implementado)
+- ✅ **Retroalimentación Detallada por Opción (Rationale)**: Explicación de por qué cada opción es correcta o incorrecta, mejorando la comprensión. (Implementado)
 
 ### **Funcionalidades Avanzadas**
 - **Modo Estudio**: Revisión de conceptos antes del test
@@ -159,6 +164,39 @@ Aplicación web interactiva para evaluar conocimientos de álgebra lineal median
 - **API RESTful**: Backend para gestión avanzada de datos
 - **PWA**: Aplicación web progresiva para uso offline
 - **Análisis de Datos**: Insights sobre patrones de aprendizaje
+
+### **Estructura de Preguntas Mejorada (Implementada Parcialmente/En Progreso)**
+- **Formato de pregunta enriquecido**: Se ha adaptado la aplicación para soportar una estructura de datos para cada pregunta que incluye el texto de la pregunta, una pista (`hint`), y un array de opciones (`options`). La justificación (`explanation`) ahora se muestra directamente con la opción seleccionada.
+  La estructura actual en `questions.json` es:
+  ```json
+  {
+      "text": "Pregunta...",
+      "options": ["Opción A", "Opción B", "Opción C", "Opción D"],
+      "correctAnswer": "Opción B",
+      "hint": "Pista para la pregunta...",
+      "explanation": "Explicación detallada de la respuesta correcta y/o por qué las otras son incorrectas."
+  }
+  ```
+- **Mejora Futura Propuesta para `questions.json` y `script.js`**:
+  Adoptar una estructura de datos más detallada por opción para `questions.json` y adaptar `script.js` para manejarla. Esto permitiría mostrar justificaciones individuales para *cada* opción, no solo la general.
+  Ejemplo de la nueva estructura futura:
+  ```json
+  {
+      "question": "Según el Teorema de Rouché-Frobenius, si para un sistema de ecuaciones con 3 incógnitas (n=3) se cumple que $rg(A) = rg(A^*) = 2$, ¿cómo se clasifica el sistema?",
+      "hint": "Compara el rango con el número de incógnitas. ¿Son iguales o es menor?",
+      "answerOptions": [
+          { "text": "Sistema Compatible Determinado (S.C.D.)", "isCorrect": false, "rationale": "Esta clasificación requiere que el rango sea igual al número de incógnitas." },
+          { "text": "Sistema Compatible Indeterminado (S.C.I.)", "isCorrect": true, "rationale": "Efectivamente, cuando el rango de las matrices es igual pero menor que el número de incógnitas, existen infinitas soluciones." },
+          { "text": "Sistema Incompatible (S.I.)", "isCorrect": false, "rationale": "Para que un sistema sea incompatible, el rango de la matriz de coeficientes (A) debe ser diferente al de la matriz ampliada (A*)." },
+          { "text": "Sistema Homogéneo", "isCorrect": false, "rationale": "Un sistema homogéneo se define porque sus términos independientes son todos cero, no por el valor de su rango." }
+      ]
+  }
+  ```
+- **Adaptación Futura de la Lógica de la Aplicación**: Modificar el código JavaScript (`script.js`) para:
+    - Parsear la nueva estructura detallada de `answerOptions` en `questions.json`.
+    - Mostrar la `hint` (ya implementado).
+    - Mostrar la `rationale` específica de la opción seleccionada por el usuario.
+    - Ajustar la lógica de `selectAnswer`, `renderFeedback`, y `generateQuestion` para acomodar estos nuevos campos por opción.
 
 ## 📋 Requisitos del Sistema
 

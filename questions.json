@@ -16,7 +16,8 @@
               "Tiene una sola fila.",
               "Tiene una sola columna."
             ],
-            "correctAnswer": "Todos sus elementos son cero."
+            "correctAnswer": "Todos sus elementos son cero.",
+            "explanation": "Una matriz nula es aquella en la que todos sus componentes son iguales a cero. Es el elemento neutro para la suma de matrices."
           },
           {
             "id": "AL_BAS_002",
@@ -28,14 +29,16 @@
               "Matriz Cuadrada.",
               "Matriz Columna."
             ],
-            "correctAnswer": "Matriz Cuadrada."
+            "correctAnswer": "Matriz Cuadrada.",
+            "explanation": "Una matriz cuadrada es aquella en la que el número de filas es igual al número de columnas (m=n)."
           },
           {
             "id": "AL_BAS_003",
             "subCategory": "Notación y Conceptos",
             "text": "¿Cómo se denota el conjunto de todas las matrices reales de orden m×n?",
             "options": ["Mn (R)", "Rm×n", "Mm×n (R)", "Rn×m"],
-            "correctAnswer": "Mm×n (R)"
+            "correctAnswer": "Mm×n (R)",
+            "explanation": "El conjunto de todas las matrices reales de orden m×n se denota como Mm×n (R)."
           },
           {
             "id": "AL_BAS_004",
@@ -47,7 +50,8 @@
               "Es una matriz diagonal con elementos de la diagonal principal iguales a uno.",
               "Todos sus elementos son iguales."
             ],
-            "correctAnswer": "Es una matriz diagonal con elementos de la diagonal principal iguales a uno."
+            "correctAnswer": "Es una matriz diagonal con elementos de la diagonal principal iguales a uno.",
+            "explanation": "La matriz identidad es una matriz diagonal cuyos elementos de la diagonal principal son todos unos y el resto son ceros."
           },
           {
             "id": "AL_BAS_005",
@@ -59,28 +63,32 @@
               "Cuando tienen el mismo orden y sus elementos correspondientes son iguales.",
               "Cuando sus determinantes son iguales."
             ],
-            "correctAnswer": "Cuando tienen el mismo orden y sus elementos correspondientes son iguales."
+            "correctAnswer": "Cuando tienen el mismo orden y sus elementos correspondientes son iguales.",
+            "explanation": "Dos matrices son iguales si tienen el mismo número de filas y columnas y sus elementos correspondientes son iguales."
           },
           {
             "id": "AL_BAS_006",
             "subCategory": "Tipos de Matrices",
             "text": "Una matriz con elementos dispuestos en una única fila se denomina:",
             "options": ["Matriz Columna", "n-upla", "Matriz Fila", "Matriz Rectangular"],
-            "correctAnswer": "Matriz Fila"
+            "correctAnswer": "Matriz Fila",
+            "explanation": "Una matriz fila es aquella que tiene una sola fila y puede tener varias columnas."
           },
           {
             "id": "AL_BAS_007",
             "subCategory": "Tipos de Matrices",
             "text": "¿Cuál de los siguientes no es un tipo de matriz cuadrada según la diagonal principal?",
             "options": ["Matriz Escalar", "Matriz Identidad", "Matriz Rectangular", "Matriz Diagonal"],
-            "correctAnswer": "Matriz Rectangular"
+            "correctAnswer": "Matriz Rectangular",
+            "explanation": "Una matriz rectangular no es cuadrada, por lo que no puede clasificarse como matriz escalar, identidad o diagonal en el contexto de matrices cuadradas."
           },
           {
             "id": "AL_BAS_008",
             "subCategory": "Notación y Conceptos",
             "text": "Si a una matriz A se le elimina m−k filas y n−r columnas, ¿qué se obtiene?",
             "options": ["Una matriz transpuesta", "Una matriz inversa", "Una submatriz", "Una matriz reducida por filas"],
-            "correctAnswer": "Una submatriz"
+            "correctAnswer": "Una submatriz",
+            "explanation": "Eliminar filas y columnas a una matriz A da como resultado una submatriz, que es una matriz más pequeña contenida dentro de A."
           },
           {
             "id": "AL_BAS_009",
@@ -92,14 +100,16 @@
               "Sustituir una fila por ella misma multiplicada por un escalar no nulo.",
               "Sustituir una fila por ella misma más un escalar."
             ],
-            "correctAnswer": "Sustituir una fila por ella misma multiplicada por un escalar no nulo."
+            "correctAnswer": "Sustituir una fila por ella misma multiplicada por un escalar no nulo.",
+            "explanation": "La operación elemental de tipo 2 consiste en multiplicar una fila por un escalar diferente de cero, o en sumar a una fila el producto de otra fila por un escalar."
           },
           {
             "id": "AL_BAS_010",
             "subCategory": "Notación y Conceptos",
             "text": "¿Cómo se denota el rango de una matriz A?",
             "options": ["det(A)", "A−1", "ran(A)", "At"],
-            "correctAnswer": "ran(A)"
+            "correctAnswer": "ran(A)",
+            "explanation": "El rango de una matriz A, que es el número máximo de filas o columnas linealmente independientes, se denota como ran(A)."
           },
           {
             "id": "AL_BAS_011",
@@ -111,7 +121,8 @@
                 "Matriz Cuadrada",
                 "Matriz Nula"
             ],
-            "correctAnswer": "Matriz Columna"
+            "correctAnswer": "Matriz Columna",
+            "explanation": "Una matriz columna es aquella que tiene una sola columna y puede tener varias filas."
           },
           {
             "id": "AL_BAS_012",
@@ -123,7 +134,8 @@
                 "Matriz Escalar",
                 "Matriz Triangular"
             ],
-            "correctAnswer": "Matriz Escalar"
+            "correctAnswer": "Matriz Escalar",
+            "explanation": "Una matriz escalar es un tipo especial de matriz diagonal donde todos los elementos de la diagonal son iguales."
           },
           {
             "id": "AL_BAS_013",
@@ -135,7 +147,8 @@
                 "Tener el mismo orden.",
                 "Ser matrices cuadradas."
             ],
-            "correctAnswer": "Tener el mismo orden."
+            "correctAnswer": "Tener el mismo orden.",
+            "explanation": "Para que dos matrices puedan sumarse, deben tener el mismo número de filas y columnas, es decir, deben ser del mismo orden."
           },
           {
             "id": "AL_BAS_014",
@@ -147,7 +160,8 @@
                 "Multiplicando cada elemento de la matriz por $k$.",
                 "Multiplicando solo la diagonal principal por $k$."
             ],
-            "correctAnswer": "Multiplicando cada elemento de la matriz por $k$."
+            "correctAnswer": "Multiplicando cada elemento de la matriz por $k$.",
+            "explanation": "El producto de una matriz por un escalar se obtiene multiplicando cada uno de los elementos de la matriz por dicho escalar."
           },
           {
             "id": "AL_BAS_015",
@@ -159,7 +173,8 @@
                 "Cualquier matriz diagonal.",
                 "La matriz con todos los elementos iguales a uno."
             ],
-            "correctAnswer": "La matriz nula de orden $m\\times n$."
+            "correctAnswer": "La matriz nula de orden $m\\times n$.",
+            "explanation": "El elemento neutro para la suma de matrices es la matriz nula, ya que al sumarla con otra matriz no altera los elementos de esta última."
           }
         ],
         "intermedio": [

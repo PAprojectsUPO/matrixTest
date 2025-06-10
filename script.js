@@ -43,6 +43,16 @@ let startBasicButton;
 let startIntermediateButton;
 let startAdvancedButton;
 
+// --- NUEVA LÓGICA DE RENDERIZADO Y FEEDBACK ---
+
+// Elemento para la pista/hint
+let questionHintElem;
+let prevButton;
+
+// Estado de respuestas del usuario
+let userAnswers = [];
+let userCorrectStatus = [];
+
 document.addEventListener('DOMContentLoaded', () => {
     // Assign DOM elements to variables
     moduleSelectionScreen = document.getElementById('module-selection-screen');
@@ -52,38 +62,62 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsScreen = document.getElementById('results-screen');
     questionText = document.getElementById('question-text');
     optionsContainer = document.getElementById('options-container');
-    feedbackContainer = document.getElementById('feedback-container'); // Initialize feedbackContainer
+    feedbackContainer = document.getElementById('feedback-container');
     nextButton = document.getElementById('next-button');
     feedbackSummary = document.getElementById('feedback-summary');
     finalScore = document.getElementById('score');
     totalQuestions = document.getElementById('total-questions');
     restartButton = document.getElementById('restart-button');
 
-    // Initialize new elements for module info and back button
     selectedModuleName = document.getElementById('selected-module-name');
     selectedModuleDescription = document.getElementById('selected-module-description');
     backToModulesButton = document.getElementById('back-to-modules');
 
-    // Initialize results screen elements
     resultsModuleName = document.getElementById('results-module-name');
     resultsDifficulty = document.getElementById('results-difficulty');
 
-    // Initialize elements that might not exist if quiz-screen is hidden initially
-    if (nextButton) nextButton.addEventListener('click', nextQuestion);
-    if (restartButton) restartButton.addEventListener('click', restartQuiz);
-    if (backToModulesButton) backToModulesButton.addEventListener('click', showModuleSelectionScreen);
-
-    // Initialize difficulty buttons
     startBasicButton = document.getElementById('start-basic');
     startIntermediateButton = document.getElementById('start-intermediate');
     startAdvancedButton = document.getElementById('start-advanced');
+
+    questionHintElem = document.getElementById('question-hint');
+    if (!questionHintElem) {
+        questionHintElem = document.createElement('p');
+        questionHintElem.id = 'question-hint';
+        questionHintElem.className = 'text-gray-500 text-sm italic mb-4';
+        if (questionText && questionText.parentNode) {
+            questionText.parentNode.insertBefore(questionHintElem, questionText.nextSibling);
+        }
+    }
+
+    prevButton = document.getElementById('prev-btn');
+    if (!prevButton) {
+        prevButton = document.createElement('button');
+        prevButton.id = 'prev-btn';
+        prevButton.textContent = 'Atrás';
+        prevButton.className = 'px-5 py-2 rounded-lg text-white font-semibold';
+        prevButton.disabled = true;
+        const nav = document.getElementById('navigation-buttons');
+        if (nav) nav.insertBefore(prevButton, nav.firstChild);
+    }
+    
+    // Initialize event listeners
+    if (nextButton) nextButton.addEventListener('click', nextQuestion);
+    if (restartButton) restartButton.addEventListener('click', restartQuiz);
+    if (backToModulesButton) backToModulesButton.addEventListener('click', showModuleSelectionScreen);
+    if (prevButton) prevButton.addEventListener('click', prevQuestion);
 
     if (startBasicButton) startBasicButton.addEventListener('click', () => startQuiz('basico'));
     if (startIntermediateButton) startIntermediateButton.addEventListener('click', () => startQuiz('intermedio'));
     if (startAdvancedButton) startAdvancedButton.addEventListener('click', () => startQuiz('avanzado'));
 
-    fetchQuestions();
-    showModuleSelectionScreen(); // Show module selection first
+    // Set initial screen visibility: Module selection should be visible first.
+    if (moduleSelectionScreen) moduleSelectionScreen.classList.remove('hidden');
+    if (difficultyScreen) difficultyScreen.classList.add('hidden');
+    if (quizScreen) quizScreen.classList.add('hidden');
+    if (resultsScreen) resultsScreen.classList.add('hidden');
+
+    fetchQuestions(); // Fetch data and then populate module selection
 });
 
 async function fetchQuestions() {
@@ -94,18 +128,47 @@ async function fetchQuestions() {
         }
         const data = await response.json();
         allModulesData = data.quizModules; // Store all modules
-        populateModuleSelectionScreen();
+
+        // Ensure module screen is shown before populating
+        if (moduleSelectionScreen) moduleSelectionScreen.classList.remove('hidden');
+        if (difficultyScreen) difficultyScreen.classList.add('hidden');
+        if (quizScreen) quizScreen.classList.add('hidden');
+        if (resultsScreen) resultsScreen.classList.add('hidden');
+        
+        populateModuleSelectionScreen(); // Now populate
     } catch (error) {
         console.error("Error fetching questions:", error);
         if (moduleOptionsContainer) {
             moduleOptionsContainer.innerHTML = "<p class='error-text'>Error al cargar los módulos. Por favor, inténtalo de nuevo más tarde.</p>";
         }
+        // Ensure module screen is shown even on error, with other screens hidden
+        if (moduleSelectionScreen) moduleSelectionScreen.classList.remove('hidden');
+        if (difficultyScreen) difficultyScreen.classList.add('hidden');
+        if (quizScreen) quizScreen.classList.add('hidden');
+        if (resultsScreen) resultsScreen.classList.add('hidden');
     }
 }
 
 function populateModuleSelectionScreen() {
-    if (!moduleOptionsContainer || !allModulesData) return;
+    if (!moduleOptionsContainer) {
+        console.error("moduleOptionsContainer no encontrado. No se pueden poblar los módulos.");
+        return;
+    }
+
+    // Ensure module selection screen is visible and others are hidden
+    if (moduleSelectionScreen) moduleSelectionScreen.classList.remove('hidden');
+    if (difficultyScreen) difficultyScreen.classList.add('hidden');
+    if (quizScreen) quizScreen.classList.add('hidden');
+    if (resultsScreen) resultsScreen.classList.add('hidden');
+
     moduleOptionsContainer.innerHTML = ''; // Clear previous options
+
+    if (!allModulesData || allModulesData.length === 0) {
+        moduleOptionsContainer.innerHTML = "<p class='info-text'>No hay módulos disponibles en este momento.</p>";
+        console.warn("No hay datos de módulos para mostrar o allModulesData está vacío.");
+        return;
+    }
+    
     allModulesData.forEach(module => {
         const button = document.createElement('button');
         button.textContent = module.name;
@@ -113,6 +176,26 @@ function populateModuleSelectionScreen() {
         button.addEventListener('click', () => selectModule(module));
         moduleOptionsContainer.appendChild(button);
     });
+}
+
+function showModuleSelectionScreen() {
+    if (moduleSelectionScreen) moduleSelectionScreen.classList.remove('hidden');
+    if (difficultyScreen) difficultyScreen.classList.add('hidden');
+    if (quizScreen) quizScreen.classList.add('hidden');
+    if (resultsScreen) resultsScreen.classList.add('hidden');
+    
+    // Optionally, reset parts of the state if going "back to modules" implies a reset
+    // For now, just ensures the module list is shown. Full reset is handled by restartQuiz.
+    populateModuleSelectionScreen(); 
+}
+
+function showDifficultyScreen() {
+    // Module name and description are updated in selectModule directly.
+    // This function just handles screen visibility.
+    if (moduleSelectionScreen) moduleSelectionScreen.classList.add('hidden');
+    if (difficultyScreen) difficultyScreen.classList.remove('hidden');
+    if (quizScreen) quizScreen.classList.add('hidden');
+    if (resultsScreen) resultsScreen.classList.add('hidden');
 }
 
 function selectModule(module) {
@@ -196,112 +279,131 @@ function startQuiz(difficulty) {
 // Function to generate a question
 function generateQuestion() {
     if (currentQuestionIndex < questions.length) {
-        const currentQuestion = questions[currentQuestionIndex]; // Correctly define currentQuestion
+        const currentQuestion = questions[currentQuestionIndex];
+        // Render pregunta
         if (questionText) {
-            questionText.innerHTML = currentQuestion.text; // Use innerHTML to allow MathJax rendering
-            // Process MathJax for the question text
-            if (window.MathJax) {
-                MathJax.typesetPromise([questionText]).catch((err) => console.log(err.message));
+            questionText.innerHTML = currentQuestion.text;
+            if (window.MathJax) MathJax.typesetPromise([questionText]);
+        }
+        // Render pista si no ha respondido
+        if (questionHintElem) {
+            if (userAnswers[currentQuestionIndex] == null && currentQuestion.hint) {
+                questionHintElem.textContent = `Pista: ${currentQuestion.hint}`;
+                questionHintElem.classList.remove('hidden');
+            } else {
+                questionHintElem.classList.add('hidden');
             }
         }
+        // Render opciones
         if (optionsContainer) {
-            optionsContainer.innerHTML = ''; // Clear previous options
-            currentQuestion.options.forEach(option => {
+            optionsContainer.innerHTML = '';
+            currentQuestion.options.forEach((option, idx) => {
                 const button = document.createElement('button');
-                button.innerHTML = option; // Use innerHTML to allow MathJax rendering
                 button.classList.add('option-button');
-                button.addEventListener('click', () => selectAnswer(option, currentQuestion.correctAnswer, currentQuestion)); // Use 'correctAnswer' property
+                button.innerHTML = `${String.fromCharCode(65 + idx)}. ${option}`;
+                button.onclick = () => selectAnswer(idx);
                 optionsContainer.appendChild(button);
             });
-            // Process MathJax for all option buttons
-            if (window.MathJax) {
-                MathJax.typesetPromise([optionsContainer]).catch((err) => console.log(err.message));
-            }
+            if (window.MathJax) MathJax.typesetPromise([optionsContainer]);
         }
-        if (feedbackContainer) feedbackContainer.innerHTML = ''; // Clear previous immediate feedback
-        if (nextButton) nextButton.classList.add('hidden'); // Hide next button until an answer is selected
+        // Feedback inmediato dentro de la opción seleccionada
+        if (userAnswers[currentQuestionIndex] != null) {
+            renderFeedback(currentQuestionIndex);
+        }
+        // Navegación
+        updateNavigationButtons();
+        if (nextButton) nextButton.classList.remove('hidden');
     } else {
         showResults();
     }
 }
 
-function selectAnswer(selectedOption, correctAnswer, currentQuestion) { // Add currentQuestion parameter
-    if (!optionsContainer || !feedbackContainer || !nextButton) return;
+function selectAnswer(selectedIdx) {
+    const currentQuestion = questions[currentQuestionIndex];
+    userAnswers[currentQuestionIndex] = selectedIdx;
+    const isCorrect = currentQuestion.options[selectedIdx] === currentQuestion.correctAnswer;
+    userCorrectStatus[currentQuestionIndex] = isCorrect;
+    // No modificar score aquí, se recalcula en showResults
+    renderFeedback(currentQuestionIndex);
+    if (questionHintElem) questionHintElem.classList.add('hidden');
+}
 
-    Array.from(optionsContainer.children).forEach(button => {
+function renderFeedback(qIdx) {
+    const currentQuestion = questions[qIdx];
+    const selectedIdx = userAnswers[qIdx];
+    const correctIdx = currentQuestion.options.findIndex(opt => opt === currentQuestion.correctAnswer);
+    Array.from(optionsContainer.children).forEach((button, idx) => {
         button.disabled = true;
-        if (button.innerHTML === correctAnswer) {
+        button.classList.remove('correct', 'incorrect', 'selected');
+        // Limpiar feedback anterior
+        Array.from(button.querySelectorAll('.answer-feedback, .answer-feedback-rationale')).forEach(e => e.remove());
+        if (idx === selectedIdx) {
+            if (idx === correctIdx) {
+                button.classList.add('correct');
+                const feedbackDiv = document.createElement('div');
+                feedbackDiv.className = 'answer-feedback correct';
+                feedbackDiv.innerHTML = `<svg class="icon" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z" fill="currentColor"></path></svg> Respuesta correcta`;
+                button.appendChild(feedbackDiv);
+            } else {
+                button.classList.add('incorrect');
+                const feedbackDiv = document.createElement('div');
+                feedbackDiv.className = 'answer-feedback incorrect';
+                feedbackDiv.innerHTML = `<svg class="icon" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z" fill="currentColor"></path></svg> Respuesta incorrecta`;
+                button.appendChild(feedbackDiv);
+            }
+            // Justificación
+            const rationaleDiv = document.createElement('div');
+            rationaleDiv.className = 'answer-feedback-rationale';
+            rationaleDiv.innerHTML = currentQuestion.explanation || '';
+            button.appendChild(rationaleDiv);
+        }
+        if (idx === correctIdx && idx !== selectedIdx) {
             button.classList.add('correct');
-        } else if (button.innerHTML === selectedOption) {
-            button.classList.add('incorrect');
         }
     });
-
-    const isCorrect = (selectedOption === correctAnswer);
-    const feedbackBox = document.createElement('div');
-    feedbackBox.classList.add('feedback-box');
-
-    if (isCorrect) {
-        score++;
-        feedbackBox.innerHTML = `<p><strong>¡Correcto!</strong></p>`;
-        if (currentQuestion.feedback && currentQuestion.feedback.correct) {
-             feedbackBox.innerHTML += `<p>${currentQuestion.feedback.correct}</p>`;
-        }
-        feedbackBox.classList.add('correct-feedback');
-    } else {
-        feedbackBox.innerHTML = `<p><strong>Incorrecto.</strong> La respuesta correcta era: ${correctAnswer}.</p>`;
-        if (currentQuestion.feedback && currentQuestion.feedback.incorrect) {
-            feedbackBox.innerHTML += `<p>${currentQuestion.feedback.incorrect}</p>`;
-        }
-        feedbackBox.classList.add('incorrect-feedback');
-    }
-    feedbackContainer.innerHTML = ''; // Clear previous feedback before adding new
-    feedbackContainer.appendChild(feedbackBox);
-    
-    // Process MathJax for the feedback
-    if (window.MathJax) {
-        MathJax.typesetPromise([feedbackContainer]).catch((err) => console.log(err.message));
-    }
-
-    // Add to feedback summary for results screen
-    if(feedbackSummary) {
-        const feedbackBoxClass = isCorrect ? 'correct-feedback' : 'incorrect-feedback';
-        const questionStatusText = isCorrect ? 'Correcta' : 'Incorrecta';
-        
-        let feedbackEntryHtml = `
-            <div class="feedback-box ${feedbackBoxClass}">
-                <p><strong>Pregunta ${currentQuestionIndex + 1}: ${currentQuestion.text} - ${questionStatusText}</strong></p>`;
-        
-        if (!isCorrect) {
-            feedbackEntryHtml += `<p>Tu respuesta: ${selectedOption}</p><p>Respuesta correcta: ${correctAnswer}</p>`;
-        }
-        if (currentQuestion.feedback) {
-            const feedbackDetail = isCorrect ? currentQuestion.feedback.correct : currentQuestion.feedback.incorrect;
-            if (feedbackDetail) feedbackEntryHtml += `<p><em>${feedbackDetail}</em></p>`;
-        }
-        feedbackEntryHtml += `</div>`;
-        feedbackSummary.innerHTML += feedbackEntryHtml; 
-    }
-
+    if (window.MathJax) MathJax.typesetPromise([optionsContainer]);
     if (nextButton) nextButton.classList.remove('hidden');
 }
 
+function updateNavigationButtons() {
+    if (!prevButton || !nextButton) return;
+    prevButton.disabled = currentQuestionIndex === 0;
+    if (currentQuestionIndex === questions.length - 1) {
+        nextButton.textContent = 'Finalizar Test';
+    } else {
+        nextButton.textContent = 'Siguiente';
+    }
+}
+
 function nextQuestion() {
-    currentQuestionIndex++; // Increment index before generating next question
-    // Clear previous feedback
-    if (feedbackContainer) feedbackContainer.innerHTML = '';
-    generateQuestion();
+    if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        generateQuestion();
+    } else {
+        showResults();
+    }
+}
+
+function prevQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        generateQuestion();
+    }
 }
 
 function showResults() {
-    
     if (quizScreen) quizScreen.classList.add('hidden');
     if (resultsScreen) resultsScreen.classList.remove('hidden');
-    
-    // Update the specific span elements for score and total questions
-    if (finalScore) finalScore.textContent = score;
+    // Calcular score real basado en respuestas correctas
+    let realScore = 0;
+    for (let i = 0; i < userAnswers.length; i++) {
+        const q = questions[i];
+        if (userAnswers[i] != null && q.options[userAnswers[i]] === q.correctAnswer) {
+            realScore++;
+        }
+    }
+    if (finalScore) finalScore.textContent = realScore;
     if (totalQuestions) totalQuestions.textContent = questions.length;
-    
     // Update module and difficulty information
     if (resultsModuleName && selectedModuleData) {
         resultsModuleName.textContent = selectedModuleData.name;
@@ -315,7 +417,6 @@ function showResults() {
         };
         resultsDifficulty.textContent = difficultyNames[selectedDifficulty] || selectedDifficulty;
     }
-    
     // Process MathJax for the feedback summary
     if (window.MathJax && feedbackSummary) {
         MathJax.typesetPromise([feedbackSummary]).catch((err) => console.log(err.message));
@@ -330,21 +431,15 @@ function restartQuiz() {
     selectedModuleData = null; // Reset selected module data
     selectedDifficulty = null; // Reset selected difficulty
     allQuestionsData = {}; // Reset module questions
+    userAnswers = [];
+    userCorrectStatus = [];
     if (feedbackSummary) feedbackSummary.innerHTML = '';
+    
+    // Ensure correct screens are shown/hidden
+    if (quizScreen) quizScreen.classList.add('hidden');
     if (resultsScreen) resultsScreen.classList.add('hidden');
-    showModuleSelectionScreen(); // Go back to module selection
-}
-
-function showModuleSelectionScreen() {
-    if (moduleSelectionScreen) moduleSelectionScreen.classList.remove('hidden');
     if (difficultyScreen) difficultyScreen.classList.add('hidden');
-    if (quizScreen) quizScreen.classList.add('hidden');
-    if (resultsScreen) resultsScreen.classList.add('hidden');
-}
-
-function showDifficultyScreen() {
-    if (difficultyScreen) difficultyScreen.classList.remove('hidden');
-    if (moduleSelectionScreen) moduleSelectionScreen.classList.add('hidden');
-    if (quizScreen) quizScreen.classList.add('hidden');
-    if (resultsScreen) resultsScreen.classList.add('hidden');
+    if (moduleSelectionScreen) moduleSelectionScreen.classList.remove('hidden'); // Show module selection
+    
+    populateModuleSelectionScreen(); // Repopulate modules
 }
