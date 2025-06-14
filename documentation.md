@@ -88,6 +88,30 @@ Aplicación web interactiva para evaluar conocimientos de álgebra lineal median
 - **Acceso Multi-dispositivo**: Funciona desde cualquier dispositivo en la red local
 - **Sin Dependencias Externas**: Funcionamiento offline (excepto MathJax CDN)
 
+### **Despliegue con Docker**
+La aplicación puede ser desplegada utilizando Docker. Se proporciona un `Dockerfile` para construir una imagen de la aplicación.
+
+**Construcción de la Imagen:**
+Para construir la imagen Docker, navega a la raíz del proyecto (`matrixTest`) en tu terminal y ejecuta:
+```bash
+docker build -t matrix-test-app .
+```
+
+**Ejecución del Contenedor:**
+
+*   **Durante el Desarrollo (con volumen):**
+    Para facilitar el desarrollo y ver los cambios en tiempo real, puedes montar el directorio actual como un volumen dentro del contenedor. Ejecuta el siguiente comando desde la raíz del proyecto:
+    ```bash
+    docker run -d -p 8080:80 -v ${PWD}:/usr/share/nginx/html matrix-test-app
+    ```
+    La aplicación estará disponible en `http://localhost:8080`.
+
+*   **En Producción (sin volumen - Próximamente):**
+    La intención futura es ejecutar el contenedor sin necesidad de montar un volumen, utilizando los archivos copiados durante la construcción de la imagen.
+    ```bash
+    docker run -d -p 8080:80 matrix-test-app
+    ```
+
 ## 📊 Funcionalidades de Evaluación
 
 ### **Sistema de Puntuación**
