@@ -54,6 +54,8 @@ let userAnswers = [];
 let userCorrectStatus = [];
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM loaded, initializing elements...");
+    
     // Assign DOM elements to variables
     moduleSelectionScreen = document.getElementById('module-selection-screen');
     moduleOptionsContainer = document.getElementById('module-options-container');
@@ -80,22 +82,18 @@ document.addEventListener('DOMContentLoaded', () => {
     startIntermediateButton = document.getElementById('start-intermediate');
     startAdvancedButton = document.getElementById('start-advanced');
 
-    questionHintElem = document.getElementById('question-hint');
-    if (!questionHintElem) {
-        questionHintElem = document.createElement('p');
-        questionHintElem.id = 'question-hint';
-        questionHintElem.className = 'text-gray-500 text-sm italic mb-4';
-        if (questionText && questionText.parentNode) {
-            questionText.parentNode.insertBefore(questionHintElem, questionText.nextSibling);
-        }
-    }
+    questionHintElem = document.getElementById('question-hint'); // Assign from static HTML element
+    
+    console.log("DOM elements assigned:");
+    console.log("moduleSelectionScreen:", moduleSelectionScreen);
+    console.log("moduleOptionsContainer:", moduleOptionsContainer);
 
     prevButton = document.getElementById('prev-btn');
     if (!prevButton) {
         prevButton = document.createElement('button');
         prevButton.id = 'prev-btn';
         prevButton.textContent = 'Atrás';
-        prevButton.className = 'px-5 py-2 rounded-lg text-white font-semibold';
+        prevButton.className = 'px-5 py-2 rounded-lg text-white font-semibold'; // Consider Tailwind classes if consistent
         prevButton.disabled = true;
         const nav = document.getElementById('navigation-buttons');
         if (nav) nav.insertBefore(prevButton, nav.firstChild);
@@ -107,6 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (backToModulesButton) backToModulesButton.addEventListener('click', showModuleSelectionScreen);
     if (prevButton) prevButton.addEventListener('click', prevQuestion);
 
+    // Add event listener for show results button
+    const showResultsButton = document.getElementById('show-results-button');
+    if (showResultsButton) showResultsButton.addEventListener('click', showResults);
+
     if (startBasicButton) startBasicButton.addEventListener('click', () => startQuiz('basico'));
     if (startIntermediateButton) startIntermediateButton.addEventListener('click', () => startQuiz('intermedio'));
     if (startAdvancedButton) startAdvancedButton.addEventListener('click', () => startQuiz('avanzado'));
@@ -117,31 +119,65 @@ document.addEventListener('DOMContentLoaded', () => {
     if (quizScreen) quizScreen.classList.add('hidden');
     if (resultsScreen) resultsScreen.classList.add('hidden');
 
-    fetchQuestions(); // Fetch data and then populate module selection
+    console.log("About to call fetchQuestions()");
+    fetchQuestions().then(() => {
+        console.log("fetchQuestions completed successfully");
+    }).catch(error => {
+        console.error("fetchQuestions failed:", error);
+    });
 });
 
 async function fetchQuestions() {
+    console.log("=== fetchQuestions START ===");
+    
     try {
+        console.log("Fetching questions.json...");
         const response = await fetch('./questions.json');
+        console.log("Fetch response status:", response.status);
+        console.log("Fetch response ok:", response.ok);
+        
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+        
+        console.log("Parsing JSON...");
         const data = await response.json();
-        allModulesData = data.quizModules; // Store all modules
+        console.log("JSON parsed successfully");
+        console.log("Data structure:", {
+            hasQuizModules: !!data.quizModules,
+            quizModulesType: typeof data.quizModules,
+            quizModulesLength: data.quizModules ? data.quizModules.length : 'N/A'
+        });
+        
+        if (!data.quizModules || !Array.isArray(data.quizModules)) {
+            throw new Error("Invalid data structure: quizModules not found or not an array");
+        }
+        
+        allModulesData = data.quizModules;
+        console.log("allModulesData assigned:", allModulesData.length, "modules");
 
-        // Ensure module screen is shown before populating
+        // Show module selection screen
         if (moduleSelectionScreen) moduleSelectionScreen.classList.remove('hidden');
         if (difficultyScreen) difficultyScreen.classList.add('hidden');
         if (quizScreen) quizScreen.classList.add('hidden');
         if (resultsScreen) resultsScreen.classList.add('hidden');
         
-        populateModuleSelectionScreen(); // Now populate
+        console.log("Calling populateModuleSelectionScreen...");
+        populateModuleSelectionScreen();
+        console.log("=== fetchQuestions COMPLETE ===");
+        
     } catch (error) {
-        console.error("Error fetching questions:", error);
+        console.error("Error in fetchQuestions:", error);
+        console.error("Error stack:", error.stack);
+        
+        // Set fallback data
+        allModulesData = [];
+        
         if (moduleOptionsContainer) {
-            moduleOptionsContainer.innerHTML = "<p class='error-text'>Error al cargar los módulos. Por favor, inténtalo de nuevo más tarde.</p>";
+            moduleOptionsContainer.innerHTML = `<p class='error-text'>Error al cargar los módulos: ${error.message}</p>`;
         }
-        // Ensure module screen is shown even on error, with other screens hidden
+        
+        // Ensure module screen is shown even on error
         if (moduleSelectionScreen) moduleSelectionScreen.classList.remove('hidden');
         if (difficultyScreen) difficultyScreen.classList.add('hidden');
         if (quizScreen) quizScreen.classList.add('hidden');
@@ -150,32 +186,49 @@ async function fetchQuestions() {
 }
 
 function populateModuleSelectionScreen() {
+    console.log("=== populateModuleSelectionScreen DEBUG ===");
+    console.log("moduleOptionsContainer:", moduleOptionsContainer);
+    console.log("allModulesData:", allModulesData);
+    console.log("allModulesData type:", typeof allModulesData);
+    console.log("allModulesData.length:", allModulesData ? allModulesData.length : 'N/A');
+    
     if (!moduleOptionsContainer) {
-        console.error("moduleOptionsContainer no encontrado. No se pueden poblar los módulos.");
+        console.error("moduleOptionsContainer no encontrado!");
         return;
     }
 
-    // Ensure module selection screen is visible and others are hidden
-    if (moduleSelectionScreen) moduleSelectionScreen.classList.remove('hidden');
-    if (difficultyScreen) difficultyScreen.classList.add('hidden');
-    if (quizScreen) quizScreen.classList.add('hidden');
-    if (resultsScreen) resultsScreen.classList.add('hidden');
+    // Clear previous options
+    moduleOptionsContainer.innerHTML = '';
 
-    moduleOptionsContainer.innerHTML = ''; // Clear previous options
-
-    if (!allModulesData || allModulesData.length === 0) {
+    if (!allModulesData || !Array.isArray(allModulesData) || allModulesData.length === 0) {
+        console.warn("No hay datos de módulos válidos");
         moduleOptionsContainer.innerHTML = "<p class='info-text'>No hay módulos disponibles en este momento.</p>";
-        console.warn("No hay datos de módulos para mostrar o allModulesData está vacío.");
         return;
     }
     
-    allModulesData.forEach(module => {
+    console.log("Creating buttons for", allModulesData.length, "modules");
+    
+    allModulesData.forEach((module, index) => {
+        console.log(`Processing module ${index}:`, module);
+        console.log(`Module name: '${module.name}'`);
+        
         const button = document.createElement('button');
-        button.textContent = module.name;
-        button.classList.add('start-button'); // Re-use existing button style
-        button.addEventListener('click', () => selectModule(module));
+        button.className = 'start-button';
+        
+        // Ensure we have a valid name
+        const moduleName = module && module.name ? module.name : `Módulo ${index + 1}`;
+        button.textContent = moduleName;
+        
+        button.addEventListener('click', () => {
+            console.log("Module selected:", module);
+            selectModule(module);
+        });
+        
         moduleOptionsContainer.appendChild(button);
+        console.log(`Button created for: ${moduleName}`);
     });
+    
+    console.log("=== populateModuleSelectionScreen COMPLETE ===");
 }
 
 function showModuleSelectionScreen() {
@@ -268,51 +321,27 @@ function startQuiz(difficulty) {
     
     currentQuestionIndex = 0;
     score = 0;
-    if (feedbackSummary) feedbackSummary.innerHTML = ''; // Clear previous feedback summary
+    userAnswers = [];
+    userCorrectStatus = [];
+    
+    // Clear feedback containers and reset display states
+    if (feedbackSummary) feedbackSummary.innerHTML = '';
+    if (feedbackContainer) feedbackContainer.innerHTML = '';
+    
+    // Set up initial screen visibility
     if (quizScreen) quizScreen.classList.remove('hidden');
     if (difficultyScreen) difficultyScreen.classList.add('hidden');
     if (resultsScreen) resultsScreen.classList.add('hidden');
     if (moduleSelectionScreen) moduleSelectionScreen.classList.add('hidden');
+    
     generateQuestion();
 }
 
 // Function to generate a question
 function generateQuestion() {
     if (currentQuestionIndex < questions.length) {
-        const currentQuestion = questions[currentQuestionIndex];
-        // Render pregunta
-        if (questionText) {
-            questionText.innerHTML = currentQuestion.text;
-            if (window.MathJax) MathJax.typesetPromise([questionText]);
-        }
-        // Render pista si no ha respondido
-        if (questionHintElem) {
-            if (userAnswers[currentQuestionIndex] == null && currentQuestion.hint) {
-                questionHintElem.textContent = `Pista: ${currentQuestion.hint}`;
-                questionHintElem.classList.remove('hidden');
-            } else {
-                questionHintElem.classList.add('hidden');
-            }
-        }
-        // Render opciones
-        if (optionsContainer) {
-            optionsContainer.innerHTML = '';
-            currentQuestion.options.forEach((option, idx) => {
-                const button = document.createElement('button');
-                button.classList.add('option-button');
-                button.innerHTML = `${String.fromCharCode(65 + idx)}. ${option}`;
-                button.onclick = () => selectAnswer(idx);
-                optionsContainer.appendChild(button);
-            });
-            if (window.MathJax) MathJax.typesetPromise([optionsContainer]);
-        }
-        // Feedback inmediato dentro de la opción seleccionada
-        if (userAnswers[currentQuestionIndex] != null) {
-            renderFeedback(currentQuestionIndex);
-        }
-        // Navegación
+        displayQuestion();
         updateNavigationButtons();
-        if (nextButton) nextButton.classList.remove('hidden');
     } else {
         showResults();
     }
@@ -320,12 +349,36 @@ function generateQuestion() {
 
 function selectAnswer(selectedIdx) {
     const currentQuestion = questions[currentQuestionIndex];
+    
+    // Prevenir cambios de respuesta si ya se respondió esta pregunta
+    if (userAnswers[currentQuestionIndex] !== undefined) {
+        console.log("Esta pregunta ya fue respondida. No se permite cambiar la respuesta.");
+        return;
+    }
+    
     userAnswers[currentQuestionIndex] = selectedIdx;
     const isCorrect = currentQuestion.options[selectedIdx] === currentQuestion.correctAnswer;
     userCorrectStatus[currentQuestionIndex] = isCorrect;
-    // No modificar score aquí, se recalcula en showResults
+    
+    // Actualizar score si la respuesta es correcta
+    if (isCorrect) {
+        score++;
+    }
+    
+    console.log(`Question ${currentQuestionIndex + 1}: Answer selected, isCorrect: ${isCorrect}, Current score: ${score}`);
+    
     renderFeedback(currentQuestionIndex);
-    if (questionHintElem) questionHintElem.classList.add('hidden');
+    if (questionHintElem) questionHintElem.style.display = 'none';
+    
+    // Show next button after answering
+    if (nextButton) {
+        nextButton.classList.remove('hidden');
+        if (currentQuestionIndex === questions.length - 1) {
+            nextButton.textContent = 'Finalizar Test';
+        } else {
+            nextButton.textContent = 'Siguiente';
+        }
+    }
 }
 
 function renderFeedback(qIdx) {
@@ -362,7 +415,6 @@ function renderFeedback(qIdx) {
         }
     });
     if (window.MathJax) MathJax.typesetPromise([optionsContainer]);
-    if (nextButton) nextButton.classList.remove('hidden');
 }
 
 function updateNavigationButtons() {
@@ -394,6 +446,7 @@ function prevQuestion() {
 function showResults() {
     if (quizScreen) quizScreen.classList.add('hidden');
     if (resultsScreen) resultsScreen.classList.remove('hidden');
+    
     // Calcular score real basado en respuestas correctas
     let realScore = 0;
     for (let i = 0; i < userAnswers.length; i++) {
@@ -402,8 +455,12 @@ function showResults() {
             realScore++;
         }
     }
-    if (finalScore) finalScore.textContent = realScore;
+    
+    // Actualizar la variable global score y mostrar en pantalla
+    score = realScore;
+    if (finalScore) finalScore.textContent = score;
     if (totalQuestions) totalQuestions.textContent = questions.length;
+    
     // Update module and difficulty information
     if (resultsModuleName && selectedModuleData) {
         resultsModuleName.textContent = selectedModuleData.name;
@@ -417,10 +474,161 @@ function showResults() {
         };
         resultsDifficulty.textContent = difficultyNames[selectedDifficulty] || selectedDifficulty;
     }
+
+    // Create detailed feedback summary
+    if (feedbackSummary) {
+        feedbackSummary.innerHTML = ''; // Clear previous feedback
+
+        questions.forEach((question, index) => {
+            const questionResultDiv = document.createElement('div');
+            questionResultDiv.classList.add('question-result-item', 'mb-6', 'pb-4', 'border-b', 'border-gray-700');
+
+            const questionTitle = document.createElement('h4');
+            questionTitle.classList.add('text-lg', 'font-semibold', 'mb-2', 'text-blue-400');
+            questionTitle.innerHTML = `Pregunta ${index + 1}: ${question.text}`;
+
+            const userAnswerPara = document.createElement('p');
+            userAnswerPara.classList.add('text-sm', 'mb-1');
+            const userAnswerIndex = userAnswers[index];
+            const isAnswered = userAnswerIndex !== undefined && userAnswerIndex !== null;
+            const userAnswerDisplay = isAnswered && question.options ? question.options[userAnswerIndex] : "No respondida";
+            const answerCorrect = isAnswered && userCorrectStatus[index];
+            userAnswerPara.innerHTML = `Tu respuesta: <span class="font-medium ${answerCorrect ? 'text-green-400' : 'text-red-400'}">${userAnswerDisplay}</span>`;
+
+            const correctAnswerPara = document.createElement('p');
+            correctAnswerPara.classList.add('text-sm', 'mb-1');
+            correctAnswerPara.innerHTML = `Respuesta correcta: <span class="font-medium text-green-400">${question.correctAnswer}</span>`;
+            
+            questionResultDiv.appendChild(questionTitle);
+            questionResultDiv.appendChild(userAnswerPara);
+            questionResultDiv.appendChild(correctAnswerPara);
+
+            if (question.explanation) {
+                const explanationPara = document.createElement('p');
+                explanationPara.classList.add('text-sm', 'text-gray-400', 'italic', 'mt-1');
+                explanationPara.innerHTML = `Explicación: ${question.explanation}`;
+                questionResultDiv.appendChild(explanationPara);
+            }
+            feedbackSummary.appendChild(questionResultDiv);
+        });
+    }
+    
     // Process MathJax for the feedback summary
     if (window.MathJax && feedbackSummary) {
         MathJax.typesetPromise([feedbackSummary]).catch((err) => console.log(err.message));
     }
+}
+
+// Function to display the question and options
+function displayQuestion() {
+    if (currentQuestionIndex >= questions.length) {
+        showResults();
+        return;
+    }
+
+    const currentQuestion = questions[currentQuestionIndex];
+    if (!currentQuestion) {
+        console.error("Current question is undefined. Index:", currentQuestionIndex, "Questions:", questions);
+        // Potentially handle this error by showing an error message or navigating away
+        return;
+    }
+
+    if (questionText) questionText.innerHTML = currentQuestion.text; // Use innerHTML for potential MathJax
+    
+    // Check if this question was already answered
+    const isAlreadyAnswered = userAnswers[currentQuestionIndex] !== undefined;
+    
+    if (optionsContainer) {
+        optionsContainer.innerHTML = ''; // Clear previous options
+        if (currentQuestion.options && Array.isArray(currentQuestion.options)) {
+            currentQuestion.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.classList.add('option-button');
+                
+                // Wrap option text in a span for better layout control
+                const optionTextSpan = document.createElement('span');
+                optionTextSpan.className = 'option-main-text';
+                optionTextSpan.innerHTML = option; // Use innerHTML for potential MathJax
+                button.appendChild(optionTextSpan);
+                
+                // Only add click listener if question hasn't been answered
+                if (!isAlreadyAnswered) {
+                    button.addEventListener('click', () => selectAnswer(index));
+                } else {
+                    // Disable button and show visual indication
+                    button.disabled = true;
+                    button.style.cursor = 'not-allowed';
+                }
+                
+                optionsContainer.appendChild(button);
+            });
+        } else {
+            console.error("Options are missing or not an array for question:", currentQuestion);
+        }
+    }
+
+    // If question was already answered, show the feedback immediately
+    if (isAlreadyAnswered) {
+        renderFeedback(currentQuestionIndex);
+        // Hide hint for answered questions
+        if (questionHintElem) questionHintElem.style.display = 'none';
+        
+        // Add a message indicating the question was already answered
+        if (feedbackContainer) {
+            const alreadyAnsweredMsg = document.createElement('p');
+            alreadyAnsweredMsg.className = 'text-sm text-yellow-400 font-medium mt-2';
+            alreadyAnsweredMsg.innerHTML = '⚠️ Ya respondiste esta pregunta. No puedes cambiar tu respuesta.';
+            feedbackContainer.appendChild(alreadyAnsweredMsg);
+        }
+    } else {
+        // Clear any previous feedback for unanswered questions
+        if (feedbackContainer) feedbackContainer.innerHTML = '';
+        
+        // Show hint only for unanswered questions
+        if (questionHintElem) {
+            if (currentQuestion.hint) {
+                questionHintElem.textContent = currentQuestion.hint;
+                questionHintElem.style.display = 'block';
+            } else {
+                questionHintElem.textContent = '';
+                questionHintElem.style.display = 'none';
+            }
+        }
+    }
+
+    // Update navigation buttons
+    if (prevButton) prevButton.disabled = currentQuestionIndex === 0;
+    
+    // Show/hide next button based on whether question is answered
+    if (nextButton) {
+        if (isAlreadyAnswered) {
+            nextButton.classList.remove('hidden');
+        } else {
+            nextButton.classList.add('hidden');
+        }
+    }
+    
+    // Update next button text
+    if (nextButton) {
+        if (currentQuestionIndex === questions.length - 1) {
+            nextButton.textContent = 'Finalizar Test';
+        } else {
+            nextButton.textContent = 'Siguiente';
+        }
+    }
+    
+    const showResultsButton = document.getElementById('show-results-button');
+    if (showResultsButton) showResultsButton.classList.add('hidden'); // Hide by default
+
+
+    // Ensure MathJax typesets the content
+    if (window.MathJax) {
+        const elementsToTypeset = [questionText, optionsContainer].filter(Boolean);
+        window.MathJax.typesetPromise(elementsToTypeset)
+            .catch((err) => console.error('MathJax typesetting error in displayQuestion:', err));
+    }
+    
+    if (feedbackContainer) feedbackContainer.innerHTML = ''; // Clear previous feedback
 }
 
 function restartQuiz() {
