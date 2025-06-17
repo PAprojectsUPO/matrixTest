@@ -13,7 +13,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    padding: 10px;
+    padding: 20px 10px 10px 10px;
     margin: 0;
     box-sizing: border-box;
 }
@@ -45,6 +45,8 @@ body {
     font-size: 1.75rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
     line-height: 1.2;
 
     /* Gradient text style */
@@ -58,18 +60,17 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     color: #e6edf3;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     line-height: 1.4;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
 #question-hint {
-    color: #768390;
+    color: #b8bdc1;
     font-size: 0.9rem;
     font-style: italic;
-    margin-bottom: 12px;
-    line-height: 1.3;
+    line-height: 1.4;
 }
 
 .info-text {
@@ -82,24 +83,24 @@ body {
 /* Buttons */
 .option-button {
     background-color: #21262d;
-    color: #c9d1d9;
-    padding: 15px 12px;
+    color: #e6edf3;
+    padding: 15px 14px;
     border-radius: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     border: 1px solid #30363d;
     text-align: left;
     width: 100%;
     display: flex;
-    align-items: center; /* Added to vertically align content if needed */
+    flex-direction: column;
     font-size: 0.95rem;
     font-weight: 500;
     min-height: 48px;
     box-sizing: border-box;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    line-height: 1.3;
+    line-height: 1.4;
 }
 
 .option-button:hover:not(:disabled):not(.selected) {
@@ -183,17 +184,18 @@ body {
 
 /* Navigation buttons */
 #navigation-buttons {
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
+    margin-top: 20px !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    flex-wrap: wrap !important;
+    align-items: center !important; /* Changed back to center */
 }
 
-#prev-btn, #next-button {
+#next-button {
     background-color: #21262d;
     color: #c9d1d9;
-    padding: 12px 16px;
+    padding: 12px 18px;
     border-radius: 8px;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
@@ -201,15 +203,21 @@ body {
     font-weight: 600;
     font-size: 0.95rem;
     min-height: 44px;
-    flex: 1;
+    height: 44px; /* Fixed height */
+    min-width: 100px;
     max-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    vertical-align: top; /* Ensure same baseline */
 }
 
-#prev-btn:hover:not(:disabled), #next-button:hover:not(:disabled) {
+#next-button:hover:not(:disabled) {
     background-color: #30363d;
 }
 
-#prev-btn:disabled, #next-button:disabled {
+#next-button:disabled {
     background-color: #161b22;
     color: #6e7681;
     cursor: not-allowed;
@@ -226,6 +234,31 @@ body {
     background-color: #2ea043;
 }
 
+#show-results-button {
+    background-color: #238636;
+    border-color: #238636;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    min-height: 44px;
+    height: 44px;
+    min-width: 100px;
+    max-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+#show-results-button:hover {
+    background-color: #2ea043;
+}
+
 .next-button, .show-results-button {
     background-color: #238636;
     color: #fff;
@@ -234,7 +267,7 @@ body {
     font-weight: bold;
     transition: background-color 0.2s ease-in-out;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 10px;
     border: 1px solid #238636;
     min-height: 48px;
 }
@@ -267,11 +300,12 @@ body {
 }
 
 .answer-feedback-rationale {
-    font-size: 0.85rem;
-    color: #8b949e; /* Lighter text for rationale */
-    margin-top: 6px;
+    font-size: 0.87rem;
+    color: #a5b3c1; /* Better contrast for mobile */
+    margin-top: 8px;
     padding-left: 24px; /* Indent rationale under feedback text if icon is present */
-    line-height: 1.4;
+    line-height: 1.5;
+    font-weight: 400;
 }
 
 /* New class for the main text of the option button */
@@ -300,26 +334,107 @@ body {
     overflow-x: auto !important;
     overflow-y: hidden !important;
     max-width: 100% !important;
-    font-size: 0.85em !important;
+    font-size: 0.94em !important;
 }
 
 .MathJax_Display {
     margin: 0.5em 0 !important;
 }
 
-/* Small mobile devices */
-@media (max-width: 380px) {
+/* Mobile-first improvements */
+@media (max-width: 480px) {
     body {
-        padding: 8px;
+        padding: 15px 8px 8px 8px;
     }
     
     .question-card {
-        padding: 15px 12px;
-        gap: 12px;
+        padding: 20px 15px;
+        gap: 18px;
+        margin-bottom: 15px;
     }
     
     .header {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+        padding-top: 0.5rem;
+        margin-top: 1rem;
+    }
+    
+    #question-text {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    #question-hint {
+        font-size: 0.85rem;
+    }
+    
+    .option-button {
+        padding: 15px 12px;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+        line-height: 1.4;
+        min-height: 50px;
+        border-radius: 12px;
+    }
+    
+    #next-button {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        min-width: 100px;
+        height: 44px;
+        flex: 1;
+        max-width: 140px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .answer-feedback-rationale {
+        font-size: 0.88rem;
+        line-height: 1.5;
+        margin-top: 8px;
+        padding-left: 20px;
+        color: #a5b3c1;
+    }
+    
+    #navigation-buttons {
+        margin-top: 15px;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    #next-button {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        min-width: 100px;
+        height: 44px;
+        flex: 1;
+        max-width: 140px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .MathJax, .MathJax_Display {
+        font-size: 0.92em !important;
+    }
+}
+
+/* Very small mobile devices */
+@media (max-width: 380px) {
+    .question-card {
+        padding: 18px 12px;
+        gap: 15px;
+    }
+    
+    .header {
+        font-size: 1.4rem;
     }
     
     #question-text {
@@ -327,18 +442,24 @@ body {
     }
     
     .option-button {
-        padding: 12px 10px;
+        padding: 14px 10px;
         font-size: 0.9rem;
+        margin-bottom: 10px;
     }
     
-    #prev-btn, #next-button {
+    .answer-feedback-rationale {
+        font-size: 0.85rem;
+        padding-left: 18px;
+    }
+    
+    #next-button {
         padding: 10px 12px;
         font-size: 0.9rem;
-        max-width: 120px;
-    }
-    
-    .MathJax, .MathJax_Display {
-        font-size: 0.8em !important;
+        min-width: 80px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -356,17 +477,16 @@ body {
     
     .header {
         font-size: 2rem;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
     
     #question-text {
         font-size: 1.25rem;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
     }
     
     #question-hint {
         font-size: 0.95rem;
-        margin-bottom: 16px;
     }
     
     .option-button {
@@ -380,7 +500,7 @@ body {
         gap: 12px;
     }
     
-    #prev-btn, #next-button {
+    #next-button {
         padding: 10px 20px;
         flex: none;
         max-width: none;
@@ -426,7 +546,7 @@ body {
     
     .header {
         font-size: 1.4rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
     }
     
     .question-card {
@@ -436,7 +556,6 @@ body {
     
     #question-text {
         font-size: 1rem;
-        margin-bottom: 10px;
     }
     
     .option-button {
@@ -450,7 +569,7 @@ body {
         margin-top: 10px;
     }
     
-    #prev-btn, #next-button {
+    #next-button {
         padding: 8px 12px;
         min-height: 40px;
     }
@@ -462,7 +581,7 @@ body {
         border-width: 2px;
     }
     
-    #prev-btn, #next-button {
+    #next-button {
         border-width: 2px;
     }
 }

@@ -47,15 +47,12 @@ let startAdvancedButton;
 
 // Elemento para la pista/hint
 let questionHintElem;
-let prevButton;
 
 // Estado de respuestas del usuario
 let userAnswers = [];
 let userCorrectStatus = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM loaded, initializing elements...");
-    
     // Assign DOM elements to variables
     moduleSelectionScreen = document.getElementById('module-selection-screen');
     moduleOptionsContainer = document.getElementById('module-options-container');
@@ -84,26 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     questionHintElem = document.getElementById('question-hint'); // Assign from static HTML element
     
-    console.log("DOM elements assigned:");
-    console.log("moduleSelectionScreen:", moduleSelectionScreen);
-    console.log("moduleOptionsContainer:", moduleOptionsContainer);
-
-    prevButton = document.getElementById('prev-btn');
-    if (!prevButton) {
-        prevButton = document.createElement('button');
-        prevButton.id = 'prev-btn';
-        prevButton.textContent = 'Atrás';
-        prevButton.className = 'px-5 py-2 rounded-lg text-white font-semibold'; // Consider Tailwind classes if consistent
-        prevButton.disabled = true;
-        const nav = document.getElementById('navigation-buttons');
-        if (nav) nav.insertBefore(prevButton, nav.firstChild);
-    }
-    
     // Initialize event listeners
     if (nextButton) nextButton.addEventListener('click', nextQuestion);
     if (restartButton) restartButton.addEventListener('click', restartQuiz);
     if (backToModulesButton) backToModulesButton.addEventListener('click', showModuleSelectionScreen);
-    if (prevButton) prevButton.addEventListener('click', prevQuestion);
 
     // Add event listener for show results button
     const showResultsButton = document.getElementById('show-results-button');
@@ -119,42 +100,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (quizScreen) quizScreen.classList.add('hidden');
     if (resultsScreen) resultsScreen.classList.add('hidden');
 
-    console.log("About to call fetchQuestions()");
-    fetchQuestions().then(() => {
-        console.log("fetchQuestions completed successfully");
-    }).catch(error => {
+    fetchQuestions().catch(error => {
         console.error("fetchQuestions failed:", error);
     });
 });
 
 async function fetchQuestions() {
-    console.log("=== fetchQuestions START ===");
-    
     try {
-        console.log("Fetching questions.json...");
         const response = await fetch('./questions.json');
-        console.log("Fetch response status:", response.status);
-        console.log("Fetch response ok:", response.ok);
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
-        console.log("Parsing JSON...");
         const data = await response.json();
-        console.log("JSON parsed successfully");
-        console.log("Data structure:", {
-            hasQuizModules: !!data.quizModules,
-            quizModulesType: typeof data.quizModules,
-            quizModulesLength: data.quizModules ? data.quizModules.length : 'N/A'
-        });
         
         if (!data.quizModules || !Array.isArray(data.quizModules)) {
             throw new Error("Invalid data structure: quizModules not found or not an array");
         }
         
         allModulesData = data.quizModules;
-        console.log("allModulesData assigned:", allModulesData.length, "modules");
 
         // Show module selection screen
         if (moduleSelectionScreen) moduleSelectionScreen.classList.remove('hidden');
@@ -162,9 +127,7 @@ async function fetchQuestions() {
         if (quizScreen) quizScreen.classList.add('hidden');
         if (resultsScreen) resultsScreen.classList.add('hidden');
         
-        console.log("Calling populateModuleSelectionScreen...");
         populateModuleSelectionScreen();
-        console.log("=== fetchQuestions COMPLETE ===");
         
     } catch (error) {
         console.error("Error in fetchQuestions:", error);
@@ -186,12 +149,6 @@ async function fetchQuestions() {
 }
 
 function populateModuleSelectionScreen() {
-    console.log("=== populateModuleSelectionScreen DEBUG ===");
-    console.log("moduleOptionsContainer:", moduleOptionsContainer);
-    console.log("allModulesData:", allModulesData);
-    console.log("allModulesData type:", typeof allModulesData);
-    console.log("allModulesData.length:", allModulesData ? allModulesData.length : 'N/A');
-    
     if (!moduleOptionsContainer) {
         console.error("moduleOptionsContainer no encontrado!");
         return;
@@ -206,12 +163,7 @@ function populateModuleSelectionScreen() {
         return;
     }
     
-    console.log("Creating buttons for", allModulesData.length, "modules");
-    
     allModulesData.forEach((module, index) => {
-        console.log(`Processing module ${index}:`, module);
-        console.log(`Module name: '${module.name}'`);
-        
         const button = document.createElement('button');
         button.className = 'start-button';
         
@@ -220,15 +172,11 @@ function populateModuleSelectionScreen() {
         button.textContent = moduleName;
         
         button.addEventListener('click', () => {
-            console.log("Module selected:", module);
             selectModule(module);
         });
         
         moduleOptionsContainer.appendChild(button);
-        console.log(`Button created for: ${moduleName}`);
     });
-    
-    console.log("=== populateModuleSelectionScreen COMPLETE ===");
 }
 
 function showModuleSelectionScreen() {
@@ -352,7 +300,6 @@ function selectAnswer(selectedIdx) {
     
     // Prevenir cambios de respuesta si ya se respondió esta pregunta
     if (userAnswers[currentQuestionIndex] !== undefined) {
-        console.log("Esta pregunta ya fue respondida. No se permite cambiar la respuesta.");
         return;
     }
     
@@ -365,10 +312,13 @@ function selectAnswer(selectedIdx) {
         score++;
     }
     
-    console.log(`Question ${currentQuestionIndex + 1}: Answer selected, isCorrect: ${isCorrect}, Current score: ${score}`);
+    // Hide hint after answering
+    if (questionHintElem) {
+        questionHintElem.classList.add('hidden');
+        questionHintElem.style.display = 'none';
+    }
     
     renderFeedback(currentQuestionIndex);
-    if (questionHintElem) questionHintElem.style.display = 'none';
     
     // Show next button after answering
     if (nextButton) {
@@ -418,8 +368,7 @@ function renderFeedback(qIdx) {
 }
 
 function updateNavigationButtons() {
-    if (!prevButton || !nextButton) return;
-    prevButton.disabled = currentQuestionIndex === 0;
+    if (!nextButton) return;
     if (currentQuestionIndex === questions.length - 1) {
         nextButton.textContent = 'Finalizar Test';
     } else {
@@ -433,13 +382,6 @@ function nextQuestion() {
         generateQuestion();
     } else {
         showResults();
-    }
-}
-
-function prevQuestion() {
-    if (currentQuestionIndex > 0) {
-        currentQuestionIndex--;
-        generateQuestion();
     }
 }
 
@@ -535,6 +477,18 @@ function displayQuestion() {
 
     if (questionText) questionText.innerHTML = currentQuestion.text; // Use innerHTML for potential MathJax
     
+    // Show hint for the current question (before answering)
+    if (questionHintElem) {
+        if (currentQuestion.hint && currentQuestion.hint.trim() !== '') {
+            questionHintElem.innerHTML = `<strong>Pista:</strong> ${currentQuestion.hint}`;
+            questionHintElem.classList.remove('hidden');
+            questionHintElem.style.display = 'block';
+        } else {
+            questionHintElem.classList.add('hidden');
+            questionHintElem.style.display = 'none';
+        }
+    }
+    
     // Check if this question was already answered
     const isAlreadyAnswered = userAnswers[currentQuestionIndex] !== undefined;
     
@@ -571,34 +525,16 @@ function displayQuestion() {
     if (isAlreadyAnswered) {
         renderFeedback(currentQuestionIndex);
         // Hide hint for answered questions
-        if (questionHintElem) questionHintElem.style.display = 'none';
-        
-        // Add a message indicating the question was already answered
-        if (feedbackContainer) {
-            const alreadyAnsweredMsg = document.createElement('p');
-            alreadyAnsweredMsg.className = 'text-sm text-yellow-400 font-medium mt-2';
-            alreadyAnsweredMsg.innerHTML = '⚠️ Ya respondiste esta pregunta. No puedes cambiar tu respuesta.';
-            feedbackContainer.appendChild(alreadyAnsweredMsg);
+        if (questionHintElem) {
+            questionHintElem.classList.add('hidden');
+            questionHintElem.style.display = 'none';
         }
     } else {
         // Clear any previous feedback for unanswered questions
         if (feedbackContainer) feedbackContainer.innerHTML = '';
-        
-        // Show hint only for unanswered questions
-        if (questionHintElem) {
-            if (currentQuestion.hint) {
-                questionHintElem.textContent = currentQuestion.hint;
-                questionHintElem.style.display = 'block';
-            } else {
-                questionHintElem.textContent = '';
-                questionHintElem.style.display = 'none';
-            }
-        }
+        // Hint is already shown above, no need to manipulate it here
     }
 
-    // Update navigation buttons
-    if (prevButton) prevButton.disabled = currentQuestionIndex === 0;
-    
     // Show/hide next button based on whether question is answered
     if (nextButton) {
         if (isAlreadyAnswered) {

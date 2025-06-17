@@ -23,7 +23,7 @@
           {
             "id": "AL_BAS_002",
             "subCategory": "Tipos de Matrices",
-            "text": "Si una matriz A tiene orden m×n y m=n, ¿qué tipo de matriz es?",
+            "text": "Si una matriz $A$ tiene orden $m × n$ y $m = n$, ¿qué tipo de matriz es?",
             "hint": "Piensa en matrices donde el número de filas y columnas permite operaciones especiales como el cálculo de determinantes.",
             "options": [
               "Matriz Rectangular.",
@@ -32,21 +32,21 @@
               "Matriz Columna."
             ],
             "correctAnswer": "Matriz Cuadrada.",
-            "explanation": "Una matriz cuadrada (donde m=n) es fundamental en álgebra lineal porque permite operaciones exclusivas como el cálculo de determinantes, trazas y potencias matriciales. Ejemplos clásicos son la matriz identidad y las matrices simétricas."
+            "explanation": "Una matriz cuadrada (donde $m = n$) es fundamental en álgebra lineal porque permite operaciones exclusivas como el cálculo de determinantes, trazas y potencias matriciales. Ejemplos clásicos son la matriz identidad y las matrices simétricas."
           },
           {
             "id": "AL_BAS_003",
             "subCategory": "Notación y Conceptos",
-            "text": "¿Cómo se denota el conjunto de todas las matrices reales de orden m×n?",
+            "text": "¿Cómo se denota el conjunto de todas las matrices reales de orden $m×n$?",
             "hint": "La notación incluye información sobre las dimensiones y el campo numérico al que pertenecen los elementos.",
-            "options": ["Mn (R)", "Rm×n", "Mm×n (R)", "Rn×m"],
-            "correctAnswer": "Mm×n (R)",
-            "explanation": "La notación Mm×n (R) especifica: m×n (orden), R (números reales). Esta convención es consistente con la notación de espacios vectoriales de matrices, donde R indica el cuerpo base y los subíndices las dimensiones."
+            "options": ["$M_n (R)$", "$R^{m×n}$", "$M_{m×n} (R)$", "$R^{n×m}$"],
+            "correctAnswer": "$M_{m×n} (R)$",
+            "explanation": "La notación $M_{m×n} (R)$ especifica: $m×n$ (orden), $R$ (números reales). Esta convención es consistente con la notación de espacios vectoriales de matrices, donde $R$ indica el cuerpo base y los subíndices las dimensiones."
           },
           {
             "id": "AL_BAS_004",
             "subCategory": "Tipos de Matrices",
-            "text": "¿Qué propiedad define a una matriz identidad de orden n?",
+            "text": "¿Qué propiedad define a una matriz identidad de orden $n$?",
             "hint": "Es la matriz equivalente al número 1 en la multiplicación matricial. ¿Cómo afecta al multiplicarla por otra matriz?",
             "options": [
               "Todos sus elementos son cero.",
@@ -55,12 +55,12 @@
               "Todos sus elementos son iguales."
             ],
             "correctAnswer": "Es una matriz diagonal con elementos de la diagonal principal iguales a uno.",
-            "explanation": "La matriz identidad In es crucial porque actúa como elemento neutro en la multiplicación de matrices: A·In = A para cualquier matriz A de orden compatible. Su estructura diagonal con unos garantiza esta propiedad."
+            "explanation": "La matriz identidad $I_n$ es crucial porque actúa como elemento neutro en la multiplicación de matrices: $A·I_n = A$ para cualquier matriz $A$ de orden compatible. Su estructura diagonal con unos garantiza esta propiedad."
           },
           {
             "id": "AL_BAS_005",
             "subCategory": "Notación y Conceptos",
-            "text": "¿Cuándo se dice que dos matrices A y B son iguales?",
+            "text": "¿Cuándo se dice que dos matrices $A$ y $B$ son iguales?",
             "hint": "No basta con que tengan la misma forma; deben coincidir en todos sus componentes.",
             "options": [
               "Cuando tienen el mismo número de filas.",
@@ -69,7 +69,7 @@
               "Cuando sus determinantes son iguales."
             ],
             "correctAnswer": "Cuando tienen el mismo orden y sus elementos correspondientes son iguales.",
-            "explanation": "La igualdad matricial exige: 1) Misma dimensión (m×n), y 2) aij = bij para todo i,j. Esto es análogo a la igualdad de vectores, extendido a dos dimensiones."
+            "explanation": "La igualdad matricial exige: 1) Misma dimensión ($m×n$), y 2) $a_{ij} = b_{ij}$ para todo $i,j$. Esto es análogo a la igualdad de vectores, extendido a dos dimensiones."
           },
           {
             "id": "AL_BAS_006",
@@ -102,7 +102,7 @@
           {
             "id": "AL_BAS_008",
             "subCategory": "Notación y Conceptos",
-            "text": "Si a una matriz A se le elimina m−k filas y n−r columnas, ¿qué se obtiene?",
+            "text": "Si a una matriz $A$ se le elimina $m−k$ filas y $n−r$  columnas, ¿qué se obtiene?",
             "hint": "Es análogo a seleccionar un subconjunto de filas y columnas para formar una nueva matriz.",
             "options": [
               "Una matriz transpuesta",
@@ -130,11 +130,11 @@
           {
             "id": "AL_BAS_010",
             "subCategory": "Notación y Conceptos",
-            "text": "¿Cómo se denota el rango de una matriz A?",
+            "text": "¿Cómo se denota el rango de una matriz $A$?",
             "hint": "Esta notación proviene del término inglés 'rank' y es independiente del lenguaje de programación.",
-            "options": ["det(A)", "A−1", "ran(A)", "At"],
-            "correctAnswer": "ran(A)",
-            "explanation": "El rango (ran(A)) indica la dimensión del espacio generado por sus filas/columnas. Es crucial para determinar soluciones de sistemas lineales: si ran(A)=ran([A|b]), el sistema es compatible."
+            "options": ["$det(A)$", "$A^{-1}$", "$ran(A)$", "$A^{T}$"],
+            "correctAnswer": "$ran(A)$",
+            "explanation": "El rango ($ran(A)$) indica la dimensión del espacio generado por sus filas/columnas. Es crucial para determinar soluciones de sistemas lineales: si $ran(A)=ran([A|b])$, el sistema es compatible."
           },
           {
             "id": "AL_BAS_011",
@@ -148,7 +148,7 @@
               "Matriz Nula"
             ],
             "correctAnswer": "Matriz Columna",
-            "explanation": "Las matrices columna (m×1) representan vectores en ℝᵐ. Son esenciales en ecuaciones lineales Ax=b, donde b es una matriz columna."
+            "explanation": "Las matrices columna (m×1) representan vectores en ℝᵐ. Son esenciales en ecuaciones lineales $Ax=b$, donde $b$ es una matriz columna."
           },
           {
             "id": "AL_BAS_012",
@@ -162,7 +162,7 @@
               "Matriz Triangular"
             ],
             "correctAnswer": "Matriz Escalar",
-            "explanation": "Una matriz escalar (λI) conmuta con todas las matrices del mismo orden. En geometría, representan homotecias (transformaciones de escala uniforme)."
+            "explanation": "Una matriz escalar ($\\lambda I$) conmuta con todas las matrices del mismo orden. En geometría, representan homotecias (transformaciones de escala uniforme)."
           },
           {
             "id": "AL_BAS_013",
@@ -176,7 +176,7 @@
               "Ser matrices cuadradas."
             ],
             "correctAnswer": "Tener el mismo orden.",
-            "explanation": "La suma matricial se define componente a componente, por lo que ambas matrices deben tener idénticas dimensiones (m×n). Esta restricción no aplica para el producto matricial."
+            "explanation": "La suma matricial se define componente a componente, por lo que ambas matrices deben tener idénticas dimensiones ($m×n$). Esta restricción no aplica para el producto matricial."
           },
           {
             "id": "AL_BAS_014",
@@ -190,7 +190,7 @@
               "Multiplicando solo la diagonal principal por $k$."
             ],
             "correctAnswer": "Multiplicando cada elemento de la matriz por $k$.",
-            "explanation": "El producto por escalar (kA) es una homotecia lineal. Preserva la estructura de la matriz y es distributivo respecto a la suma matricial: k(A+B) = kA + kB."
+            "explanation": "El producto por escalar ($kA$) es una homotecia lineal. Preserva la estructura de la matriz y es distributivo respecto a la suma matricial: $k(A+B) = kA + kB$."
           },
           {
             "id": "AL_BAS_015",
@@ -204,27 +204,27 @@
               "La matriz con todos los elementos iguales a uno."
             ],
             "correctAnswer": "La matriz nula de orden $m\\times n$.",
-            "explanation": "La matriz nula 0ₘₙ es el único elemento que satisface A + 0 = A para toda matriz A de orden m×n. En espacios vectoriales de matrices, cumple el rol del vector cero."
+            "explanation": "La matriz nula $0_{m×n}$ es el único elemento que satisface $A + 0 = A$ para toda matriz $A$ de orden $m×n$. En espacios vectoriales de matrices, cumple el rol del vector cero."
           }
         ],
         "intermedio": [
             {
               "id": "AL_INT_001",
               "subCategory": "Propiedades de Matrices",
-              "text": "Si A es una matriz simétrica, ¿qué relación existe entre A y su transpuesta At?",
+              "text": "Si $A$ es una matriz simétrica, ¿qué relación existe entre $A$ y su transpuesta $A^t$?",
               "hint": "Piensa en cómo se reflejan los elementos respecto a la diagonal principal.",
-              "options": ["A=−At", "A=At", "A⋅At=In", "A2=A"],
-              "correctAnswer": "A=At",
-              "explanation": "Una matriz simétrica es igual a su transpuesta (A=At), lo que implica que los elementos son simétricos respecto a la diagonal principal. Esto es fundamental en aplicaciones como formas cuadráticas y diagonalización."
+              "options": ["$A=-A^t$", "$A=A^t$", "$A\\cdot A^t=I_n$", "$A^2=A$"],
+              "correctAnswer": "$A=A^t$",
+              "explanation": "Una matriz simétrica es igual a su transpuesta ($A=A^t$), lo que implica que los elementos son simétricos respecto a la diagonal principal. Esto es fundamental en aplicaciones como formas cuadráticas y diagonalización."
             },
             {
               "id": "AL_INT_002",
               "subCategory": "Operaciones con Matrices",
-              "text": "Dada una matriz A∈Mm×n (R) y B∈Mn×r (R), ¿cuál es el orden de la matriz producto A⋅B?",
+              "text": "Dada una matriz $A∈M_{m×n} (R)$ y $B∈M_{n×r} (R)$, ¿cuál es el orden de la matriz producto $A⋅B$?",
               "hint": "El número de columnas de la primera matriz debe coincidir con el número de filas de la segunda.",
-              "options": ["m×n", "n×r", "m×r", "r×m"],
-              "correctAnswer": "m×r",
-              "explanation": "El producto A⋅B existe solo si el número de columnas de A (n) coincide con el número de filas de B (n). La matriz resultante tendrá las filas de A y las columnas de B (m×r)."
+              "options": ["$m×n$", "$n×r$", "$m×r$", "$r×m$"],
+              "correctAnswer": "$m×r$",
+              "explanation": "El producto $A⋅B$ existe solo si el número de columnas de $A$ ($n$) coincide con el número de filas de $B$ ($n$). La matriz resultante tendrá las filas de $A$ y las columnas de $B$ ($m×r$)."
             },
             {
               "id": "AL_INT_003",
@@ -238,16 +238,16 @@
                 "La matriz identidad es el elemento neutro para el producto."
               ],
               "correctAnswer": "El producto de matrices es conmutativo en general.",
-              "explanation": "El producto matricial no es conmutativo (A⋅B ≠ B⋅A), excepto en casos especiales como matrices diagonales. Sin embargo, sí es asociativo y distributivo, con In como elemento neutro."
+              "explanation": "El producto matricial no es conmutativo ($A⋅B ≠ B⋅A$), excepto en casos especiales como matrices diagonales. Sin embargo, sí es asociativo y distributivo, con $I_n$ como elemento neutro."
             },
             {
               "id": "AL_INT_004",
               "subCategory": "Propiedades de Matrices",
-              "text": "Si A∈Mn (R) es una matriz ortogonal, ¿qué relación se cumple entre A y su transpuesta At?",
+              "text": "Si $A∈M_n (R)$ es una matriz ortogonal, ¿qué relación se cumple entre $A$ y su transpuesta $A^t$?",
               "hint": "Estas matrices preservan longitudes y ángulos en transformaciones lineales.",
-              "options": ["A=At", "A=−At", "A⋅At=In", "A2=A"],
-              "correctAnswer": "A⋅At=In",
-              "explanation": "Una matriz ortogonal cumple A⋅At=In, lo que implica que sus columnas/filas forman una base ortonormal. Son clave en rotaciones y reflexiones en álgebra lineal."
+              "options": ["$A=A^t$", "$A=-A^t$", "$A⋅A^t=I_n$", "$A^2=A$"],
+              "correctAnswer": "$A⋅A^t=I_n$",
+              "explanation": "Una matriz ortogonal cumple $A⋅A^t=I_n$, lo que implica que sus columnas/filas forman una base ortonormal. Son clave en rotaciones y reflexiones en álgebra lineal."
             },
             {
               "id": "AL_INT_005",
@@ -275,7 +275,7 @@
                 "Deben ser iguales entre sí."
               ],
               "correctAnswer": "Deben ser todos cero.",
-              "explanation": "En una matriz antisimétrica (A=−At), los elementos diagonales cumplen aii=−aii ⇒ aii=0. Esto surge de la definición y es crucial en álgebra de Lie."
+              "explanation": "En una matriz antisimétrica ($A=−A^t$), los elementos diagonales cumplen $a_{ii}=−a_{ii} ⇒ a_{ii}=0$. Esto surge de la definición y es crucial en álgebra de Lie."
             },
             {
               "id": "AL_INT_007",
@@ -283,18 +283,18 @@
               "text": "¿Cuál de las siguientes propiedades es correcta para la traspuesta de la suma de dos matrices A y B?",
               "hint": "La transpuesta respeta operaciones lineales básicas de manera específica.",
               "options": [
-                "(A+B)t=At−Bt",
-                "(A+B)t=Bt⋅At",
-                "(A+B)t=At+Bt",
-                "(A+B)t=A⋅Bt"
+                "$(A+B)^t=A^t−B^t$",
+                "$(A+B)^t=B^t⋅A^t$",
+                "$(A+B)^t=A^t+B^t$",
+                "$(A+B)^t=A⋅^t$"
               ],
-              "correctAnswer": "(A+B)t=At+Bt",
-              "explanation": "La transpuesta de una suma es la suma de las transpuestas: (A+B)t=At+Bt. Esta propiedad lineal es fundamental para demostraciones en espacios vectoriales de matrices."
+              "correctAnswer": "$(A+B)^t=A^t+B^t$",
+              "explanation": "La transpuesta de una suma es la suma de las transpuestas: $(A+B)^t=A^t+B^t$. Esta propiedad lineal es fundamental para demostraciones en espacios vectoriales de matrices."
             },
             {
               "id": "AL_INT_008",
               "subCategory": "Tipos de Matrices",
-              "text": "Si una matriz A∈Mn (R) es tal que aij =0 para todo i>j, ¿qué tipo de matriz es?",
+              "text": "Si una matriz $A∈M_n (R)$ es tal que $a_{ij} =0$ para todo $i>j$, ¿qué tipo de matriz es?",
               "hint": "Visualiza una matriz donde todos los elementos por debajo de la diagonal principal son nulos.",
               "options": [
                 "Matriz Triangular Inferior",
@@ -303,16 +303,16 @@
                 "Matriz Escalar"
               ],
               "correctAnswer": "Matriz Triangular Superior",
-              "explanation": "Una matriz triangular superior tiene ceros debajo de la diagonal principal (aij=0 para i>j). Estas matrices simplifican cálculos de determinantes y sistemas lineales."
+              "explanation": "Una matriz triangular superior tiene ceros debajo de la diagonal principal ($a_{ij}=0$ para $i>j$). Estas matrices simplifican cálculos de determinantes y sistemas lineales."
             },
             {
               "id": "AL_INT_009",
               "subCategory": "Determinantes",
-              "text": "¿Cuál es la propiedad del determinante de una matriz A si se intercambian dos de sus filas?",
+              "text": "¿Cuál es la propiedad del determinante de una matriz $A$ si se intercambian dos de sus filas?",
               "hint": "Considera cómo afecta la permutación de filas a la orientación del volumen asociado.",
               "options": [
                 "El determinante no cambia.",
-                "El determinante se multiplica por k.",
+                "El determinante se multiplica por $k$.",
                 "El determinante cambia de signo.",
                 "El determinante se hace cero."
               ],
@@ -322,11 +322,11 @@
             {
               "id": "AL_INT_010",
               "subCategory": "Determinantes",
-              "text": "Si A∈Mn (R) es una matriz invertible, ¿a qué es igual el determinante de su inversa, ∣A−1∣?",
+              "text": "Si $A∈M_n (R)$ es una matriz invertible, ¿a qué es igual el determinante de su inversa, $∣A^{-1}∣$?",
               "hint": "Recuerda la relación entre el determinante de un producto y el producto de determinantes.",
-              "options": ["∣A∣", "−∣A∣", "1/∣A∣", "∣A∣n"],
-              "correctAnswer": "1/∣A∣",
-              "explanation": "Como A⋅A−1=In y ∣In∣=1, se tiene que ∣A∣⋅∣A−1∣=1 ⇒ ∣A−1∣=1/∣A∣. Esto muestra que solo matrices con determinante no nulo son invertibles."
+              "options": ["$∣A∣$", "−$∣A∣$", "1/$∣A∣$", "$∣A∣^n$"],
+              "correctAnswer": "1/$∣A∣$",
+              "explanation": "Como $A⋅A^{-1}=I_n$ y $∣I_n∣=1$, se tiene que $∣A∣⋅∣A^{-1}∣=1 ⇒ ∣A^{-1}∣=1/∣A∣$. Esto muestra que solo matrices con determinante no nulo son invertibles."
             },
             {
               "id": "AL_INT_011",
@@ -374,7 +374,7 @@
               "id": "AL_INT_014",
               "subCategory": "Inversa de Matrices",
               "text": "¿Cuál es la relación entre el rango de una matriz $A$ de orden $m\\times n$ y su invertibilidad a derecha?",
-              "hint": "La invertibilidad a derecha implica que el sistema Ax=b tiene solución para cualquier b.",
+              "hint": "La invertibilidad a derecha implica que el sistema $Ax=b$ tiene solución para cualquier $b$.",
               "options": [
                 "$ran(A) = n$",
                 "$ran(A) = m$",
@@ -382,7 +382,7 @@
                 "$ran(A) < n$"
               ],
               "correctAnswer": "$ran(A) = m$",
-              "explanation": "Una matriz tiene inversa a derecha si su rango es máximo por filas ($ran(A)=m$), lo que garantiza que el sistema Ax=b sea compatible para cualquier b∈ℝᵐ."
+              "explanation": "Una matriz tiene inversa a derecha si su rango es máximo por filas ($ran(A)=m$), lo que garantiza que el sistema $Ax=b$ sea compatible para cualquier $b∈ℝᵐ$."
             },
             {
               "id": "AL_INT_015",
