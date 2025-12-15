@@ -1,0 +1,143 @@
+{
+    "id": "calculo_3",
+    "name": "Cálculo III",
+    "description": "Series alternadas, límites, continuidad, diferenciabilidad e integración.",
+    "difficultyLevels": {
+        "basico": [
+            {
+                "id": "CAL3_BAS_001",
+                "subCategory": "Límites",
+                "text": "Dada $\\{x_{n}\\}$ tal que $\\lim_{n\\rightarrow\\infty}x_{n}=2$, la sucesión $\\frac{\\ln(x_{n}-1)}{|x_{n}-2|}$...",
+                "hint": "Usa la equivalencia $\\ln(1+u) \\sim u$ cuando $u \\to 0$.",
+                "options": [
+                    "converge a 0.",
+                    "converge a 1.",
+                    "converge a 2."
+                ],
+                "correctAnswer": "converge a 1.",
+                "explanation": "Usando $\\ln(1+u) \\sim u$ cuando $u \\to 0$: $\\frac{x_n - 2}{|x_n - 2|} = 1$ (aproximación por derecha) (ver EB2, Def 3.1)."
+            },
+            {
+                "id": "CAL3_BAS_002",
+                "subCategory": "Series Alternadas",
+                "text": "Si $\\lim a_{k}=0$ y la serie alternada **diverge**, entonces:",
+                "hint": "Recuerda las dos condiciones del criterio de Leibniz.",
+                "options": [
+                    "$\\{a_{k}\\}$ es monótona decreciente.",
+                    "$\\{a_{k}\\}$ no es monótona decreciente.",
+                    "$\\{a_{k}\\}$ puede ser creciente."
+                ],
+                "correctAnswer": "$\\{a_{k}\\}$ no es monótona decreciente.",
+                "explanation": "El criterio de Leibniz requiere monotonía decreciente además de límite 0 (ver EB3, Teo 3.2)."
+            },
+            {
+                "id": "CAL3_BAS_003",
+                "subCategory": "Límites",
+                "text": "Si $\\lim_{x\\rightarrow a}f(x)=\\infty$ entonces:",
+                "hint": "Es la definición de límite infinito en un punto.",
+                "options": [
+                    "$\\forall\\epsilon>0\\exists\\delta>0$ tal que... (Límite finito).",
+                    "$\\forall M>0\\exists\\delta>0$ tal que, si $0 < ||x-a||<\\delta$ entonces $||f(x)||>M$.",
+                    "$\\forall M>0\\exists K>0$ tal que... (Límite en el infinito)."
+                ],
+                "correctAnswer": "$\\forall M>0\\exists\\delta>0$ tal que, si $0 < ||x-a||<\\delta$ entonces $||f(x)||>M$.",
+                "explanation": "Esta es la definición formal de límite infinito en un punto finito (ver EB4, Def 3.1)."
+            },
+            {
+                "id": "CAL3_BAS_004",
+                "subCategory": "Continuidad",
+                "text": "Dadas $f,g$ continuas en $A$:",
+                "hint": "¿Qué operación siempre preserva continuidad?",
+                "options": [
+                    "$f\\cdot g$ es continua en A.",
+                    "$\\frac{f}{g}$ es continua en A.",
+                    "$\\sqrt{f\\cdot g}$ es continua en A."
+                ],
+                "correctAnswer": "$f\\cdot g$ es continua en A.",
+                "explanation": "El producto siempre es continuo; cociente y raíz tienen restricciones (ver EB6, Prop 2.1)."
+            },
+            {
+                "id": "CAL3_BAS_005",
+                "subCategory": "Bolzano",
+                "text": "Si $f(a)\\cdot f(b)>0$ y $f$ continua:",
+                "hint": "¿Qué condición requiere Bolzano para garantizar una raíz?",
+                "options": [
+                    "Existe único $c$ con $f(c)=0$.",
+                    "Existe al menos un $c$ con $f(c)=0$.",
+                    "Puede que no exista ningún $c$ con $f(c)=0$."
+                ],
+                "correctAnswer": "Puede que no exista ningún $c$ con $f(c)=0$.",
+                "explanation": "Bolzano requiere cambio de signo. Aquí tienen el mismo signo (ver EB6, Prop 2.4)."
+            }
+        ],
+        "intermedio": [
+            {
+                "id": "CAL3_INT_001",
+                "subCategory": "Diferenciabilidad",
+                "text": "Con $f(x,y,z)=(e^{\\frac{xy}{z}}, \\ln(\\frac{xy}{z}))$ y $g(u,v)=(u, -(u^{2}+v^{2}), u)$:",
+                "hint": "Analiza el signo del argumento del logaritmo.",
+                "options": [
+                    "$f\\circ g$ es diferenciable si $u \\neq 0$.",
+                    "$f\\circ g$ es diferenciable si $v \\neq 0$.",
+                    "$f\\circ g$ no es diferenciable."
+                ],
+                "correctAnswer": "$f\\circ g$ no es diferenciable.",
+                "explanation": "El argumento del logaritmo es $-(u^2+v^2) \\le 0$ siempre. No existe en los reales (ver EB7, Def 2.2)."
+            },
+            {
+                "id": "CAL3_INT_002",
+                "subCategory": "Hessiana",
+                "text": "Si $Hf(x_{0})$ tiene autovalores $\\{0, 1, 2\\}$, entonces $x_0$:",
+                "hint": "Analiza la definitud de la matriz según sus autovalores.",
+                "options": [
+                    "puede ser máximo local estricto.",
+                    "es máximo local estricto.",
+                    "puede ser mínimo local estricto."
+                ],
+                "correctAnswer": "puede ser mínimo local estricto.",
+                "explanation": "Autovalores no negativos $\\implies$ semidefinida positiva $\\implies$ posible mínimo (ver EB8, Def 3.1)."
+            },
+            {
+                "id": "CAL3_INT_003",
+                "subCategory": "Integración",
+                "text": "Con cambio $2x=3\\sin(t)$ en $\\int\\sqrt{9-4x^{2}}dx$:",
+                "hint": "Calcula $dx$ y sustituye.",
+                "options": [
+                    "$\\int \\cos^{2}(t)dt$.",
+                    "$\\frac{3}{2}\\int \\cos^{2}(t)dt$.",
+                    "$\\frac{9}{2}\\int \\cos^{2}(t)dt$."
+                ],
+                "correctAnswer": "$\\frac{9}{2}\\int \\cos^{2}(t)dt$.",
+                "explanation": "$dx = \\frac{3}{2}\\cos(t)dt$, $\\sqrt{9-4x^2} = 3\\cos(t)$. Resultado: $\\frac{9}{2}\\int\\cos^2(t)dt$ (ver EB10, Prop 1.4)."
+            }
+        ],
+        "avanzado": [
+            {
+                "id": "CAL3_AVA_001",
+                "subCategory": "Integración por Partes",
+                "text": "Para $\\int(x^{2}+2)e^{x}dx$:",
+                "hint": "Aplica la fórmula de integración por partes.",
+                "options": [
+                    "$(x^{2}+2)e^{x}-\\int x e^{x}dx$.",
+                    "$(x^{2}+2)e^{x}-2\\int x e^{x}dx$.",
+                    "$(x^{2}+2)e^{x}+2\\int x e^{x}dx$."
+                ],
+                "correctAnswer": "$(x^{2}+2)e^{x}-2\\int x e^{x}dx$.",
+                "explanation": "Con $u = x^2+2$, $dv = e^x dx$ se obtiene el factor $-2$ (ver EB9, Prop 5.1)."
+            },
+            {
+                "id": "CAL3_AVA_002",
+                "subCategory": "Ecuaciones Diferenciales",
+                "text": "Solución de $xy'-y=x$:",
+                "hint": "Sustituye cada opción en la ecuación.",
+                "options": [
+                    "$y(x)=x+\\ln(x)$",
+                    "$y(x)=x \\ln(x)$",
+                    "$y(x)=x^{2}\\ln(x)$"
+                ],
+                "correctAnswer": "$y(x)=x \\ln(x)$",
+                "explanation": "$y = x\\ln(x) \\implies y' = \\ln(x)+1$. Sustituyendo: $x(\\ln(x)+1) - x\\ln(x) = x$. ✓ (ver EB14, Def 2.2)."
+            }
+        ]
+    }
+}

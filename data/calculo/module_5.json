@@ -1,0 +1,143 @@
+{
+    "id": "calculo_5",
+    "name": "Cálculo V",
+    "description": "Límites, series geométricas, continuidad, derivadas, optimización, integración y EDO.",
+    "difficultyLevels": {
+        "basico": [
+            {
+                "id": "CAL5_BAS_001",
+                "subCategory": "Sucesiones",
+                "text": "Si $\\{a_{n}\\}$ positiva y $a_{n}<M$ para todo $M>0$ a partir de cierto $n_0$:",
+                "hint": "$0 < a_n < M$ para $M$ arbitrariamente pequeño implica...",
+                "options": [
+                    "$\\{a_{n}\\}$ es no acotada.",
+                    "$\\lim_{n\\rightarrow\\infty}a_{n}=M$.",
+                    "$\\lim_{n\\rightarrow\\infty}a_{n}=0$."
+                ],
+                "correctAnswer": "$\\lim_{n\\rightarrow\\infty}a_{n}=0$.",
+                "explanation": "La condición $0 < a_n < M$ para $M$ arbitrariamente pequeño implica límite 0 (ver EB1, Def 2.2)."
+            },
+            {
+                "id": "CAL5_BAS_002",
+                "subCategory": "Series Geométricas",
+                "text": "$\\sum_{k=3}^{\\infty}\\frac{1}{2^{k}}$ vale:",
+                "hint": "Usa la fórmula de serie geométrica empezando en $k=3$.",
+                "options": [
+                    "1.",
+                    "1/2.",
+                    "1/4."
+                ],
+                "correctAnswer": "1/4.",
+                "explanation": "$\\sum_{k=3}^{\\infty}r^k = \\frac{r^3}{1-r} = \\frac{1/8}{1/2} = 1/4$ (ver EB3, Prop 1.5)."
+            },
+            {
+                "id": "CAL5_BAS_003",
+                "subCategory": "Continuidad",
+                "text": "Si existe $\\lim_{x\\to a}f(x)$ y coincide con límites direccionales/reiterados:",
+                "hint": "Continuidad requiere además que $f(a) = L$.",
+                "options": [
+                    "$f$ es continua en $a$.",
+                    "$f$ es diferenciable en $a$.",
+                    "Puede que $f$ no sea continua en $a$."
+                ],
+                "correctAnswer": "Puede que $f$ no sea continua en $a$.",
+                "explanation": "Continuidad requiere $f(a) = L$. Si $f(a)$ no está definido o es diferente, no es continua (ver EB6, Def 1.1)."
+            },
+            {
+                "id": "CAL5_BAS_004",
+                "subCategory": "Derivadas",
+                "text": "Si $\\frac{\\partial f}{\\partial x}=\\frac{y^{2}\\cos(x)}{x^{2}}$, entonces $\\frac{\\partial^{2}f}{\\partial y\\partial x}(\\pi,1)$:",
+                "hint": "Deriva respecto a $y$ y evalúa en el punto.",
+                "options": [
+                    "$\\frac{2}{\\pi^{2}}$.",
+                    "$-\\frac{2}{\\pi^{2}}$.",
+                    "$-\\frac{1}{\\pi^{2}}$."
+                ],
+                "correctAnswer": "$-\\frac{2}{\\pi^{2}}$.",
+                "explanation": "$\\frac{\\partial}{\\partial y}(y^2\\frac{\\cos x}{x^2}) = 2y\\frac{\\cos x}{x^2}$. En $(\\pi,1)$: $2 \\cdot \\frac{-1}{\\pi^2} = -\\frac{2}{\\pi^2}$ (ver EB7, Def 1.1)."
+            },
+            {
+                "id": "CAL5_BAS_005",
+                "subCategory": "Optimización",
+                "text": "Si $f'(a)=0$ y $f''(a)>0$:",
+                "hint": "$f''(a) > 0$ indica curvatura convexa.",
+                "options": [
+                    "Existen $x_1, x_2$ con $f(x_1) < f(a) < f(x_2)$.",
+                    "$f(x) < f(a)$ en entorno de $a$.",
+                    "$f(x) > f(a)$ en entorno de $a$."
+                ],
+                "correctAnswer": "$f(x) > f(a)$ en entorno de $a$.",
+                "explanation": "$f''(a) > 0$ implica mínimo local: $f(x) > f(a)$ para $x \\ne a$ cercanos (ver EB8, Def 3.1)."
+            }
+        ],
+        "intermedio": [
+            {
+                "id": "CAL5_INT_001",
+                "subCategory": "Optimización",
+                "text": "Si en $a$ hay máximo local estricto, $Hf(a)$:",
+                "hint": "Máximo requiere curvatura 'hacia abajo' en todas direcciones.",
+                "options": [
+                    "Es definida negativa (requeriría positiva).",
+                    "Es definida o semidefinida negativa.",
+                    "Es indefinida."
+                ],
+                "correctAnswer": "Es definida o semidefinida negativa.",
+                "explanation": "Máximo requiere curvatura hacia abajo en todas direcciones (ver EB8, Def 3.2)."
+            },
+            {
+                "id": "CAL5_INT_002",
+                "subCategory": "Diferenciabilidad",
+                "text": "$f:\\mathbb{R}\\to\\mathbb{R}^{n}$ es diferenciable si:",
+                "hint": "¿Cuántas componentes deben ser diferenciables?",
+                "options": [
+                    "$n-1$ componentes son continuas.",
+                    "$n-1$ componentes son diferenciables.",
+                    "Ninguna es cierta."
+                ],
+                "correctAnswer": "Ninguna es cierta.",
+                "explanation": "Todas las $n$ componentes deben ser diferenciables (ver EB7, Prop 3.1)."
+            },
+            {
+                "id": "CAL5_INT_003",
+                "subCategory": "Integración",
+                "text": "Con $x^{2}=t$ en $\\int x^{2}\\cos(x^{2})dx$:",
+                "hint": "Calcula $dx$ en términos de $dt$.",
+                "options": [
+                    "$\\int t\\cos(t)dt$.",
+                    "$\\int\\sqrt{t}\\cos(t)dt$.",
+                    "$\\frac{1}{2}\\int\\sqrt{t}\\cos(t)dt$."
+                ],
+                "correctAnswer": "$\\frac{1}{2}\\int\\sqrt{t}\\cos(t)dt$.",
+                "explanation": "$dx = \\frac{dt}{2\\sqrt{t}}$. Resultado: $\\frac{1}{2}\\int\\sqrt{t}\\cos(t)dt$ (ver EB10, Prop 1.1)."
+            }
+        ],
+        "avanzado": [
+            {
+                "id": "CAL5_AVA_001",
+                "subCategory": "Superficies de Revolución",
+                "text": "Área al girar $f(x)=\\sin(x)$ alrededor de $y=-2$:",
+                "hint": "El radio de giro es la distancia de la curva al eje.",
+                "options": [
+                    "$\\int 2\\pi\\sin(x)\\sqrt{1+\\cos^{2}(x)}dx$.",
+                    "$\\int 2\\pi(\\sin(x)-2)\\sqrt{1+\\cos^{2}(x)}dx$.",
+                    "$\\int 2\\pi(\\sin(x)+2)\\sqrt{1+\\cos^{2}(x)}dx$."
+                ],
+                "correctAnswer": "$\\int 2\\pi(\\sin(x)+2)\\sqrt{1+\\cos^{2}(x)}dx$.",
+                "explanation": "Radio de giro: $\\sin(x) - (-2) = \\sin(x) + 2$ (ver EB12, Prop 2.4)."
+            },
+            {
+                "id": "CAL5_AVA_002",
+                "subCategory": "Ecuaciones Diferenciales",
+                "text": "Solución de $xy'-3y=0$:",
+                "hint": "Sustituye cada opción y verifica.",
+                "options": [
+                    "$y(x)=3x^{2}$",
+                    "$y(x)=2x^{3}$",
+                    "$y(x)=x^{2}+x^{3}$"
+                ],
+                "correctAnswer": "$y(x)=2x^{3}$",
+                "explanation": "$y = 2x^3 \\implies y' = 6x^2$. Verificando: $x(6x^2) - 3(2x^3) = 0$. ✓ (ver EB14, Def 2.2)."
+            }
+        ]
+    }
+}

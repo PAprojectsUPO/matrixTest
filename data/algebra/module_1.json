@@ -1,0 +1,643 @@
+{
+    "id": "algebra_lineal_1",
+    "name": "Álgebra Lineal I",
+    "description": "Preguntas sobre matrices, determinantes, y sistemas de ecuaciones lineales.",
+    "difficultyLevels": {
+        "basico": [
+            {
+                "id": "AL_BAS_001",
+                "subCategory": "Tipos de Matrices",
+                "text": "¿Cuál es la característica principal de una matriz nula?",
+                "hint": "Piensa en una matriz cuyos elementos no alteran otras matrices al sumarse.",
+                "options": [
+                    "Todos sus elementos son uno.",
+                    "Todos sus elementos son cero.",
+                    "Tiene una sola fila.",
+                    "Tiene una sola columna."
+                ],
+                "correctAnswer": "Todos sus elementos son cero.",
+                "explanation": "Una matriz nula (denotada usualmente como 0) tiene todos sus elementos iguales a cero. Es análoga al número 0 en las operaciones matriciales, ya que para cualquier matriz A del mismo tamaño, se cumple que A + 0 = A."
+            },
+            {
+                "id": "AL_BAS_002",
+                "subCategory": "Tipos de Matrices",
+                "text": "Si una matriz $A$ tiene orden $m × n$ y $m = n$, ¿qué tipo de matriz es?",
+                "hint": "Piensa en matrices donde el número de filas y columnas permite operaciones especiales como el cálculo de determinantes.",
+                "options": [
+                    "Matriz Rectangular.",
+                    "Matriz Fila.",
+                    "Matriz Cuadrada.",
+                    "Matriz Columna."
+                ],
+                "correctAnswer": "Matriz Cuadrada.",
+                "explanation": "Una matriz cuadrada (donde $m = n$) es fundamental en álgebra lineal porque permite operaciones exclusivas como el cálculo de determinantes, trazas y potencias matriciales. Ejemplos clásicos son la matriz identidad y las matrices simétricas."
+            },
+            {
+                "id": "AL_BAS_003",
+                "subCategory": "Notación y Conceptos",
+                "text": "¿Cómo se denota el conjunto de todas las matrices reales de orden $m×n$?",
+                "hint": "La notación incluye información sobre las dimensiones y el campo numérico al que pertenecen los elementos.",
+                "options": [
+                    "$M_n (R)$",
+                    "$R^{m×n}$",
+                    "$M_{m×n} (R)$",
+                    "$R^{n×m}$"
+                ],
+                "correctAnswer": "$M_{m×n} (R)$",
+                "explanation": "La notación $M_{m×n} (R)$ especifica: $m×n$ (orden), $R$ (números reales). Esta convención es consistente con la notación de espacios vectoriales de matrices, donde $R$ indica el cuerpo base y los subíndices las dimensiones."
+            },
+            {
+                "id": "AL_BAS_004",
+                "subCategory": "Tipos de Matrices",
+                "text": "¿Qué propiedad define a una matriz identidad de orden $n$?",
+                "hint": "Es la matriz equivalente al número 1 en la multiplicación matricial. ¿Cómo afecta al multiplicarla por otra matriz?",
+                "options": [
+                    "Todos sus elementos son cero.",
+                    "Es una matriz diagonal con elementos de la diagonal principal iguales a cero.",
+                    "Es una matriz diagonal con elementos de la diagonal principal iguales a uno.",
+                    "Todos sus elementos son iguales."
+                ],
+                "correctAnswer": "Es una matriz diagonal con elementos de la diagonal principal iguales a uno.",
+                "explanation": "La matriz identidad $I_n$ es crucial porque actúa como elemento neutro en la multiplicación de matrices: $A·I_n = A$ para cualquier matriz $A$ de orden compatible. Su estructura diagonal con unos garantiza esta propiedad."
+            },
+            {
+                "id": "AL_BAS_005",
+                "subCategory": "Notación y Conceptos",
+                "text": "¿Cuándo se dice que dos matrices $A$ y $B$ son iguales?",
+                "hint": "No basta con que tengan la misma forma; deben coincidir en todos sus componentes.",
+                "options": [
+                    "Cuando tienen el mismo número de filas.",
+                    "Cuando tienen el mismo número de columnas.",
+                    "Cuando tienen el mismo orden y sus elementos correspondientes son iguales.",
+                    "Cuando sus determinantes son iguales."
+                ],
+                "correctAnswer": "Cuando tienen el mismo orden y sus elementos correspondientes son iguales.",
+                "explanation": "La igualdad matricial exige: 1) Misma dimensión ($m×n$), y 2) $a_{ij} = b_{ij}$ para todo $i,j$. Esto es análogo a la igualdad de vectores, extendido a dos dimensiones."
+            },
+            {
+                "id": "AL_BAS_006",
+                "subCategory": "Tipos de Matrices",
+                "text": "Una matriz con elementos dispuestos en una única fila se denomina:",
+                "hint": "Es el análogo matricial de un vector horizontal.",
+                "options": [
+                    "Matriz Columna",
+                    "n-upla",
+                    "Matriz Fila",
+                    "Matriz Rectangular"
+                ],
+                "correctAnswer": "Matriz Fila",
+                "explanation": "Una matriz fila (1×n) representa aplicaciones lineales de ℝⁿ a ℝ. Es esencial en sistemas de ecuaciones y programación lineal, donde cada fila puede codificar restricciones."
+            },
+            {
+                "id": "AL_BAS_007",
+                "subCategory": "Tipos de Matrices",
+                "text": "¿Cuál de los siguientes no es un tipo de matriz cuadrada según la diagonal principal?",
+                "hint": "El nombre de este tipo de matriz hace referencia explícita a la desigualdad entre sus dimensiones.",
+                "options": [
+                    "Matriz Escalar",
+                    "Matriz Identidad",
+                    "Matriz Rectangular",
+                    "Matriz Diagonal"
+                ],
+                "correctAnswer": "Matriz Rectangular",
+                "explanation": "Las matrices rectangulares (m≠n) no pueden ser cuadradas por definición. Las otras opciones son subclases de matrices cuadradas donde la diagonal principal juega un rol central en sus propiedades."
+            },
+            {
+                "id": "AL_BAS_008",
+                "subCategory": "Notación y Conceptos",
+                "text": "Si a una matriz $A$ se le elimina $m−k$ filas y $n−r$  columnas, ¿qué se obtiene?",
+                "hint": "Es análogo a seleccionar un subconjunto de filas y columnas para formar una nueva matriz.",
+                "options": [
+                    "Una matriz transpuesta",
+                    "Una matriz inversa",
+                    "Una submatriz",
+                    "Una matriz reducida por filas"
+                ],
+                "correctAnswer": "Una submatriz",
+                "explanation": "Las submatrices son fundamentales para calcular menores y rangos. Por ejemplo, el determinante de una matriz se define recursivamente usando submatrices."
+            },
+            {
+                "id": "AL_BAS_009",
+                "subCategory": "Operaciones Elementales",
+                "text": "La operación elemental de tipo 2 en filas consiste en:",
+                "hint": "Esta operación preserva la equivalencia de matrices y es reversible mediante otro escalar.",
+                "options": [
+                    "Intercambiar dos filas.",
+                    "Sumar una fila a otra multiplicada por un escalar.",
+                    "Sustituir una fila por ella misma multiplicada por un escalar no nulo.",
+                    "Sustituir una fila por ella misma más un escalar."
+                ],
+                "correctAnswer": "Sustituir una fila por ella misma multiplicada por un escalar no nulo.",
+                "explanation": "Multiplicar una fila por λ≠0 (operación tipo 2) es clave en la eliminación gaussiana. Su reversibilidad (usando 1/λ) garantiza que no se pierde información durante el proceso."
+            },
+            {
+                "id": "AL_BAS_010",
+                "subCategory": "Notación y Conceptos",
+                "text": "¿Cómo se denota el rango de una matriz $A$?",
+                "hint": "Esta notación proviene del término inglés 'rank' y es independiente del lenguaje de programación.",
+                "options": [
+                    "$det(A)$",
+                    "$A^{-1}$",
+                    "$ran(A)$",
+                    "$A^{T}$"
+                ],
+                "correctAnswer": "$ran(A)$",
+                "explanation": "El rango ($ran(A)$) indica la dimensión del espacio generado por sus filas/columnas. Es crucial para determinar soluciones de sistemas lineales: si $ran(A)=ran([A|b])$, el sistema es compatible."
+            },
+            {
+                "id": "AL_BAS_011",
+                "subCategory": "Tipos de Matrices",
+                "text": "¿Qué tipo de matriz tiene sus elementos dispuestos en una única columna?",
+                "hint": "Es el análogo matricial de un vector vertical, común en sistemas de ecuaciones.",
+                "options": [
+                    "Matriz Fila",
+                    "Matriz Columna",
+                    "Matriz Cuadrada",
+                    "Matriz Nula"
+                ],
+                "correctAnswer": "Matriz Columna",
+                "explanation": "Las matrices columna (m×1) representan vectores en ℝᵐ. Son esenciales en ecuaciones lineales $Ax=b$, donde $b$ es una matriz columna."
+            },
+            {
+                "id": "AL_BAS_012",
+                "subCategory": "Tipos de Matrices",
+                "text": "Si una matriz es diagonal y sus elementos de la diagonal principal son iguales, ¿cómo se denomina?",
+                "hint": "Este tipo de matriz es un múltiplo escalar de la matriz identidad.",
+                "options": [
+                    "Matriz Identidad",
+                    "Matriz Nula",
+                    "Matriz Escalar",
+                    "Matriz Triangular"
+                ],
+                "correctAnswer": "Matriz Escalar",
+                "explanation": "Una matriz escalar ($\\lambda I$) conmuta con todas las matrices del mismo orden. En geometría, representan homotecias (transformaciones de escala uniforme)."
+            },
+            {
+                "id": "AL_BAS_013",
+                "subCategory": "Operaciones con Matrices",
+                "text": "¿Qué condición deben cumplir dos matrices para poder sumarse?",
+                "hint": "La suma requiere compatibilidad dimensional en ambas direcciones.",
+                "options": [
+                    "Tener el mismo número de filas.",
+                    "Tener el mismo número de columnas.",
+                    "Tener el mismo orden.",
+                    "Ser matrices cuadradas."
+                ],
+                "correctAnswer": "Tener el mismo orden.",
+                "explanation": "La suma matricial se define componente a componente, por lo que ambas matrices deben tener idénticas dimensiones ($m×n$). Esta restricción no aplica para el producto matricial."
+            },
+            {
+                "id": "AL_BAS_014",
+                "subCategory": "Operaciones con Matrices",
+                "text": "¿Cómo se obtiene el producto de una matriz por un escalar $k$?",
+                "hint": "Cada elemento de la matriz se ve afectado de la misma manera que en el producto de un vector por un escalar.",
+                "options": [
+                    "Multiplicando solo la primera fila por $k$.",
+                    "Sumando $k$ a cada elemento.",
+                    "Multiplicando cada elemento de la matriz por $k$.",
+                    "Multiplicando solo la diagonal principal por $k$."
+                ],
+                "correctAnswer": "Multiplicando cada elemento de la matriz por $k$.",
+                "explanation": "El producto por escalar ($kA$) es una homotecia lineal. Preserva la estructura de la matriz y es distributivo respecto a la suma matricial: $k(A+B) = kA + kB$."
+            },
+            {
+                "id": "AL_BAS_015",
+                "subCategory": "Operaciones con Matrices",
+                "text": "¿Cuál es el elemento neutro para la suma de matrices de orden $m\\times n$?",
+                "hint": "Es análogo al cero en la suma de números, pero adaptado a la estructura matricial.",
+                "options": [
+                    "La matriz identidad de orden $n$.",
+                    "La matriz nula de orden $m\\times n$.",
+                    "Cualquier matriz diagonal.",
+                    "La matriz con todos los elementos iguales a uno."
+                ],
+                "correctAnswer": "La matriz nula de orden $m\\times n$.",
+                "explanation": "La matriz nula $0_{m×n}$ es el único elemento que satisface $A + 0 = A$ para toda matriz $A$ de orden $m×n$. En espacios vectoriales de matrices, cumple el rol del vector cero."
+            }
+        ],
+        "intermedio": [
+            {
+                "id": "AL_INT_001",
+                "subCategory": "Propiedades de Matrices",
+                "text": "Si $A$ es una matriz simétrica, ¿qué relación existe entre $A$ y su transpuesta $A^t$?",
+                "hint": "Piensa en cómo se reflejan los elementos respecto a la diagonal principal.",
+                "options": [
+                    "$A=-A^t$",
+                    "$A=A^t$",
+                    "$A\\cdot A^t=I_n$",
+                    "$A^2=A$"
+                ],
+                "correctAnswer": "$A=A^t$",
+                "explanation": "Una matriz simétrica es igual a su transpuesta ($A=A^t$), lo que implica que los elementos son simétricos respecto a la diagonal principal. Esto es fundamental en aplicaciones como formas cuadráticas y diagonalización."
+            },
+            {
+                "id": "AL_INT_002",
+                "subCategory": "Operaciones con Matrices",
+                "text": "Dada una matriz $A∈M_{m×n} (R)$ y $B∈M_{n×r} (R)$, ¿cuál es el orden de la matriz producto $A⋅B$?",
+                "hint": "El número de columnas de la primera matriz debe coincidir con el número de filas de la segunda.",
+                "options": [
+                    "$m×n$",
+                    "$n×r$",
+                    "$m×r$",
+                    "$r×m$"
+                ],
+                "correctAnswer": "$m×r$",
+                "explanation": "El producto $A⋅B$ existe solo si el número de columnas de $A$ ($n$) coincide con el número de filas de $B$ ($n$). La matriz resultante tendrá las filas de $A$ y las columnas de $B$ ($m×r$)."
+            },
+            {
+                "id": "AL_INT_003",
+                "subCategory": "Operaciones con Matrices",
+                "text": "¿Cuál de las siguientes afirmaciones es falsa con respecto al producto de matrices?",
+                "hint": "Considera si el orden de multiplicación afecta el resultado en casos generales.",
+                "options": [
+                    "El producto de matrices es asociativo.",
+                    "El producto de matrices es conmutativo en general.",
+                    "El producto de matrices es distributivo respecto a la suma.",
+                    "La matriz identidad es el elemento neutro para el producto."
+                ],
+                "correctAnswer": "El producto de matrices es conmutativo en general.",
+                "explanation": "El producto matricial no es conmutativo ($A⋅B ≠ B⋅A$), excepto en casos especiales como matrices diagonales. Sin embargo, sí es asociativo y distributivo, con $I_n$ como elemento neutro."
+            },
+            {
+                "id": "AL_INT_004",
+                "subCategory": "Propiedades de Matrices",
+                "text": "Si $A∈M_n (R)$ es una matriz ortogonal, ¿qué relación se cumple entre $A$ y su transpuesta $A^t$?",
+                "hint": "Estas matrices preservan longitudes y ángulos en transformaciones lineales.",
+                "options": [
+                    "$A=A^t$",
+                    "$A=-A^t$",
+                    "$A⋅A^t=I_n$",
+                    "$A^2=A$"
+                ],
+                "correctAnswer": "$A⋅A^t=I_n$",
+                "explanation": "Una matriz ortogonal cumple $A⋅A^t=I_n$, lo que implica que sus columnas/filas forman una base ortonormal. Son clave en rotaciones y reflexiones en álgebra lineal."
+            },
+            {
+                "id": "AL_INT_005",
+                "subCategory": "Propiedades de Matrices",
+                "text": "¿Qué condición debe cumplir una matriz triangular para ser invertible?",
+                "hint": "El determinante de una matriz triangular depende únicamente de ciertos elementos específicos.",
+                "options": [
+                    "Todos sus elementos deben ser distintos de cero.",
+                    "Todos los elementos de su diagonal principal deben ser distintos de cero.",
+                    "Su determinante debe ser cero.",
+                    "Debe ser una matriz cuadrada."
+                ],
+                "correctAnswer": "Todos los elementos de su diagonal principal deben ser distintos de cero.",
+                "explanation": "En una matriz triangular, el determinante es el producto de los elementos diagonales. Por tanto, es invertible si y solo si todos estos elementos son no nulos."
+            },
+            {
+                "id": "AL_INT_006",
+                "subCategory": "Propiedades de Matrices",
+                "text": "Si A es una matriz antisimétrica, ¿qué condición deben cumplir los elementos de su diagonal principal?",
+                "hint": "¿Qué pasa si comparas un elemento diagonal consigo mismo en una matriz antisimétrica?",
+                "options": [
+                    "Deben ser todos uno.",
+                    "Deben ser todos cero.",
+                    "Pueden ser cualquier valor real.",
+                    "Deben ser iguales entre sí."
+                ],
+                "correctAnswer": "Deben ser todos cero.",
+                "explanation": "En una matriz antisimétrica ($A=−A^t$), los elementos diagonales cumplen $a_{ii}=−a_{ii} ⇒ a_{ii}=0$. Esto surge de la definición y es crucial en álgebra de Lie."
+            },
+            {
+                "id": "AL_INT_007",
+                "subCategory": "Operaciones con Matrices",
+                "text": "¿Cuál de las siguientes propiedades es correcta para la traspuesta de la suma de dos matrices A y B?",
+                "hint": "La transpuesta respeta operaciones lineales básicas de manera específica.",
+                "options": [
+                    "$(A+B)^t=A^t−B^t$",
+                    "$(A+B)^t=B^t⋅A^t$",
+                    "$(A+B)^t=A^t+B^t$",
+                    "$(A+B)^t=A⋅^t$"
+                ],
+                "correctAnswer": "$(A+B)^t=A^t+B^t$",
+                "explanation": "La transpuesta de una suma es la suma de las transpuestas: $(A+B)^t=A^t+B^t$. Esta propiedad lineal es fundamental para demostraciones en espacios vectoriales de matrices."
+            },
+            {
+                "id": "AL_INT_008",
+                "subCategory": "Tipos de Matrices",
+                "text": "Si una matriz $A∈M_n (R)$ es tal que $a_{ij} =0$ para todo $i>j$, ¿qué tipo de matriz es?",
+                "hint": "Visualiza una matriz donde todos los elementos por debajo de la diagonal principal son nulos.",
+                "options": [
+                    "Matriz Triangular Inferior",
+                    "Matriz Diagonal",
+                    "Matriz Triangular Superior",
+                    "Matriz Escalar"
+                ],
+                "correctAnswer": "Matriz Triangular Superior",
+                "explanation": "Una matriz triangular superior tiene ceros debajo de la diagonal principal ($a_{ij}=0$ para $i>j$). Estas matrices simplifican cálculos de determinantes y sistemas lineales."
+            },
+            {
+                "id": "AL_INT_009",
+                "subCategory": "Determinantes",
+                "text": "¿Cuál es la propiedad del determinante de una matriz $A$ si se intercambian dos de sus filas?",
+                "hint": "Considera cómo afecta la permutación de filas a la orientación del volumen asociado.",
+                "options": [
+                    "El determinante no cambia.",
+                    "El determinante se multiplica por $k$.",
+                    "El determinante cambia de signo.",
+                    "El determinante se hace cero."
+                ],
+                "correctAnswer": "El determinante cambia de signo.",
+                "explanation": "Intercambiar filas cambia el signo del determinante, ya que altera la orientación del paralelepípedo definido por los vectores fila. Esto refleja la propiedad antisimétrica del determinante."
+            },
+            {
+                "id": "AL_INT_010",
+                "subCategory": "Determinantes",
+                "text": "Si $A∈M_n (R)$ es una matriz invertible, ¿a qué es igual el determinante de su inversa, $∣A^{-1}∣$?",
+                "hint": "Recuerda la relación entre el determinante de un producto y el producto de determinantes.",
+                "options": [
+                    "$∣A∣$",
+                    "−$∣A∣$",
+                    "1/$∣A∣$",
+                    "$∣A∣^n$"
+                ],
+                "correctAnswer": "1/$∣A∣$",
+                "explanation": "Como $A⋅A^{-1}=I_n$ y $∣I_n∣=1$, se tiene que $∣A∣⋅∣A^{-1}∣=1 ⇒ ∣A^{-1}∣=1/∣A∣$. Esto muestra que solo matrices con determinante no nulo son invertibles."
+            },
+            {
+                "id": "AL_INT_011",
+                "subCategory": "Determinantes",
+                "text": "¿Qué sucede con el determinante de una matriz si tiene una fila de ceros?",
+                "hint": "Piensa en la expansión por cofactores a lo largo de una fila nula.",
+                "options": [
+                    "El determinante es uno.",
+                    "El determinante cambia de signo.",
+                    "El determinante es cero.",
+                    "El determinante se mantiene igual."
+                ],
+                "correctAnswer": "El determinante es cero.",
+                "explanation": "Una fila de ceros implica que el determinante es cero, ya que la expansión por cofactores a lo largo de esa fila da una suma de términos nulos. Esto también indica que la matriz no es invertible."
+            },
+            {
+                "id": "AL_INT_012",
+                "subCategory": "Determinantes",
+                "text": "Si se multiplica una fila de una matriz A por un escalar $k$, ¿cómo cambia su determinante?",
+                "hint": "El determinante es una función multilineal respecto a las filas.",
+                "options": [
+                    "Se divide por $k$.",
+                    "Se multiplica por $k$ elevado al orden de la matriz.",
+                    "Se mantiene igual.",
+                    "Se multiplica por $k$."
+                ],
+                "correctAnswer": "Se multiplica por $k$.",
+                "explanation": "Multiplicar una fila por $k$ escala el determinante por $k$, ya que el determinante es lineal en cada fila. Esto no aplica a operaciones entre filas."
+            },
+            {
+                "id": "AL_INT_013",
+                "subCategory": "Inversa de Matrices",
+                "text": "¿Qué condición debe cumplir una matriz cuadrada $A$ para ser invertible a derecha y a izquierda simultáneamente?",
+                "hint": "La invertibilidad está ligada a la existencia de soluciones únicas en sistemas lineales.",
+                "options": [
+                    "Su determinante debe ser cero.",
+                    "Su determinante debe ser distinto de cero.",
+                    "Debe ser una matriz identidad.",
+                    "Debe ser una matriz nula."
+                ],
+                "correctAnswer": "Su determinante debe ser distinto de cero.",
+                "explanation": "Una matriz es invertible (con inversa bilateral) si y solo si su determinante es no nulo. Esto garantiza rango completo y solución única para sistemas asociados."
+            },
+            {
+                "id": "AL_INT_014",
+                "subCategory": "Inversa de Matrices",
+                "text": "¿Cuál es la relación entre el rango de una matriz $A$ de orden $m\\times n$ y su invertibilidad a derecha?",
+                "hint": "La invertibilidad a derecha implica que el sistema $Ax=b$ tiene solución para cualquier $b$.",
+                "options": [
+                    "$ran(A) = n$",
+                    "$ran(A) = m$",
+                    "$ran(A) < m$",
+                    "$ran(A) < n$"
+                ],
+                "correctAnswer": "$ran(A) = m$",
+                "explanation": "Una matriz tiene inversa a derecha si su rango es máximo por filas ($ran(A)=m$), lo que garantiza que el sistema $Ax=b$ sea compatible para cualquier $b∈ℝᵐ$."
+            },
+            {
+                "id": "AL_INT_015",
+                "subCategory": "Inversa de Matrices",
+                "text": "Si $A$ y $B$ son matrices invertibles, ¿a qué es igual la inversa de su producto $(A \\cdot B)^{-1}$?",
+                "hint": "Verifica la propiedad mediante multiplicación directa para ver el orden correcto.",
+                "options": [
+                    "$A^{-1} \\cdot B^{-1}$",
+                    "$B^{-1} \\cdot A^{-1}$",
+                    "$A \\cdot B$",
+                    "$(B \\cdot A)^{-1}$"
+                ],
+                "correctAnswer": "$B^{-1} \\cdot A^{-1}$",
+                "explanation": "La inversa del producto es el producto de las inversas en orden inverso: $(A⋅B)^{-1}=B^{-1}⋅A^{-1}$. Esto se comprueba multiplicando: $(A⋅B)(B^{-1}⋅A^{-1})=I$."
+            }
+        ],
+        "avanzado": [
+            {
+                "id": "AL_AVA_001",
+                "subCategory": "Determinantes",
+                "text": "Si ( A in mathcal{M}_n(mathbb{R}) ) es una matriz idempotente (( A^2 = A )), ¿qué valor(es) puede tomar ( det(A) )?",
+                "hint": "Usa la propiedad del determinante para matrices que cumplen ( A^k = A ).",
+                "options": [
+                    "Solo 1",
+                    "Solo 0",
+                    "0 o 1",
+                    "Cualquier número real"
+                ],
+                "correctAnswer": "0 o 1",
+                "explanation": "Como ( A^2 = A ), tomando determinantes: ( det(A)^2 = det(A) ). Esto implica ( det(A)(det(A) - 1) = 0 ), por lo que ( det(A) = 0 ) o ( 1 )."
+            },
+            {
+                "id": "AL_AVA_002",
+                "subCategory": "Propiedades de Matrices",
+                "text": "Una matriz ( A in mathcal{M}_n(mathbb{R}) ) es normal si ( AA^T = A^T A ). ¿Cuál de estas matrices **no** es necesariamente normal?",
+                "hint": "Piensa en matrices que no conmutan con su transpuesta, excepto en casos especiales.",
+                "options": [
+                    "Matriz simétrica (( A = A^T ))",
+                    "Matriz antisimétrica (( A = -A^T ))",
+                    "Matriz ortogonal (( A^T = A^{-1} ))",
+                    "Matriz triangular superior no diagonal"
+                ],
+                "correctAnswer": "Matriz triangular superior no diagonal",
+                "explanation": "Las matrices simétricas, antisimétricas y ortogonales siempre son normales. Una matriz triangular superior solo es normal si es diagonal."
+            },
+            {
+                "id": "AL_AVA_003",
+                "subCategory": "Propiedades de Matrices",
+                "text": "Si ( A in mathcal{M}_n(mathbb{R}) ) es involutiva (( A^2 = I_n )), ¿qué relación tiene con su inversa ( A^{-1} )?",
+                "hint": "Despeja ( A^{-1} ) de la definición de matriz involutiva.",
+                "options": [
+                    "( A^{-1} = I_n )",
+                    "( A^{-1} = A )",
+                    "( A^{-1} = -A )",
+                    "( A^{-1} = A^T )"
+                ],
+                "correctAnswer": "( A^{-1} = A )",
+                "explanation": "De ( A^2 = I_n ), multiplicando por ( A^{-1} ): ( A = A^{-1} ). Ejemplo clásico: matrices de reflexión."
+            },
+            {
+                "id": "AL_AVA_004",
+                "subCategory": "Sistemas de Ecuaciones Lineales",
+                "text": "Según el Teorema de Rouché-Fröbenius, un sistema ( Amathbf{x} = mathbf{b} ) es compatible determinado si y solo si:",
+                "hint": "Considera la relación entre el rango de ( A ), el de la matriz ampliada ( [A|mathbf{b}] ), y el número de incógnitas ( n ).",
+                "options": [
+                    "( \text{rg}(A) \neq \text{rg}([A|mathbf{b}]) )",
+                    "( \text{rg}(A) = \text{rg}([A|mathbf{b}]) < n )",
+                    "( \text{rg}(A) = \text{rg}([A|mathbf{b}]) = n )",
+                    "( \text{rg}(A) = n )"
+                ],
+                "correctAnswer": "( \text{rg}(A) = \text{rg}([A|mathbf{b}]) = n )",
+                "explanation": "El sistema tiene solución única (determinado) si y solo si el rango de ( A ) y de la matriz ampliada coinciden y son iguales al número de incógnitas."
+            },
+            {
+                "id": "AL_AVA_005",
+                "subCategory": "Pseudoinversa",
+                "text": "Dada ( A in mathcal{M}_{m \times n}(mathbb{R}) ) con ( m geq n ) y ( \text{rg}(A) = n ), su pseudoinversa ( A^+ ) es:",
+                "hint": "Usa la fórmula para pseudoinversa cuando ( A ) tiene columnas linealmente independientes.",
+                "options": [
+                    "( A^+ = (A^T A)^{-1} A^T )",
+                    "( A^+ = A^T (A A^T)^{-1} )",
+                    "( A^+ = A^{-1} )",
+                    "( A^+ = A^T )"
+                ],
+                "correctAnswer": "( A^+ = (A^T A)^{-1} A^T )",
+                "explanation": "Cuando ( \text{rg}(A) = n ), ( A^T A ) es invertible y ( A^+ ) se calcula así. Es la solución de mínimos cuadrados para sistemas sobredeterminados."
+            },
+            {
+                "id": "AL_AVA_006",
+                "subCategory": "Propiedades de Matrices",
+                "text": "Una matriz ( A in mathcal{M}_n(mathbb{R}) ) es involutiva si cumple:",
+                "hint": "Revisa la definición de matriz involutiva en términos de potencias.",
+                "options": [
+                    "( A^2 = A )",
+                    "( A^2 = I_n )",
+                    "( A A^T = I_n )",
+                    "( A = -A^T )"
+                ],
+                "correctAnswer": "( A^2 = I_n )",
+                "explanation": "Involutiva significa que ( A ) es su propia inversa al cuadrado. Ejemplo: ( A = \begin{pmatrix} 0 & 1 \\ 1 & 0 end{pmatrix} )."
+            },
+            {
+                "id": "AL_AVA_007",
+                "subCategory": "Sistemas de Ecuaciones Lineales",
+                "text": "Si ( Amathbf{x} = mathbf{b} ) es compatible indeterminado, ¿qué se cumple?",
+                "hint": "Piensa en sistemas con infinitas soluciones.",
+                "options": [
+                    "( \text{rg}(A) = \text{rg}([A|mathbf{b}]) = n )",
+                    "( \text{rg}(A) = \text{rg}([A|mathbf{b}]) < n )",
+                    "( \text{rg}(A) \neq \text{rg}([A|mathbf{b}]) )",
+                    "( \text{rg}(A) = n )"
+                ],
+                "correctAnswer": "( \text{rg}(A) = \text{rg}([A|mathbf{b}]) < n )",
+                "explanation": "Un sistema es indeterminado si los rangos son iguales pero menores que ( n ), indicando variables libres."
+            },
+            {
+                "id": "AL_AVA_008",
+                "subCategory": "Pseudoinversa",
+                "text": "La pseudoinversa ( A^+ ) de una matriz ( A ):",
+                "hint": "Considera propiedades de unicidad y casos especiales.",
+                "options": [
+                    "Siempre es única",
+                    "Solo existe para matrices cuadradas",
+                    "Es igual a ( A^{-1} ) si ( det(A) = 0 )",
+                    "Se calcula siempre como ( (A^T A)^{-1} A^T )"
+                ],
+                "correctAnswer": "Siempre es única",
+                "explanation": "La pseudoinversa de Moore-Penrose existe para cualquier matriz y es única, incluso si ( A ) no es invertible."
+            },
+            {
+                "id": "AL_AVA_009",
+                "subCategory": "Propiedades de Matrices",
+                "text": "Si ( A in mathcal{M}_n(mathbb{R}) ) es invertible, ¿qué afirmación es equivalente?",
+                "hint": "Relaciona invertibilidad con propiedades de rango y determinante.",
+                "options": [
+                    "( A ) es la matriz nula",
+                    "( det(A) = 0 )",
+                    "( A ) tiene inversa por la derecha",
+                    "( A^T = A )"
+                ],
+                "correctAnswer": "( A ) tiene inversa por la derecha",
+                "explanation": "Una matriz es invertible si y solo si tiene inversa por ambos lados. Además, ( det(A) \neq 0 ) y ( \text{rg}(A) = n )."
+            },
+            {
+                "id": "AL_AVA_010",
+                "subCategory": "Operaciones Elementales",
+                "text": "Para reducir una matriz a su forma escalonada reducida (RREF), el último paso es:",
+                "hint": "Recuerda los pasos de eliminación de Gauss-Jordan.",
+                "options": [
+                    "Hacer ceros debajo de los pivotes",
+                    "Escalar filas para que los pivotes sean 1",
+                    "Hacer ceros **encima** de los pivotes",
+                    "Calcular el determinante"
+                ],
+                "correctAnswer": "Hacer ceros **encima** de los pivotes",
+                "explanation": "Tras escalonar y normalizar pivotes a 1, se anulan los elementos por encima de ellos para obtener la RREF."
+            },
+            {
+                "id": "AL_AVA_011",
+                "subCategory": "Pseudoinversa",
+                "text": "Si ( A in mathcal{M}_{m \times n}(mathbb{R}) ) con ( m leq n ) y ( \text{rg}(A) = m ), su pseudoinversa ( A^+ ) es:",
+                "hint": "Usa la fórmula para matrices con filas linealmente independientes.",
+                "options": [
+                    "( A^+ = (A^T A)^{-1} A^T )",
+                    "( A^+ = A^T (A A^T)^{-1} )",
+                    "( A^+ = A^{-1} )",
+                    "( A^+ = (A A^T)^{-1} )"
+                ],
+                "correctAnswer": "( A^+ = A^T (A A^T)^{-1} )",
+                "explanation": "Cuando ( \text{rg}(A) = m ), ( A A^T ) es invertible y ( A^+ ) se calcula así. Es útil en problemas subdeterminados."
+            },
+            {
+                "id": "AL_AVA_012",
+                "subCategory": "Sistemas de Ecuaciones",
+                "text": "Un sistema lineal homogéneo ( Amathbf{x} = mathbf{0} ) se caracteriza por:",
+                "hint": "Considera la estructura de sus soluciones.",
+                "options": [
+                    "Tener solución única ( mathbf{x} = mathbf{0} )",
+                    "Tener términos independientes nulos",
+                    "Ser siempre incompatible",
+                    "Tener infinitas soluciones no triviales si ( det(A) \neq 0 )"
+                ],
+                "correctAnswer": "Tener términos independientes nulos",
+                "explanation": "Por definición, un sistema homogéneo tiene ( mathbf{b} = mathbf{0} ). Siempre admite ( mathbf{x} = mathbf{0} ), pero puede tener infinitas soluciones si ( \text{rg}(A) < n )."
+            },
+            {
+                "id": "AL_AVA_013",
+                "subCategory": "Sistemas de Ecuaciones",
+                "text": "Según Rouché-Fröbenius, ( Amathbf{x} = mathbf{b} ) es incompatible si:",
+                "hint": "Incompatibilidad implica inconsistencia en los rangos.",
+                "options": [
+                    "( \text{rg}(A) = \text{rg}([A|mathbf{b}]) = n )",
+                    "( \text{rg}(A) = \text{rg}([A|mathbf{b}]) < n )",
+                    "( \text{rg}(A) \neq \text{rg}([A|mathbf{b}]) )",
+                    "( \text{rg}(A) = n ) y ( \text{rg}([A|mathbf{b}]) = n+1 )"
+                ],
+                "correctAnswer": "( \text{rg}(A) \neq \text{rg}([A|mathbf{b}]) )",
+                "explanation": "Un sistema es incompatible si el rango de ( A ) difiere del de la matriz ampliada, indicando que ( mathbf{b} ) no está en el espacio columna de ( A )."
+            },
+            {
+                "id": "AL_AVA_014",
+                "subCategory": "Pseudoinversa",
+                "text": "Si ( A ) es cuadrada e invertible, su pseudoinversa ( A^+ ) coincide con:",
+                "hint": "Compara la pseudoinversa con la inversa clásica.",
+                "options": [
+                    "( A^T )",
+                    "( A^{-1} )",
+                    "La matriz nula",
+                    "La matriz identidad"
+                ],
+                "correctAnswer": "( A^{-1} )",
+                "explanation": "Para matrices invertibles, ( A^+ = A^{-1} ), ya que satisface todas las condiciones de la pseudoinversa."
+            },
+            {
+                "id": "AL_AVA_015",
+                "subCategory": "Sistemas de Ecuaciones",
+                "text": "En un sistema homogéneo ( Amathbf{x} = mathbf{0} ), ¿qué solución siempre existe?",
+                "hint": "Piensa en la solución trivial.",
+                "options": [
+                    "El vector de unos ( (1, 1, dots, 1)^T )",
+                    "El vector nulo ( mathbf{0} )",
+                    "No hay soluciones garantizadas",
+                    "Solo soluciones no nulas si ( det(A) = 0 )"
+                ],
+                "correctAnswer": "El vector nulo ( mathbf{0} )",
+                "explanation": "El vector ( mathbf{0} ) siempre es solución de ( Amathbf{x} = mathbf{0} ). Las soluciones no triviales existen si ( \text{rg}(A) < n )."
+            }
+        ]
+    }
+}

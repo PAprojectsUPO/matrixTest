@@ -1,0 +1,143 @@
+{
+    "id": "calculo_2",
+    "name": "Cálculo II",
+    "description": "Límites, derivadas, diferenciabilidad, Taylor y optimización.",
+    "difficultyLevels": {
+        "basico": [
+            {
+                "id": "CAL2_BAS_001",
+                "subCategory": "Límites de Sucesiones",
+                "text": "Dada una sucesión $\\{x_{n}\\}$ tal que $\\lim_{n\\rightarrow\\infty}x_{n}=0$, la sucesión $\\frac{(2-x_{n})x_{n}}{2 \\arcsin(x_{n})}$...",
+                "hint": "Recuerda: $\\arcsin(x) \\sim x$ cuando $x \\to 0$.",
+                "options": [
+                    "converge a 0.",
+                    "converge a 1.",
+                    "converge a 2."
+                ],
+                "correctAnswer": "converge a 1.",
+                "explanation": "Usando infinitésimos equivalentes (ver EB2, Def 3.1): $\\arcsin(x_n) \\sim x_n$. El límite se simplifica a $\\frac{2-0}{2} = 1$."
+            },
+            {
+                "id": "CAL2_BAS_002",
+                "subCategory": "Series",
+                "text": "Sea $\\{a_{n}\\}$ una sucesión creciente de números reales positivos, entonces $\\sum_{n=1}^{\\infty}a_{n}$...",
+                "hint": "¿Qué implica que una sucesión creciente y positiva no tienda a 0?",
+                "options": [
+                    "puede ser convergente.",
+                    "puede ser oscilante.",
+                    "es divergente a $+\\infty$."
+                ],
+                "correctAnswer": "es divergente a $+\\infty$.",
+                "explanation": "Una sucesión creciente positiva no tiende a 0, falla la condición necesaria de convergencia (ver EB3, Obs 1.8)."
+            },
+            {
+                "id": "CAL2_BAS_003",
+                "subCategory": "Series",
+                "text": "Si $S_{n}=n^{2}$ es la suma parcial n-ésima de la serie $\\sum_{k=1}^{\\infty}a_{k}$, entonces:",
+                "hint": "Usa la fórmula $a_n = S_n - S_{n-1}$.",
+                "options": [
+                    "$a_{k}=2k$.",
+                    "$a_{k}=2k-1$.",
+                    "$a_{k}=2k-2$."
+                ],
+                "correctAnswer": "$a_{k}=2k-1$.",
+                "explanation": "La relación fundamental es $a_n = S_n - S_{n-1} = n^2 - (n-1)^2 = 2n - 1$ (ver EB3, Def 1.1)."
+            },
+            {
+                "id": "CAL2_BAS_004",
+                "subCategory": "Límites",
+                "text": "Dada $f:\\mathbb{R}^{n}\\rightarrow\\mathbb{R}^{m}$ si $\\lim_{x\\rightarrow\\infty}f(x)=l$ entonces...",
+                "hint": "Esta es la definición formal de límite finito en el infinito.",
+                "options": [
+                    "$\\forall\\epsilon>0\\exists K>0$ tal que, si $||x||>K$ entonces $||f(x)-l||<\\epsilon$.",
+                    "$\\forall M>0\\exists K>0$ tal que, si $||x||>K$, entonces $||f(x)-l||>M$.",
+                    "$\\forall\\epsilon>0\\exists\\delta>0$ tal que, si $||x||<\\delta,$ entonces $||f(x)-l||<\\epsilon$."
+                ],
+                "correctAnswer": "$\\forall\\epsilon>0\\exists K>0$ tal que, si $||x||>K$ entonces $||f(x)-l||<\\epsilon$.",
+                "explanation": "Esta es la definición formal de límite finito cuando $x \\to \\infty$ (ver EB4, Def 3.3)."
+            },
+            {
+                "id": "CAL2_BAS_005",
+                "subCategory": "Derivadas",
+                "text": "Sea $f:A\\subseteq\\mathbb{R}\\rightarrow\\mathbb{R}$ tal que $\\lim_{s\\rightarrow0}\\frac{f(2+s)-f(2)}{2s}=1$, entonces...",
+                "hint": "Compara con la definición estándar de derivada.",
+                "options": [
+                    "$f^{\\prime}(2)=1$.",
+                    "$f^{\\prime}(2)=2$.",
+                    "$f^{\\prime}(0)=1$."
+                ],
+                "correctAnswer": "$f^{\\prime}(2)=2$.",
+                "explanation": "La expresión dada es $\\frac{1}{2}f'(2) = 1$, por tanto $f'(2) = 2$ (ver EB6, Def 3.1)."
+            }
+        ],
+        "intermedio": [
+            {
+                "id": "CAL2_INT_001",
+                "subCategory": "Diferenciabilidad",
+                "text": "Dadas $f(x,y,z)=(x+e^{y-1},x \\ln(yz))$ y $g(u,v)=(u,v,\\sin(v))$. La función $f\\circ g$ es...",
+                "hint": "Analiza el dominio del logaritmo en la composición.",
+                "options": [
+                    "diferenciable en (1, 1).",
+                    "diferenciable en (1, $\\pi$).",
+                    "diferenciable en (1, 2)."
+                ],
+                "correctAnswer": "diferenciable en (1, 1).",
+                "explanation": "Para $v=1$: $v \\cdot \\sin(v) > 0$, bien definida. Para $v=\\pi$: $\\ln(0)$ no existe (ver EB7, Prop 2.3)."
+            },
+            {
+                "id": "CAL2_INT_002",
+                "subCategory": "Taylor",
+                "text": "Sea $P_{2,a}(x)$ el polinomio de Taylor de grado 2 en $a$. Se verifica:",
+                "hint": "El polinomio de Taylor reproduce las derivadas de la función en el punto.",
+                "options": [
+                    "$P_{2,a}^{\\prime}(a)=f(a)+f^{\\prime}(a)$.",
+                    "$P_{2,a}^{\\prime}(a)=f^{\\prime}(a)$.",
+                    "$P_{2,a}^{\\prime}(a)=2f^{\\prime}(a)$."
+                ],
+                "correctAnswer": "$P_{2,a}^{\\prime}(a)=f^{\\prime}(a)$.",
+                "explanation": "El polinomio de Taylor coincide con las derivadas de la función en $a$ (ver EB8, Def 1.1)."
+            },
+            {
+                "id": "CAL2_INT_003",
+                "subCategory": "Optimización",
+                "text": "Si los autovalores de $Hf(x_{0})$ verifican $\\lambda_{1}\\cdot\\lambda_{2}\\cdot\\lambda_{3}\\cdot\\lambda_{4}>0$ entonces $x_0$...",
+                "hint": "Analiza qué combinaciones de signos dan producto positivo.",
+                "options": [
+                    "es un mínimo local estricto de f.",
+                    "es un máximo local estricto de f.",
+                    "puede ser un punto de silla de f."
+                ],
+                "correctAnswer": "puede ser un punto de silla de f.",
+                "explanation": "El producto positivo permite 0, 2 o 4 negativos. Con 2 de cada signo hay punto de silla (ver EB8, Def 3.1 y Def 3.2)."
+            }
+        ],
+        "avanzado": [
+            {
+                "id": "CAL2_AVA_001",
+                "subCategory": "Integración",
+                "text": "¿Cuál es correcta para $\\int\\frac{f^{\\prime}(x)(f(x)+1)}{(f(x))^{2}}dx$?",
+                "hint": "Usa el cambio de variable $u = f(x)$.",
+                "options": [
+                    "$\\ln((f(x))^{2})+c$.",
+                    "$\\ln|f(x)|-\\frac{1}{f(x)}+c$.",
+                    "$\\ln|f(x)|+\\frac{1}{(f(x))^{2}}+c$."
+                ],
+                "correctAnswer": "$\\ln|f(x)|-\\frac{1}{f(x)}+c$.",
+                "explanation": "Con $u = f(x)$: $\\int \\frac{u+1}{u^2} du = \\ln|u| - \\frac{1}{u} + C$ (ver EB9, Def 2.1)."
+            },
+            {
+                "id": "CAL2_AVA_002",
+                "subCategory": "Superficies de Revolución",
+                "text": "El área al girar la gráfica de $f$ alrededor del eje $OX$ es:",
+                "hint": "Aplica la fórmula de área de superficie de revolución.",
+                "options": [
+                    "$\\int_{a}^{b}2\\pi f(x)\\sqrt{1+(f^{\\prime}(x))^{2}}dx$.",
+                    "$\\int_{a}^{b}\\pi^{2}\\sqrt{1+(f^{\\prime}(x))^{2}}dz$.",
+                    "$\\int_{a}^{b}\\pi f(x)\\sqrt{1+f^{\\prime}(x)} dx$."
+                ],
+                "correctAnswer": "$\\int_{a}^{b}2\\pi f(x)\\sqrt{1+(f^{\\prime}(x))^{2}}dx$.",
+                "explanation": "Fórmula: $A = \\int 2\\pi f(x) \\, ds$ donde $ds = \\sqrt{1+(f'(x))^2} dx$ (ver EB12, Prop 2.4)."
+            }
+        ]
+    }
+}

@@ -1,0 +1,853 @@
+{
+    "id": "algebra_lineal_2",
+    "name": "Álgebra Lineal II",
+    "description": "Preguntas sobre espacios vectoriales, aplicaciones lineales y conceptos avanzados.",
+    "difficultyLevels": {
+        "basico": [
+            {
+                "id": "AL_EASY_001",
+                "subCategory": "Espacios Vectoriales",
+                "text": "¿Cuál es la terna que define formalmente un espacio vectorial real?",
+                "hint": "Considera las operaciones básicas que debe admitir un espacio vectorial.",
+                "options": [
+                    "$(V, \\times, \\div)$",
+                    "$(V, +, \\cdot)$",
+                    "$(V, \\oplus, \\otimes)$",
+                    "$(V, \\cap, \\cup)$"
+                ],
+                "correctAnswer": "$(V, +, \\cdot)$",
+                "explanation": "Un espacio vectorial real se define por el conjunto $V$, una operación de suma $(+)$ entre vectores y una operación de producto $(\\cdot)$ por escalares reales, cumpliendo los 8 axiomas de espacios vectoriales."
+            },
+            {
+                "id": "AL_EASY_002",
+                "subCategory": "Conceptos Fundamentales",
+                "text": "En $\\mathbb{R}^3$, ¿qué nombre reciben sus elementos?",
+                "hint": "Piensa en la naturaleza geométrica de los elementos.",
+                "options": [
+                    "Escalares",
+                    "Matrices",
+                    "Vectores",
+                    "Tensores"
+                ],
+                "correctAnswer": "Vectores",
+                "explanation": "En cualquier espacio vectorial, incluido $\\mathbb{R}^3$, los elementos se denominan vectores. En $\\mathbb{R}^3$ pueden interpretarse geométricamente como flechas desde el origen."
+            },
+            {
+                "id": "AL_EASY_003",
+                "subCategory": "Propiedades del Espacio Vectorial",
+                "text": "Sobre el vector nulo $\\mathbf{0}$ en $V$, ¿cuál afirmación es verdadera?",
+                "hint": "Considera la unicidad en estructuras algebraicas.",
+                "options": [
+                    "No es único",
+                    "Es único y satisface $\\forall \\mathbf{v} \\in V, \\mathbf{v} + \\mathbf{0} = \\mathbf{v}$",
+                    "Depende de la base elegida",
+                    "Solo existe en $\\mathbb{R}^n$"
+                ],
+                "correctAnswer": "Es único y satisface $\\forall \\mathbf{v} \\in V, \\mathbf{v} + \\mathbf{0} = \\mathbf{v}$",
+                "explanation": "El vector nulo en un espacio vectorial es único y cumple ser el elemento neutro de la suma vectorial. Esto se deduce de los axiomas de espacios vectoriales."
+            },
+            {
+                "id": "AL_EASY_004",
+                "subCategory": "Subespacios Vectoriales",
+                "text": "Para que $W \\subset V$ sea subespacio, debe cumplir:",
+                "hint": "Considera cerradura bajo operaciones vectoriales.",
+                "options": [
+                    "$\\mathbf{0} \\notin W$",
+                    "$\\forall \\mathbf{u}, \\mathbf{v} \\in W, \\mathbf{u} + \\mathbf{v} \\notin W$",
+                    "$\\forall \\alpha \\in \\mathbb{R}, \\forall \\mathbf{u} \\in W, \\alpha \\mathbf{u} \\in W$",
+                    "$W$ debe ser finito"
+                ],
+                "correctAnswer": "$\\forall \\alpha \\in \\mathbb{R}, \\forall \\mathbf{u} \\in W, \\alpha \\mathbf{u} \\in W$",
+                "explanation": "Un subespacio debe ser cerrado bajo suma vectorial y multiplicación por escalares, y contener al vector nulo. La opción correcta refleja la cerradura bajo producto por escalares."
+            },
+            {
+                "id": "AL_EASY_005",
+                "subCategory": "Espacio Afín",
+                "text": "En un espacio afín $(E, V, +)$, los elementos de $E$ se llaman:",
+                "hint": "Piensa en la interpretación geométrica.",
+                "options": [
+                    "Vectores",
+                    "Puntos",
+                    "Escalares",
+                    "Transformaciones"
+                ],
+                "correctAnswer": "Puntos",
+                "explanation": "En un espacio afín, $E$ es el conjunto de puntos y $V$ el espacio vectorial asociado que permite definir diferencias entre puntos y traslaciones."
+            },
+            {
+                "id": "AL_EASY_006",
+                "subCategory": "Distancia Euclídea",
+                "text": "La distancia euclidiana entre $P, Q \\in \\mathbb{R}^n$ es:",
+                "hint": "Usa la norma del vector diferencia.",
+                "options": [
+                    "$\\|P\\| + \\|Q\\|$",
+                    "$\\|P - Q\\|$",
+                    "$P \\cdot Q$",
+                    "$\\det(P, Q)$"
+                ],
+                "correctAnswer": "$\\|P - Q\\|$",
+                "explanation": "La distancia se define como la norma del vector $\\overrightarrow{PQ} = Q - P$, que en $\\mathbb{R}^n$ es $\\sqrt{\\sum_{i=1}^n (q_i - p_i)^2}$."
+            },
+            {
+                "id": "AL_EASY_007",
+                "subCategory": "Aplicaciones Lineales",
+                "text": "Una transformación lineal $T: V \\to W$ debe cumplir:",
+                "hint": "Busca preservación de operaciones.",
+                "options": [
+                    "$T(\\mathbf{u} + \\mathbf{v}) = T(\\mathbf{u}) \\circ T(\\mathbf{v})$",
+                    "$T(\\alpha \\mathbf{u}) = \\alpha^2 T(\\mathbf{u})$",
+                    "$T(\\mathbf{u} + \\mathbf{v}) = T(\\mathbf{u}) + T(\\mathbf{v})$",
+                    "$T(\\mathbf{0}_V) = \\mathbf{1}_W$"
+                ],
+                "correctAnswer": "$T(\\mathbf{u} + \\mathbf{v}) = T(\\mathbf{u}) + T(\\mathbf{v})$",
+                "explanation": "Las transformaciones lineales preservan suma y producto por escalar: $T(\\mathbf{u} + \\mathbf{v}) = T(\\mathbf{u}) + T(\\mathbf{v})$ y $T(\\alpha \\mathbf{u}) = \\alpha T(\\mathbf{u})$."
+            },
+            {
+                "id": "AL_EASY_008",
+                "subCategory": "Aplicaciones Lineales",
+                "text": "Para toda transformación lineal $T: V \\to W$, se cumple:",
+                "hint": "Considera la imagen del elemento neutro.",
+                "options": [
+                    "$T(\\mathbf{0}_V) = \\mathbf{0}_W$",
+                    "$T(\\mathbf{0}_V) = \\mathbf{1}_W$",
+                    "$T(\\mathbf{0}_V)$ es indefinido",
+                    "$T(\\mathbf{0}_V) = \\dim(V)$"
+                ],
+                "correctAnswer": "$T(\\mathbf{0}_V) = \\mathbf{0}_W$",
+                "explanation": "Toda transformación lineal mapea el vector nulo de $V$ al vector nulo de $W$, pues $T(\\mathbf{0}_V) = T(0 \\cdot \\mathbf{v}) = 0 \\cdot T(\\mathbf{v}) = \\mathbf{0}_W$."
+            },
+            {
+                "id": "AL_EASY_009",
+                "subCategory": "Variedades Lineales Afines",
+                "text": "Una recta en un espacio afín es una variedad de dimensión:",
+                "hint": "Piensa en los grados de libertad.",
+                "options": [
+                    "0",
+                    "1",
+                    "2",
+                    "$n$"
+                ],
+                "correctAnswer": "1",
+                "explanation": "Una recta tiene dimensión 1, pues puede parametrizarse con un único parámetro: $P = P_0 + t \\mathbf{v}$, donde $t \\in \\mathbb{R}$."
+            },
+            {
+                "id": "AL_EASY_010",
+                "subCategory": "Dependencia Lineal",
+                "text": "Si $\\{\\mathbf{v}_1, ..., \\mathbf{v}_k\\}$ contiene a $\\mathbf{0}$:",
+                "hint": "Considera combinaciones lineales no triviales.",
+                "options": [
+                    "Es linealmente independiente",
+                    "Es base de $V$",
+                    "Es linealmente dependiente",
+                    "Genera todo $V$"
+                ],
+                "correctAnswer": "Es linealmente dependiente",
+                "explanation": "El conjunto es LD pues existe una combinación lineal no trivial $1 \\cdot \\mathbf{0} + 0 \\cdot \\mathbf{v}_2 + \\cdots + 0 \\cdot \\mathbf{v}_k = \\mathbf{0}$."
+            },
+            {
+                "id": "AL_EASY_011",
+                "subCategory": "Bases",
+                "text": "La base canónica de $\\mathbb{R}^3$ es:",
+                "hint": "Vectores unitarios en ejes coordenados.",
+                "options": [
+                    "$\\{(1,1,1), (0,1,1), (0,0,1)\\}$",
+                    "$\\{(1,0,0), (0,1,0), (0,0,1)\\}$",
+                    "$\\{(2,0,0), (0,2,0), (0,0,2)\\}$",
+                    "$\\mathbb{R}^3$ no tiene base canónica"
+                ],
+                "correctAnswer": "$\\{(1,0,0), (0,1,0), (0,0,1)\\}$",
+                "explanation": "La base canónica son los vectores unitarios en las direcciones de los ejes $x$, $y$ y $z$."
+            },
+            {
+                "id": "AL_EASY_012",
+                "subCategory": "Dimensión",
+                "text": "Un punto en un espacio afín tiene dimensión:",
+                "hint": "Grados de libertad para moverse.",
+                "options": [
+                    "0",
+                    "1",
+                    "2",
+                    "3"
+                ],
+                "correctAnswer": "0",
+                "explanation": "Un punto es una variedad de dimensión 0, pues no permite movimiento en ninguna dirección."
+            },
+            {
+                "id": "AL_EASY_013",
+                "subCategory": "Sistemas de Referencia",
+                "text": "En $\\mathcal{R} = \\{O; \\mathbf{e}_1, \\mathbf{e}_2\\}$, $O$ representa:",
+                "hint": "Elemento que fija la posición.",
+                "options": [
+                    "Un vector de la base",
+                    "El origen de coordenadas",
+                    "Un escalar",
+                    "La dimensión del espacio"
+                ],
+                "correctAnswer": "El origen de coordenadas",
+                "explanation": "$O$ es el punto de referencia que sirve como origen del sistema de coordenadas."
+            },
+            {
+                "id": "AL_EASY_014",
+                "subCategory": "Núcleo e Imagen",
+                "text": "Para $T: V \\to W$ lineal, el núcleo $\\ker(T)$ es:",
+                "hint": "Conjunto de vectores que van al cero.",
+                "options": [
+                    "$\\{\\mathbf{v} \\in V \\ | \\ T(\\mathbf{v}) = \\mathbf{0}_W\\}$",
+                    "$\\{\\mathbf{w} \\in W \\ | \\ \\exists \\mathbf{v} \\in V: T(\\mathbf{v}) = \\mathbf{w}\\}$",
+                    "$V$",
+                    "$W$"
+                ],
+                "correctAnswer": "$\\{\\mathbf{v} \\in V \\ | \\ T(\\mathbf{v}) = \\mathbf{0}_W\\}$",
+                "explanation": "El núcleo son todos los vectores de $V$ que $T$ mapea al vector nulo de $W$. Es un subespacio de $V$."
+            },
+            {
+                "id": "AL_EASY_015",
+                "subCategory": "Coordenadas",
+                "text": "Las coordenadas de $\\mathbf{v} = (2,3)$ en la base $\\mathcal{B} = \\{(1,1), (0,1)\\}$ son:",
+                "hint": "Resuelve $\\mathbf{v} = \\alpha \\mathbf{b}_1 + \\beta \\mathbf{b}_2$.",
+                "options": [
+                    "$(2, 1)$",
+                    "$(3, 2)$",
+                    "$(2, 3)$",
+                    "$(-1, 2)$"
+                ],
+                "correctAnswer": "$(2, 1)$",
+                "explanation": "Se resuelve $2 = \\alpha \\cdot 1 + \\beta \\cdot 0$ y $3 = \\alpha \\cdot 1 + \\beta \\cdot 1$, obteniendo $\\alpha = 2$, $\\beta = 1$."
+            },
+            {
+                "id": "AL_EASY_016",
+                "subCategory": "Producto Interno",
+                "text": "En $\\mathbb{R}^n$, el producto interno estándar de $\\mathbf{u}$ y $\\mathbf{v}$ es:",
+                "hint": "Suma de productos componente a componente.",
+                "options": [
+                    "$\\sum_{i=1}^n u_i v_i$",
+                    "$\\sum_{i=1}^n |u_i - v_i|$",
+                    "$\\max(u_i v_i)$",
+                    "$\\prod_{i=1}^n u_i + v_i$"
+                ],
+                "correctAnswer": "$\\sum_{i=1}^n u_i v_i$",
+                "explanation": "El producto interno estándar (o producto punto) es $\\langle \\mathbf{u}, \\mathbf{v} \\rangle = \\sum_{i=1}^n u_i v_i$."
+            },
+            {
+                "id": "AL_EASY_017",
+                "subCategory": "Ortogonalidad",
+                "text": "Dos vectores $\\mathbf{u}, \\mathbf{v}$ son ortogonales si:",
+                "hint": "Condición del producto interno.",
+                "options": [
+                    "$\\|\\mathbf{u}\\| = \\|\\mathbf{v}\\|$",
+                    "$\\langle \\mathbf{u}, \\mathbf{v} \\rangle = 0$",
+                    "$\\mathbf{u} = \\alpha \\mathbf{v}$ para algún $\\alpha$",
+                    "$\\mathbf{u} + \\mathbf{v} = \\mathbf{0}$"
+                ],
+                "correctAnswer": "$\\langle \\mathbf{u}, \\mathbf{v} \\rangle = 0$",
+                "explanation": "La ortogonalidad se define mediante el producto interno: $\\mathbf{u} \\perp \\mathbf{v} \\iff \\langle \\mathbf{u}, \\mathbf{v} \\rangle = 0$."
+            },
+            {
+                "id": "AL_EASY_018",
+                "subCategory": "Norma",
+                "text": "La norma euclidiana de $\\mathbf{v} \\in \\mathbb{R}^n$ es:",
+                "hint": "Relación con el producto interno.",
+                "options": [
+                    "$\\sqrt{\\langle \\mathbf{v}, \\mathbf{v} \\rangle}$",
+                    "$\\langle \\mathbf{v}, \\mathbf{v} \\rangle$",
+                    "$\\sum_{i=1}^n v_i$",
+                    "$\\max(v_i)$"
+                ],
+                "correctAnswer": "$\\sqrt{\\langle \\mathbf{v}, \\mathbf{v} \\rangle}$",
+                "explanation": "La norma euclidiana es $\\|\\mathbf{v}\\| = \\sqrt{v_1^2 + \\cdots + v_n^2} = \\sqrt{\\langle \\mathbf{v}, \\mathbf{v} \\rangle}$."
+            },
+            {
+                "id": "AL_EASY_019",
+                "subCategory": "Matriz de Transformación",
+                "text": "Si $T: \\mathbb{R}^2 \\to \\mathbb{R}^2$ es lineal con $T(1,0) = (a,b)$ y $T(0,1) = (c,d)$, su matriz asociada es:",
+                "hint": "Columnas como imágenes de la base canónica.",
+                "options": [
+                    "$\\begin{pmatrix} a & c \\\\ b & d \\end{pmatrix}$",
+                    "$\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$",
+                    "$\\begin{pmatrix} b & a \\\\ d & c \\end{pmatrix}$",
+                    "$\\begin{pmatrix} c & a \\\\ d & b \\end{pmatrix}$"
+                ],
+                "correctAnswer": "$\\begin{pmatrix} a & c \\\\ b & d \\end{pmatrix}$",
+                "explanation": "Las columnas de la matriz de $T$ son las imágenes de los vectores de la base canónica: $[T] = \\begin{pmatrix} a & c \\\\ b & d \\end{pmatrix}$."
+            },
+            {
+                "id": "AL_EASY_020",
+                "subCategory": "Determinante",
+                "text": "El determinante de una matriz $2 \\times 2$ $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ es:",
+                "hint": "Producto diagonal menos producto antidiagonal.",
+                "options": [
+                    "$ab + cd$",
+                    "$ad - bc$",
+                    "$ac - bd$",
+                    "$a + d$"
+                ],
+                "correctAnswer": "$ad - bc$",
+                "explanation": "Para matrices $2 \\times 2$, $\\det \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc$."
+            }
+        ],
+        "intermedio": [
+            {
+                "id": "AL_MEDIUM_001",
+                "subCategory": "Independencia Lineal",
+                "text": "Un conjunto $\\{\\mathbf{v}_1,...,\\mathbf{v}_m\\} \\subset \\mathbb{R}^n$ es linealmente independiente (LI) si:",
+                "hint": "Considera la única combinación lineal que da el vector nulo.",
+                "options": [
+                    "$\\exists \\alpha_i \\neq 0$ tal que $\\sum \\alpha_i \\mathbf{v}_i = \\mathbf{0}$",
+                    "La única solución para $\\sum \\alpha_i \\mathbf{v}_i = \\mathbf{0}$ es $\\alpha_i = 0$ $\\forall i$",
+                    "$\\sum \\alpha_i = 1$ para alguna combinación lineal",
+                    "$\\mathbf{v}_i = k\\mathbf{v}_j$ para algún $i,j$"
+                ],
+                "correctAnswer": "La única solución para $\\sum \\alpha_i \\mathbf{v}_i = \\mathbf{0}$ es $\\alpha_i = 0$ $\\forall i$",
+                "explanation": "Por definición, un conjunto es LI si la única combinación lineal que produce el vector nulo es la trivial (todos los coeficientes cero). Esto garantiza que ningún vector puede expresarse como combinación de los demás."
+            },
+            {
+                "id": "AL_MEDIUM_002",
+                "subCategory": "Rango de una Matriz",
+                "text": "Si $A = [\\mathbf{v}_1 | \\cdots | \\mathbf{v}_m] \\in \\mathcal{M}_{n \\times m}(\\mathbb{R})$, entonces $\\{\\mathbf{v}_1,...,\\mathbf{v}_m\\}$ es LI si y solo si:",
+                "hint": "Relaciona independencia lineal con el rango matricial.",
+                "options": [
+                    "$\\text{rg}(A) < m$",
+                    "$\\text{rg}(A) = m$",
+                    "$\\text{rg}(A) = n$",
+                    "$\\text{rg}(A) = 0$"
+                ],
+                "correctAnswer": "$\\text{rg}(A) = m$",
+                "explanation": "El rango de $A$ es igual al máximo número de columnas LI. Si $\\text{rg}(A) = m$ (número total de columnas), todas las columnas son LI. Esto también implica $m \\leq n$."
+            },
+            {
+                "id": "AL_MEDIUM_003",
+                "subCategory": "Dimensión de Espacios Vectoriales",
+                "text": "La dimensión de $\\mathbb{R}^n$ como espacio vectorial real es:",
+                "hint": "Piensen en la base canónica.",
+                "options": [
+                    "$n^2$",
+                    "$n$",
+                    "$2n$",
+                    "Depende de la base elegida"
+                ],
+                "correctAnswer": "$n$",
+                "explanation": "La dimensión es el cardinal de cualquier base. La base canónica $\\{\\mathbf{e}_1,...,\\mathbf{e}_n\\}$ tiene $n$ elementos, por tanto $\\dim(\\mathbb{R}^n) = n$."
+            },
+            {
+                "id": "AL_MEDIUM_004",
+                "subCategory": "Subespacios Vectoriales",
+                "text": "Para subespacios $L_1, L_2 \\subseteq V$, la fórmula de Grassmann establece que:",
+                "hint": "Considera la relación entre suma e intersección de subespacios.",
+                "options": [
+                    "$\\dim(L_1 + L_2) = \\dim(L_1) + \\dim(L_2) + \\dim(L_1 \\cap L_2)$",
+                    "$\\dim(L_1 + L_2) = \\dim(L_1) + \\dim(L_2) - \\dim(L_1 \\cap L_2)$",
+                    "$\\dim(L_1 + L_2) = \\dim(L_1) \\cdot \\dim(L_2)$",
+                    "$\\dim(L_1 + L_2) = \\max(\\dim(L_1), \\dim(L_2))$"
+                ],
+                "correctAnswer": "$\\dim(L_1 + L_2) = \\dim(L_1) + \\dim(L_2) - \\dim(L_1 \\cap L_2)$",
+                "explanation": "La fórmula de Grassmann cuenta la dimensión de la suma corrigiendo por la intersección para evitar 'contar dos veces' los vectores comunes. Es análoga al principio de inclusión-exclusión en teoría de conjuntos."
+            },
+            {
+                "id": "AL_MEDIUM_005",
+                "subCategory": "Suma Directa",
+                "text": "La suma $L_1 \\oplus L_2$ es directa cuando:",
+                "hint": "Piensa en cómo se intersectan los subespacios.",
+                "options": [
+                    "$L_1 \\cap L_2$ es infinito-dimensional",
+                    "$L_1 \\cap L_2 = \\{\\mathbf{0}\\}$",
+                    "$L_1 \\subseteq L_2$",
+                    "$\\dim(L_1) = \\dim(L_2)$"
+                ],
+                "correctAnswer": "$L_1 \\cap L_2 = \\{\\mathbf{0}\\}$",
+                "explanation": "La suma es directa cuando los subespacios sólo comparten el vector nulo, lo que garantiza que todo vector en $L_1 + L_2$ se expresa **de forma única** como suma de vectores de $L_1$ y $L_2$."
+            },
+            {
+                "id": "AL_MEDIUM_006",
+                "subCategory": "Cambios de Base",
+                "text": "La matriz de cambio de base de $\\mathcal{B}_1$ a $\\mathcal{B}_2$:",
+                "hint": "¿Qué hace esta matriz con las coordenadas?",
+                "options": [
+                    "Multiplica por el vector nulo",
+                    "Transforma coordenadas de $\\mathcal{B}_1$ a $\\mathcal{B}_2$",
+                    "Es siempre la matriz identidad",
+                    "Depende solo de la dimensión"
+                ],
+                "correctAnswer": "Transforma coordenadas de $\\mathcal{B}_1$ a $\\mathcal{B}_2$",
+                "explanation": "Si $[\\mathbf{v}]_{\\mathcal{B}_1}$ son las coordenadas en $\\mathcal{B}_1$, entonces $P_{\\mathcal{B}_1 \\to \\mathcal{B}_2} [\\mathbf{v}]_{\\mathcal{B}_1} = [\\mathbf{v}]_{\\mathcal{B}_2}$. Sus columnas son los vectores de $\\mathcal{B}_1$ expresados en $\\mathcal{B}_2$."
+            },
+            {
+                "id": "AL_MEDIUM_007",
+                "subCategory": "Sistemas Homogéneos",
+                "text": "Para un sistema homogéneo $A\\mathbf{x} = \\mathbf{0}$ con $A \\in \\mathcal{M}_{m \\times n}(\\mathbb{R})$ y $\\text{rg}(A) = r$, la dimensión del espacio solución es:",
+                "hint": "Usa el teorema de la dimensión para sistemas lineales.",
+                "options": [
+                    "$r$",
+                    "$n - r$",
+                    "$m - r$",
+                    "$n$"
+                ],
+                "correctAnswer": "$n - r$",
+                "explanation": "Por el teorema de rango-nulidad, $\\dim(\\ker(A)) = n - \\text{rg}(A)$. Cada ecuación LI reduce en 1 la dimensión del espacio solución."
+            },
+            {
+                "id": "AL_MEDIUM_008",
+                "subCategory": "Aplicaciones Lineales",
+                "text": "Una aplicación lineal $f: V \\to W$ con matriz asociada $A$ es inyectiva si:",
+                "hint": "Relaciona inyectividad con el núcleo.",
+                "options": [
+                    "$\\text{rg}(A) = \\dim(V)$",
+                    "$\\ker(f) = \\{\\mathbf{0}\\}$",
+                    "$\\text{rg}(A) = \\dim(W)$",
+                    "$A$ es cuadrada"
+                ],
+                "correctAnswer": "$\\ker(f) = \\{\\mathbf{0}\\}$",
+                "explanation": "$f$ es inyectiva $\\iff \\ker(f) = \\{\\mathbf{0}\\} \\iff \\text{rg}(A) = \\dim(V)$. Esto significa que columnas de $A$ son LI."
+            },
+            {
+                "id": "AL_MEDIUM_009",
+                "subCategory": "Imagen de Subespacios",
+                "text": "Si $H \\subseteq V$ es subespacio y $f: V \\to W$ es lineal, entonces $f(H)$:",
+                "hint": "¿Preserva $f$ la estructura de subespacio?",
+                "options": [
+                    "Es siempre $\\{\\mathbf{0}\\}$",
+                    "Es un subespacio de $W$",
+                    "No tiene estructura algebraica",
+                    "Es igual a $W$"
+                ],
+                "correctAnswer": "Es un subespacio de $W$",
+                "explanation": "Las aplicaciones lineales preservan subespacios: $f(H)$ hereda cerradura bajo suma y producto por escalar de $W$. Si $H = \\langle \\mathbf{v}_1,...,\\mathbf{v}_k \\rangle$, entonces $f(H) = \\langle f(\\mathbf{v}_1),...,f(\\mathbf{v}_k) \\rangle$."
+            },
+            {
+                "id": "AL_MEDIUM_010",
+                "subCategory": "Sistemas Generadores",
+                "text": "Si $\\{\\mathbf{v}_1,...,\\mathbf{v}_k\\}$ genera $V$ y $f: V \\to W$ es lineal, entonces:",
+                "hint": "¿Qué pasa con el span bajo transformaciones lineales?",
+                "options": [
+                    "$\\{f(\\mathbf{v}_1),...,f(\\mathbf{v}_k)\\}$ genera $\\ker(f)$",
+                    "$\\{f(\\mathbf{v}_1),...,f(\\mathbf{v}_k)\\}$ genera $\\text{Im}(f)$",
+                    "Es LI en $W$",
+                    "No genera ningún espacio"
+                ],
+                "correctAnswer": "$\\{f(\\mathbf{v}_1),...,f(\\mathbf{v}_k)\\}$ genera $\\text{Im}(f)$",
+                "explanation": "La imagen de un sistema generador bajo $f$ es un sistema generador de la imagen de $f$. Esto es clave para calcular $\\text{rg}(f) = \\dim(\\text{Im}(f))$."
+            },
+            {
+                "id": "AL_MEDIUM_011",
+                "subCategory": "Dependencia Lineal",
+                "text": "Un conjunto $S \\subset V$ es linealmente dependiente (LD) si:",
+                "hint": "¿Existe una combinación lineal no trivial igual a cero?",
+                "options": [
+                    "$\\forall \\mathbf{v} \\in S, \\mathbf{v} = \\mathbf{0}$",
+                    "$\\exists \\mathbf{v} \\in S$ que es combinación lineal de los demás",
+                    "$S$ es vacío",
+                    "$S$ genera $V$"
+                ],
+                "correctAnswer": "$\\exists \\mathbf{v} \\in S$ que es combinación lineal de los demás",
+                "explanation": "Equivalentemente: $S$ es LD $\\iff \\exists \\alpha_i$ no todos cero tal que $\\sum \\alpha_i \\mathbf{v}_i = \\mathbf{0}$. Basta que un vector sea combinación lineal de los demás."
+            },
+            {
+                "id": "AL_MEDIUM_012",
+                "subCategory": "Bases",
+                "text": "Si $\\mathcal{B} = \\{\\mathbf{v}_1,...,\\mathbf{v}_n\\}$ es base de $V$, entonces:",
+                "hint": "Caracteriza las propiedades de una base.",
+                "options": [
+                    "Todo vector de $V$ tiene infinitas representaciones en $\\mathcal{B}$",
+                    "Todo vector de $V$ tiene una única representación como combinación lineal de $\\mathcal{B}$",
+                    "$\\mathcal{B}$ es LD",
+                    "$\\dim(V) < n$"
+                ],
+                "correctAnswer": "Todo vector de $V$ tiene una única representación como combinación lineal de $\\mathcal{B}$",
+                "explanation": "Una base es un conjunto LI que genera $V$. La unicidad de la combinación lineal es crucial para definir coordenadas."
+            },
+            {
+                "id": "AL_MEDIUM_013",
+                "subCategory": "Sobreyectividad",
+                "text": "Una aplicación lineal $f: V \\to W$ es sobreyectiva si:",
+                "hint": "¿Cubre todo el espacio de llegada?",
+                "options": [
+                    "$\\ker(f) = \\{\\mathbf{0}\\}$",
+                    "$\\text{Im}(f) = W$",
+                    "$\\dim(V) = \\dim(W)$",
+                    "$f$ es invertible"
+                ],
+                "correctAnswer": "$\\text{Im}(f) = W$",
+                "explanation": "$f$ es sobreyectiva (epimorfismo) si todo elemento de $W$ es imagen de algún elemento de $V$, es decir, si $\\text{rg}(f) = \\dim(W)$."
+            },
+            {
+                "id": "AL_MEDIUM_014",
+                "subCategory": "Isomorfismos",
+                "text": "Un isomorfismo entre $V$ y $W$ es una aplicación lineal:",
+                "hint": "¿Qué propiedades debe tener para ser isomorfismo?",
+                "options": [
+                    "Inyectiva pero no sobreyectiva",
+                    "Sobreyectiva pero no inyectiva",
+                    "Biyectiva",
+                    "No lineal"
+                ],
+                "correctAnswer": "Biyectiva",
+                "explanation": "Un isomorfismo es un homomorfismo (lineal) biyectivo. Esto implica $\\dim(V) = \\dim(W)$ y existencia de inversa $f^{-1}$ también lineal."
+            },
+            {
+                "id": "AL_MEDIUM_015",
+                "subCategory": "Teorema de Rango-Nulidad",
+                "text": "Para $f: V \\to W$ lineal, el teorema de rango-nulidad establece:",
+                "hint": "Relaciona las dimensiones del núcleo y la imagen.",
+                "options": [
+                    "$\\dim(V) = \\dim(\\ker(f)) \\cdot \\dim(\\text{Im}(f))$",
+                    "$\\dim(V) = \\dim(\\ker(f)) + \\dim(\\text{Im}(f))$",
+                    "$\\dim(W) = \\dim(\\ker(f)) + \\dim(\\text{Im}(f))$",
+                    "$\\dim(\\ker(f)) = \\dim(\\text{Im}(f))$"
+                ],
+                "correctAnswer": "$\\dim(V) = \\dim(\\ker(f)) + \\dim(\\text{Im}(f))$",
+                "explanation": "Este teorema fundamental conecta las dimensiones del núcleo (nulidad) y la imagen (rango): $\\dim(V) = \\dim(\\ker(f)) + \\text{rg}(f)$."
+            },
+            {
+                "id": "AL_MEDIUM_016",
+                "subCategory": "Matriz de una Aplicación Lineal",
+                "text": "Si $f: V \\to W$ tiene matriz $A$ respecto a bases $\\mathcal{B}_V$ y $\\mathcal{B}_W$, entonces las columnas de $A$ son:",
+                "hint": "¿Qué representan las columnas?",
+                "options": [
+                    "Los vectores de $\\mathcal{B}_V$ en $\\mathcal{B}_W$",
+                    "Las imágenes de los vectores de $\\mathcal{B}_V$ expresadas en $\\mathcal{B}_W$",
+                    "Los vectores del núcleo",
+                    "Las coordenadas de $\\mathcal{B}_W$ en $V$"
+                ],
+                "correctAnswer": "Las imágenes de los vectores de $\\mathcal{B}_V$ expresadas en $\\mathcal{B}_W$",
+                "explanation": "La columna $j$-ésima de $A$ contiene las coordenadas de $f(\\mathbf{b}_j^V)$ en la base $\\mathcal{B}_W$, donde $\\mathbf{b}_j^V$ es el $j$-ésimo vector de $\\mathcal{B}_V$."
+            },
+            {
+                "id": "AL_MEDIUM_017",
+                "subCategory": "Endomorfismos",
+                "text": "Un endomorfismo es una aplicación lineal:",
+                "hint": "¿Qué espacios involucra?",
+                "options": [
+                    "$f: V \\to W$ con $V \\neq W$",
+                    "$f: V \\to V$",
+                    "$f: V \\to \\mathbb{R}$",
+                    "$f: V \\to \\{\\mathbf{0}\\}$"
+                ],
+                "correctAnswer": "$f: V \\to V$",
+                "explanation": "Un endomorfismo es una transformación lineal de un espacio en sí mismo. Si además es biyectivo, se llama automorfismo."
+            },
+            {
+                "id": "AL_MEDIUM_018",
+                "subCategory": "Formas Lineales",
+                "text": "Una forma lineal es una aplicación lineal:",
+                "hint": "¿A qué espacio llega?",
+                "options": [
+                    "$f: V \\to W$ con $\\dim(W) > 1$",
+                    "$f: V \\to \\mathbb{R}$",
+                    "$f: V \\to V$",
+                    "$f: V \\to \\mathcal{M}_n(\\mathbb{R})$"
+                ],
+                "correctAnswer": "$f: V \\to \\mathbb{R}$",
+                "explanation": "Una forma lineal es un funcional lineal, es decir, una transformación lineal que mapea vectores a escalares. El conjunto de todas ellas forma el espacio dual $V^*$."
+            },
+            {
+                "id": "AL_MEDIUM_019",
+                "subCategory": "Espacio Dual",
+                "text": "Si $\\dim(V) = n$, entonces $\\dim(V^*) = $",
+                "hint": "¿Cómo se relaciona con la dimensión de $V$?",
+                "options": [
+                    "$n^2$",
+                    "$n$",
+                    "$2n$",
+                    "$0$"
+                ],
+                "correctAnswer": "$n$",
+                "explanation": "El espacio dual $V^* = \\mathcal{L}(V, \\mathbb{R})$ tiene la misma dimensión que $V$. Si $\\mathcal{B}$ es base de $V$, entonces la base dual $\\mathcal{B}^*$ tiene $n$ elementos."
+            },
+            {
+                "id": "AL_MEDIUM_020",
+                "subCategory": "Matriz Dual",
+                "text": "La matriz de una forma lineal $f: V \\to \\mathbb{R}$ en una base $\\mathcal{B}$ es:",
+                "hint": "¿Qué forma tiene una matriz de 1 fila?",
+                "options": [
+                    "Una matriz cuadrada $n \\times n$",
+                    "Un vector fila en $\\mathbb{R}^n$",
+                    "Un vector columna en $\\mathbb{R}^n$",
+                    "La matriz identidad"
+                ],
+                "correctAnswer": "Un vector fila en $\\mathbb{R}^n$",
+                "explanation": "Las formas lineales se representan por matrices fila. Si $\\mathcal{B} = \\{\\mathbf{b}_1,...,\\mathbf{b}_n\\}$, entonces $[f]_{\\mathcal{B}} = (f(\\mathbf{b}_1), ..., f(\\mathbf{b}_n)) \\in \\mathcal{M}_{1 \\times n}(\\mathbb{R})$."
+            }
+        ],
+        "avanzado": [
+            {
+                "id": "AL_HARD_001",
+                "subCategory": "Bases de Espacios Vectoriales",
+                "text": "Según el Lema de Steinitz, si $\\{\\mathbf{v}_1,...,\\mathbf{v}_r\\}$ es un conjunto LI en $V$ con $\\dim(V) = n$ y $r < n$, ¿cuántos vectores se necesitan para completar una base de $V$?",
+                "hint": "Considera la relación entre la dimensión del espacio y los vectores LI disponibles.",
+                "options": [
+                    "$r$",
+                    "$n - r$",
+                    "$n + r$",
+                    "$n$"
+                ],
+                "correctAnswer": "$n - r$",
+                "explanation": "El Lema de Steinitz garantiza que cualquier conjunto LI puede extenderse a una base. Como $\\dim(V) = n$ y ya tenemos $r$ vectores LI, faltan $n - r$ vectores para completar la base."
+            },
+            {
+                "id": "AL_HARD_002",
+                "subCategory": "Coordenadas",
+                "text": "Si $\\mathbf{v} = \\sum_{i=1}^n \\alpha_i \\mathbf{b}_i$ donde $\\mathcal{B} = \\{\\mathbf{b}_1,...,\\mathbf{b}_n\\}$ es base de $V$, entonces $\\alpha_i$ se llama:",
+                "hint": "¿Cómo se denominan los coeficientes en una combinación lineal respecto a una base?",
+                "options": [
+                    "Componente del espacio dual",
+                    "Coordenada $i$-ésima de $\\mathbf{v}$ en $\\mathcal{B}$",
+                    "Vector de proyección",
+                    "Escalar de contracción"
+                ],
+                "correctAnswer": "Coordenada $i$-ésima de $\\mathbf{v}$ en $\\mathcal{B}$",
+                "explanation": "Los escalares $\\alpha_i$ son las coordenadas de $\\mathbf{v}$ en la base $\\mathcal{B}$. La notación $[\\mathbf{v}]_{\\mathcal{B}} = (\\alpha_1,...,\\alpha_n)^T$ representa este vector de coordenadas."
+            },
+            {
+                "id": "AL_HARD_003",
+                "subCategory": "Cambios de Base",
+                "text": "Si $P_{\\mathcal{B}_1 \\to \\mathcal{B}_2}$ es la matriz de cambio de $\\mathcal{B}_1$ a $\\mathcal{B}_2$, entonces $P_{\\mathcal{B}_2 \\to \\mathcal{B}_1}$ es:",
+                "hint": "Piensa en la operación inversa del cambio de base.",
+                "options": [
+                    "$P_{\\mathcal{B}_1 \\to \\mathcal{B}_2}^T$",
+                    "$P_{\\mathcal{B}_1 \\to \\mathcal{B}_2}^{-1}$",
+                    "$-P_{\\mathcal{B}_1 \\to \\mathcal{B}_2}$",
+                    "$P_{\\mathcal{B}_1 \\to \\mathcal{B}_2}$"
+                ],
+                "correctAnswer": "$P_{\\mathcal{B}_1 \\to \\mathcal{B}_2}^{-1}$",
+                "explanation": "La matriz de cambio de base es invertible y su inversa corresponde al cambio en sentido opuesto: $P_{\\mathcal{B}_2 \\to \\mathcal{B}_1} = (P_{\\mathcal{B}_1 \\to \\mathcal{B}_2})^{-1}$."
+            },
+            {
+                "id": "AL_HARD_004",
+                "subCategory": "Ecuaciones de Subespacios",
+                "text": "Para un subespacio $S \\subseteq \\mathbb{R}^n$ con $\\dim(S) = r$, el número de ecuaciones implícitas LI es:",
+                "hint": "Relaciona con el teorema del rango para sistemas lineales.",
+                "options": [
+                    "$r$",
+                    "$n - r$",
+                    "$n$",
+                    "$r - n$"
+                ],
+                "correctAnswer": "$n - r$",
+                "explanation": "Cada ecuación implícita LI reduce en 1 la dimensión del espacio. Para obtener $\\dim(S) = r$ en $\\mathbb{R}^n$, se necesitan $n - r$ ecuaciones implícitas LI."
+            },
+            {
+                "id": "AL_HARD_005",
+                "subCategory": "Variedades Afines",
+                "text": "Una variedad afín $S = P + L$ donde $L$ es subespacio director puede parametrizarse como:",
+                "hint": "Considera la combinación del punto base y los generadores del subespacio.",
+                "options": [
+                    "$Q = P \\times (\\sum \\alpha_i \\mathbf{v}_i)$",
+                    "$Q = P + \\sum \\alpha_i \\mathbf{v}_i$",
+                    "$Q = \\sum \\alpha_i (P + \\mathbf{v}_i)$",
+                    "$Q = P - \\sum \\alpha_i \\mathbf{v}_i$"
+                ],
+                "correctAnswer": "$Q = P + \\sum \\alpha_i \\mathbf{v}_i$",
+                "explanation": "Toda variedad afín se expresa como un punto base $P$ más una combinación lineal de los vectores directores $\\{\\mathbf{v}_i\\}$ de $L$. Los $\\alpha_i$ son parámetros libres."
+            },
+            {
+                "id": "AL_HARD_006",
+                "subCategory": "Intersección de Variedades",
+                "text": "Las ecuaciones implícitas de $S_1 \\cap S_2$ se obtienen mediante:",
+                "hint": "¿Cómo se combinan los sistemas de ecuaciones?",
+                "options": [
+                    "Sumando las ecuaciones paramétricas",
+                    "Resolviendo el sistema unión de sus ecuaciones implícitas",
+                    "Multiplicando sus matrices asociadas",
+                    "Calculando el producto vectorial"
+                ],
+                "correctAnswer": "Resolviendo el sistema unión de sus ecuaciones implícitas",
+                "explanation": "La intersección corresponde a los puntos que satisfacen simultáneamente las ecuaciones de $S_1$ y $S_2$. Esto equivale a resolver el sistema combinado de todas las ecuaciones implícitas."
+            },
+            {
+                "id": "AL_HARD_007",
+                "subCategory": "Teorema de la Dimensión",
+                "text": "Para variedades afines disjuntas $S_1 = P_1 + L_1$ y $S_2 = P_2 + L_2$, la dimensión de la variedad unión es:",
+                "hint": "Considera la fórmula de Grassmann para subespacios directores.",
+                "options": [
+                    "$\\dim(L_1) + \\dim(L_2) - \\dim(L_1 \\cap L_2) + 1$",
+                    "$\\dim(L_1) + \\dim(L_2)$",
+                    "$\\max(\\dim(L_1), \\dim(L_2))$",
+                    "$\\dim(L_1 \\cap L_2)$"
+                ],
+                "correctAnswer": "$\\dim(L_1) + \\dim(L_2) - \\dim(L_1 \\cap L_2) + 1$",
+                "explanation": "La dimensión de $S_1 \\vee S_2$ es $\\dim(L_1 + L_2) + 1 = \\dim(L_1) + \\dim(L_2) - \\dim(L_1 \\cap L_2) + 1$, pues se añade un grado de libertad al ser disjuntas."
+            },
+            {
+                "id": "AL_HARD_008",
+                "subCategory": "Monomorfismos",
+                "text": "Si $f: V \\to W$ es inyectiva y $\\{\\mathbf{v}_1,...,\\mathbf{v}_k\\}$ es LI en $V$, entonces $\\{f(\\mathbf{v}_1),...,f(\\mathbf{v}_k)\\}$ es:",
+                "hint": "¿Cómo preservan los monomorfismos la independencia lineal?",
+                "options": [
+                    "LD",
+                    "LI",
+                    "Generador de $W$",
+                    "Base de $W$"
+                ],
+                "correctAnswer": "LI",
+                "explanation": "Los monomorfismos (aplicaciones lineales inyectivas) preservan la independencia lineal. La prueba surge de la definición: si $\\sum \\alpha_i f(\\mathbf{v}_i) = \\mathbf{0}$, entonces $f(\\sum \\alpha_i \\mathbf{v}_i) = \\mathbf{0} \\implies \\sum \\alpha_i \\mathbf{v}_i = \\mathbf{0}$ por inyectividad, luego $\\alpha_i = 0$."
+            },
+            {
+                "id": "AL_HARD_009",
+                "subCategory": "Dimensión de Imágenes",
+                "text": "Para $f: V \\to W$ lineal y $H \\leq V$, se cumple:",
+                "hint": "Considera el teorema del rango aplicado a la restricción $f|_H$.",
+                "options": [
+                    "$\\dim(f(H)) = \\dim(H)$",
+                    "$\\dim(f(H)) \\leq \\dim(H)$",
+                    "$\\dim(f(H)) > \\dim(H)$",
+                    "$\\dim(f(H)) = \\dim(W)$"
+                ],
+                "correctAnswer": "$\\dim(f(H)) \\leq \\dim(H)$",
+                "explanation": "Como $f|_H: H \\to W$ es lineal, $\\dim(f(H)) = \\dim(H) - \\dim(\\ker(f) \\cap H) \\leq \\dim(H)$. La igualdad se da cuando $f$ es inyectiva en $H$."
+            },
+            {
+                "id": "AL_HARD_010",
+                "subCategory": "Matriz de Aplicación Lineal",
+                "text": "Si $[f]_{\\mathcal{B}, \\mathcal{C}} = A$ y cambiamos a bases $\\mathcal{B}'$, $\\mathcal{C}'$, la nueva matriz es:",
+                "hint": "Usa matrices de cambio de base en dominio y codominio.",
+                "options": [
+                    "$P_{\\mathcal{C}' \\to \\mathcal{C}} A P_{\\mathcal{B} \\to \\mathcal{B}'}$",
+                    "$P_{\\mathcal{C} \\to \\mathcal{C}'}} A P_{\\mathcal{B}' \\to \\mathcal{B}}$",
+                    "$P_{\\mathcal{C} \\to \\mathcal{C}'}}^{-1} A P_{\\mathcal{B} \\to \\mathcal{B}'}$",
+                    "$A^{-1}$"
+                ],
+                "correctAnswer": "$P_{\\mathcal{C} \\to \\mathcal{C}'}}^{-1} A P_{\\mathcal{B} \\to \\mathcal{B}'}$",
+                "explanation": "La matriz se transforma como $[f]_{\\mathcal{B}', \\mathcal{C}'} = P_{\\mathcal{C} \\to \\mathcal{C}'}^{-1} [f]_{\\mathcal{B}, \\mathcal{C}} P_{\\mathcal{B} \\to \\mathcal{B}'}$, donde $P$ son matrices de cambio de base."
+            },
+            {
+                "id": "AL_HARD_011",
+                "subCategory": "Rango por Menores",
+                "text": "El rango de $A \\in \\mathcal{M}_{m \\times n}(\\mathbb{R})$ es el máximo $k$ tal que:",
+                "hint": "Considera determinantes de submatrices cuadradas.",
+                "options": [
+                    "Existe un menor $k \\times k$ con determinante no nulo",
+                    "Todos los menores $k \\times k$ tienen determinante cero",
+                    "Alguna fila es combinación lineal de las demás",
+                    "Las columnas forman un conjunto LI"
+                ],
+                "correctAnswer": "Existe un menor $k \\times k$ con determinante no nulo",
+                "explanation": "Por el método de orlado, el rango es el mayor orden $k$ de un menor no nulo. Esto equivale al tamaño de la mayor submatriz cuadrada invertible."
+            },
+            {
+                "id": "AL_HARD_012",
+                "subCategory": "Espacio Afín",
+                "text": "En un espacio afín $(A, V, +)$, el vector $\\overrightarrow{PQ}$ satisface:",
+                "hint": "Considera las propiedades de los vectores de posición.",
+                "options": [
+                    "$\\overrightarrow{PQ} = \\overrightarrow{QP}$",
+                    "$\\overrightarrow{PQ} + \\overrightarrow{QR} = \\overrightarrow{PR}$ (Regla del triángulo)",
+                    "$\\overrightarrow{PQ} = \\mathbf{0}$ para todo $P, Q$",
+                    "$\\overrightarrow{PQ} = P \\times Q$"
+                ],
+                "correctAnswer": "$\\overrightarrow{PQ} + \\overrightarrow{QR} = \\overrightarrow{PR}$ (Regla del triángulo)",
+                "explanation": "Los vectores en espacios afines cumplen: 1) $\\overrightarrow{PQ} = -\\overrightarrow{QP}$, 2) $\\overrightarrow{PQ} + \\overrightarrow{QR} = \\overrightarrow{PR}$, y 3) $\\overrightarrow{PP} = \\mathbf{0}$."
+            },
+            {
+                "id": "AL_HARD_013",
+                "subCategory": "Isomorfismos",
+                "text": "Si $f: V \\to W$ es un isomorfismo, entonces:",
+                "hint": "Considera las propiedades de las aplicaciones biyectivas lineales.",
+                "options": [
+                    "$\\dim(V) > \\dim(W)$",
+                    "$\\dim(V) = \\dim(W)$ y $[f]_{\\mathcal{B}, \\mathcal{C}}$ es cuadrada e invertible",
+                    "$\\ker(f) = W$",
+                    "$\\text{Im}(f) \\subsetneq W$"
+                ],
+                "correctAnswer": "$\\dim(V) = \\dim(W)$ y $[f]_{\\mathcal{B}, \\mathcal{C}}$ es cuadrada e invertible",
+                "explanation": "Un isomorfismo es una aplicación lineal biyectiva, lo que requiere $\\dim(V) = \\dim(W)$. Su matriz en cualquier base es cuadrada e invertible, y preserva todas las estructuras lineales."
+            },
+            {
+                "id": "AL_HARD_014",
+                "subCategory": "Descomposición de Espacio",
+                "text": "Si $V = U \\oplus W$, entonces para todo $\\mathbf{v} \\in V$:",
+                "hint": "¿Cómo se expresan los vectores en una suma directa?",
+                "options": [
+                    "$\\exists! \\mathbf{u} \\in U, \\mathbf{w} \\in W$ tales que $\\mathbf{v} = \\mathbf{u} + \\mathbf{w}$",
+                    "$\\mathbf{v} = \\mathbf{0}$ necesariamente",
+                    "La descomposición no es única",
+                    "$U \\cap W$ es infinito-dimensional"
+                ],
+                "correctAnswer": "$\\exists! \\mathbf{u} \\in U, \\mathbf{w} \\in W$ tales que $\\mathbf{v} = \\mathbf{u} + \\mathbf{w}$",
+                "explanation": "En una suma directa, todo vector se descompone de forma única como suma de elementos de $U$ y $W$. Esto equivale a que $U \\cap W = \\{\\mathbf{0}\\}$."
+            },
+            {
+                "id": "AL_HARD_015",
+                "subCategory": "Teorema de Rango-Nulidad",
+                "text": "Para $f: V \\to W$ lineal, el teorema de rango-nulidad establece que:",
+                "hint": "Relaciona las dimensiones del núcleo y la imagen.",
+                "options": [
+                    "$\\dim(V) = \\dim(\\ker(f)) \\cdot \\dim(\\text{Im}(f))$",
+                    "$\\dim(V) = \\dim(\\ker(f)) + \\dim(\\text{Im}(f))$",
+                    "$\\dim(W) = \\dim(\\ker(f)) + \\dim(\\text{Im}(f))$",
+                    "$\\dim(\\ker(f)) = \\dim(\\text{Im}(f))$"
+                ],
+                "correctAnswer": "$\\dim(V) = \\dim(\\ker(f)) + \\dim(\\text{Im}(f))$",
+                "explanation": "Este teorema fundamental conecta las dimensiones: $\\dim(V) = \\dim(\\ker(f)) (\\text{nulidad}) + \\dim(\\text{Im}(f)) (\\text{rango})$. Es clave para analizar sistemas lineales."
+            },
+            {
+                "id": "AL_HARD_016",
+                "subCategory": "Subespacios Invariantes",
+                "text": "Un subespacio $U \\subseteq V$ es $f$-invariante para $f: V \\to V$ si:",
+                "hint": "¿Qué condición cumple la imagen de $U$ bajo $f$?",
+                "options": [
+                    "$f(U) \\subseteq U$",
+                    "$f(U) = \\{\\mathbf{0}\\}$",
+                    "$f(U) \\cap U = \\emptyset$",
+                    "$f(U) = V$"
+                ],
+                "correctAnswer": "$f(U) \\subseteq U$",
+                "explanation": "$U$ es invariante si $f$ mapea todo vector de $U$ nuevamente a $U$. Esto es crucial para descomposiciones de operadores y formas canónicas."
+            },
+            {
+                "id": "AL_HARD_017",
+                "subCategory": "Proyecciones",
+                "text": "Un endomorfismo $p: V \\to V$ es una proyección si:",
+                "hint": "Considera la propiedad idempotente.",
+                "options": [
+                    "$p^2 = p$",
+                    "$p$ es invertible",
+                    "$\\ker(p) = \\text{Im}(p)$",
+                    "$p$ es nilpotente"
+                ],
+                "correctAnswer": "$p^2 = p$",
+                "explanation": "Las proyecciones satisfacen $p^2 = p$ (idempotencia). Si $V = U \\oplus W$, entonces $p(\\mathbf{u} + \\mathbf{w}) = \\mathbf{u}$ es la proyección sobre $U$ paralela a $W$."
+            },
+            {
+                "id": "AL_HARD_018",
+                "subCategory": "Formas Canónicas",
+                "text": "La forma de Jordan de una matriz $A$ existe cuando:",
+                "hint": "Considera la condición sobre el cuerpo base.",
+                "options": [
+                    "Todos los valores propios están en el cuerpo base",
+                    "$A$ es ortogonal",
+                    "$A$ tiene rango máximo",
+                    "El polinomio característico es irreducible"
+                ],
+                "correctAnswer": "Todos los valores propios están en el cuerpo base",
+                "explanation": "La forma canónica de Jordan existe si el polinomio característico se descompone completamente en el cuerpo base. Esto garantiza suficientes vectores propios/generalizados."
+            },
+            {
+                "id": "AL_HARD_019",
+                "subCategory": "Descomposición QR",
+                "text": "En la factorización $A = QR$ de $A \\in \\mathcal{M}_{m \\times n}(\\mathbb{R})$, $Q$ es:",
+                "hint": "Considera las propiedades de ortogonalidad.",
+                "options": [
+                    "Triangular superior",
+                    "Una matriz con columnas ortonormales",
+                    "Diagonal",
+                    "Simétrica"
+                ],
+                "correctAnswer": "Una matriz con columnas ortonormales",
+                "explanation": "En la descomposición QR, $Q$ tiene columnas ortonormales (obtenidas por Gram-Schmidt) y $R$ es triangular superior. Es útil para resolver sistemas least-squares."
+            },
+            {
+                "id": "AL_HARD_020",
+                "subCategory": "Descomposición Espectral",
+                "text": "Si $A \\in \\mathcal{M}_n(\\mathbb{R})$ es simétrica, entonces:",
+                "hint": "Considera el teorema espectral.",
+                "options": [
+                    "Es diagonalizable con autovectores ortogonales",
+                    "No tiene autovalores reales",
+                    "Su forma de Jordan es diagonal por bloques",
+                    "No es diagonalizable"
+                ],
+                "correctAnswer": "Es diagonalizable con autovectores ortogonales",
+                "explanation": "El teorema espectral garantiza que toda matriz simétrica real es diagonalizable mediante una matriz ortogonal: $A = PDP^T$ con $D$ diagonal y $P$ ortogonal."
+            }
+        ]
+    }
+}

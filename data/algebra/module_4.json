@@ -1,0 +1,643 @@
+{
+    "id": "algebra_lineal_4",
+    "name": "Álgebra Lineal IV",
+    "description": "Preguntas sobre autovalores y autovectores, ecuaciones en diferencias, y formas cuadráticas.",
+    "difficultyLevels": {
+        "basico": [
+            {
+                "id": "AL_EASY_001",
+                "subCategory": "Autovalores y Autovectores",
+                "text": "¿Qué es un autovalor de una matriz A?",
+                "hint": "Piensa en cómo ciertos vectores mantienen su dirección bajo la transformación lineal.",
+                "options": [
+                    "Un escalar λ tal que Av = λv para algún vector v ≠ 0",
+                    "Un vector v tal que Av = λv para algún escalar λ",
+                    "La diagonal principal de la matriz A",
+                    "El determinante de la matriz A"
+                ],
+                "correctAnswer": "Un escalar λ tal que Av = λv para algún vector v ≠ 0",
+                "explanation": "Un autovalor (λ) es un escalar asociado a una transformación lineal (matriz A) que representa el factor de escala por el cual un autovector (v) es estirado o contraído. Formalmente, satisface Av = λv, donde v ≠ 0. Geométricamente, los autovectores definen las direcciones invariantes bajo la aplicación de A."
+            },
+            {
+                "id": "AL_EASY_002",
+                "subCategory": "Autovalores y Autovectores",
+                "text": "¿Cómo se llama al vector v en la ecuación Av = λv?",
+                "hint": "Este vector no cambia de dirección bajo la transformación, solo de magnitud.",
+                "options": [
+                    "Autovector",
+                    "Vector propio",
+                    "Eigenvector",
+                    "Todas las anteriores"
+                ],
+                "correctAnswer": "Todas las anteriores",
+                "explanation": "El término 'autovector' (del griego 'auto' = propio), 'vector propio' (traducción directa) y 'eigenvector' (del alemán 'eigen' = propio) son equivalentes. Todos se refieren al vector v que satisface Av = λv y que, por tanto, solo es escalado por la transformación lineal."
+            },
+            {
+                "id": "AL_EASY_003",
+                "subCategory": "Polinomio Característico",
+                "text": "¿Cómo se define el polinomio característico de una matriz A?",
+                "hint": "Está relacionado con la búsqueda de escalares que hacen a A - λI singular.",
+                "options": [
+                    "det(A - λI)",
+                    "det(A + λI)",
+                    "det(λI - A)",
+                    "det(A)"
+                ],
+                "correctAnswer": "det(A - λI)",
+                "explanation": "El polinomio característico se define como p(λ) = det(A - λI). Sus raíces son los autovalores de A, ya que det(A - λI) = 0 garantiza la existencia de un núcleo no trivial (autovectores). Nota: det(λI - A) también es válido (difiere en un signo si n es impar)."
+            },
+            {
+                "id": "AL_EASY_004",
+                "subCategory": "Autovalores",
+                "text": "Los autovalores de una matriz son:",
+                "hint": "Son los valores que hacen que la matriz A - λI pierda rango.",
+                "options": [
+                    "Las raíces del polinomio característico",
+                    "Los elementos de la diagonal principal",
+                    "Los coeficientes del polinomio característico",
+                    "Los vectores columna de la matriz"
+                ],
+                "correctAnswer": "Las raíces del polinomio característico",
+                "explanation": "Los autovalores son las raíces de det(A - λI) = 0. Solo para matrices triangulares coinciden con los elementos diagonales. Los coeficientes del polinomio característico están relacionados con trazas y determinantes (e.g., el término constante es det(A))."
+            },
+            {
+                "id": "AL_EASY_005",
+                "subCategory": "Matrices Diagonales",
+                "text": "¿Cuáles son los autovalores de una matriz diagonal?",
+                "hint": "Observa qué sucede con A - λI cuando A es diagonal.",
+                "options": [
+                    "Los elementos de la diagonal principal",
+                    "La suma de los elementos de la diagonal",
+                    "El producto de los elementos de la diagonal",
+                    "Los elementos fuera de la diagonal"
+                ],
+                "correctAnswer": "Los elementos de la diagonal principal",
+                "explanation": "Para una matriz diagonal A = diag(a₁₁, a₂₂, ..., aₙₙ), el polinomio característico es (a₁₁ - λ)(a₂₂ - λ)...(aₙₙ - λ). Por tanto, los autovalores son exactamente los elementos aᵢᵢ. Esto refleja que los autovectores son los vectores canónicos eᵢ."
+            },
+            {
+                "id": "AL_EASY_006",
+                "subCategory": "Traza",
+                "text": "¿Qué relación existe entre la traza de una matriz y sus autovalores?",
+                "hint": "Considera la suma de las raíces del polinomio característico.",
+                "options": [
+                    "La traza es la suma de todos los autovalores",
+                    "La traza es el producto de todos los autovalores",
+                    "La traza es el mayor autovalor",
+                    "No hay relación entre ellos"
+                ],
+                "correctAnswer": "La traza es la suma de todos los autovalores",
+                "explanation": "La traza de A (suma de elementos diagonales) coincide con la suma de autovalores (incluyendo multiplicidades). Esto se deriva de que el coeficiente de λⁿ⁻¹ en p(λ) es (-1)ⁿ⁻¹·tr(A). Ejemplo: Para A = [[2, 1], [0, 3]], tr(A) = 5 y autovalores son 2 y 3."
+            },
+            {
+                "id": "AL_EASY_007",
+                "subCategory": "Determinante",
+                "text": "¿Qué relación existe entre el determinante de una matriz y sus autovalores?",
+                "hint": "Piensa en cómo el determinante se relaciona con el término constante del polinomio característico.",
+                "options": [
+                    "El determinante es el producto de todos los autovalores",
+                    "El determinante es la suma de todos los autovalores",
+                    "El determinante es el mayor autovalor",
+                    "No hay relación entre ellos"
+                ],
+                "correctAnswer": "El determinante es el producto de todos los autovalores",
+                "explanation": "El determinante de A es igual al producto de sus autovalores (con multiplicidad). Esto surge de evaluar p(λ) en λ = 0: det(A) = p(0) = (-1)ⁿ·λ₁λ₂...λₙ. Además, explica por qué matrices con autovalor cero son singulares."
+            },
+            {
+                "id": "AL_EASY_008",
+                "subCategory": "Espacios Propios",
+                "text": "¿Qué es el espacio propio asociado a un autovalor λ?",
+                "hint": "Incluye todos los vectores que son escalados por λ, más el vector nulo.",
+                "options": [
+                    "El conjunto de todos los autovectores asociados a λ más el vector cero",
+                    "Solo los autovectores asociados a λ",
+                    "El conjunto de todos los autovalores",
+                    "La matriz A menos λI"
+                ],
+                "correctAnswer": "El conjunto de todos los autovectores asociados a λ más el vector cero",
+                "explanation": "El espacio propio E_λ es el núcleo de (A - λI), es decir, {v | (A - λI)v = 0}. Es un subespacio vectorial porque: (1) 0 ∈ E_λ, (2) es cerrado bajo suma y multiplicación escalar. Su dimensión es la multiplicidad geométrica de λ."
+            },
+            {
+                "id": "AL_EASY_009",
+                "subCategory": "Ecuaciones en Diferencias",
+                "text": "¿Qué es una ecuación en diferencias lineal?",
+                "hint": "Modela sistemas discretos donde el estado siguiente depende linealmente del actual.",
+                "options": [
+                    "Una ecuación que relaciona los valores de una secuencia en diferentes índices",
+                    "Una ecuación diferencial ordinaria",
+                    "Una ecuación que no tiene solución",
+                    "Una ecuación con coeficientes constantes únicamente"
+                ],
+                "correctAnswer": "Una ecuación que relaciona los valores de una secuencia en diferentes índices",
+                "explanation": "Una ecuación en diferencias lineal expresa xₙ₊₁ como combinación lineal de términos previos (e.g., xₙ₊₁ = axₙ + bxₙ₋₁). Se resuelve usando autovalores de la matriz asociada al sistema. Contrasta con ecuaciones diferenciales, que son continuas."
+            },
+            {
+                "id": "AL_EASY_010",
+                "subCategory": "Ecuaciones en Diferencias",
+                "text": "Una ecuación en diferencias de primer orden tiene la forma:",
+                "hint": "Solo depende del término inmediatamente anterior.",
+                "options": [
+                    "xₙ₊₁ = axₙ + b",
+                    "xₙ₊₂ = axₙ₊₁ + bxₙ",
+                    "x'(t) = ax(t) + b",
+                    "xₙ = axₙ₋₁ + b"
+                ],
+                "correctAnswer": "xₙ₊₁ = axₙ + b",
+                "explanation": "La forma general es xₙ₊₁ = axₙ + b (primer orden porque solo involucra xₙ). Su solución es xₙ = aⁿx₀ + b(1 - aⁿ)/(1 - a) si a ≠ 1. Para a = 1, es xₙ = x₀ + nb. Usa notación de subíndices para claridad en contextos discretos."
+            },
+            {
+                "id": "AL_EASY_011",
+                "subCategory": "Formas Cuadráticas",
+                "text": "¿Qué es una forma cuadrática?",
+                "hint": "Es una función escalar que generaliza las ecuaciones cuadráticas en múltiples variables.",
+                "options": [
+                    "Una función de la forma Q(x) = xᵀAx donde A es simétrica",
+                    "Una ecuación de segundo grado",
+                    "Una matriz cuadrada",
+                    "Un polinomio de grado cuatro"
+                ],
+                "correctAnswer": "Una función de la forma Q(x) = xᵀAx donde A es simétrica",
+                "explanation": "Una forma cuadrática es Q(x) = xᵀAx, con A simétrica. Representa una combinación de términos cuadráticos (xᵢ²) y cruzados (xᵢxⱼ). En geometría, describe cónicas/cuádricas. Ejemplo: Q(x,y) = 2x² + 4xy + 3y² se escribe con A = [[2, 2], [2, 3]]."
+            },
+            {
+                "id": "AL_EASY_012",
+                "subCategory": "Formas Cuadráticas",
+                "text": "Una forma cuadrática es definida positiva si:",
+                "hint": "Implica que la matriz asociada tiene autovalores estrictamente positivos.",
+                "options": [
+                    "Q(x) > 0 para todo x ≠ 0",
+                    "Q(x) ≥ 0 para todo x",
+                    "Q(x) < 0 para todo x ≠ 0",
+                    "Q(x) = 0 para todo x"
+                ],
+                "correctAnswer": "Q(x) > 0 para todo x ≠ 0",
+                "explanation": "Q(x) es definida positiva si Q(x) > 0 ∀ x ≠ 0. Equivalentemente, todos los autovalores de A son positivos. En optimización, esto garantiza que un punto crítico es un mínimo local. Ejemplo: Q(x,y) = x² + y² es definida positiva."
+            },
+            {
+                "id": "AL_EASY_013",
+                "subCategory": "Diagonalización",
+                "text": "Una matriz A es diagonalizable si:",
+                "hint": "Requiere que exista una base de autovectores para el espacio completo.",
+                "options": [
+                    "Existe P invertible tal que P⁻¹AP es diagonal",
+                    "A es una matriz diagonal",
+                    "A tiene determinante no nulo",
+                    "A es simétrica"
+                ],
+                "correctAnswer": "Existe P invertible tal que P⁻¹AP es diagonal",
+                "explanation": "A es diagonalizable si existe una matriz P invertible (cuyas columnas son autovectores de A) y una matriz diagonal D (con autovalores) tales que A = PDP⁻¹. Esto ocurre si y solo si la suma de las multiplicidades geométricas de los autovalores es igual a n."
+            },
+            {
+                "id": "AL_EASY_014",
+                "subCategory": "Multiplicidad",
+                "text": "¿Qué es la multiplicidad algebraica de un autovalor?",
+                "hint": "Se refiere a la cantidad de veces que aparece como raíz del polinomio característico.",
+                "options": [
+                    "El número de veces que λ es raíz de det(A - λI) = 0",
+                    "La dimensión de ker(A - λI)",
+                    "El número de autovectores LI asociados a λ",
+                    "El valor de λ"
+                ],
+                "correctAnswer": "El número de veces que λ es raíz de det(A - λI) = 0",
+                "explanation": "La multiplicidad algebraica (ma) de λ es su multiplicidad como raíz del polinomio característico. Siempre ma ≥ mg (multiplicidad geométrica). Si ma(λ) = mg(λ) para todo λ, entonces A es diagonalizable."
+            },
+            {
+                "id": "AL_EASY_015",
+                "subCategory": "Multiplicidad",
+                "text": "¿Qué es la multiplicidad geométrica de un autovalor?",
+                "hint": "Está relacionada con la dimensión del subespacio de soluciones de (A - λI)v = 0.",
+                "options": [
+                    "La dimensión de ker(A - λI)",
+                    "El número de veces que λ es raíz de det(A - λI)",
+                    "El determinante de A - λI",
+                    "La traza de A"
+                ],
+                "correctAnswer": "La dimensión de ker(A - λI)",
+                "explanation": "La multiplicidad geométrica (mg) de λ es la dimensión del espacio propio E_λ = ker(A - λI), es decir, el número de autovectores linealmente independientes asociados a λ. Siempre mg ≤ ma. Ejemplo: Para A = [[2, 1], [0, 2]], λ=2 tiene ma=2 pero mg=1."
+            }
+        ],
+        "intermedio": [
+            {
+                "id": "AL_MEDIUM_001",
+                "subCategory": "Diagonalización",
+                "text": "¿Cuál es la condición necesaria y suficiente para que una matriz sea diagonalizable?",
+                "hint": "Piensa en la relación entre los autovectores disponibles y la dimensión del espacio.",
+                "options": [
+                    "La multiplicidad geométrica debe igualar la multiplicidad algebraica para cada autovalor",
+                    "Todos los autovalores deben ser distintos",
+                    "La matriz debe ser simétrica",
+                    "La matriz debe ser invertible"
+                ],
+                "correctAnswer": "La multiplicidad geométrica debe igualar la multiplicidad algebraica para cada autovalor",
+                "explanation": "Una matriz ( A in mathbb{C}^{n \times n} ) es diagonalizable si y solo si para cada autovalor ( lambda ), la multiplicidad geométrica (dimensión del espacio propio ( ker(A - lambda I) )) coincide con su multiplicidad algebraica (multiplicidad como raíz del polinomio característico). Esto garantiza que existan ( n ) autovectores linealmente independientes para formar la matriz ( P ) en ( A = PDP^{-1} ). Ejemplo: ( A = \begin{pmatrix} 1 & 1 \\ 0 & 2 end{pmatrix} ) es diagonalizable (ma=mg=1 para λ=1 y λ=2), pero ( B = \begin{pmatrix} 2 & 1 \\ 0 & 2 end{pmatrix} ) no lo es (para λ=2, ma=2 pero mg=1)."
+            },
+            {
+                "id": "AL_MEDIUM_002",
+                "subCategory": "Matrices Simétricas",
+                "text": "¿Qué propiedad especial tienen los autovalores de una matriz simétrica real?",
+                "hint": "Considera el teorema espectral para matrices simétricas.",
+                "options": [
+                    "Son todos reales",
+                    "Son todos complejos",
+                    "Son todos positivos",
+                    "Son todos iguales"
+                ],
+                "correctAnswer": "Son todos reales",
+                "explanation": "Por el teorema espectral, si ( A ) es una matriz simétrica real (( A = A^T )), entonces todos sus autovalores son números reales. Esto se demuestra usando que ( lambda langle v, v \rangle = langle Av, v \rangle = langle v, Av \rangle = overline{lambda} langle v, v \rangle ), lo que implica ( lambda = overline{lambda} ). Nota: Esto no implica que sean positivos (e.g., ( A = \begin{pmatrix} 0 & 1 \\ 1 & 0 end{pmatrix} ) tiene autovalores ( pm 1 ))."
+            },
+            {
+                "id": "AL_MEDIUM_003",
+                "subCategory": "Matrices Simétricas",
+                "text": "¿Qué propiedad tienen los autovectores de una matriz simétrica real?",
+                "hint": "Usa la ortogonalidad en el teorema espectral.",
+                "options": [
+                    "Autovectores correspondientes a autovalores distintos son ortogonales",
+                    "Todos los autovectores son paralelos",
+                    "Los autovectores son complejos",
+                    "No existen autovectores para matrices simétricas"
+                ],
+                "correctAnswer": "Autovectores correspondientes a autovalores distintos son ortogonales",
+                "explanation": "Para una matriz simétrica real ( A ), autovectores asociados a autovalores distintos son ortogonales. Si ( Av_1 = lambda_1 v_1 ) y ( Av_2 = lambda_2 v_2 ) con ( lambda_1 \neq lambda_2 ), entonces ( lambda_1 langle v_1, v_2 \rangle = langle Av_1, v_2 \rangle = langle v_1, Av_2 \rangle = lambda_2 langle v_1, v_2 \rangle ), lo que implica ( langle v_1, v_2 \rangle = 0 ). Además, siempre existe una base ortonormal de autovectores."
+            },
+            {
+                "id": "AL_MEDIUM_004",
+                "subCategory": "Teorema Espectral",
+                "text": "Según el teorema espectral, una matriz simétrica real puede escribirse como:",
+                "hint": "La diagonalización usa una matriz ortogonal en este caso.",
+                "options": [
+                    "( A = Q Lambda Q^T ) donde ( Q ) es ortogonal y ( Lambda ) es diagonal",
+                    "( A = PDP^{-1} ) donde ( P ) y ( D ) son arbitrarias",
+                    "( A = LU ) donde ( L ) es triangular inferior y ( U ) superior",
+                    "( A = QR ) donde ( Q ) es ortogonal y ( R ) triangular superior"
+                ],
+                "correctAnswer": "( A = Q Lambda Q^T ) donde ( Q ) es ortogonal y ( Lambda ) es diagonal",
+                "explanation": "El teorema espectral establece que toda matriz simétrica real ( A ) puede diagonalizarse como ( A = Q Lambda Q^T ), donde ( Q ) es una matriz ortogonal (( Q^T = Q^{-1} )) cuyas columnas son autovectores ortonormales de ( A ), y ( Lambda ) es diagonal con los autovalores. Ejemplo: ( A = \begin{pmatrix} 3 & 1 \\ 1 & 3 end{pmatrix} ) se descompone como ( A = Q \begin{pmatrix} 2 & 0 \\ 0 & 4 end{pmatrix} Q^T ) con ( Q = \frac{1}{sqrt{2}} \begin{pmatrix} 1 & -1 \\ 1 & 1 end{pmatrix} )."
+            },
+            {
+                "id": "AL_MEDIUM_005",
+                "subCategory": "Ecuaciones en Diferencias",
+                "text": "Para la ecuación ( x_{n+1} = a x_n + b ), ¿cuál es la solución general?",
+                "hint": "Considera la solución homogénea y una solución particular constante.",
+                "options": [
+                    "( x_n = a^n x_0 + \\frac{b(a^n - 1)}{a - 1} ) si ( a \\neq 1 )",
+                    "( x_n = a x_0 + n b )",
+                    "( x_n = a^n + b^n )",
+                    "( x_n = (a + b)^n )"
+                ],
+                "correctAnswer": "( x_n = a^n x_0 + \\frac{b(a^n - 1)}{a - 1} ) si ( a \\neq 1 )",
+                "explanation": "La solución general se obtiene sumando la solución homogénea (( x_n^{(h)} = C a^n )) y una solución particular constante (( x_n^{(p)} = \\frac{b}{1 - a} )). Para ( a \\neq 1 ), con ( C = x_0 - \\frac{b}{1 - a} ), se llega a ( x_n = a^n x_0 + b \\frac{a^n - 1}{a - 1} ). Si ( a = 1 ), la solución es ( x_n = x_0 + n b )."
+            },
+            {
+                "id": "AL_MEDIUM_006",
+                "subCategory": "Ecuaciones en Diferencias",
+                "text": "¿Cuándo es estable la solución de ( x_{n+1} = a x_n )?",
+                "hint": "La estabilidad depende del comportamiento asintótico cuando ( n \\to infty ).",
+                "options": [
+                    "Cuando ( |a| < 1 )",
+                    "Cuando ( |a| > 1 )",
+                    "Cuando ( a > 0 )",
+                    "Cuando ( a < 0 )"
+                ],
+                "correctAnswer": "Cuando ( |a| < 1 )",
+                "explanation": "La solución ( x_n = a^n x_0 ) es estable (i.e., ( lim_{n \\to infty} x_n = 0 ) para cualquier ( x_0 )) si y solo si ( |a| < 1 ). Si ( |a| geq 1 ), la solución diverge o permanece acotada pero no converge a cero. En sistemas multidimensionales, esto se generaliza al radio espectral de la matriz ( A )."
+            },
+            {
+                "id": "AL_MEDIUM_007",
+                "subCategory": "Sistemas de Ecuaciones en Diferencias",
+                "text": "Para el sistema ( mathbf{x}_{n+1} = A mathbf{x}_n ), ¿cuál es la solución?",
+                "hint": "Generaliza el caso escalar usando potencias matriciales.",
+                "options": [
+                    "( mathbf{x}_n = A^n mathbf{x}_0 )",
+                    "( mathbf{x}_n = n A mathbf{x}_0 )",
+                    "( mathbf{x}_n = A mathbf{x}_0 + n )",
+                    "( mathbf{x}_n = (A + n) mathbf{x}_0 )"
+                ],
+                "correctAnswer": "( mathbf{x}_n = A^n mathbf{x}_0 )",
+                "explanation": "La solución es ( mathbf{x}_n = A^n mathbf{x}_0 ). Si ( A ) es diagonalizable (( A = PDP^{-1} )), entonces ( mathbf{x}_n = P D^n P^{-1} mathbf{x}_0 ), donde ( D^n ) se calcula elevando cada autovalor a la ( n )-ésima potencia. Para ( A ) no diagonalizable, se usa la forma canónica de Jordan."
+            },
+            {
+                "id": "AL_MEDIUM_008",
+                "subCategory": "Estabilidad",
+                "text": "Un sistema ( mathbf{x}_{n+1} = A mathbf{x}_n ) es estable si:",
+                "hint": "La estabilidad depende de los autovalores de ( A ).",
+                "options": [
+                    "Todos los autovalores de ( A ) tienen módulo menor que 1",
+                    "Todos los autovalores de ( A ) son positivos",
+                    "Todos los autovalores de ( A ) son reales",
+                    "La matriz ( A ) es simétrica"
+                ],
+                "correctAnswer": "Todos los autovalores de ( A ) tienen módulo menor que 1",
+                "explanation": "El sistema es estable (todas las soluciones tienden a cero cuando ( n \to infty )) si y solo si el radio espectral ( \rho(A) = max |lambda_i| < 1 ). Esto garantiza que ( |A^n| \to 0 ). Si ( \rho(A) = 1 ), el sistema puede ser marginalmente estable, y si ( \rho(A) > 1 ), es inestable."
+            },
+            {
+                "id": "AL_MEDIUM_009",
+                "subCategory": "Formas Cuadráticas",
+                "text": "¿Cómo se determina si una forma cuadrática es definida positiva usando autovalores?",
+                "hint": "Relaciona la definitud con los signos de los autovalores.",
+                "options": [
+                    "Todos los autovalores de la matriz asociada deben ser positivos",
+                    "Todos los autovalores deben ser negativos",
+                    "Al menos un autovalor debe ser positivo",
+                    "La suma de autovalores debe ser positiva"
+                ],
+                "correctAnswer": "Todos los autovalores de la matriz asociada deben ser positivos",
+                "explanation": "Una forma cuadrática ( Q(mathbf{x}) = mathbf{x}^T A mathbf{x} ) es definida positiva si y solo si todos los autovalores de ( A ) son positivos. Esto implica que ( Q(mathbf{x}) > 0 ) para todo ( mathbf{x} \neq mathbf{0} ). Equivalentemente, los menores principales de ( A ) deben ser positivos (criterio de Sylvester)."
+            },
+            {
+                "id": "AL_MEDIUM_010",
+                "subCategory": "Formas Cuadráticas",
+                "text": "¿Qué son los menores principales de una matriz?",
+                "hint": "Son determinantes de submatrices anidadas.",
+                "options": [
+                    "Los determinantes de las submatrices cuadradas formadas por las primeras ( k ) filas y columnas",
+                    "Los elementos de la diagonal principal",
+                    "Los autovalores de la matriz",
+                    "Los elementos fuera de la diagonal"
+                ],
+                "correctAnswer": "Los determinantes de las submatrices cuadradas formadas por las primeras ( k ) filas y columnas",
+                "explanation": "Los menores principales líderes de ( A ) son ( det(A_k) ) donde ( A_k ) es la submatriz de ( A ) formada por las primeras ( k ) filas y columnas (( k = 1, dots, n )). Por ejemplo, para ( A = \begin{pmatrix} a & b \\ c & d end{pmatrix} ), los menores principales son ( a ) y ( ad - bc ). Son clave en el criterio de Sylvester para definitud positiva."
+            },
+            {
+                "id": "AL_MEDIUM_011",
+                "subCategory": "Criterio de Sylvester",
+                "text": "Según el criterio de Sylvester, una matriz simétrica es definida positiva si:",
+                "hint": "Requiere positividad en todos los menores principales líderes.",
+                "options": [
+                    "Todos sus menores principales líderes son positivos",
+                    "Todos sus menores principales líderes son negativos",
+                    "Su determinante es positivo",
+                    "Su traza es positiva"
+                ],
+                "correctAnswer": "Todos sus menores principales líderes son positivos",
+                "explanation": "El criterio de Sylvester establece que una matriz simétrica ( A ) es definida positiva si y solo si todos sus menores principales líderes son positivos. Esto es más eficiente que calcular autovalores para matrices grandes. Ejemplo: ( A = \begin{pmatrix} 2 & -1 \\ -1 & 2 end{pmatrix} ) es definida positiva porque ( 2 > 0 ) y ( det(A) = 3 > 0 )."
+            },
+            {
+                "id": "AL_MEDIUM_012",
+                "subCategory": "Potencias de Matrices",
+                "text": "Si ( A = PDP^{-1} ) donde ( D ) es diagonal, entonces ( A^n ) es igual a:",
+                "hint": "Usa las propiedades de las potencias matriciales en la diagonalización.",
+                "options": [
+                    "( P D^n P^{-1} )",
+                    "( (PD)^n (P^{-1})^n )",
+                    "( P^n D^n (P^{-1})^n )",
+                    "( PDP^{-1} )"
+                ],
+                "correctAnswer": "( P D^n P^{-1} )",
+                "explanation": "Cuando ( A ) es diagonalizable (( A = PDP^{-1} )), las potencias se calculan como ( A^n = P D^n P^{-1} ), donde ( D^n ) es la matriz diagonal con los autovalores elevados a la ( n )-ésima potencia. Esto simplifica cálculos en ecuaciones en diferencias y sistemas dinámicos."
+            },
+            {
+                "id": "AL_MEDIUM_013",
+                "subCategory": "Ecuaciones en Diferencias de Segundo Orden",
+                "text": "Para la ecuación ( x_{n+2} + a x_{n+1} + b x_n = 0 ), ¿qué se debe analizar para encontrar la solución?",
+                "hint": "La solución depende de las raíces de un polinomio característico asociado.",
+                "options": [
+                    "La ecuación característica ( lambda^2 + a lambda + b = 0 )",
+                    "Los autovalores de la matriz compañera",
+                    "El polinomio mínimo",
+                    "Todas las anteriores"
+                ],
+                "correctAnswer": "Todas las anteriores",
+                "explanation": "Para resolver la recurrencia, se analiza: (1) La ecuación característica ( lambda^2 + a lambda + b = 0 ) cuyas raíces determinan la forma de la solución, (2) La matriz compañera ( C = \begin{pmatrix} 0 & -b \\ 1 & -a end{pmatrix} ) cuyos autovalores son las raíces de la ecuación característica, y (3) El polinomio mínimo (que coincide con el característico si las raíces son simples)."
+            },
+            {
+                "id": "AL_MEDIUM_014",
+                "subCategory": "Convergencia",
+                "text": "¿Cuándo converge la secuencia ( A^n ) cuando ( n \to infty )?",
+                "hint": "La convergencia depende del radio espectral de ( A ).",
+                "options": [
+                    "Cuando el radio espectral ( \rho(A) < 1 )",
+                    "Cuando ( det(A) \neq 0 )",
+                    "Cuando ( A ) es simétrica",
+                    "Cuando ( \text{tr}(A) > 0 )"
+                ],
+                "correctAnswer": "Cuando el radio espectral ( \rho(A) < 1 )",
+                "explanation": "( A^n \to mathbf{0} ) cuando ( n \to infty ) si y solo si ( \rho(A) < 1 ), donde ( \rho(A) = max |lambda_i| ) es el radio espectral. Esto incluye matrices no diagonalizables. Si ( \rho(A) = 1 ), la secuencia puede diverger o permanecer acotada (e.g., si ( A ) es ortogonal)."
+            },
+            {
+                "id": "AL_MEDIUM_015",
+                "subCategory": "Forma Canónica de Jordan",
+                "text": "¿Cuándo una matriz no diagonalizable necesita la forma canónica de Jordan?",
+                "hint": "Usa Jordan cuando faltan autovectores para diagonalizar.",
+                "options": [
+                    "Cuando la multiplicidad geométrica es menor que la algebraica para algún autovalor",
+                    "Cuando todos los autovalores son distintos",
+                    "Cuando la matriz es simétrica",
+                    "Cuando la matriz es invertible"
+                ],
+                "correctAnswer": "Cuando la multiplicidad geométrica es menor que la algebraica para algún autovalor",
+                "explanation": "La forma de Jordan se usa cuando ( A ) no tiene suficientes autovectores (i.e., ( \text{mg}(lambda) < \text{ma}(lambda) ) para algún ( lambda )). En este caso, ( A = PJP^{-1} ), donde ( J ) es una matriz diagonal por bloques de Jordan. Cada bloque ( J_k(lambda) ) corresponde a cadenas de vectores propios generalizados."
+            }
+        ],
+        "avanzado": [
+            {
+                "id": "AL_HARD_001",
+                "subCategory": "Forma Canónica de Jordan",
+                "text": "En la forma canónica de Jordan J = P⁻¹AP, ¿qué estructura tienen los bloques de Jordan?",
+                "hint": "Considera cómo se organizan los autovectores generalizados en cadenas.",
+                "options": [
+                    "Matrices con el autovalor en la diagonal y unos en la superdiagonal",
+                    "Matrices diagonales",
+                    "Matrices triangulares superiores con elementos arbitrarios",
+                    "Matrices simétricas"
+                ],
+                "correctAnswer": "Matrices con el autovalor en la diagonal y unos en la superdiagonal",
+                "explanation": "Un bloque de Jordan Jₖ(λ) es una matriz k×k con λ en la diagonal, 1 en la superdiagonal, y 0 en otras entradas. Por ejemplo, para k=3: J₃(λ) = [[λ, 1, 0], [0, λ, 1], [0, 0, λ]]. Esta estructura surge de cadenas de autovectores generalizados que satisfacen (A - λI)ᵏv = 0. La forma de Jordan es única salvo permutación de bloques."
+            },
+            {
+                "id": "AL_HARD_002",
+                "subCategory": "Funciones de Matrices",
+                "text": "Si A = PDP⁻¹, ¿cómo se calcula eᴬ?",
+                "hint": "Usa la propiedad de que la exponencial matricial preserva la diagonalización.",
+                "options": [
+                    "PeᴰP⁻¹ donde eᴰ tiene e^(λᵢ) en la diagonal",
+                    "eᴾeᴰeᴾ⁻¹",
+                    "e^(PDP⁻¹) = eᴬ directamente",
+                    "No se puede calcular para matrices no diagonales"
+                ],
+                "correctAnswer": "PeᴰP⁻¹ donde eᴰ tiene e^(λᵢ) en la diagonal",
+                "explanation": "Para A diagonalizable (A = PDP⁻¹), eᴬ = PeᴰP⁻¹, donde eᴰ = diag(e^λ₁, ..., e^λₙ). Esto se deriva de la serie de Taylor de eᴬ y la propiedad P(Aⁿ)P⁻¹ = (PAP⁻¹)ⁿ. Ejemplo: Si A = [[1, 1], [0, 2]] = P[[1, 0], [0, 2]]P⁻¹, entonces eᴬ = P[[e, 0], [0, e²]]P⁻¹."
+            },
+            {
+                "id": "AL_HARD_003",
+                "subCategory": "Polinomio Mínimo",
+                "text": "¿Qué relación existe entre el polinomio mínimo y el polinomio característico?",
+                "hint": "Ambos anulan la matriz, pero uno tiene grado mínimo.",
+                "options": [
+                    "El polinomio mínimo divide al polinomio característico y comparte las mismas raíces",
+                    "Son idénticos para todas las matrices",
+                    "El polinomio característico divide al mínimo",
+                    "No hay relación general"
+                ],
+                "correctAnswer": "El polinomio mínimo divide al polinomio característico y comparte las mismas raíces",
+                "explanation": "El polinomio mínimo m_A(λ) es el polinomio mónico de menor grado tal que m_A(A) = 0. Divide al polinomio característico p_A(λ) y comparte sus raíces (pero con posibles multiplicidades menores). Para matrices diagonalizables, m_A(λ) = ∏ (λ - λᵢ) sin repeticiones. Ejemplo: A = I₂ tiene p_A(λ) = (λ - 1)² pero m_A(λ) = (λ - 1)."
+            },
+            {
+                "id": "AL_HARD_004",
+                "subCategory": "Teorema de Cayley-Hamilton",
+                "text": "¿Qué establece el teorema de Cayley-Hamilton?",
+                "hint": "Implica que una matriz satisface una ecuación polinomial específica.",
+                "options": [
+                    "Toda matriz cuadrada satisface su polinomio característico: p_A(A) = 0",
+                    "Solo matrices simétricas satisfacen p_A(A) = 0",
+                    "p_A(A) es siempre invertible",
+                    "El polinomio mínimo nunca coincide con el característico"
+                ],
+                "correctAnswer": "Toda matriz cuadrada satisface su polinomio característico: p_A(A) = 0",
+                "explanation": "El teorema de Cayley-Hamilton establece que para cualquier matriz A ∈ ℂⁿˣⁿ, si p_A(λ) = det(λI - A), entonces p_A(A) = 0. Esto permite expresar Aⁿ como combinación lineal de I, A, ..., Aⁿ⁻¹. Ejemplo: Para A = [[2, 1], [0, 1]], p_A(λ) = (λ - 2)(λ - 1), y se verifica que (A - 2I)(A - I) = 0."
+            },
+            {
+                "id": "AL_HARD_005",
+                "subCategory": "Ecuaciones en Diferencias No Homogéneas",
+                "text": "Para resolver xₙ₊₁ = Axₙ + bₙ, ¿qué método es más general?",
+                "hint": "Combina soluciones homogéneas y particulares adaptadas a la no homogeneidad.",
+                "options": [
+                    "Variación de parámetros o función de Green discreta",
+                    "Diagonalización directa de A",
+                    "Eliminación gaussiana en cada paso",
+                    "Método de Newton-Raphson"
+                ],
+                "correctAnswer": "Variación de parámetros o función de Green discreta",
+                "explanation": "El método de variación de parámetros usa la solución homogénea xₙ⁽ʰ⁾ = Aⁿx₀ y encuentra una solución particular xₙ⁽ᵖ⁾ usando la función de Green (o kernel discreto): xₙ⁽ᵖ⁾ = ∑ₖ₌₀ⁿ⁻¹ Aⁿ⁻¹⁻ᵏbₖ. Esto generaliza el caso escalar y funciona incluso si bₙ depende de n. La diagonalización solo es útil si A es diagonalizable y bₙ tiene forma simple."
+            },
+            {
+                "id": "AL_HARD_006",
+                "subCategory": "Estabilidad Asintótica",
+                "text": "¿Qué condición garantiza la estabilidad asintótica de xₙ₊₁ = Axₙ + Buₙ?",
+                "hint": "La estabilidad depende solo de la matriz de transición A.",
+                "options": [
+                    "ρ(A) < 1 (radio espectral)",
+                    "Todos los autovalores de A tienen parte real negativa",
+                    "A es simétrica y definida positiva",
+                    "det(A) < 1"
+                ],
+                "correctAnswer": "ρ(A) < 1 (radio espectral)",
+                "explanation": "El sistema es estable asintóticamente si limₙ→∞ xₙ = 0 para cualquier x₀ y uₙ = 0. Esto ocurre si y solo si ρ(A) < 1 (todos los autovalores |λᵢ| < 1). Para sistemas con control uₙ, se requiere adicionalmente controlabilidad. Nota: En tiempo continuo, se requiere Re(λᵢ) < 0."
+            },
+            {
+                "id": "AL_HARD_007",
+                "subCategory": "Controlabilidad",
+                "text": "Un sistema xₙ₊₁ = Axₙ + Buₙ es controlable si:",
+                "hint": "Implica que cualquier estado puede alcanzarse con una secuencia de controles adecuada.",
+                "options": [
+                    "La matriz de controlabilidad C = [B AB ... Aⁿ⁻¹B] tiene rango n",
+                    "A es diagonalizable",
+                    "B es invertible",
+                    "A y B conmutan"
+                ],
+                "correctAnswer": "La matriz de controlabilidad C = [B AB ... Aⁿ⁻¹B] tiene rango n",
+                "explanation": "El sistema es controlable si la matriz C ∈ ℝⁿˣⁿᵐ tiene rango n (Kalman, 1960). Esto permite encontrar controles u₀, ..., uₙ₋₁ que lleven x₀ a cualquier x*. Ejemplo: Para A = [[1, 1], [0, 1]] y B = [[0], [1]], C = [[0, 1], [1, 1]] tiene rango 2 → controlable."
+            },
+            {
+                "id": "AL_HARD_008",
+                "subCategory": "Observabilidad",
+                "text": "Un sistema xₙ₊₁ = Axₙ, yₙ = Cxₙ es observable si:",
+                "hint": "Requiere que el estado inicial pueda determinarse a partir de las salidas.",
+                "options": [
+                    "La matriz de observabilidad O = [Cᵀ (CA)ᵀ ... (CAⁿ⁻¹)ᵀ]ᵀ tiene rango n",
+                    "C es invertible",
+                    "A es diagonal",
+                    "El sistema es controlable"
+                ],
+                "correctAnswer": "La matriz de observabilidad O = [Cᵀ (CA)ᵀ ... (CAⁿ⁻¹)ᵀ]ᵀ tiene rango n",
+                "explanation": "El sistema es observable si O tiene rango n, permitiendo reconstruir x₀ a partir de y₀, ..., yₙ₋₁. Dualidad: (A, C) es observable sii (Aᵀ, Cᵀ) es controlable. Ejemplo: A = [[1, 1], [0, 1]], C = [1, 0] → O = [[1, 0], [1, 1]] tiene rango 2 → observable."
+            },
+            {
+                "id": "AL_HARD_009",
+                "subCategory": "Formas Cuadráticas Indefinidas",
+                "text": "Una forma cuadrática Q(x) = xᵀAx es indefinida si:",
+                "hint": "Implica que Q(x) puede tomar valores positivos y negativos.",
+                "options": [
+                    "A tiene autovalores positivos y negativos",
+                    "Todos los autovalores son cero",
+                    "A es nilpotente",
+                    "A es ortogonal"
+                ],
+                "correctAnswer": "A tiene autovalores positivos y negativos",
+                "explanation": "Q(x) es indefinida si existen x₁, x₂ tales que Q(x₁) > 0 y Q(x₂) < 0. Esto ocurre sii A tiene autovalores λᵢ > 0 y λⱼ < 0. Ejemplo: A = diag(1, -1) con Q(x) = x₁² - x₂² (punto silla). El criterio de Sylvester falla en este caso."
+            },
+            {
+                "id": "AL_HARD_010",
+                "subCategory": "Optimización",
+                "text": "¿Cuál es la condición de segundo orden para un mínimo local en f(x) = xᵀAx + bᵀx + c?",
+                "hint": "La matriz Hessiana debe ser definida positiva en el punto crítico.",
+                "options": [
+                    "∇f(x*) = 0 y A definida positiva",
+                    "∇f(x*) = 0 y A semidefinida positiva",
+                    "f(x*) = 0 y tr(A) > 0",
+                    "A simétrica"
+                ],
+                "correctAnswer": "∇f(x*) = 0 y A definida positiva",
+                "explanation": "Para f(x) cuadrática: (1) Condición necesaria de primer orden: ∇f(x*) = 2Ax* + b = 0. (2) Condición suficiente de segundo orden: Hess(f) = 2A definida positiva (autovalores positivos). Ejemplo: f(x₁, x₂) = x₁² + x₂² tiene mínimo en (0,0) con A = I definida positiva."
+            },
+            {
+                "id": "AL_HARD_011",
+                "subCategory": "Valores Singulares",
+                "text": "¿Cómo se relacionan los valores singulares σᵢ de A con los autovalores de AᵀA?",
+                "hint": "Los valores singulares son normas de transformación en direcciones principales.",
+                "options": [
+                    "σᵢ = √(λᵢ(AᵀA)) donde λᵢ ≥ 0",
+                    "σᵢ = λᵢ(AᵀA)",
+                    "σᵢ = λᵢ(A)²",
+                    "No hay relación general"
+                ],
+                "correctAnswer": "σᵢ = √(λᵢ(AᵀA)) donde λᵢ ≥ 0",
+                "explanation": "Los valores singulares σᵢ de A ∈ ℝᵐˣⁿ son las raíces cuadradas de los autovalores λᵢ de AᵀA (matriz semidefinida positiva). Si A ∈ ℂᵐˣⁿ, usar A*A. La SVD de A es A = UΣVᵀ, donde Σ = diag(σ₁, ..., σᵣ) y r = rango(A). Los σᵢ miden la amplificación de A en direcciones dadas por las columnas de V."
+            },
+            {
+                "id": "AL_HARD_012",
+                "subCategory": "Pseudoinversa",
+                "text": "¿Cómo se calcula la pseudoinversa de Moore-Penrose A⁺ usando SVD?",
+                "hint": "Invierte los valores singulares no nulos y transpone las matrices unitarias.",
+                "options": [
+                    "A⁺ = VΣ⁺Uᵀ donde Σ⁺ = diag(1/σ₁, ..., 1/σᵣ, 0, ..., 0)",
+                    "A⁺ = UΣVᵀ",
+                    "A⁺ = (AᵀA)⁻¹Aᵀ (solo si AᵀA es invertible)",
+                    "A⁺ = Aᵀ"
+                ],
+                "correctAnswer": "A⁺ = VΣ⁺Uᵀ donde Σ⁺ = diag(1/σ₁, ..., 1/σᵣ, 0, ..., 0)",
+                "explanation": "Si A = UΣVᵀ es la SVD, entonces A⁺ = VΣ⁺Uᵀ, donde Σ⁺ reemplaza σᵢ ≠ 0 por 1/σᵢ y transpone la matriz. Propiedades: (1) AA⁺A = A, (2) A⁺AA⁺ = A⁺, (3) (AA⁺)ᵀ = AA⁺, (4) (A⁺A)ᵀ = A⁺A. Ejemplo: Si A = [[1, 0], [0, 0]], entonces A⁺ = [[1, 0], [0, 0]]."
+            },
+            {
+                "id": "AL_HARD_013",
+                "subCategory": "Matrices de Markov",
+                "text": "¿Qué propiedad tienen los autovalores de una matriz de transición de Markov P?",
+                "hint": "Reflejan la conservación de probabilidad y convergencia a estado estacionario.",
+                "options": [
+                    "|λᵢ| ≤ 1 con λ₁ = 1 y autovector asociado con entradas no negativas",
+                    "Todos λᵢ = 1",
+                    "Todos λᵢ < 1 en módulo",
+                    "Todos λᵢ son complejos"
+                ],
+                "correctAnswer": "|λᵢ| ≤ 1 con λ₁ = 1 y autovector asociado con entradas no negativas",
+                "explanation": "Para P estocástica (Pᵢⱼ ≥ 0, ∑ⱼ Pᵢⱼ = 1): (1) ρ(P) = 1, (2) Existe π ≥ 0 con πᵀP = πᵀ (vector de estado estacionario), (3) Si P es irreducible y aperiódica, limₙ→∞ Pⁿ = 1πᵀ. Ejemplo: P = [[0.9, 0.1], [0.5, 0.5]] tiene λ₁ = 1 con π = (5/6, 1/6)."
+            },
+            {
+                "id": "AL_HARD_014",
+                "subCategory": "Teorema de Perron-Frobenius",
+                "text": "Para una matriz positiva A > 0, ¿qué establece el teorema de Perron-Frobenius?",
+                "hint": "Garantiza un autovalor dominante con propiedades especiales.",
+                "options": [
+                    "Existe un autovalor simple λ₁ = ρ(A) > 0 con autovector positivo",
+                    "Todos los autovalores son iguales",
+                    "No hay autovalores reales",
+                    "A es diagonalizable"
+                ],
+                "correctAnswer": "Existe un autovalor simple λ₁ = ρ(A) > 0 con autovector positivo",
+                "explanation": "El teorema de Perron-Frobenius para A > 0 establece: (1) ρ(A) es autovalor simple (multiplicidad algebraica 1), (2) Existe autovector v > 0 con Av = ρ(A)v, (3) |λᵢ| < ρ(A) para otros autovalores. Aplicaciones: Cadenas de Markov, modelos de crecimiento poblacional."
+            },
+            {
+                "id": "AL_HARD_015",
+                "subCategory": "Análisis Espectral",
+                "text": "¿Qué información proporciona el radio espectral ρ(A) sobre Aⁿ?",
+                "hint": "Determina el comportamiento asintótico de las potencias matriciales.",
+                "options": [
+                    "Si ρ(A) < 1, Aⁿ → 0 exponencialmente; si ρ(A) > 1, ||Aⁿ|| → ∞",
+                    "Solo determina la traza de Aⁿ",
+                    "Es irrelevante para matrices no normales",
+                    "ρ(A) = tr(A)/n"
+                ],
+                "correctAnswer": "Si ρ(A) < 1, Aⁿ → 0 exponencialmente; si ρ(A) > 1, ||Aⁿ|| → ∞",
+                "explanation": "El radio espectral ρ(A) = max |λᵢ| determina la tasa de crecimiento/decaimiento de Aⁿ: (1) Si ρ(A) < 1, ∃C > 0 tal que ||Aⁿ|| ≤ Cρ(A)ⁿ → 0. (2) Si ρ(A) > 1, ||Aⁿ|| → ∞. (3) Si ρ(A) = 1, el comportamiento depende de la multiplicidad de los autovalores con |λᵢ| = 1."
+            }
+        ]
+    }
+}

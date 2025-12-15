@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test de Algebra Lineal</title>
+    <title>Test de Matemáticas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    
+    <link rel="stylesheet" href="/src/css/styles.css">
+
     <!-- MathJax Configuration -->
     <script>
         window.MathJax = {
@@ -25,15 +26,55 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body>
-    <div id="app" class="container">
-        <h1 class="header">Test de Algebra Lineal</h1>
 
-        <div id="module-selection-screen" class="flex flex-col items-center gap-4">
+<body>
+    <!-- Animated Background -->
+    <div class="animated-background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Theme Toggle Switch (iOS Style) -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+        <svg class="theme-icon moon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="#e2e8f0" stroke="#e2e8f0"
+                stroke-width="1" />
+        </svg>
+        <svg class="theme-icon sun" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="5" fill="#1a202c" />
+            <path
+                d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                stroke="#1a202c" stroke-width="2" stroke-linecap="round" />
+        </svg>
+    </button>
+
+    <div id="app" class="container">
+        <h1 id="app-header" class="header">Test de Matemáticas</h1>
+
+        <!-- Subject Selection Screen -->
+        <div id="subject-selection-screen" class="flex flex-col items-center gap-6">
+            <p class="info-text text-lg">Selecciona una materia para comenzar:</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button id="select-algebra" class="subject-button algebra-btn">
+                    <img src="algebra_icon_obscuro.png" alt="Álgebra Lineal" class="subject-icon dark-icon">
+                    <img src="algebra_icon_claro.png" alt="Álgebra Lineal" class="subject-icon light-icon">
+                </button>
+                <button id="select-calculo" class="subject-button calculo-btn">
+                    <img src="calculo_icon_obscuro.png" alt="Cálculo" class="subject-icon dark-icon">
+                    <img src="calculo_icon_claro.png" alt="Cálculo" class="subject-icon light-icon">
+                </button>
+            </div>
+        </div>
+
+        <div id="module-selection-screen" class="hidden flex flex-col items-center gap-4">
             <p class="info-text">Selecciona un módulo para comenzar:</p>
             <div id="module-options-container" class="flex flex-col gap-3 w-full md:w-3/4 lg:w-1/2">
                 <!-- Module buttons will be dynamically loaded here -->
             </div>
+            <button id="back-to-subjects" class="back-button">← Volver a Materias</button>
         </div>
 
         <div id="difficulty-screen" class="hidden flex flex-col items-center gap-4">
@@ -69,14 +110,15 @@
             <h2 class="font-bold mb-4 text-center">Resultados del Test</h2>
             <div id="quiz-info" class="mb-4 text-center">
                 <p class="text-lg font-semibold mb-2">
-                    Módulo: <span id="results-module-name" ></span>
+                    Módulo: <span id="results-module-name"></span>
                 </p>
                 <p class="text-lg font-semibold mb-2">
-                    Nivel: <span id="results-difficulty" ></span>
+                    Nivel: <span id="results-difficulty"></span>
                 </p>
             </div>
-            
-            <p class="score-text text-center">Tu puntuación: <span id="score">0</span>/<span id="total-questions">0</span></p>
+
+            <p class="score-text text-center">Tu puntuación: <span id="score">0</span>/<span
+                    id="total-questions">0</span></p>
             <div id="feedback-summary" class="correct-answers-list">
                 <!-- Detailed feedback will be loaded here -->
             </div>
@@ -84,6 +126,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="/src/js/app.js?v=9"></script>
 </body>
+
 </html>

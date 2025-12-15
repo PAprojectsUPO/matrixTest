@@ -1,0 +1,875 @@
+/* Modern UI Design - Test de Matemáticas */
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+:root {
+    /* Dark Theme (Default) */
+    --bg-primary: #0a0a0a;
+    --bg-card: rgba(20, 20, 20, 0.7);
+    --bg-button: #21262d;
+    --bg-button-hover: #30363d;
+
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --border-normal: #30363d;
+
+    --text-primary: rgb(224, 224, 224);
+    --text-secondary: rgb(160, 160, 160);
+    --text-bright: rgb(255, 255, 255);
+
+    --accent-blue: rgba(30, 144, 255, 0.4);
+    --accent-yellow: rgba(251, 188, 5, 0.3);
+    --accent-green: rgba(52, 168, 83, 0.3);
+
+    --success: #00ff88;
+    --success-dim: #3fb950;
+    --error: #ff0055;
+    --error-dim: #da3633;
+
+    /* Results colors */
+    --result-excellent: linear-gradient(135deg, #00ff88 0%, #00d4aa 100%);
+    --result-good: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+    --result-regular: linear-gradient(135deg, #ffd60a 0%, #ff9500 100%);
+    --result-poor: linear-gradient(135deg, #ff6b6b 0%, #ff0055 100%);
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+}
+
+/* Light Theme */
+body.light-theme {
+    --bg-primary: #e8ecf1;
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --bg-button: #d0d7de;
+    --bg-button-hover: #b1bac4;
+
+    --border-subtle: rgba(0, 0, 0, 0.15);
+    --border-normal: #b1bac4;
+
+    --text-primary: #0d1117;
+    --text-secondary: #57606a;
+    --text-bright: #000000;
+
+    --accent-blue: rgba(30, 144, 255, 0.25);
+    --accent-yellow: rgba(251, 188, 5, 0.25);
+    --accent-green: rgba(52, 168, 83, 0.25);
+
+    --success: #00873d;
+    --success-dim: #1a7f37;
+    --error: #b60045;
+    --error-dim: #a40e26;
+
+    /* Results colors for light theme */
+    --result-excellent: linear-gradient(135deg, #00873d 0%, #00a876 100%);
+    --result-good: linear-gradient(135deg, #0969da 0%, #0550ae 100%);
+    --result-regular: linear-gradient(135deg, #9a6700 0%, #7d5700 100%);
+    --result-poor: linear-gradient(135deg, #b60045 0%, #8b0036 100%);
+}
+
+/* ============================================
+   RESET AND BASE STYLES
+   ============================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================
+   THEME TOGGLE SWITCH (iOS Style)
+   ============================================ */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 60px;
+    height: 32px;
+    background: #4a5568;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.light-theme .theme-toggle {
+    background: #cbd5e0;
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: white;
+    left: 3px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .theme-toggle::before {
+    transform: translateX(28px);
+}
+
+.theme-icon {
+    position: absolute;
+    transition: opacity 0.3s ease;
+}
+
+.theme-icon.moon {
+    left: 8px;
+    opacity: 1;
+}
+
+.theme-icon.sun {
+    right: 8px;
+    opacity: 0;
+}
+
+body.light-theme .theme-icon.moon {
+    opacity: 0;
+}
+
+body.light-theme .theme-icon.sun {
+    opacity: 1;
+}
+
+/* Light theme adjustments for gradient orbs */
+body.light-theme .gradient-orb {
+    opacity: 0.15;
+}
+
+body.light-theme .animated-background {
+    backdrop-filter: blur(2px);
+}
+
+/* ============================================
+   ANIMATED BACKGROUND
+   ============================================ */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    backdrop-filter: blur(1px);
+}
+
+.gradient-orb {
+    position: absolute;
+    filter: blur(10px);
+    opacity: 0.3;
+    border-radius: 50%;
+    animation: float 20s ease-in-out infinite;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    top: -10%;
+    left: -10%;
+    background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    bottom: -10%;
+    right: -10%;
+    background: radial-gradient(circle, var(--accent-yellow) 0%, transparent 70%);
+    animation-delay: 7s;
+}
+
+.orb-3 {
+    width: 350px;
+    height: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, var(--accent-green) 0%, transparent 70%);
+    animation-delay: 14s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-sm);
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.question-card {
+    backdrop-filter: blur(20px);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg) var(--spacing-md);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+.header {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+    letter-spacing: -0.02em;
+
+    /* Modern Cyber Gradient */
+    background: linear-gradient(135deg, #00f5ff 0%, #00d4ff 20%, #7b2ff7 40%, #f107a3 60%, #ff006e 80%, #ffd60a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+#question-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+#question-hint {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+}
+
+.info-text {
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   SUBJECT BUTTONS
+   ============================================ */
+.subject-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+}
+
+.subject-button:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.subject-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: var(--radius-lg);
+}
+
+/* Show/hide icons based on theme */
+.subject-icon.dark-icon {
+    display: block;
+}
+
+.subject-icon.light-icon {
+    display: none;
+}
+
+body.light-theme .subject-icon.dark-icon {
+    display: none;
+}
+
+body.light-theme .subject-icon.light-icon {
+    display: block;
+}
+
+.subject-button:hover .subject-icon {
+    transform: scale(1.1);
+}
+
+.subject-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+/* Specific colors for subjects */
+.algebra-btn .subject-icon {
+    color: #00d4ff;
+}
+
+body.light-theme .algebra-btn .subject-icon {
+    color: #0969da;
+}
+
+.calculo-btn .subject-icon {
+    color: #f107a3;
+}
+
+body.light-theme .calculo-btn .subject-icon {
+    color: #b60045;
+}
+
+.subject-button .subject-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.algebra-btn {
+    background: linear-gradient(135deg, rgba(26, 31, 53, 0.8) 0%, rgba(33, 38, 45, 0.8) 100%);
+    color: #58a6ff;
+}
+
+.algebra-btn:hover {
+    background: linear-gradient(135deg, rgba(31, 40, 71, 0.9) 0%, rgba(42, 49, 64, 0.9) 100%);
+    border-color: #58a6ff;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(88, 166, 255, 0.3);
+}
+
+.calculo-btn {
+    background: linear-gradient(135deg, rgba(45, 26, 53, 0.8) 0%, rgba(33, 38, 45, 0.8) 100%);
+    color: #d69056;
+}
+
+.calculo-btn:hover {
+    background: linear-gradient(135deg, rgba(61, 32, 69, 0.9) 0%, rgba(42, 45, 64, 0.9) 100%);
+    border-color: #d69056;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(214, 144, 86, 0.3);
+}
+
+/* ============================================
+   OPTION BUTTONS
+   ============================================ */
+.option-button {
+    background: rgba(33, 38, 45, 0.6);
+    backdrop-filter: blur(10px);
+    color: var(--text-primary);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid var(--border-normal);
+    text-align: left;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Light theme option buttons */
+body.light-theme .option-button {
+    background: rgba(208, 215, 222, 0.5);
+    color: #0d1117;
+    border-color: #b1bac4;
+}
+
+body.light-theme .option-button:hover:not(:disabled):not(.selected) {
+    background: rgba(177, 186, 196, 0.7);
+    border-color: #8c959f;
+}
+
+.option-button:hover:not(:disabled):not(.selected) {
+    background: rgba(48, 54, 61, 0.7);
+    transform: translateX(4px);
+    border-color: var(--border-subtle);
+}
+
+.option-button.selected {
+    background: linear-gradient(135deg, rgba(35, 134, 54, 0.3) 0%, rgba(35, 134, 54, 0.5) 100%);
+    border-color: var(--success);
+    color: var(--text-bright);
+    box-shadow: 0 4px 12px rgba(35, 134, 54, 0.3);
+}
+
+body.light-theme .option-button.selected {
+    background: linear-gradient(135deg, rgba(26, 127, 55, 0.2) 0%, rgba(26, 127, 55, 0.3) 100%);
+    border-color: #1a7f37;
+    color: #0d1117;
+}
+
+.option-button.correct {
+    background: linear-gradient(135deg, rgba(20, 62, 38, 0.5) 0%, rgba(20, 62, 38, 0.7) 100%);
+    border-color: var(--success);
+    color: var(--success);
+    box-shadow: 0 4px 12px rgba(63, 185, 80, 0.2);
+}
+
+body.light-theme .option-button.correct {
+    background: linear-gradient(135deg, rgba(26, 127, 55, 0.15) 0%, rgba(26, 127, 55, 0.25) 100%);
+    border-color: #1a7f37;
+    color: #0d6832;
+    font-weight: 600;
+}
+
+.option-button.incorrect {
+    background: linear-gradient(135deg, rgba(40, 14, 20, 0.5) 0%, rgba(40, 14, 20, 0.7) 100%);
+    border-color: var(--error);
+    color: var(--error);
+    box-shadow: 0 4px 12px rgba(218, 54, 51, 0.2);
+}
+
+body.light-theme .option-button.incorrect {
+    background: linear-gradient(135deg, rgba(182, 0, 69, 0.1) 0%, rgba(182, 0, 69, 0.2) 100%);
+    border-color: #b60045;
+    color: #8b0036;
+    font-weight: 600;
+}
+
+.option-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   NAVIGATION BUTTONS
+   ============================================ */
+.start-button,
+.back-button {
+    background: rgba(33, 38, 45, 0.6);
+    backdrop-filter: blur(10px);
+    color: var(--text-primary);
+    padding: 16px 24px;
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid var(--border-normal);
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    font-size: 1rem;
+    font-weight: 600;
+    min-height: 52px;
+}
+
+.start-button:hover,
+.back-button:hover {
+    background: rgba(48, 54, 61, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   MODULE BUTTONS
+   ============================================ */
+.module-button {
+    background: rgba(33, 38, 45, 0.6);
+    backdrop-filter: blur(10px);
+    color: var(--text-primary);
+    padding: 16px 24px;
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid var(--border-normal);
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    min-height: 52px;
+    display: block;
+}
+
+/* Light theme module buttons - darker gray style */
+body.light-theme .module-button {
+    background: #7d8590;
+    color: #0d1117;
+    border: none;
+}
+
+body.light-theme .module-button:hover {
+    background: #6e7781;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.module-button:hover {
+    background: rgba(48, 54, 61, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--border-subtle);
+}
+
+#module-options-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+#navigation-buttons {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+#next-button,
+#show-results-button {
+    background: linear-gradient(135deg, rgba(35, 134, 54, 0.8) 0%, rgba(46, 160, 67, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    color: var(--text-bright);
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: 1px solid var(--success);
+    font-weight: 600;
+    font-size: 1rem;
+    min-height: 48px;
+    box-shadow: 0 4px 12px rgba(35, 134, 54, 0.3);
+}
+
+#next-button:hover:not(:disabled),
+#show-results-button:hover {
+    background: linear-gradient(135deg, rgba(46, 160, 67, 0.9) 0%, rgba(56, 180, 77, 0.9) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(35, 134, 54, 0.4);
+}
+
+#next-button:disabled {
+    background: rgba(22, 27, 34, 0.6);
+    color: #6e7681;
+    cursor: not-allowed;
+    border-color: var(--border-normal);
+    box-shadow: none;
+}
+
+.restart-button {
+    background: rgba(33, 38, 45, 0.6);
+    backdrop-filter: blur(10px);
+    color: var(--text-primary);
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    margin-top: var(--spacing-lg);
+    border: 1px solid var(--border-normal);
+    min-height: 48px;
+}
+
+.restart-button:hover {
+    background: rgba(48, 54, 61, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   FEEDBACK
+   ============================================ */
+.answer-feedback {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    margin-top: var(--spacing-sm);
+}
+
+.answer-feedback.correct {
+    color: var(--success);
+}
+
+.answer-feedback.incorrect {
+    color: var(--error);
+}
+
+.answer-feedback-rationale {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-sm);
+    padding-left: 24px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* ============================================
+   RESULTS
+   ============================================ */
+.results-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.hidden {
+    display: none !important;
+}
+
+/* ============================================
+   MATH FORMULAS
+   ============================================ */
+.MathJax,
+.MathJax_Display {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    max-width: 100% !important;
+    font-size: 0.95em !important;
+}
+
+.MathJax_Display {
+    margin: 0.5em 0 !important;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+    .container {
+        padding: var(--spacing-md) var(--spacing-xs);
+    }
+
+    .header {
+        font-size: 1.6rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .question-card {
+        padding: var(--spacing-md);
+    }
+
+    #question-text {
+        font-size: 1.1rem;
+    }
+
+    .subject-button {
+        min-width: 150px;
+        min-height: 120px;
+        padding: 24px 32px;
+    }
+
+    .subject-button .subject-icon {
+        font-size: 2.5rem;
+    }
+
+    /* Reduce blur on mobile for performance */
+    .gradient-orb {
+        filter: blur(60px);
+    }
+
+    .orb-1 {
+        width: 350px;
+        height: 350px;
+    }
+
+    .orb-2 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .orb-3 {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .container {
+        padding: var(--spacing-xl) var(--spacing-lg);
+    }
+
+    .header {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .question-card {
+        padding: var(--spacing-xl) var(--spacing-lg);
+    }
+
+    #question-text {
+        font-size: 1.35rem;
+    }
+
+    .start-button,
+    .back-button {
+        width: 50%;
+        max-width: none;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px;
+    }
+
+    .question-card {
+        padding: 2.5rem 2rem;
+    }
+
+    #question-text {
+        font-size: 1.4rem;
+    }
+
+    .option-button {
+        font-size: 1.05rem;
+        padding: 18px 22px;
+    }
+}
+
+/* Landscape on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: var(--spacing-sm);
+    }
+
+    .header {
+        font-size: 1.4rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .question-card {
+        padding: var(--spacing-sm);
+    }
+
+    .option-button {
+        padding: 10px 14px;
+        margin-bottom: 8px;
+        min-height: 44px;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+
+    .option-button,
+    #next-button,
+    .start-button,
+    .back-button {
+        border-width: 2px;
+    }
+
+    .question-card {
+        border-width: 2px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .gradient-orb {
+        animation: none;
+    }
+}
+
+/* Focus states for keyboard navigation */
+button:focus-visible,
+.option-button:focus-visible,
+.start-button:focus-visible,
+.back-button:focus-visible {
+    outline: 2px solid #58a6ff;
+    outline-offset: 2px;
+}

@@ -1,0 +1,643 @@
+{
+    "id": "algebra_lineal_3",
+    "name": "Álgebra Lineal III",
+    "description": "Preguntas sobre producto escalar, ortogonalidad, códigos lineales, factorización QR, y mínimos cuadrados.",
+    "difficultyLevels": {
+        "basico": [
+            {
+                "id": "AL_BAS_001",
+                "subCategory": "Matrices",
+                "text": "Dada la matriz $A = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$, ¿cuál de las siguientes propiedades **no** cumple?",
+                "hint": "Piensa en operaciones que no preservan la estructura nula.",
+                "options": [
+                    "$A + A = A$",
+                    "$A \\cdot A = A$",
+                    "$\\det(A) = 1$",
+                    "$A^T = A$"
+                ],
+                "correctAnswer": "$\\det(A) = 1$",
+                "explanation": "La matriz nula tiene determinante cero (no 1). Sí cumple: $A + A = A$ (es idempotente para la suma), $A \\cdot A = A$ (idempotente para el producto), y $A^T = A$ (simétrica)."
+            },
+            {
+                "id": "AL_BAS_002",
+                "subCategory": "Matrices",
+                "text": "Si $A$ es una matriz antisimétrica, ¿qué condición debe cumplir?",
+                "hint": "Usa la propiedad de su transpuesta y considera los elementos diagonales.",
+                "options": [
+                    "$A = A^T$",
+                    "$A = -A^T$ y los elementos diagonales son cero",
+                    "$A$ es diagonal",
+                    "$det(A) \\neq 0$"
+                ],
+                "correctAnswer": "$A = -A^T$ y los elementos diagonales son cero",
+                "explanation": "Una matriz antisimétrica cumple $A = -A^T$. Además, los elementos diagonales deben ser cero porque $a_{ii} = -a_{ii} \\Rightarrow a_{ii} = 0$."
+            },
+            {
+                "id": "AL_BAS_003",
+                "subCategory": "Sistemas Lineales",
+                "text": "¿Qué implica que un sistema $A\\mathbf{x} = \\mathbf{b}$ tenga infinitas soluciones?",
+                "hint": "Considera el rango de la matriz ampliada y la matriz de coeficientes.",
+                "options": [
+                    "$\\text{rango}(A) < \\text{rango}([A|\\mathbf{b}])$",
+                    "$\\text{rango}(A) = \\text{rango}([A|\\mathbf{b}]) < n$ (número de incógnitas)",
+                    "$\\det(A) \\neq 0$",
+                    "$\\mathbf{b} = \\mathbf{0}$"
+                ],
+                "correctAnswer": "$\\text{rango}(A) = \\text{rango}([A|\\mathbf{b}]) < n$ (número de incógnitas)",
+                "explanation": "Un sistema tiene infinitas soluciones si el rango de $A$ es igual al de la matriz ampliada pero menor que el número de incógnitas (variables libres)."
+            },
+            {
+                "id": "AL_BAS_004",
+                "subCategory": "Espacios Vectoriales",
+                "text": "¿Cuál es la dimensión del espacio generado por los vectores $\\mathbf{v}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 2 \\end{pmatrix}$ y $\\mathbf{v}_2 = \\begin{pmatrix} 2 \\\\ 0 \\\\ 4 \\end{pmatrix}$?",
+                "hint": "Verifica si los vectores son linealmente independientes.",
+                "options": [
+                    "0",
+                    "1",
+                    "2",
+                    "3"
+                ],
+                "correctAnswer": "1",
+                "explanation": "Los vectores son linealmente dependientes $\\mathbf{v}_2 = 2\\mathbf{v}_1$, por lo que generan una recta (dimensión 1)."
+            },
+            {
+                "id": "AL_BAS_005",
+                "subCategory": "Transformaciones Lineales",
+                "text": "Si $T: \\mathbb{R}^2 \\to \\mathbb{R}^2$ es una transformación lineal con $T(1,0) = (2,3)$ y $T(0,1) = (-1,4)$, ¿cuál es su matriz asociada?",
+                "hint": "Las columnas de la matriz son las imágenes de la base canónica.",
+                "options": [
+                    "$\\begin{pmatrix} 2 & -1 \\\\ 3 & 4 \\end{pmatrix}$",
+                    "$\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$",
+                    "$\\begin{pmatrix} 2 & 3 \\\\ -1 & 4 \\end{pmatrix}$",
+                    "$\\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$"
+                ],
+                "correctAnswer": "$\\begin{pmatrix} 2 & -1 \\\\ 3 & 4 \\end{pmatrix}$",
+                "explanation": "La matriz de $T$ se construye colocando como columnas las imágenes de los vectores de la base canónica: $[T] = \\begin{pmatrix} 2 & -1 \\\\ 3 & 4 \\end{pmatrix}$."
+            },
+            {
+                "id": "AL_BAS_006",
+                "subCategory": "Ortogonalidad",
+                "text": "¿Cuál es la condición para que un conjunto de vectores $\\{\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_k\\}$ sea ortonormal?",
+                "hint": "Combina ortogonalidad y norma.",
+                "options": [
+                    "$\\langle \\mathbf{v}_i, \\mathbf{v}_j \\rangle = 1$ para todo $(i, j)$",
+                    "$\\langle \\mathbf{v}_i, \\mathbf{v}_j \\rangle = 0$ si $(i \\neq j)$ y $|\\mathbf{v}_i| = 1$ para todo $(i)$",
+                    "$|\\mathbf{v}_i| = 0$ para todo $(i)$",
+                    "Los vectores son linealmente dependientes"
+                ],
+                "correctAnswer": "$\\langle \\mathbf{v}_i, \\mathbf{v}_j \\rangle = 0$ si $(i \\neq j)$ y $|\\mathbf{v}_i| = 1$ para todo $(i)$",
+                "explanation": "Un conjunto es ortonormal si los vectores son ortogonales entre sí ($\\langle \\mathbf{v}_i, \\mathbf{v}_j \\rangle = 0$) y cada uno tiene norma unitaria ($|\\mathbf{v}_i| = 1$)."
+            },
+            {
+                "id": "AL_BAS_007",
+                "subCategory": "Valores Propios",
+                "text": "Si $\\lambda$ es un valor propio de $A$, ¿qué vector asociado existe?",
+                "hint": "Recuerda la definición de valor propio y vector propio.",
+                "options": [
+                    "Un vector $\\mathbf{v} \\neq \\mathbf{0}$ tal que $A\\mathbf{v} = \\lambda \\mathbf{v}$",
+                    "Un vector $\\mathbf{v} = \\mathbf{0}$",
+                    "Cualquier vector $\\mathbf{v}$ sin restricción",
+                    "Un vector $\\mathbf{v}$ tal que $A\\mathbf{v} = \\mathbf{0}$"
+                ],
+                "correctAnswer": "Un vector $\\mathbf{v} \\neq \\mathbf{0}$ tal que $A\\mathbf{v} = \\lambda \\mathbf{v}$",
+                "explanation": "Un valor propio $\\lambda$ tiene asociado al menos un vector propio no nulo $\\mathbf{v}$ que cumple $A\\mathbf{v} = \\lambda \\mathbf{v}$."
+            },
+            {
+                "id": "AL_BAS_008",
+                "subCategory": "Diagonalización",
+                "text": "¿Cuál es la condición necesaria y suficiente para que una matriz $A$ sea diagonalizable?",
+                "hint": "Considera la multiplicidad algebraica y geométrica de los valores propios.",
+                "options": [
+                    "Que tenga $n$ valores propios distintos",
+                    "Que la multiplicidad geométrica de cada valor propio sea igual a su multiplicidad algebraica",
+                    "Que $det(A) \\neq 0$",
+                    "Que $A$ sea simétrica"
+                ],
+                "correctAnswer": "Que la multiplicidad geométrica de cada valor propio sea igual a su multiplicidad algebraica",
+                "explanation": "Una matriz es diagonalizable si y solo si para cada valor propio, su multiplicidad geométrica (dimensión del espacio propio) coincide con su multiplicidad algebraica (multiplicidad en el polinomio característico)."
+            },
+            {
+                "id": "AL_BAS_009",
+                "subCategory": "Producto Interno",
+                "text": "En $\\mathbb{R}^3$, ¿cuál es el ángulo entre $\\mathbf{u} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$ y $\\mathbf{v} = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}$?",
+                "hint": "Usa la fórmula del coseno del ángulo entre vectores.",
+                "options": [
+                    "$0^{\\circ}$",
+                    "$45^{\\circ}$",
+                    "$90^{\\circ}$",
+                    "$180^{\\circ}$"
+                ],
+                "correctAnswer": "$90^{\\circ}$",
+                "explanation": "Como $\\langle \\mathbf{u}, \\mathbf{v} \\rangle = 0$, los vectores son ortogonales y el ángulo es $90^{\\circ}$."
+            },
+            {
+                "id": "AL_BAS_010",
+                "subCategory": "Factorización QR",
+                "text": "En la factorización $A = QR$, si $A$ es de $(m \\times n)$ con $(m > n)$, ¿qué propiedad tiene $Q$?",
+                "hint": "Las columnas de $Q$ forman un conjunto ortonormal.",
+                "options": [
+                    "$Q$ es triangular superior",
+                    "$Q$ tiene columnas ortonormales y es de $(m \\times n)$",
+                    "$Q$ es la matriz identidad",
+                    "$Q$ es de $(n \\times n)$"
+                ],
+                "correctAnswer": "$Q$ tiene columnas ortonormales y es de $(m \\times n)$",
+                "explanation": "En la factorización QR reducida ($m > n$), $Q$ es $(m \\times n)$ con columnas ortonormales, y $R$ es $(n \\times n)$ triangular superior."
+            },
+            {
+                "id": "AL_BAS_011",
+                "subCategory": "Mínimos Cuadrados",
+                "text": "Dado un sistema sobredeterminado ($A\\mathbf{x} = \\mathbf{b}$), ¿qué minimiza la solución de mínimos cuadrados?",
+                "hint": "Considera la norma del residuo.",
+                "options": [
+                    "$|A\\mathbf{x}|$",
+                    "$|\\mathbf{x}|$",
+                    "$|A\\mathbf{x} - \\mathbf{b}|^2$",
+                    "$\\det(A)$"
+                ],
+                "correctAnswer": "$|A\\mathbf{x} - \\mathbf{b}|^2$",
+                "explanation": "El método de mínimos cuadrados encuentra $\\mathbf{x}$ que minimiza la norma cuadrática del residuo $|A\\mathbf{x} - \\mathbf{b}|^2$."
+            },
+            {
+                "id": "AL_BAS_012",
+                "subCategory": "Códigos Lineales",
+                "text": "¿Qué propiedad debe cumplir la matriz de paridad $H$ de un código lineal para detectar $t$ errores?",
+                "hint": "Relaciónala con la distancia mínima del código.",
+                "options": [
+                    "Cualquier conjunto de $t$ columnas de $H$ debe ser linealmente independiente",
+                    "$H$ debe tener rango $t$",
+                    "$H$ debe ser cuadrada",
+                    "$H$ debe tener determinante cero"
+                ],
+                "correctAnswer": "Cualquier conjunto de $t$ columnas de $H$ debe ser linealmente independiente",
+                "explanation": "Para detectar $t$ errores, la distancia mínima del código debe ser $d \\geq t+1$, lo que implica que no hay combinaciones lineales de $t$ columnas de $H$ que den $\\mathbf{0}$."
+            },
+            {
+                "id": "AL_BAS_013",
+                "subCategory": "Espacios Duales",
+                "text": "Si $V$ es un espacio vectorial de dimensión finita, ¿qué dimensión tiene su espacio dual $V^*$?",
+                "hint": "Usa la base dual asociada a una base de $V$.",
+                "options": [
+                    "$\\dim(V) - 1$",
+                    "$\\dim(V)$",
+                    "$2 \\dim(V)$",
+                    "$\\dim(V)^2$"
+                ],
+                "correctAnswer": "$\\dim(V)$",
+                "explanation": "El espacio dual $V^*$ (formado por funcionales lineales) tiene la misma dimensión que ($V$). Si ($\\{ \\mathbf{e}_i \\}$) es base de ($V$), ($\\{ \\mathbf{e}^*_i \\}$) (donde ($\\mathbf{e}^*_i(\\mathbf{e}_j) = \\delta_{ij}$)) es base de $V^*$."
+            },
+            {
+                "id": "AL_BAS_014",
+                "subCategory": "Formas Canónicas",
+                "text": "¿Qué tipo de matriz es la forma canónica de Jordan de una matriz $A$?",
+                "hint": "Combina bloques diagonales y elementos no nulos en la superdiagonal.",
+                "options": [
+                    "Diagonal",
+                    "Triangular superior con unos en la superdiagonal",
+                    "Simétrica",
+                    "Ortogonal"
+                ],
+                "correctAnswer": "Triangular superior con unos en la superdiagonal",
+                "explanation": "La forma de Jordan es una matriz triangular superior por bloques, donde cada bloque (bloque de Jordan) tiene un valor propio en la diagonal y unos en la superdiagonal."
+            },
+            {
+                "id": "AL_BAS_015",
+                "subCategory": "Descomposición SVD",
+                "text": "En la descomposición SVD $A = U \\Sigma V^T$, ¿qué propiedad tienen $U$ y $V$?",
+                "hint": "Son matrices derivadas de los vectores singulares.",
+                "options": [
+                    "Ambas son triangulares inferiores",
+                    "$U$ es ortogonal y $V$ es diagonal",
+                    "$U$ y $V$ son matrices ortogonales",
+                    "$U$ y $V$ son simétricas"
+                ],
+                "correctAnswer": "$U$ y $V$ son matrices ortogonales",
+                "explanation": "En la SVD, $U$ (vectores singulares izquierdos) y $V$ (vectores singulares derechos) son matrices ortogonales, y $\\Sigma$ es diagonal con valores singulares no negativos."
+            }
+        ],
+        "intermedio": [
+            {
+                "id": "AL3_INT_001",
+                "subCategory": "Proceso de Gram-Schmidt",
+                "text": "¿Cuál es el objetivo fundamental del proceso de Gram-Schmidt en un espacio vectorial con producto interno?",
+                "hint": "Considera las propiedades de ortogonalidad y normalización.",
+                "options": [
+                    "Transformar un conjunto linealmente independiente en un conjunto ortonormal que genere el mismo subespacio",
+                    "Calcular el determinante de una matriz asociada",
+                    "Encontrar los valores propios de una transformación lineal",
+                    "Resolver sistemas de ecuaciones lineales inconsistentes"
+                ],
+                "correctAnswer": "Transformar un conjunto linealmente independiente en un conjunto ortonormal que genere el mismo subespacio",
+                "explanation": "El proceso de Gram-Schmidt construye recursivamente una base ortonormal a partir de una base cualquiera, preservando el subespacio generado. Si $\\{v_1,...,v_n\\}$ es base, el algoritmo calcula $u_k = v_k - \\sum_{i=1}^{k-1}\\text{proy}_{u_i}(v_k)$ y normaliza."
+            },
+            {
+                "id": "AL3_INT_002",
+                "subCategory": "Proceso de Gram-Schmidt",
+                "text": "En el paso $k$-ésimo de Gram-Schmidt, si $\\{u_1,...,u_{k-1}\\}$ es ortonormal, ¿cómo se obtiene $u_k$ a partir de $v_k$?",
+                "hint": "Usa la fórmula de proyección ortogonal sobre el subespacio generado.",
+                "options": [
+                    "$u_k = v_k - \\sum_{i=1}^{k-1}\\langle v_k, u_i \\rangle u_i$ seguido de normalización",
+                    "$u_k = v_k + \\sum_{i=1}^{k-1}\\langle v_k, u_i \\rangle u_i$",
+                    "$u_k = \\frac{v_k}{\\|v_k\\|}$ sin considerar los $u_i$ anteriores",
+                    "$u_k = v_k \\times u_{k-1}$ (producto cruz)"
+                ],
+                "correctAnswer": "$u_k = v_k - \\sum_{i=1}^{k-1}\\langle v_k, u_i \\rangle u_i$ seguido de normalización",
+                "explanation": "El vector $u_k$ se obtiene restando a $v_k$ sus proyecciones sobre cada $u_i$ ya calculado (para garantizar ortogonalidad), luego se normaliza: $u_k = \\frac{u_k}{\\|u_k\\|}$. Esto asegura que $\\langle u_k, u_i \\rangle = 0$ para $i < k$."
+            },
+            {
+                "id": "AL3_INT_003",
+                "subCategory": "Complemento Ortogonal",
+                "text": "Dado un subespacio $W \\subseteq V$ con producto interno, ¿cuál es la definición precisa de $W^\\perp$?",
+                "hint": "Considera la ortogonalidad con todos los elementos del subespacio.",
+                "options": [
+                    "$W^\\perp = \\{v \\in V \\mid \\langle v, w \\rangle = 0 \\ \\forall w \\in W\\}$",
+                    "$W^\\perp = \\{v \\in W \\mid \\langle v, v \\rangle = 1\\}$",
+                    "$W^\\perp = \\{v + w \\mid v \\in V, w \\in W\\}$",
+                    "$W^\\perp = W$"
+                ],
+                "correctAnswer": "$W^\\perp = \\{v \\in V \\mid \\langle v, w \\rangle = 0 \\ \\forall w \\in W\\}$",
+                "explanation": "El complemento ortogonal $W^\\perp$ contiene todos los vectores en $V$ que son ortogonales a cada vector de $W$. Si $\\dim(V) = n$ y $\\dim(W) = k$, entonces $\\dim(W^\\perp) = n-k$."
+            },
+            {
+                "id": "AL3_INT_004",
+                "subCategory": "Proyección Ortogonal",
+                "text": "Para un subespacio $W$ con base ortonormal $\\{u_1,...,u_k\\}$, ¿por qué la proyección de $x$ sobre $W$ es $\\sum_{i=1}^k \\langle x, u_i \\rangle u_i$?",
+                "hint": "Usa la propiedad de mínima distancia.",
+                "options": [
+                    "Minimiza $\\|x - \\text{proy}_W(x)\\|$ y usa ortogonalidad de la base",
+                    "Es la media aritmética de los vectores de $W$",
+                    "Porque $x$ es combinación lineal de los $u_i$",
+                    "Es un resultado válido solo para $W = V$"
+                ],
+                "correctAnswer": "Minimiza $\\|x - \\text{proy}_W(x)\\|$ y usa ortogonalidad de la base",
+                "explanation": "Esta fórmula surge porque: 1) La proyección es el vector en $W$ más cercano a $x$ (mínima distancia), y 2) Los coeficientes $\\langle x, u_i \\rangle$ son las coordenadas en la base ortonormal (por Parseval)."
+            },
+            {
+                "id": "AL3_INT_005",
+                "subCategory": "Descomposición Ortogonal",
+                "text": "En la descomposición $V = W \\oplus W^\\perp$, ¿qué teorema garantiza que todo $v \\in V$ puede escribirse como $v = w + w^\\perp$ con $w \\in W$ y $w^\\perp \\in W^\\perp$?",
+                "hint": "Es un teorema fundamental en espacios con producto interno.",
+                "options": [
+                    "Teorema de la Proyección Ortogonal",
+                    "Teorema Fundamental del Álgebra",
+                    "Teorema de Cayley-Hamilton",
+                    "Teorema de Rouché-Frobenius"
+                ],
+                "correctAnswer": "Teorema de la Proyección Ortogonal",
+                "explanation": "Este teorema establece que para cualquier subespacio $W$ de un espacio con producto interno $V$, existe una descomposición única $v = w + w^\\perp$, donde $w$ es la proyección ortogonal de $v$ sobre $W$."
+            },
+            {
+                "id": "AL3_INT_006",
+                "subCategory": "Matriz de Proyección",
+                "text": "Si $P$ es la matriz de proyección sobre un subespacio $W$, ¿por qué cumple $P^2 = P$?",
+                "hint": "Piensa en qué ocurre al aplicar la proyección dos veces.",
+                "options": [
+                    "Porque proyectar un vector ya proyectado no cambia el resultado",
+                    "Porque $P$ es invertible",
+                    "Porque $P$ es antisimétrica",
+                    "Porque $P$ tiene determinante 1"
+                ],
+                "correctAnswer": "Porque proyectar un vector ya proyectado no cambia el resultado",
+                "explanation": "La idempotencia ($P^2 = P$) refleja que una proyección es una transformación lineal que, al aplicarse nuevamente a su resultado, no produce cambios. Si $w \\in W$, entonces $Pw = w$ y $P(Pw) = Pw$."
+            },
+            {
+                "id": "AL3_INT_007",
+                "subCategory": "Factorización QR",
+                "text": "Dada una matriz $A$ de rango completo con columnas $\\{a_1,...,a_n\\}$, ¿cómo se relaciona la factorización $A = QR$ con Gram-Schmidt?",
+                "hint": "Las columnas de $Q$ son vectores ortonormalizados.",
+                "options": [
+                    "$Q$ contiene la base ortonormal resultante de aplicar Gram-Schmidt a las columnas de $A$, y $R$ registra los coeficientes de las combinaciones lineales",
+                    "$R$ es la matriz identidad",
+                    "$Q$ es diagonal y $R$ triangular inferior",
+                    "No hay relación directa"
+                ],
+                "correctAnswer": "$Q$ contiene la base ortonormal resultante de aplicar Gram-Schmidt a las columnas de $A$, y $R$ registra los coeficientes de las combinaciones lineales",
+                "explanation": "En $A = QR$: 1) Las columnas de $Q$ son los vectores $u_i$ obtenidos al ortonormalizar las columnas de $A$ via Gram-Schmidt, y 2) $R$ es triangular superior con $R_{ij} = \\langle a_i, u_j \\rangle$ (para $i \\leq j$)."
+            },
+            {
+                "id": "AL3_INT_008",
+                "subCategory": "Factorización QR",
+                "text": "¿Por qué es útil la factorización QR para resolver sistemas $Ax = b$ numéricamente?",
+                "hint": "Considera la estabilidad numérica y la estructura triangular.",
+                "options": [
+                    "Transforma el sistema en uno triangular superior ($Rx = Q^Tb$) que es estable y fácil de resolver",
+                    "Porque $Q$ siempre es la matriz identidad",
+                    "Porque permite calcular $A^{-1}$ directamente",
+                    "Solo es útil para matrices singulares"
+                ],
+                "correctAnswer": "Transforma el sistema en uno triangular superior ($Rx = Q^Tb$) que es estable y fácil de resolver",
+                "explanation": "Al escribir $A = QR$, el sistema se convierte en $QRx = b$. Multiplicando por $Q^T$ (que es estable por ser ortogonal) obtenemos $Rx = Q^Tb$, donde $R$ es triangular superior. Esto evita problemas numéricos al calcular $(A^TA)^{-1}$ en mínimos cuadrados."
+            },
+            {
+                "id": "AL3_INT_009",
+                "subCategory": "Códigos Lineales",
+                "text": "Para un código lineal $C$ con matriz generadora $G$ y matriz de control $H$, ¿qué condición debe cumplir $H$?",
+                "hint": "Piensa en el espacio nulo de $H$.",
+                "options": [
+                    "$H G^T = 0$ (matriz cero)",
+                    "$H = G^T$",
+                    "$H$ debe ser invertible",
+                    "$G H^T = I$ (matriz identidad)"
+                ],
+                "correctAnswer": "$H G^T = 0$ (matriz cero)",
+                "explanation": "Las filas de $H$ generan el espacio nulo de $C$, por lo que para cualquier palabra código $c = xG$ (con $x$ vector mensaje), se cumple $H c^T = H G^T x^T = 0$. Esto permite detectar errores como síndromes no nulos."
+            },
+            {
+                "id": "AL3_INT_010",
+                "subCategory": "Códigos Lineales",
+                "text": "En un código $[n,k,d]$, ¿qué representa $d$ y cómo se relaciona con la matriz $H$?",
+                "hint": "Considera la dependencia lineal de columnas de $H$.",
+                "options": [
+                    "$d$ es la distancia mínima del código y es igual al mínimo número de columnas linealmente dependientes de $H$",
+                    "$d$ es la dimensión de $H$",
+                    "$d$ es el número de filas de $G$",
+                    "$d = n - k + 1$ siempre"
+                ],
+                "correctAnswer": "$d$ es la distancia mínima del código y es igual al mínimo número de columnas linealmente dependientes de $H$",
+                "explanation": "La distancia mínima $d$ es el peso mínimo de una palabra código no nula. Equivalentemente, es el menor número de columnas de $H$ que son linealmente dependientes (pues $c$ es palabra código sí y solo si $Hc^T = 0$)."
+            },
+            {
+                "id": "AL3_INT_011",
+                "subCategory": "Distancia Mínima",
+                "text": "¿Por qué un código con distancia mínima $d$ puede corregir hasta $\\lfloor \\frac{d-1}{2} \\rfloor$ errores?",
+                "hint": "Considera esferas de radio $t$ alrededor de las palabras código.",
+                "options": [
+                    "Porque las esferas de radio $t$ alrededor de las palabras código son disjuntas si $2t + 1 \\leq d$",
+                    "Porque $d$ es siempre par",
+                    "Porque el número de errores corregibles es $d^2$",
+                    "Solo si el código es perfecto"
+                ],
+                "correctAnswer": "Porque las esferas de radio $t$ alrededor de las palabras código son disjuntas si $2t + 1 \\leq d$",
+                "explanation": "La condición $2t + 1 \\leq d$ asegura que las esferas de radio $t$ (vectores a distancia $\\leq t$ de una palabra código) no se solapen. Así, cualquier vector recibido con $\\leq t$ errores estará más cerca de una única palabra código."
+            },
+            {
+                "id": "AL3_INT_012",
+                "subCategory": "Mínimos Cuadrados",
+                "text": "¿Por qué la solución de mínimos cuadrados de $Ax \\approx b$ está dada por $x = (A^TA)^{-1}A^T b$?",
+                "hint": "Deriva las ecuaciones normales proyectando $b$ en $\\text{Col}(A)$.",
+                "options": [
+                    "Porque minimiza $\\|Ax - b\\|^2$ y resuelve $A^TAx = A^Tb$ (ecuaciones normales)",
+                    "Porque $A$ es siempre invertible",
+                    "Porque $Ax = b$ tiene solución exacta",
+                    "Es válido solo si $b \\in \\text{Col}(A)$"
+                ],
+                "correctAnswer": "Porque minimiza $\\|Ax - b\\|^2$ y resuelve $A^TAx = A^Tb$ (ecuaciones normales)",
+                "explanation": "Geométricamente, minimizar $\\|Ax - b\\|^2$ equivale a proyectar $b$ ortogonalmente sobre $\\text{Col}(A)$. La proyección satisface $A^T(b - Ax) = 0$, lo que lleva a las ecuaciones normales $A^TAx = A^Tb$."
+            },
+            {
+                "id": "AL3_INT_013",
+                "subCategory": "Pseudoinversa",
+                "text": "Si $A = U\\Sigma V^T$ es la SVD de $A$, ¿cómo se expresa la pseudoinversa $A^+$?",
+                "hint": "Invierte los valores singulares no nulos.",
+                "options": [
+                    "$A^+ = V\\Sigma^+ U^T$ donde $\\Sigma^+$ reemplaza $\\sigma_i$ por $1/\\sigma_i$ si $\\sigma_i \\neq 0$",
+                    "$A^+ = A^T$",
+                    "$A^+ = \\Sigma^{-1}$",
+                    "$A^+ = U^TV$"
+                ],
+                "correctAnswer": "$A^+ = V\\Sigma^+ U^T$ donde $\\Sigma^+$ reemplaza $\\sigma_i$ por $1/\\sigma_i$ si $\\sigma_i \\neq 0$",
+                "explanation": "La pseudoinversa generaliza la inversa para matrices no cuadradas o singulares. En la SVD, se construye invirtiendo los valores singulares no nulos: si $\\Sigma = \\text{diag}(\\sigma_1,...,\\sigma_r,0,...,0)$, entonces $\\Sigma^+ = \\text{diag}(1/\\sigma_1,...,1/\\sigma_r,0,...,0)$."
+            },
+            {
+                "id": "AL3_INT_014",
+                "subCategory": "Aplicaciones SVD",
+                "text": "¿Cómo se usa la SVD para resolver un sistema $Ax = b$ en el sentido de mínimos cuadrados?",
+                "hint": "Usa la pseudoinversa y la descomposición en valores singulares.",
+                "options": [
+                    "La solución es $x = V\\Sigma^+ U^T b$ donde $\\Sigma^+$ es la pseudoinversa de $\\Sigma$",
+                    "Calculando $A^{-1}b$ directamente",
+                    "Resolviendo $\\Sigma x = U^T b V$",
+                    "Solo es posible si $A$ es cuadrada"
+                ],
+                "correctAnswer": "La solución es $x = V\\Sigma^+ U^T b$ donde $\\Sigma^+$ es la pseudoinversa de $\\Sigma$",
+                "explanation": "La solución de mínimos cuadrados de norma mínima se obtiene aplicando la pseudoinversa: $x = A^+b = V\\Sigma^+ U^T b$. Esto proyecta $b$ sobre $\\text{Col}(A)$ y resuelve el sistema en el subespacio relevante."
+            },
+            {
+                "id": "AL3_INT_015",
+                "subCategory": "Mínimos Cuadrados",
+                "text": "¿Qué ventaja numérica tiene usar SVD sobre las ecuaciones normales $(A^TA)x = A^Tb$ para mínimos cuadrados?",
+                "hint": "Considera el número de condición de las matrices.",
+                "options": [
+                    "La SVD es más estable numéricamente, especialmente cuando $A^TA$ está mal condicionada",
+                    "Las ecuaciones normales siempre son más precisas",
+                    "La SVD requiere menos operaciones computacionales",
+                    "No hay diferencia práctica"
+                ],
+                "correctAnswer": "La SVD es más estable numéricamente, especialmente cuando $A^TA$ está mal condicionada",
+                "explanation": "Calcular $(A^TA)^{-1}$ puede amplificar errores numéricos si $A^TA$ tiene un número de condición alto (casi singular). La SVD evita este problema al trabajar directamente con los valores singulares de $A$, proporcionando mayor estabilidad."
+            }
+        ],
+        "avanzado": [
+            {
+                "id": "AL3_ADV_001",
+                "subCategory": "Descomposición en Valores Singulares",
+                "text": "En la SVD reducida $A = U_r Sigma_r V_r^T$ de una matriz $A in mathbb{R}^{m \times n}$ con rango $r$, ¿qué propiedad geométrica caracteriza a las columnas de $U_r$?",
+                "hint": "Considera la transformación de la esfera unitaria bajo $A$.",
+                "options": [
+                    "Forman una base ortonormal para el espacio columna de $A$",
+                    "Son los vectores propios de $A$ con mayor valor propio",
+                    "Coinciden con las filas de $A$ normalizadas",
+                    "Generan el espacio nulo de $A^T$"
+                ],
+                "correctAnswer": "Forman una base ortonormal para el espacio columna de $A$",
+                "explanation": "Las columnas de $U_r$ (vectores singulares izquierdos) son una base ortonormal para $\\text{Col}(A)$. Geométricamente, estos vectores definen los semiejes de la elipse que resulta de aplicar $A$ a la esfera unitaria en $mathbb{R}^n$."
+            },
+            {
+                "id": "AL3_ADV_002",
+                "subCategory": "Descomposición en Valores Singulares",
+                "text": "Si $sigma_i$ son los valores singulares de $A in mathbb{R}^{m \times n}$, ¿cómo se expresa la norma de Frobenius $\\|A\\|_F$ en términos de los $sigma_i$?",
+                "hint": "Usa la invariancia de la norma bajo transformaciones unitarias.",
+                "options": [
+                    "$\\sqrt{sum_{i=1}^r sigma_i^2}$ donde $r = \text{rango}(A)$",
+                    "$\\sum_{i=1}^r sigma_i$",
+                    "$\\max_i sigma_i$",
+                    "$\\prod_{i=1}^r sigma_i$"
+                ],
+                "correctAnswer": "$\\sqrt{sum_{i=1}^r sigma_i^2}$ donde $r = \text{rango}(A)$",
+                "explanation": "La norma de Frobenius satisface $\\|A\\|_F^2 = sum_{i,j} |a_{ij}|^2 = sum_{i=1}^r sigma_i^2$ (por invariancia bajo $U$ y $V$). Esto generaliza el teorema de Pitágoras para matrices."
+            },
+            {
+                "id": "AL3_ADV_003",
+                "subCategory": "Rango y SVD",
+                "text": "Para una matriz $A$ con SVD $A = USigma V^T$ y $epsilon > 0$, ¿cómo se define numéricamente su rango efectivo?",
+                "hint": "Considera valores singulares significativos frente a ruido numérico.",
+                "options": [
+                    "Número de $sigma_i > epsilon sigma_1$",
+                    "Número total de valores singulares no nulos",
+                    "Dimensión del espacio nulo de $A$",
+                    "Rango de $A + epsilon I$"
+                ],
+                "correctAnswer": "Número de $sigma_i > epsilon sigma_1$",
+                "explanation": "En aplicaciones numéricas, el rango efectivo cuenta los valores singulares significativos (típicamente mayores que $epsilon sigma_1$, donde $sigma_1$ es el mayor valor singular). Esto evita considerar valores pequeños por ruido numérico como relevantes."
+            },
+            {
+                "id": "AL3_ADV_004",
+                "subCategory": "Aproximación de Rango Bajo",
+                "text": "Según el teorema de Eckart-Young, ¿por qué $A_k = sum_{i=1}^k sigma_i u_i v_i^T$ es la mejor aproximación de rango $k$ a $A$?",
+                "hint": "Considera la minimización de la norma espectral.",
+                "options": [
+                    "Minimiza tanto $\\|A - A_k\\|_2$ como $\\|A - A_k\\|_F$ entre todas las matrices de rango $leq k$",
+                    "Es la única matriz que coincide con $A$ en las primeras $k$ columnas",
+                    "Maximiza la traza de $A^T A_k$",
+                    "Minimiza el número de condición de $A_k$"
+                ],
+                "correctAnswer": "Minimiza tanto $\\|A - A_k\\|_2$ como $\\|A - A_k\\|_F$ entre todas las matrices de rango $leq k$",
+                "explanation": "El teorema de Eckart-Young establece que $A_k$ (truncamiento SVD a $k$ términos) es la solución óptima para ambas normas, con errores $\\|A - A_k\\|_2 = sigma_{k+1}$ y $\\|A - A_k\\|_F = sqrt{sum_{i=k+1}^r sigma_i^2}$."
+            },
+            {
+                "id": "AL3_ADV_005",
+                "subCategory": "Análisis de Componentes Principales",
+                "text": "En PCA, si $X$ es la matriz de datos centrados, ¿por qué se diagonaliza $X^T X/(n-1)$?",
+                "hint": "Relaciona con la matriz de covarianza muestral.",
+                "options": [
+                    "Porque sus autovectores definen las direcciones de máxima varianza en los datos",
+                    "Porque es equivalente a calcular la media de $X$",
+                    "Porque diagonaliza directamente la matriz $X$",
+                    "Porque minimiza la traza de $X$"
+                ],
+                "correctAnswer": "Porque sus autovectores definen las direcciones de máxima varianza en los datos",
+                "explanation": "La matriz $X^T X/(n-1)$ es la matriz de covarianza muestral. Sus autovectores (componentes principales) maximizan $v^T Sigma v$ (varianza proyectada), y los autovalores corresponden a las varianzas en esas direcciones."
+            },
+            {
+                "id": "AL3_ADV_006",
+                "subCategory": "Códigos de Reed-Solomon",
+                "text": "¿Por qué los códigos Reed-Solomon pueden corregir hasta $t$ errores en $n$ símbolos?",
+                "hint": "Considera el grado del polinomio generador y el teorema fundamental del álgebra.",
+                "options": [
+                    "Porque requieren $2t$ símbolos de redundancia y el polinomio de síndrome tiene $2t$ raíces",
+                    "Porque operan sobre campos finitos primos",
+                    "Porque usan transformadas de Fourier discretas",
+                    "Porque limitan el número de símbolos a $n leq q$"
+                ],
+                "correctAnswer": "Porque requieren $2t$ símbolos de redundancia y el polinomio de síndrome tiene $2t$ raíces",
+                "explanation": "Un código RS$(n,k)$ con $n-k=2t$ puede corregir hasta $t$ errores. Esto se debe a que el locador de errores es un polinomio de grado $t$ determinado por $2t$ síndromes (ecuaciones de Newton)."
+            },
+            {
+                "id": "AL3_ADV_007",
+                "subCategory": "Códigos BCH",
+                "text": "¿Cómo aprovechan los códigos BCH las propiedades de los campos finitos para corregir errores?",
+                "hint": "Considera los polinomios mínimos y las raíces primitivas.",
+                "options": [
+                    "Usan raíces consecutivas $alpha^b, alpha^{b+1},..., alpha^{b+2t-1}$ para construir un polinomio generador con distancia $d geq 2t+1$",
+                    "Codifican directamente en la base estándar de $mathbb{F}_q$",
+                    "Maximizan el determinante de la matriz de control",
+                    "Minimizan el número de raíces del polinomio generador"
+                ],
+                "correctAnswer": "Usan raíces consecutivas $alpha^b, alpha^{b+1},..., alpha^{b+2t-1}$ para construir un polinomio generador con distancia $d geq 2t+1$",
+                "explanation": "Los códigos BCH especifican $2t$ raíces consecutivas del polinomio generador $g(x)$, garantizando (vía el bound BCH) que el peso mínimo del código es $d geq 2t+1$, permitiendo corregir $t$ errores."
+            },
+            {
+                "id": "AL3_ADV_008",
+                "subCategory": "Factorización QR con Pivoteo",
+                "text": "En QR con pivoteo de columnas, ¿por qué se permutan las columnas de $A$ durante la factorización?",
+                "hint": "Considera el crecimiento de errores numéricos en columnas casi dependientes.",
+                "options": [
+                    "Para priorizar columnas con mayor norma residual y mejorar estabilidad numérica",
+                    "Para hacer $R$ diagonal",
+                    "Para garantizar que $Q$ sea la matriz identidad",
+                    "Para reducir el número de operaciones"
+                ],
+                "correctAnswer": "Para priorizar columnas con mayor norma residual y mejorar estabilidad numérica",
+                "explanation": "El pivoteo elige en cada paso la columna con mayor norma residual (no aún procesada) como pivote, reduciendo el error numérico al evitar divisiones por elementos pequeños y mejorando la detección del rango numérico."
+            },
+            {
+                "id": "AL3_ADV_009",
+                "subCategory": "Regularización Tikhonov",
+                "text": "¿Cómo afecta el parámetro $lambda$ en la solución de $\\min \\|Ax-b\\|^2 + lambda \\|x\\|^2$?",
+                "hint": "Considera el trade-off entre sesgo y varianza.",
+                "options": [
+                    "Controla el compromiso entre ajuste a los datos ($\\|Ax-b\\|$) y magnitud de la solución ($\\|x\\|$)",
+                    "Minimiza exclusivamente $\\|x\\|$ sin considerar $b$",
+                    "Hace que $A$ sea ortogonal",
+                    "Elimina automáticamente las columnas dependientes de $A$"
+                ],
+                "correctAnswer": "Controla el compromiso entre ajuste a los datos ($\\|Ax-b\\|$) y magnitud de la solución ($\\|x\\|$)",
+                "explanation": "$lambda$ regula el balance: $lambda \to 0$ da la solución clásica (posiblemente inestable), mientras que $lambda > 0$ reduce la varianza a costa de introducir sesgo. Óptimo según el criterio L-curve o validación cruzada."
+            },
+            {
+                "id": "AL3_ADV_010",
+                "subCategory": "Mínimos Cuadrados Regularizados",
+                "text": "¿Por qué la solución $(A^T A + lambda I)^{-1}A^T b$ evita problemas cuando $A^T A$ es casi singular?",
+                "hint": "Analiza los valores propios de la matriz regularizada.",
+                "options": [
+                    "$lambda I$ desplaza los valores propios de $A^T A$ lejos de cero, mejorando el número de condición",
+                    "Convierte $A$ en una matriz ortogonal",
+                    "Anula las columnas linealmente dependientes de $A$",
+                    "Hace que $A^T A$ sea diagonal"
+                ],
+                "correctAnswer": "$lambda I$ desplaza los valores propios de $A^T A$ lejos de cero, mejorando el número de condición",
+                "explanation": "Si $A^T A$ tiene valores propios pequeños $mu_i$, entonces $A^T A + lambda I$ tiene valores propios $mu_i + lambda$, reduciendo el número de condición de $kappa = \frac{mu_{max}}{mu_{min}}$ a $\frac{mu_{max} + lambda}{mu_{min} + lambda}$."
+            },
+            {
+                "id": "AL3_ADV_011",
+                "subCategory": "Descomposición Espectral",
+                "text": "Para una matriz simétrica $A$, ¿cómo se relaciona su SVD con su descomposición espectral $A = QLambda Q^T$?",
+                "hint": "Compara valores singulares con valores propios.",
+                "options": [
+                    "Coinciden: $Sigma = |Lambda|$ y $U = V = Q$ (salvo signos)",
+                    "La SVD no existe para matrices simétricas",
+                    "Los valores singulares son los cuadrados de los valores propios",
+                    "Requieren bases diferentes"
+                ],
+                "correctAnswer": "Coinciden: $Sigma = |Lambda|$ y $U = V = Q$ (salvo signos)",
+                "explanation": "Para $A$ simétrica, los valores singulares son los módulos de los valores propios ($sigma_i = |lambda_i|$). Si $A$ es además definida positiva, SVD y descomposición espectral son idénticas con $U = V = Q$."
+            },
+            {
+                "id": "AL3_ADV_012",
+                "subCategory": "Normas de Matrices",
+                "text": "¿Por qué la norma espectral $\\|A\\|_2$ coincide con el mayor valor singular $sigma_1$?",
+                "hint": "Usa la interpretación geométrica de la transformación lineal.",
+                "options": [
+                    "Porque maximiza el cociente $\\frac{\\|Ax\\|}{\\|x\\|}$ sobre todos los $x \neq 0$",
+                    "Porque es igual a la traza de $A^T A$",
+                    "Porque siempre coincide con el radio espectral $\rho(A)$",
+                    "Porque minimiza el error de aproximación de rango bajo"
+                ],
+                "correctAnswer": "Porque maximiza el cociente $\\frac{\\|Ax\\|}{\\|x\\|}$ sobre todos los $x \neq 0$",
+                "explanation": "La norma espectral es el máximo factor de estiramiento: $\\|A\\|_2 = sup_{x \neq 0} \\frac{\\|Ax\\|_2}{\\|x\\|_2} = sigma_1$, donde $sigma_1$ es el semieje mayor de la elipse imagen de la esfera unitaria bajo $A$."
+            },
+            {
+                "id": "AL3_ADV_013",
+                "subCategory": "Condicionamiento",
+                "text": "Si $kappa_2(A) = 10^{16}$, ¿qué implica esto numéricamente para el sistema $Ax = b$?",
+                "hint": "Considera la pérdida de dígitos significativos.",
+                "options": [
+                    "Que el sistema es esencialmente singular: se pueden perder hasta 16 dígitos de precisión",
+                    "Que $A$ es ortogonal",
+                    "Que la solución es insensible a perturbaciones",
+                    "Que $A$ es diagonal dominante"
+                ],
+                "correctAnswer": "Que el sistema es esencialmente singular: se pueden perder hasta 16 dígitos de precisión",
+                "explanation": "Un número de condición $kappa_2(A) approx 10^{k}$ indica que, en aritmética de precisión $p$, solo $p-k$ dígitos son confiables en la solución. Para $kappa=10^{16}$ y doble precisión ($p=16$), la solución puede ser numéricamente inexacta."
+            },
+            {
+                "id": "AL3_ADV_014",
+                "subCategory": "Métodos Iterativos",
+                "text": "En GMRES, ¿por qué se usa el subespacio de Krylov $mathcal{K}_k(A,b) = \text{span}{b, Ab, ..., A^{k-1}b}$?",
+                "hint": "Considera la minimización del residuo en espacios anidados.",
+                "options": [
+                    "Porque captura progresivamente las direcciones de mayor impacto en el residuo $b - Ax$",
+                    "Porque diagonaliza $A$ en cada iteración",
+                    "Porque garantiza convergencia en exactamente $n$ pasos",
+                    "Porque evita el cálculo de productos matriz-vector"
+                ],
+                "correctAnswer": "Porque captura progresivamente las direcciones de mayor impacto en el residuo $b - Ax$",
+                "explanation": "GMRES construye una base ortonormal para $mathcal{K}_k(A,b)$ donde minimiza $\\|b - Ax_k\\|_2$. El subespacio de Krylov contiene información sobre las direcciones donde $A$ más influye en $b$, acelerando la convergencia."
+            },
+            {
+                "id": "AL3_ADV_015",
+                "subCategory": "Optimización Convexa",
+                "text": "Para $f$ convexo y $L$-suave, ¿qué garantiza el paso de descenso de gradiente $x_{k+1} = x_k - eta \nabla f(x_k)$ con $eta = 1/L$?",
+                "hint": "Considera la condición de Lipschitz del gradiente.",
+                "options": [
+                    "Convergencia con tasa $O(1/k)$ en el valor objetivo",
+                    "Optimalidad en exactamente $k = n$ pasos",
+                    "Minimización exacta en cada iteración",
+                    "Convergencia superlineal"
+                ],
+                "correctAnswer": "Convergencia con tasa $O(1/k)$ en el valor objetivo",
+                "explanation": "Para funciones $L$-suaves (gradiente Lipschitz), el descenso de gradiente con $eta = 1/L$ garantiza $f(x_k) - f(x^*) leq \frac{L\\|x_0 - x^*\\|^2}{2k}$. La condición $L$ controla el tamaño de paso máximo para evitar oscilaciones."
+            }
+        ]
+    }
+}

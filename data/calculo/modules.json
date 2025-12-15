@@ -1,0 +1,32 @@
+[
+    {
+        "id": "calculo_1",
+        "name": "Cálculo I",
+        "description": "Límites de sucesiones, series numéricas, límites de funciones y continuidad.",
+        "file": "./data/calculo/module_1.json"
+    },
+    {
+        "id": "calculo_2",
+        "name": "Cálculo II",
+        "description": "Límites, derivadas, diferenciabilidad, Taylor y optimización.",
+        "file": "./data/calculo/module_2.json"
+    },
+    {
+        "id": "calculo_3",
+        "name": "Cálculo III",
+        "description": "Series alternadas, límites, continuidad, diferenciabilidad e integración.",
+        "file": "./data/calculo/module_3.json"
+    },
+    {
+        "id": "calculo_4",
+        "name": "Cálculo IV",
+        "description": "Sucesiones, series, dominio, límites, continuidad, derivadas y EDO.",
+        "file": "./data/calculo/module_4.json"
+    },
+    {
+        "id": "calculo_5",
+        "name": "Cálculo V",
+        "description": "Límites, series geométricas, continuidad, derivadas, optimización, integración y EDO.",
+        "file": "./data/calculo/module_5.json"
+    }
+]

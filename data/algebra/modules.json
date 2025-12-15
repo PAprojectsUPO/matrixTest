@@ -1,0 +1,26 @@
+[
+    {
+        "id": "algebra_lineal_1",
+        "name": "Álgebra Lineal I",
+        "description": "Preguntas sobre matrices, determinantes, y sistemas de ecuaciones lineales.",
+        "file": "./data/algebra/module_1.json"
+    },
+    {
+        "id": "algebra_lineal_2",
+        "name": "Álgebra Lineal II",
+        "description": "Espacios vectoriales, transformaciones lineales y diagonalización.",
+        "file": "./data/algebra/module_2.json"
+    },
+    {
+        "id": "algebra_lineal_3",
+        "name": "Álgebra Lineal III",
+        "description": "Valores y vectores propios, formas canónicas.",
+        "file": "./data/algebra/module_3.json"
+    },
+    {
+        "id": "algebra_lineal_4",
+        "name": "Álgebra Lineal IV",
+        "description": "Aplicaciones del álgebra lineal y temas avanzados.",
+        "file": "./data/algebra/module_4.json"
+    }
+]

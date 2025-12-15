@@ -1,0 +1,143 @@
+{
+    "id": "calculo_4",
+    "name": "Cálculo IV",
+    "description": "Sucesiones, series, dominio, límites, continuidad, derivadas y EDO.",
+    "difficultyLevels": {
+        "basico": [
+            {
+                "id": "CAL4_BAS_001",
+                "subCategory": "Sucesiones",
+                "text": "Si para todo $M>0$ existe $n_{0}$ tal que $a_{n}<M$ para $n\\ge n_{0}$:",
+                "hint": "Esta condición no garantiza comportamiento específico.",
+                "options": [
+                    "$\\{a_{n}\\}$ es acotada.",
+                    "$\\lim_{n\\rightarrow\\infty}a_{n}=-\\infty$.",
+                    "Ninguna de las anteriores."
+                ],
+                "correctAnswer": "Ninguna de las anteriores.",
+                "explanation": "La condición no implica acotación inferior ni divergencia a $-\\infty$ (ver EB1, Def 2.2)."
+            },
+            {
+                "id": "CAL4_BAS_002",
+                "subCategory": "Series",
+                "text": "Si $S_{n}=\\frac{2n^{2}+1}{n+n^{2}}$, entonces $\\sum_{k=2}^{\\infty}a_{k}$:",
+                "hint": "Calcula el límite de $S_n$ y resta $a_1 = S_1$.",
+                "options": [
+                    "$2$.",
+                    "$\\frac{1}{2}$.",
+                    "Datos insuficientes."
+                ],
+                "correctAnswer": "$\\frac{1}{2}$.",
+                "explanation": "$\\sum_{k=1}^{\\infty}a_k = 2$, $a_1 = S_1 = \\frac{3}{2}$. Respuesta: $2 - \\frac{3}{2} = \\frac{1}{2}$ (ver EB3, Def 1.1)."
+            },
+            {
+                "id": "CAL4_BAS_003",
+                "subCategory": "Dominio",
+                "text": "Dominio de $f(x)=\\frac{x}{\\ln(x+2)}$:",
+                "hint": "El logaritmo requiere argumento positivo y el denominador no puede ser cero.",
+                "options": [
+                    "$\\{x:x>-2\\}$.",
+                    "$\\{x:x>-2,x\\ne0\\}$.",
+                    "$\\{x:x>-2,x\\ne-1\\}$."
+                ],
+                "correctAnswer": "$\\{x:x>-2,x\\ne-1\\}$.",
+                "explanation": "$x+2>0$ y $\\ln(x+2)\\ne0 \\implies x>-2$ y $x\\ne-1$ (ver EB6, Prop 2.1)."
+            },
+            {
+                "id": "CAL4_BAS_004",
+                "subCategory": "Límites",
+                "text": "Si $\\lim_{x\\rightarrow a}f(x)=-\\infty$ entonces:",
+                "hint": "Es la definición de límite menos infinito.",
+                "options": [
+                    "$\\forall M>0\\exists\\delta>0$: $f(x)<M$.",
+                    "$\\forall M>0\\exists\\delta>0$: si $||x-a||<\\delta$, $f(x)<-M$.",
+                    "Límite en el infinito."
+                ],
+                "correctAnswer": "$\\forall M>0\\exists\\delta>0$: si $||x-a||<\\delta$, $f(x)<-M$.",
+                "explanation": "Esta es la definición formal de límite $-\\infty$ en un punto (ver EB4, Def 3.2)."
+            },
+            {
+                "id": "CAL4_BAS_005",
+                "subCategory": "Límites",
+                "text": "Si para toda $x_{n} \\to 1$ se tiene $\\lim_{n}f(x_{n})=2$:",
+                "hint": "Es la caracterización secuencial del límite.",
+                "options": [
+                    "puede que $\\lim_{x\\rightarrow1}f(x)\\ne2$.",
+                    "si $f$ no es continua, el límite puede no ser 2.",
+                    "$\\lim_{x\\rightarrow1}f(x)=2$."
+                ],
+                "correctAnswer": "$\\lim_{x\\rightarrow1}f(x)=2$.",
+                "explanation": "Por el criterio de Heine, el límite existe y es 2 (ver EB4, Prop 1.3)."
+            }
+        ],
+        "intermedio": [
+            {
+                "id": "CAL4_INT_001",
+                "subCategory": "Límites Reiterados",
+                "text": "$f(x,y)=\\frac{y^{2}}{x+y^{3}}$ con $f(0,0)=0$ no es continua en $(0,0)$ porque:",
+                "hint": "Calcula los límites reiterados.",
+                "options": [
+                    "Uno de los límites reiterados no existe.",
+                    "Los límites reiterados existen pero no coinciden.",
+                    "El límite direccional $y=x$ es distinto de 0."
+                ],
+                "correctAnswer": "Uno de los límites reiterados no existe.",
+                "explanation": "$\\lim_{y\\to0}\\frac{y^2}{y^3} = \\lim_{y\\to0}\\frac{1}{y}$ no existe (ver EB5, Prop 2.3)."
+            },
+            {
+                "id": "CAL4_INT_002",
+                "subCategory": "Derivada Direccional",
+                "text": "Derivada direccional de $f(x,y)=x+y^{2}$ en dirección $(1,1)$ en $(0,0)$:",
+                "hint": "Calcula el gradiente y proyecta sobre el vector unitario.",
+                "options": [
+                    "$\\sqrt{2}$.",
+                    "$\\frac{1}{\\sqrt{2}}$.",
+                    "0."
+                ],
+                "correctAnswer": "$\\frac{1}{\\sqrt{2}}$.",
+                "explanation": "$\\nabla f(0,0) = (1,0)$. Unitario: $(\\frac{1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}})$. Producto: $\\frac{1}{\\sqrt{2}}$ (ver EB6, Def 4.1)."
+            },
+            {
+                "id": "CAL4_INT_003",
+                "subCategory": "Optimización",
+                "text": "Si $Hf(x_0)$ es semidefinida negativa:",
+                "hint": "¿Qué tipos de extremos son compatibles con curvatura negativa?",
+                "options": [
+                    "$x_{0}$ no puede ser punto de silla.",
+                    "$x_{0}$ no puede ser mínimo local.",
+                    "$x_{0}$ es máximo local."
+                ],
+                "correctAnswer": "$x_{0}$ no puede ser mínimo local.",
+                "explanation": "Semidefinida negativa excluye mínimos (que requieren positiva) (ver EB8, Def 3.2)."
+            }
+        ],
+        "avanzado": [
+            {
+                "id": "CAL4_AVA_001",
+                "subCategory": "Primitivas",
+                "text": "Si $F(x)$ es primitiva de $f(x)$, entonces $\\int f(x)F(x)dx$:",
+                "hint": "Usa el cambio $u = F(x)$.",
+                "options": [
+                    "$\\frac{(f(x))^{2}}{2}+c$.",
+                    "$f(x)+c$.",
+                    "$\\frac{(F(x))^{2}}{2}+c$."
+                ],
+                "correctAnswer": "$\\frac{(F(x))^{2}}{2}+c$.",
+                "explanation": "Con $u = F(x)$, $du = f(x)dx$: $\\int u\\,du = \\frac{u^2}{2}$ (ver EB9, Def 2.1)."
+            },
+            {
+                "id": "CAL4_AVA_002",
+                "subCategory": "Ecuaciones Diferenciales",
+                "text": "Solución de $xy'-3y-x^{3}=0$:",
+                "hint": "Verifica cada opción sustituyendo en la ecuación.",
+                "options": [
+                    "$y(x)=x^{3}\\ln(x)$.",
+                    "$y(x)=x^{2}-\\frac{\\ln(x)}{x}$.",
+                    "$y(x)=x^{3}+\\ln(x)$."
+                ],
+                "correctAnswer": "$y(x)=x^{3}\\ln(x)$.",
+                "explanation": "$y = x^3\\ln(x) \\implies y' = 3x^2\\ln(x) + x^2$. Verificación: $x(y') - 3y - x^3 = 0$. ✓ (ver EB14, Def 2.2)."
+            }
+        ]
+    }
+}
