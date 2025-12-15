@@ -68,6 +68,45 @@
                 ],
                 "correctAnswer": "$\\lim_{x\\rightarrow1}f(x)=2$.",
                 "explanation": "Por el criterio de Heine, el límite existe y es 2 (ver EB4, Prop 1.3)."
+            },
+            {
+                "id": "CAL4_BAS_006",
+                "subCategory": "Ecuaciones Diferenciales",
+                "text": "La ecuación diferencial $y' = 2x$ se clasifica como una EDO de:",
+                "hint": "Observa el orden de la derivada más alta.",
+                "options": [
+                    "Primer orden.",
+                    "Segundo orden.",
+                    "Tercer orden."
+                ],
+                "correctAnswer": "Primer orden.",
+                "explanation": "El orden de una EDO es el de la derivada de mayor orden que aparece en la ecuación (ver EB14, Def 2.1)."
+            },
+            {
+                "id": "CAL4_BAS_007",
+                "subCategory": "Ecuaciones Diferenciales",
+                "text": "¿Qué significa que $y(x)$ sea solución de $y' = f(x,y)$?",
+                "hint": "Debe satisfacer la igualdad.",
+                "options": [
+                    "Que al sustituir $y$ y su derivada se cumple la ecuación.",
+                    "Que $y(0) = 0$.",
+                    "Que $y$ es una función lineal."
+                ],
+                "correctAnswer": "Que al sustituir $y$ y su derivada se cumple la ecuación.",
+                "explanation": "Una función es solución si verifica la identidad que define la ecuación (ver EB14, Def 2.2)."
+            },
+            {
+                "id": "CAL4_BAS_008",
+                "subCategory": "Series Geométricas",
+                "text": "La serie $\\sum_{n=0}^{\\infty} (1/2)^n$:",
+                "hint": "Es una serie geométrica con $r=1/2$.",
+                "options": [
+                    "Converge.",
+                    "Diverge.",
+                    "Oscila."
+                ],
+                "correctAnswer": "Converge.",
+                "explanation": "Como la razón $r=1/2$ cumple $|r|<1$, la serie converge (ver EB3, Prop 1.5)."
             }
         ],
         "intermedio": [
@@ -109,6 +148,45 @@
                 ],
                 "correctAnswer": "$x_{0}$ no puede ser mínimo local.",
                 "explanation": "Semidefinida negativa excluye mínimos (que requieren positiva) (ver EB8, Def 3.2)."
+            },
+            {
+                "id": "CAL4_INT_004",
+                "subCategory": "EDO Variables Separables",
+                "text": "La solución general de la ecuación diferencial $y' = y$ es:",
+                "hint": "Separa variables e integra.",
+                "options": [
+                    "$y=Ce^x$.",
+                    "$y=e^x$.",
+                    "$y=Cx$."
+                ],
+                "correctAnswer": "$y=Ce^x$.",
+                "explanation": "Separando variables: $dy/y = dx \\implies \\ln|y| = x + C \\implies y = K e^x$ (ver EB14, Def 3.1)."
+            },
+            {
+                "id": "CAL4_INT_005",
+                "subCategory": "Dominio",
+                "text": "El dominio de la función $f(x) = \\sqrt{1-x^2}$ es:",
+                "hint": "El radicando de una raíz cuadrada debe ser no negativo.",
+                "options": [
+                    "$[-1,1]$.",
+                    "$(-1,1)$.",
+                    "$[0,1]$."
+                ],
+                "correctAnswer": "$[-1,1]$.",
+                "explanation": "Se requiere $1-x^2 \\ge 0$, que se cumple para $x \\in [-1,1]$ (ver EB6)."
+            },
+            {
+                "id": "CAL4_INT_006",
+                "subCategory": "Límites de Sucesiones",
+                "text": "Si una sucesión verifica $0 \\le x_n \\le 1/n$ para todo $n$, entonces su límite es:",
+                "hint": "Usa el Criterio del Sandwich (o de la compresión).",
+                "options": [
+                    "0.",
+                    "1.",
+                    "No existe."
+                ],
+                "correctAnswer": "0.",
+                "explanation": "Por el Criterio de la Compresión, como $1/n \\to 0$, entonces $x_n \\to 0$ (ver EB2, Prop 1.2)."
             }
         ],
         "avanzado": [
@@ -137,6 +215,58 @@
                 ],
                 "correctAnswer": "$y(x)=x^{3}\\ln(x)$.",
                 "explanation": "$y = x^3\\ln(x) \\implies y' = 3x^2\\ln(x) + x^2$. Verificación: $x(y') - 3y - x^3 = 0$. ✓ (ver EB14, Def 2.2)."
+            },
+            {
+                "id": "CAL4_AVA_003",
+                "subCategory": "EDO Lineal",
+                "text": "Para resolver la EDO lineal $y' + P(x)y = Q(x)$, se utiliza el factor integrante:",
+                "hint": "Es una exponencial relacionada con el coeficiente de $y$.",
+                "options": [
+                    "$e^{\\int P(x)dx}$.",
+                    "$e^{-\\int P(x)dx}$.",
+                    "$e^{\\int Q(x)dx}$."
+                ],
+                "correctAnswer": "$e^{\\int P(x)dx}$.",
+                "explanation": "Multiplicando la ecuación por $\\mu(x) = e^{\\int P(x)dx}$ se convierte el lado izquierdo en $(y\\mu)'$ (ver EB14, Prop 3.4)."
+            },
+            {
+                "id": "CAL4_AVA_004",
+                "subCategory": "Series de Potencias",
+                "text": "Si al aplicar el criterio del cociente en una serie de términos positivos obtenemos $\\lim \\frac{a_{n+1}}{a_n} = L > 1$:",
+                "hint": "Recuerda las conclusiones del criterio del cociente.",
+                "options": [
+                    "La serie diverge.",
+                    "La serie converge.",
+                    "El criterio no decide."
+                ],
+                "correctAnswer": "La serie diverge.",
+                "explanation": "Si el límite del cociente es mayor que 1, la serie diverge (ver EB3, Teo 2.3)."
+            },
+            {
+                "id": "CAL4_AVA_005",
+                "subCategory": "Derivada Direccional",
+                "text": "Si el gradiente de $f$ en un punto $a$ es nulo, la derivada direccional en cualquier dirección es:",
+                "hint": "La derivada direccional es el producto escalar del gradiente con el vector dirección.",
+                "options": [
+                    "0.",
+                    "Máxima.",
+                    "Indeterminada."
+                ],
+                "correctAnswer": "0.",
+                "explanation": "Si $\\nabla f(a) = 0$, entonces $D_v f(a) = \\nabla f(a) \\cdot v = 0$ (ver EB7, Teo 2.7)."
+            },
+            {
+                "id": "CAL4_AVA_006",
+                "subCategory": "Teorema del Valor Medio",
+                "text": "Si $f:[a,b] \\to \\mathbb{R}$ es continua en $[a,b]$ y derivable en $(a,b)$, entonces existe $c \\in (a,b)$ tal que:",
+                "hint": "Relaciona la derivada en un punto interior con la pendiente de la secante.",
+                "options": [
+                    "$f'(c) = \\frac{f(b)-f(a)}{b-a}$.",
+                    "$f'(c) = 0$.",
+                    "$f(c) = \\frac{f(a)+f(b)}{2}$."
+                ],
+                "correctAnswer": "$f'(c) = \\frac{f(b)-f(a)}{b-a}$.",
+                "explanation": "Es el enunciado del Teorema del Valor Medio de Lagrange (ver EB8, Teo 2.2)."
             }
         ]
     }

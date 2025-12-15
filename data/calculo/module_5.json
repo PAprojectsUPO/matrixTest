@@ -68,6 +68,45 @@
                 ],
                 "correctAnswer": "$f(x) > f(a)$ en entorno de $a$.",
                 "explanation": "$f''(a) > 0$ implica mínimo local: $f(x) > f(a)$ para $x \\ne a$ cercanos (ver EB8, Def 3.1)."
+            },
+            {
+                "id": "CAL5_BAS_006",
+                "subCategory": "Series Geométricas",
+                "text": "Una serie geométrica $\\sum_{n=0}^{\\infty} r^n$ es convergente si y solo si la razón $r$ verifica:",
+                "hint": "Recuerda la condición de convergencia de la serie geométrica.",
+                "options": [
+                    "$|r| < 1$.",
+                    "$r > 1$.",
+                    "$r = 1$."
+                ],
+                "correctAnswer": "$|r| < 1$.",
+                "explanation": "La serie geométrica converge si el valor absoluto de la razón es menor que 1 (ver EB3, Prop 1.5)."
+            },
+            {
+                "id": "CAL5_BAS_007",
+                "subCategory": "Optimización",
+                "text": "Un punto $x_0$ es un máximo local estricto de $f$ si:",
+                "hint": "Compara el valor de la función en el punto con sus vecinos.",
+                "options": [
+                    "$f(x) < f(x_0)$ para todo $x$ en un entorno de $x_0$ (t.q. $x \\ne x_0$).",
+                    "$f(x) > f(x_0)$ para todo $x$ en un entorno de $x_0$.",
+                    "$f'(x_0) > 0$."
+                ],
+                "correctAnswer": "$f(x) < f(x_0)$ para todo $x$ en un entorno de $x_0$ (t.q. $x \\ne x_0$).",
+                "explanation": "El valor en el punto es mayor que en los puntos cercanos (ver EB8, Def 3.1)."
+            },
+            {
+                "id": "CAL5_BAS_008",
+                "subCategory": "Optimización Restringida",
+                "text": "En un problema de optimización con restricciones de igualdad $g(x)=0$, los puntos candidatos verifican:",
+                "hint": "Criterio de Lagrange.",
+                "options": [
+                    "Que $\\nabla f$ es proporcional a $\\nabla g$.",
+                    "Que $\\nabla f = 0$.",
+                    "Que $\\nabla g = 0$."
+                ],
+                "correctAnswer": "Que $\\nabla f$ es proporcional a $\\nabla g$.",
+                "explanation": "La condición de Lagrange establece que los gradientes son paralelos (ver EB9, Def 1.1)."
             }
         ],
         "intermedio": [
@@ -109,6 +148,45 @@
                 ],
                 "correctAnswer": "$\\frac{1}{2}\\int\\sqrt{t}\\cos(t)dt$.",
                 "explanation": "$dx = \\frac{dt}{2\\sqrt{t}}$. Resultado: $\\frac{1}{2}\\int\\sqrt{t}\\cos(t)dt$ (ver EB10, Prop 1.1)."
+            },
+            {
+                "id": "CAL5_INT_004",
+                "subCategory": "Diferenciabilidad",
+                "text": "La aproximación lineal (o plano tangente) de una función diferenciable $f(x,y)$ en un punto $(a,b)$ viene dada por:",
+                "hint": "Es la generalización de la recta tangente en una variable.",
+                "options": [
+                    "$L(x,y) = f(a,b) + \\nabla f(a,b) \\cdot (x-a, y-b)$.",
+                    "$L(x,y) = f(a,b)$.",
+                    "$L(x,y) = f'(a)(x-a)$."
+                ],
+                "correctAnswer": "$L(x,y) = f(a,b) + \\nabla f(a,b) \\cdot (x-a, y-b)$.",
+                "explanation": "Si $f$ es diferenciable, se aproxima por su plano tangente (ver EB7, Teo 2.7)."
+            },
+            {
+                "id": "CAL5_INT_005",
+                "subCategory": "EDO Lineal Homogénea",
+                "text": "La solución general de la ecuación diferencial $y' - 2xy = 0$ es:",
+                "hint": "Es de variables separables: $y'/y = 2x$.",
+                "options": [
+                    "$y=Ce^{x^2}$.",
+                    "$y=e^{-x^2}$.",
+                    "$y=Ce^{2x}$."
+                ],
+                "correctAnswer": "$y=Ce^{x^2}$.",
+                "explanation": "Integrando: $\\ln|y| = x^2 + K$. Despejando: $y = C e^{x^2}$ (ver EB14)."
+            },
+            {
+                "id": "CAL5_INT_006",
+                "subCategory": "Optimización Restringida",
+                "text": "Para optimizar una función $f(x,y)$ sujeta a una restricción de igualdad $g(x,y)=0$, utilizamos el método de:",
+                "hint": "Introduce un parámetro $\\lambda$.",
+                "options": [
+                    "Multiplicadores de Lagrange.",
+                    "Hessiana simple.",
+                    "Teorema de Bolzano."
+                ],
+                "correctAnswer": "Multiplicadores de Lagrange.",
+                "explanation": "El método de los multiplicadores de Lagrange permite buscar extremos condicionados (ver EB9, 1.1)."
             }
         ],
         "avanzado": [
@@ -137,6 +215,58 @@
                 ],
                 "correctAnswer": "$y(x)=2x^{3}$",
                 "explanation": "$y = 2x^3 \\implies y' = 6x^2$. Verificando: $x(6x^2) - 3(2x^3) = 0$. ✓ (ver EB14, Def 2.2)."
+            },
+            {
+                "id": "CAL5_AVA_003",
+                "subCategory": "Optimización Con Restricciones",
+                "text": "La condición necesaria de Lagrange para un extremo de $f$ sujeto a $g=c$ es:",
+                "hint": "Los gradientes deben ser paralelos.",
+                "options": [
+                    "$\\nabla f = \\lambda \\nabla g$.",
+                    "$\\nabla f = 0$.",
+                    "$\\nabla g = 0$."
+                ],
+                "correctAnswer": "$\\nabla f = \\lambda \\nabla g$.",
+                "explanation": "En el extremo, el gradiente de la función objetivo es proporcional al gradiente de la restricción (ver EB9, Teo 1.1)."
+            },
+            {
+                "id": "CAL5_AVA_004",
+                "subCategory": "Técnicas de Integración",
+                "text": "La integral $\\int e^x \\sin(x) dx$ es un ejemplo clásico de:",
+                "hint": "La integral se repite tras aplicar el método dos veces.",
+                "options": [
+                    "Integración por partes cíclica.",
+                    "Cambio de variable trigonométrico.",
+                    "Integral inmediata (primitiva elemental)."
+                ],
+                "correctAnswer": "Integración por partes cíclica.",
+                "explanation": "Se aplica partes dos veces hasta que reaparece la integral original y se despeja (ver EB9)."
+            },
+            {
+                "id": "CAL5_AVA_005",
+                "subCategory": "Series",
+                "text": "Si una serie $\\sum a_n$ es convergente pero $\\sum |a_n|$ diverge, se dice que es:",
+                "hint": "La convergencia absoluta es más fuerte.",
+                "options": [
+                    "Condicionalmente convergente.",
+                    "Absolutamente convergente.",
+                    "Divergente."
+                ],
+                "correctAnswer": "Condicionalmente convergente.",
+                "explanation": "La convergencia condicional se da cuando la serie converge pero no absolutamente (ver EB3)."
+            },
+            {
+                "id": "CAL5_AVA_006",
+                "subCategory": "EDO Variables Separables",
+                "text": "La solución general de la EDO $y' = x/y$ es (en forma implícita):",
+                "hint": "Separa variables $y dy = x dx$.",
+                "options": [
+                    "$y^2 - x^2 = C$.",
+                    "$y^2 + x^2 = C$.",
+                    "$y = \\ln x + C$."
+                ],
+                "correctAnswer": "$y^2 - x^2 = C$.",
+                "explanation": "Integrando ambos lados: $y^2/2 = x^2/2 + K \\implies y^2 - x^2 = 2K = C$ (ver EB14)."
             }
         ]
     }

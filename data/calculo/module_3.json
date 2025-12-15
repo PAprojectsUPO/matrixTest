@@ -68,6 +68,45 @@
                 ],
                 "correctAnswer": "Puede que no exista ningún $c$ con $f(c)=0$.",
                 "explanation": "Bolzano requiere cambio de signo. Aquí tienen el mismo signo (ver EB6, Prop 2.4)."
+            },
+            {
+                "id": "CAL3_BAS_006",
+                "subCategory": "Integración",
+                "text": "Una primitiva de la función $f(x)=2x$ es:",
+                "hint": "Busca una función cuya derivada sea $2x$.",
+                "options": [
+                    "$x^2$.",
+                    "$2x^2$.",
+                    "$x$."
+                ],
+                "correctAnswer": "$x^2$.",
+                "explanation": "La derivada de $x^2$ es $2x$, por lo tanto es una primitiva (ver EB9, Def 2.1)."
+            },
+            {
+                "id": "CAL3_BAS_007",
+                "subCategory": "Series",
+                "text": "Si $\\lim_{n \\to \\infty} a_n = 2$, entonces la serie $\\sum a_n$:",
+                "hint": "Condición necesaria de convergencia.",
+                "options": [
+                    "Converge.",
+                    "Diverge.",
+                    "Puede converger o divergir."
+                ],
+                "correctAnswer": "Diverge.",
+                "explanation": "Como el límite del término general no es 0, la serie no puede converger (ver EB3, Prop 1.2)."
+            },
+            {
+                "id": "CAL3_BAS_008",
+                "subCategory": "Integración",
+                "text": "La integral definida $\\int_a^a f(x) dx$ es igual a:",
+                "hint": "El intervalo de integración tiene longitud cero.",
+                "options": [
+                    "$f(a)$.",
+                    "$1$.",
+                    "$0$."
+                ],
+                "correctAnswer": "$0$.",
+                "explanation": "La integral sobre un intervalo de longitud nula es cero (ver EB11)."
             }
         ],
         "intermedio": [
@@ -109,6 +148,45 @@
                 ],
                 "correctAnswer": "$\\frac{9}{2}\\int \\cos^{2}(t)dt$.",
                 "explanation": "$dx = \\frac{3}{2}\\cos(t)dt$, $\\sqrt{9-4x^2} = 3\\cos(t)$. Resultado: $\\frac{9}{2}\\int\\cos^2(t)dt$ (ver EB10, Prop 1.4)."
+            },
+            {
+                "id": "CAL3_INT_004",
+                "subCategory": "Integración por Partes",
+                "text": "Para calcular $\\int x \\ln(x) dx$ por partes, la elección más conveniente es:",
+                "hint": "Elige $u$ tal que su derivada simplifique el integrando.",
+                "options": [
+                    "$u=\\ln(x), dv=x dx$.",
+                    "$u=x, dv=\\ln(x) dx$.",
+                    "$u=1, dv=x \\ln(x) dx$."
+                ],
+                "correctAnswer": "$u=\\ln(x), dv=x dx$.",
+                "explanation": "Al derivar $u=\\ln(x)$ obtenemos $1/x$, lo que simplifica la integral resultante (ver EB9, 5.1)."
+            },
+            {
+                "id": "CAL3_INT_005",
+                "subCategory": "Series Alternadas",
+                "text": "La serie alternada $\\sum_{n=1}^{\\infty} (-1)^n \\frac{1}{n}$:",
+                "hint": "Verifica las condiciones del criterio de Leibniz.",
+                "options": [
+                    "Converge.",
+                    "Diverge.",
+                    "Oscila."
+                ],
+                "correctAnswer": "Converge.",
+                "explanation": "Cumple las condiciones de Leibniz: alternada, término general decreciente y tendiendo a 0 (ver EB3, Teo 3.2)."
+            },
+            {
+                "id": "CAL3_INT_006",
+                "subCategory": "Integración por Sustitución",
+                "text": "En la integral $\\int \\sin^3(x) \\cos(x) dx$, el cambio de variable adecuado es:",
+                "hint": "Busca una función cuya derivada esté presente.",
+                "options": [
+                    "$t=\\sin(x)$.",
+                    "$t=\\cos(x)$.",
+                    "$t=\\tan(x)$."
+                ],
+                "correctAnswer": "$t=\\sin(x)$.",
+                "explanation": "Si $t=\\sin(x)$, entonces $dt = \\cos(x)dx$, transformando la integral en $\\int t^3 dt$ (ver EB10, Prop 1.1)."
             }
         ],
         "avanzado": [
@@ -137,6 +215,58 @@
                 ],
                 "correctAnswer": "$y(x)=x \\ln(x)$",
                 "explanation": "$y = x\\ln(x) \\implies y' = \\ln(x)+1$. Sustituyendo: $x(\\ln(x)+1) - x\\ln(x) = x$. ✓ (ver EB14, Def 2.2)."
+            },
+            {
+                "id": "CAL3_AVA_003",
+                "subCategory": "Integración Definida",
+                "text": "Si $F$ es una primitiva de $f$ en $[a,b]$, entonces $\\int_a^b f(x) dx$ es igual a:",
+                "hint": "Es la Regla de Barrow.",
+                "options": [
+                    "$F(b)-F(a)$.",
+                    "$F(a)-F(b)$.",
+                    "$f(b)-f(a)$."
+                ],
+                "correctAnswer": "$F(b)-F(a)$.",
+                "explanation": "Según la Regla de Barrow, la integral definida es la diferencia de la primitiva evaluada en los extremos (ver EB11, Teo 1.1)."
+            },
+            {
+                "id": "CAL3_AVA_004",
+                "subCategory": "Área Plana",
+                "text": "El área comprendida entre las gráficas de $f(x)$ y $g(x)$ en $[a,b]$ donde $f(x) \\ge g(x)$ es:",
+                "hint": "Integra la diferencia de las funciones.",
+                "options": [
+                    "$\\int_a^b (f(x)-g(x)) dx$.",
+                    "$\\int_a^b (g(x)-f(x)) dx$.",
+                    "$\\int_a^b f(x)g(x) dx$."
+                ],
+                "correctAnswer": "$\\int_a^b (f(x)-g(x)) dx$.",
+                "explanation": "El área es la integral de la función superior menos la inferior (ver EB11, Prop 2.1)."
+            },
+            {
+                "id": "CAL3_AVA_005",
+                "subCategory": "Volumen de Revolución",
+                "text": "El volumen generado al girar la gráfica de $f(x)$ en $[a,b]$ alrededor del eje OX es:",
+                "hint": "Usa el método de los discos.",
+                "options": [
+                    "$\\pi \\int_a^b (f(x))^2 dx$.",
+                    "$2\\pi \\int_a^b x f(x) dx$.",
+                    "$\\int_a^b (f(x))^2 dx$."
+                ],
+                "correctAnswer": "$\\pi \\int_a^b (f(x))^2 dx$.",
+                "explanation": "Fórmula del volumen de revolución por el método de discos (ver EB12, Prop 1.1)."
+            },
+            {
+                "id": "CAL3_AVA_006",
+                "subCategory": "Integración Múltiple",
+                "text": "La integral doble $\\iint_R f(x,y) dA$ sobre el rectángulo $R=[0,1]\\times[0,1]$ se calcula mediante iteración como:",
+                "hint": "Aplica el Teorema de Fubini.",
+                "options": [
+                    "$\\int_0^1 (\\int_0^1 f(x,y) dy) dx$.",
+                    "$\\int_0^1 f(x,y) dx$.",
+                    "$f(1,1)-f(0,0)$."
+                ],
+                "correctAnswer": "$\\int_0^1 (\\int_0^1 f(x,y) dy) dx$.",
+                "explanation": "El Teorema de Fubini permite calcular integrales dobles como integrales iteradas (ver EB13, Teo 1.2)."
             }
         ]
     }

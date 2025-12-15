@@ -68,6 +68,19 @@
                 ],
                 "correctAnswer": "$3 \\times 4$.",
                 "explanation": "Según la notación de los apuntes (ver EB7, Def 1.1), la Jacobiana tiene dimensión Entradas $\\times$ Salidas ($3 \\times 4$)."
+            },
+            {
+                "id": "CAL1_BAS_006",
+                "subCategory": "Sucesiones",
+                "text": "Dada una sucesión $\\{x_n\\}$ monótona creciente y acotada superiormente:",
+                "hint": "Recuerda la propiedad fundamental de las sucesiones monótonas y acotadas.",
+                "options": [
+                    "Diverge a $+\\infty$.",
+                    "Es convergente.",
+                    "Es oscilante."
+                ],
+                "correctAnswer": "Es convergente.",
+                "explanation": "Toda sucesión monótona y acotada es convergente (ver EB1, Prop 4.3)."
             }
         ],
         "intermedio": [
@@ -109,6 +122,45 @@
                 ],
                 "correctAnswer": "$\\int_a^b \\sqrt{1+(f'(x))^2} dx$.",
                 "explanation": "Esta es la fórmula estándar de longitud de arco (ver EB11, Prop 2.3): $ds = \\sqrt{dx^2 + dy^2} = \\sqrt{1+(f'(x))^2} dx$."
+            },
+            {
+                "id": "CAL1_INT_004",
+                "subCategory": "Series Geométricas",
+                "text": "La serie $\\sum_{n=0}^{\\infty} (\\frac{2}{3})^n$:",
+                "hint": "Es una serie geométrica. Identifica la razón $r$.",
+                "options": [
+                    "Converge y su suma es 3.",
+                    "Converge y su suma es 2/3.",
+                    "Diverge."
+                ],
+                "correctAnswer": "Converge y su suma es 3.",
+                "explanation": "Es una serie geométrica con razón $r=2/3 < 1$. Suma $S = \\frac{1}{1-2/3} = 3$ (ver EB3, Prop 1.5)."
+            },
+            {
+                "id": "CAL1_INT_005",
+                "subCategory": "Límites de Funciones",
+                "text": "Si $\\lim_{x \\to a^+} f(x) = L_1$ y $\\lim_{x \\to a^-} f(x) = L_2$ con $L_1 \\neq L_2$, entonces:",
+                "hint": "Para que el límite global exista, los laterales deben coincidir.",
+                "options": [
+                    "El límite existe y es $\\frac{L_1+L_2}{2}$.",
+                    "El límite existe pero no es único.",
+                    "El límite global no existe."
+                ],
+                "correctAnswer": "El límite global no existe.",
+                "explanation": "Para que el límite exista, los límites laterales deben coincidir (ver EB5, Teo 1.1)."
+            },
+            {
+                "id": "CAL1_INT_006",
+                "subCategory": "Continuidad Vectorial",
+                "text": "Una función $f: \\mathbb{R}^n \\to \\mathbb{R}^m$ es continua en $a$ si:",
+                "hint": "La continuidad vectorial depende de sus componentes.",
+                "options": [
+                    "Todas sus funciones componentes son continuas en $a$.",
+                    "Al menos una componente es continua.",
+                    "El límite en $a$ es infinito."
+                ],
+                "correctAnswer": "Todas sus funciones componentes son continuas en $a$.",
+                "explanation": "La continuidad vectorial equivale a la continuidad de cada componente (ver EB6, Def 2.1)."
             }
         ],
         "avanzado": [
@@ -137,6 +189,58 @@
                 ],
                 "correctAnswer": "$y(x) = x \\sin(x)$.",
                 "explanation": "Si $y = x \\sin(x)$, entonces $y' = \\sin(x) + x \\cos(x)$. Sustituyendo: $x(\\sin(x) + x \\cos(x)) - x \\sin(x) = x^2 \\cos(x)$. Se cumple (ver EB14, Def 2.2)."
+            },
+            {
+                "id": "CAL1_AVA_003",
+                "subCategory": "Series",
+                "text": "Para estudiar la convergencia de $\\sum (\\frac{n}{2n+1})^n$:",
+                "hint": "Considera el criterio de la raíz n-ésima.",
+                "options": [
+                    "Usamos Criterio de la Raíz: converge.",
+                    "Usamos Criterio de la Raíz: diverge.",
+                    "La serie oscila."
+                ],
+                "correctAnswer": "Usamos Criterio de la Raíz: converge.",
+                "explanation": "$\\lim \\sqrt[n]{a_n} = \\lim \\frac{n}{2n+1} = 1/2 < 1$. Converge (ver EB3, Prop 2.2)."
+            },
+            {
+                "id": "CAL1_AVA_004",
+                "subCategory": "Límites",
+                "text": "Si $f$ tiene límite finito en $a$, entonces:",
+                "hint": "La existencia de límite implica comportamiento controlado cerca del punto.",
+                "options": [
+                    "$f$ es acotada en todo su dominio.",
+                    "$f$ es acotada en un entorno de $a$.",
+                    "$f$ no puede ser acotada."
+                ],
+                "correctAnswer": "$f$ es acotada en un entorno de $a$.",
+                "explanation": "La existencia de límite finito implica acotación local (ver EB5, Prop 1.1)."
+            },
+            {
+                "id": "CAL1_AVA_005",
+                "subCategory": "Continuidad",
+                "text": "Si $f:[0,1] \\to \\mathbb{R}$ es continua y $f(0)=1, f(1)=-1$:",
+                "hint": "Analiza el cambio de signo en un intervalo cerrado.",
+                "options": [
+                    "Existe $c \\in (0,1)$ con $f(c)=0$.",
+                    "No necesariamente existe raíz.",
+                    "Existe $c$ con $f(c)=2$."
+                ],
+                "correctAnswer": "Existe $c \\in (0,1)$ con $f(c)=0$.",
+                "explanation": "Teorema de Bolzano: cambio de signo en intervalo cerrado implica raíz (ver EB6, Teo 2.2)."
+            },
+            {
+                "id": "CAL1_AVA_006",
+                "subCategory": "Sucesiones",
+                "text": "Una sucesión de números reales es convergente si y solo si:",
+                "hint": "Es la condición de completitud de los números reales.",
+                "options": [
+                    "Es monótona.",
+                    "Es de Cauchy.",
+                    "Es acotada."
+                ],
+                "correctAnswer": "Es de Cauchy.",
+                "explanation": "Caracterización de completitud de R: Convergente $\\iff$ Cauchy (ver EB1, Prop 2.4)."
             }
         ]
     }

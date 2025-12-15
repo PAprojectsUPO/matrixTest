@@ -68,6 +68,45 @@
                 ],
                 "correctAnswer": "$f^{\\prime}(2)=2$.",
                 "explanation": "La expresión dada es $\\frac{1}{2}f'(2) = 1$, por tanto $f'(2) = 2$ (ver EB6, Def 3.1)."
+            },
+            {
+                "id": "CAL2_BAS_006",
+                "subCategory": "Derivadas Parciales",
+                "text": "La derivada parcial $\\frac{\\partial f}{\\partial x}(a,b)$ representa geométricamente:",
+                "hint": "Considera qué variable se mantiene constante.",
+                "options": [
+                    "La pendiente de la tangente a la curva intersección de la superficie con el plano $y=b$.",
+                    "La pendiente de la tangente a la curva intersección de la superficie con el plano $x=a$.",
+                    "El valor de la función en el punto $(a,b)$."
+                ],
+                "correctAnswer": "La pendiente de la tangente a la curva intersección de la superficie con el plano $y=b$.",
+                "explanation": "La parcial respecto a $x$ fija la $y$, resultando en la intersección con el plano $y=b$ (ver EB6, Def 4.3)."
+            },
+            {
+                "id": "CAL2_BAS_007",
+                "subCategory": "Derivadas",
+                "text": "Si $f(x)$ es una función constante $f(x)=k$, su derivada es:",
+                "hint": "La derivada mide la tasa de cambio.",
+                "options": [
+                    "$k$.",
+                    "$1$.",
+                    "$0$."
+                ],
+                "correctAnswer": "$0$.",
+                "explanation": "La derivada de una constante es cero, ya que no hay variación (ver EB6, Prop 3.2)."
+            },
+            {
+                "id": "CAL2_BAS_008",
+                "subCategory": "Derivadas Parciales",
+                "text": "Para calcular $\\frac{\\partial f}{\\partial x}$ en una función de varias variables:",
+                "hint": "Trata las otras variables como constantes.",
+                "options": [
+                    "Se derivan todas las variables.",
+                    "Se deriva respecto a $x$ considerando las demás variables constantes.",
+                    "Se suma 1 a $x$."
+                ],
+                "correctAnswer": "Se deriva respecto a $x$ considerando las demás variables constantes.",
+                "explanation": "La derivada parcial respecto a una variable asume que las demás no cambian (ver EB6, Def 4.3)."
             }
         ],
         "intermedio": [
@@ -109,6 +148,45 @@
                 ],
                 "correctAnswer": "puede ser un punto de silla de f.",
                 "explanation": "El producto positivo permite 0, 2 o 4 negativos. Con 2 de cada signo hay punto de silla (ver EB8, Def 3.1 y Def 3.2)."
+            },
+            {
+                "id": "CAL2_INT_004",
+                "subCategory": "Diferenciabilidad",
+                "text": "Si una función $f: \\mathbb{R}^n \\to \\mathbb{R}$ es diferenciable en un punto $a$:",
+                "hint": "La diferenciabilidad es una condición fuerte que implica otras propiedades.",
+                "options": [
+                    "Es continua en $a$.",
+                    "Sus derivadas parciales existen pero no es continua en $a$.",
+                    "El gradiente en $a$ es nulo."
+                ],
+                "correctAnswer": "Es continua en $a$.",
+                "explanation": "La diferenciabilidad implica continuidad (ver EB7, Teo 2.4)."
+            },
+            {
+                "id": "CAL2_INT_005",
+                "subCategory": "Taylor",
+                "text": "El polinomio de Taylor de grado 1 de la función $f(x)=e^x$ en el punto $a=0$ es:",
+                "hint": "Calcula $f(0)$ y $f'(0)$ para construir $P_1(x) = f(0) + f'(0)x$.",
+                "options": [
+                    "$1+x$.",
+                    "$1-x$.",
+                    "$x$."
+                ],
+                "correctAnswer": "$1+x$.",
+                "explanation": "Como $f(0)=1$ y $f'(0)=1$, el polinomio es $1 + 1\\cdot x = 1+x$ (ver EB8, Def 1.1)."
+            },
+            {
+                "id": "CAL2_INT_006",
+                "subCategory": "Optimización",
+                "text": "Si $f: \\mathbb{R}^n \\to \\mathbb{R}$ es diferenciable y tiene un extremo local en $a$:",
+                "hint": "Es la condición necesaria de primer orden.",
+                "options": [
+                    "$\\nabla f(a) = 0$.",
+                    "$\\nabla f(a) > 0$.",
+                    "$Hf(a)$ es definida positiva."
+                ],
+                "correctAnswer": "$\\nabla f(a) = 0$.",
+                "explanation": "En un extremo local de una función diferenciable, el gradiente se anula (ver EB8, Teo 4.1)."
             }
         ],
         "avanzado": [
@@ -137,6 +215,58 @@
                 ],
                 "correctAnswer": "$\\int_{a}^{b}2\\pi f(x)\\sqrt{1+(f^{\\prime}(x))^{2}}dx$.",
                 "explanation": "Fórmula: $A = \\int 2\\pi f(x) \\, ds$ donde $ds = \\sqrt{1+(f'(x))^2} dx$ (ver EB12, Prop 2.4)."
+            },
+            {
+                "id": "CAL2_AVA_003",
+                "subCategory": "Optimización",
+                "text": "Si el determinante de la matriz Hessiana $Hf(a)$ en $\\mathbb{R}^2$ es negativo:",
+                "hint": "Analiza los autovalores: producto negativo implica signos opuestos.",
+                "options": [
+                    "$a$ es un punto de silla.",
+                    "$a$ es un máximo local.",
+                    "$a$ es un mínimo local."
+                ],
+                "correctAnswer": "$a$ es un punto de silla.",
+                "explanation": "Determinante negativo $\\implies$ autovalores de distinto signo $\\implies$ Punto de silla (ver EB8, Prop 4.4)."
+            },
+            {
+                "id": "CAL2_AVA_004",
+                "subCategory": "Derivada Direccional",
+                "text": "La derivada direccional de $f$ en $a$ es máxima en la dirección del vector:",
+                "hint": "Recuerda la relación $D_v f = \\nabla f \\cdot v = |\\nabla f| \\cos \\theta$.",
+                "options": [
+                    "Gradiente $\\nabla f(a)$.",
+                    "Eje X.",
+                    "Opuesto al gradiente $-\\nabla f(a)$."
+                ],
+                "correctAnswer": "Gradiente $\\nabla f(a)$.",
+                "explanation": "El producto escalar es máximo cuando el vector dirección es paralelo al gradiente (ver EB7, Teo 2.7)."
+            },
+            {
+                "id": "CAL2_AVA_005",
+                "subCategory": "Regla de la Cadena",
+                "text": "Sea $z = f(u,v)$ con $u=x+y, v=x-y$. Entonces $\\frac{\\partial z}{\\partial x}$ es:",
+                "hint": "Aplica la regla de la cadena para funciones compuestas.",
+                "options": [
+                    "$\\frac{\\partial f}{\\partial u} + \\frac{\\partial f}{\\partial v}$.",
+                    "$\\frac{\\partial f}{\\partial u} - \\frac{\\partial f}{\\partial v}$.",
+                    "$\\frac{\\partial f}{\\partial u}$."
+                ],
+                "correctAnswer": "$\\frac{\\partial f}{\\partial u} + \\frac{\\partial f}{\\partial v}$.",
+                "explanation": "$\\frac{\\partial z}{\\partial x} = \\frac{\\partial f}{\\partial u}\\frac{\\partial u}{\\partial x} + \\frac{\\partial f}{\\partial v}\\frac{\\partial v}{\\partial x} = f_u \\cdot 1 + f_v \\cdot 1$ (ver EB7, Teo 3.4)."
+            },
+            {
+                "id": "CAL2_AVA_006",
+                "subCategory": "Límites Multivariables",
+                "text": "El límite $\\lim_{(x,y) \\to (0,0)} \\frac{xy}{x^2+y^2}$:",
+                "hint": "Prueba acercarte por rectas $y=mx$.",
+                "options": [
+                    "No existe.",
+                    "Vale 0.",
+                    "Vale 1/2."
+                ],
+                "correctAnswer": "No existe.",
+                "explanation": "Por rectas $y=mx$, el límite es $\\frac{m}{1+m^2}$, que depende de $m$ (ver EB5, Prop 2.3)."
             }
         ]
     }
